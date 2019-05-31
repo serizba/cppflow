@@ -10,8 +10,6 @@
 
 int main() {
     Model model("../ssd_inception/frozen_inference_graph.pb");
-    // Model model("../model.pb");
-    // model.init();
     auto outNames1 = new Tensor(model, "num_detections");
     auto outNames2 = new Tensor(model, "detection_scores");
     auto outNames3 = new Tensor(model, "detection_boxes");
@@ -54,7 +52,6 @@ int main() {
         }
     }
 
-    cv::imshow("Result", img);
-    cv::imwrite("test-result.jpg", img);
+    cv::imshow("Image", img);
     cv::waitKey(0);
 }
