@@ -1,5 +1,5 @@
 # CppFlow
-Run TensorFlow models in c++ without installation
+Run TensorFlow models in c++ without Bazel, without TensorFlow installation and without compiling Tensorflow.
 
 ```c++
     // Read the graph
@@ -14,7 +14,7 @@ Run TensorFlow models in c++ without installation
     model.run(input, output);
 ```
 
-CppFlow uses Tensorflow C API to run the models, meaning you can use it without installing Tensorflow, just downloading the C API. With this project you can manage and run your models in C++ without worrying about _void, malloc or free_. With CppFlow you easily can:
+CppFlow uses Tensorflow C API to run the models, meaning you can use it without installing Tensorflow and without compiling the whole TensorFlow repository with bazel, you just need to download the C API. With this project you can manage and run your models in C++ without worrying about _void, malloc or free_. With CppFlow you easily can:
 
   - Open .pb models created with Python
   - Restore checkpoints
