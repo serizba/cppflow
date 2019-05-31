@@ -13,6 +13,7 @@ Model::Model(const std::string& model_filename) {
 
     // Create the session.
     TF_SessionOptions* sess_opts = TF_NewSessionOptions();
+
     this->session = TF_NewSession(this->graph, sess_opts, this->status);
     TF_DeleteSessionOptions(sess_opts);
 
@@ -55,11 +56,14 @@ void Model::init() {
 
 void Model::save(const std::string &ckpt) {
     // Encode file_name to tensor
-    size_t size = 8 + TF_StringEncodedSize(ckpt.size());
+    size_t size = 8 + TF_StringEncodedSize(ckpt.length());
     TF_Tensor* t = TF_AllocateTensor(TF_STRING, nullptr, 0, size);
     char* data = static_cast<char *>(TF_TensorData(t));
     for (int i=0; i<8; i++) {data[i]=0;}
     TF_StringEncode(ckpt.c_str(), ckpt.size(), data + 8, size - 8, status);
+
+    memset(data, 0, 8);  // 8-byte offset of first string.
+    TF_StringEncode(ckpt.c_str(), ckpt.length(), (char*)(data + 8), size - 8, status);
 
     // Check errors
     if (!this->status_check(false)) {
@@ -79,7 +83,6 @@ void Model::save(const std::string &ckpt) {
         TF_DeleteTensor(t);
         this->error_check(false, "Error: No operation named \"save/control_dependencyl\" exists");
     }
-
 
 
     TF_SessionRun(this->session, nullptr, inputs, input_values, 1, nullptr, nullptr, 0, restore_op, 1, nullptr, this->status);
@@ -208,6 +211,7 @@ void Model::run(const std::vector<Tensor*>& inputs, const std::vector<Tensor*>& 
     for (int i=0; i<outputs.size(); i++) {
         outputs[i]->val = ov[i];
         outputs[i]->flag = 1;
+        outputs[i]->deduce_shape(*this);
     }
 
     // Mark input as empty

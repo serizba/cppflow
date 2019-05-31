@@ -1,3 +1,5 @@
+#include <utility>
+
 //
 // Created by sergio on 13/05/19.
 //
@@ -19,9 +21,6 @@ Tensor::Tensor(const Model& model, const std::string& operation) {
     // Get number of dimensions
     int n_dims = TF_GraphGetTensorNumDims(model.graph, this->op, model.status);
 
-    // Dimension is not known
-    error_check(n_dims != -1, "Shape of tensors must be known");
-
     // DataType
     this->type = TF_OperationOutputType(this->op);
 
@@ -37,8 +36,7 @@ Tensor::Tensor(const Model& model, const std::string& operation) {
         this->shape = std::vector<int64_t>(dims, dims + n_dims);
 
         // Only one dimension can be unknown using this constructor
-        error_check(std::count(this->shape.begin(), this->shape.end(), -1) <= 1,
-                    "At most one dimension can be unknown");
+        // error_check(std::count(this->shape.begin(), this->shape.end(), -1) <= 1, "At most one dimension can be unknown");
     }
 
     this->flag = 0;
@@ -82,6 +80,12 @@ void Tensor::set_data(std::vector<T> new_data) {
     // Check type
     this->error_check(deduce_type<T>() == this->type, "Provided type is different from Tensor expected type");
 
+    // Dimensions must be known
+    this->error_check(!this->shape.empty(), "Shape of the input Tensor is not known, please provide a shape");
+
+    // At most one dimension can be unknown
+    this->error_check(std::count(this->shape.begin(), this->shape.end(), -1) >= -1, "At most one dimension can be unknown, please provide a shape");
+
     // Check number of elements
     auto exp_size = std::abs(std::accumulate(this->shape.begin(), this->shape.end(), 1, std::multiplies<>()));
 
@@ -105,6 +109,17 @@ void Tensor::set_data(std::vector<T> new_data) {
     this->error_check(this->val != nullptr, "An error occurred allocating the Tensor memory");
 
     this->flag = 1;
+}
+
+template<typename T> void Tensor::set_data(std::vector<T> new_data, const std::vector<int64_t>& new_shape) {
+
+    this->error_check(this->shape.empty() || this->shape.size() == new_shape.size(), "Provided shape has different number of dimensions");
+    auto old_shape = this->shape;
+
+    this->shape = new_shape;
+    this->set_data(new_data);
+
+    this->shape = old_shape;
 }
 
 template<typename T>
@@ -159,6 +174,20 @@ TF_DataType Tensor::deduce_type() {
         return TF_UINT64;
 }
 
+void Tensor::deduce_shape(const Model& model) {
+    // Get number of dimensions
+    int n_dims = TF_NumDims(this->val);
+
+    // If is not a scalar
+    if (n_dims > 0) {
+        // Get dimensions
+        this->shape = std::vector<int64_t>(n_dims, -1);
+        for (int i=0; i<n_dims; i++) {
+            this->shape[i] = TF_Dim(this->val, i);
+        }
+    }
+}
+
 
 // VALID deduce_type TEMPLATES
 template TF_DataType Tensor::deduce_type<float>();
@@ -199,3 +228,15 @@ template void Tensor::set_data<uint16_t>(std::vector<uint16_t> new_data);
 template void Tensor::set_data<uint32_t>(std::vector<uint32_t> new_data);
 template void Tensor::set_data<uint64_t>(std::vector<uint64_t> new_data);
 
+// VALID set_data TEMPLATES
+template void Tensor::set_data<float>(std::vector<float> new_data, const std::vector<int64_t>& new_shape);
+template void Tensor::set_data<double>(std::vector<double> new_data, const std::vector<int64_t>& new_shape);
+//template void Tensor::set_data<bool>(std::vector<bool> new_data, const std::vector<int64_t>& new_shape);
+template void Tensor::set_data<int8_t>(std::vector<int8_t> new_data, const std::vector<int64_t>& new_shape);
+template void Tensor::set_data<int16_t>(std::vector<int16_t> new_data, const std::vector<int64_t>& new_shape);
+template void Tensor::set_data<int32_t>(std::vector<int32_t> new_data, const std::vector<int64_t>& new_shape);
+template void Tensor::set_data<int64_t>(std::vector<int64_t> new_data, const std::vector<int64_t>& new_shape);
+template void Tensor::set_data<uint8_t>(std::vector<uint8_t> new_data, const std::vector<int64_t>& new_shape);
+template void Tensor::set_data<uint16_t>(std::vector<uint16_t> new_data, const std::vector<int64_t>& new_shape);
+template void Tensor::set_data<uint32_t>(std::vector<uint32_t> new_data, const std::vector<int64_t>& new_shape);
+template void Tensor::set_data<uint64_t>(std::vector<uint64_t> new_data, const std::vector<int64_t>& new_shape);

@@ -23,6 +23,7 @@ public:
     void clean();
 
     template<typename T> void set_data(std::vector<T> new_data);
+    template<typename T> void set_data(std::vector<T> new_data, const std::vector<int64_t>& new_shape);
     template<typename T> std::vector<T> get_data();
 
 
@@ -38,6 +39,7 @@ private:
     // Aux functions
     void error_check(bool condition, const std::string& error);
     template <typename T> static TF_DataType deduce_type();
+    void deduce_shape(const Model& model);
 
 public:
     friend class Model;
