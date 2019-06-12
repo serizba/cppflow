@@ -87,7 +87,7 @@ void Tensor::set_data(std::vector<T> new_data) {
     this->error_check(std::count(this->shape.begin(), this->shape.end(), -1) >= -1, "At most one dimension can be unknown, please provide a shape");
 
     // Check number of elements
-    auto exp_size = std::abs(std::accumulate(this->shape.begin(), this->shape.end(), 1, std::multiplies<>()));
+    auto exp_size = std::abs(std::accumulate(this->shape.begin(), this->shape.end(), 1, std::multiplies<int64_t>()));
 
     this->error_check(new_data.size() % exp_size == 0, "Expected and provided number of elements do not match");
 
@@ -150,27 +150,27 @@ std::vector<T> Tensor::get_data() {
 
 template<typename T>
 TF_DataType Tensor::deduce_type() {
-    if constexpr (std::is_same<T, float>::value)
+    if (std::is_same<T, float>::value)
         return TF_FLOAT;
-    if constexpr (std::is_same<T, double>::value)
+    if (std::is_same<T, double>::value)
         return TF_DOUBLE;
-    if constexpr (std::is_same<T, int32_t >::value)
+    if (std::is_same<T, int32_t >::value)
         return TF_INT32;
-    if constexpr (std::is_same<T, uint8_t>::value)
+    if (std::is_same<T, uint8_t>::value)
         return TF_UINT8;
-    if constexpr (std::is_same<T, int16_t>::value)
+    if (std::is_same<T, int16_t>::value)
         return TF_INT16;
-    if constexpr (std::is_same<T, int8_t>::value)
+    if (std::is_same<T, int8_t>::value)
         return TF_INT8;
-    if constexpr (std::is_same<T, int64_t>::value)
+    if (std::is_same<T, int64_t>::value)
         return TF_INT64;
 //    if constexpr (std::is_same<T, bool>::value)
 //        return TF_BOOL;
-    if constexpr (std::is_same<T, uint16_t>::value)
+    if (std::is_same<T, uint16_t>::value)
         return TF_UINT16;
-    if constexpr (std::is_same<T, uint32_t>::value)
+    if (std::is_same<T, uint32_t>::value)
         return TF_UINT32;
-    if constexpr (std::is_same<T, uint64_t>::value)
+    if (std::is_same<T, uint64_t>::value)
         return TF_UINT64;
 }
 
