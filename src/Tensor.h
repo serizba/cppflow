@@ -5,12 +5,12 @@
 #ifndef CPPFLOW_TENSOR_H
 #define CPPFLOW_TENSOR_H
 
-#include <tensorflow/c/c_api.h>
 #include <vector>
 #include <string>
 #include <algorithm>
 #include <numeric>
 #include <cstring>
+#include "c_api.h"
 #include "Model.h"
 
 class Model;

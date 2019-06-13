@@ -21,11 +21,20 @@ set(SOURCES src/Model.cpp src/Tensor.cpp)
 
 check_library_exists("libtensorflow.so" "" "" tensorflow_systemwide)
 
+set(INSTALL_HEADERS "src/Tensor.h;src/Model.h")
+
 if (tensorflow_systemwide)
     set(LIBS tensorflow)
+    get_property(dirs DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY INCLUDE_DIRECTORIES)
+    foreach(dir ${dirs})
+        message(STATUS "dir='${dir}'")
+        include_directories(${CMAKE_PROJECT_NAME} PRIVATE SYSTEM dirs/tensorflow/c)
+    endforeach()
+
 else()
     set(LIBS ${CMAKE_SOURCE_DIR}/libtensorflow/lib/libtensorflow.so)
-    include_directories(${CMAKE_PROJECT_NAME} PRIVATE libtensorflow/include)
+    include_directories(${CMAKE_PROJECT_NAME} PRIVATE libtensorflow/include/tensorflow/c)
+    set(INSTALL_HEADERS "${INSTALL_HEADERS};libtensorflow/include/tensorflow/c/c_api.h")
 endif()
 
 include_directories(${CMAKE_SOURCE_DIR}/src)
@@ -37,8 +46,7 @@ include(GNUInstallDirs)
 set_target_properties(${PROJECT_NAME} PROPERTIES
     VERSION ${PROJECT_VERSION}
     SOVERSION 1
-    PUBLIC_HEADER
-    "src/Tensor.h;src/Model.h")
+    PUBLIC_HEADER "${INSTALL_HEADERS}")
 install(TARGETS ${PROJECT_NAME}
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
     PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/${PROJECT_NAME})
