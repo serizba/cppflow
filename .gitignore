@@ -30,3 +30,10 @@
 *.exe
 *.out
 *.app
+
+# Build directories
+build
+examples/*/build
+
+# Libtensorflow
+libtensorflow

@@ -4,7 +4,7 @@
 
 #include <cstring>
 #include <algorithm>
-#include "../include/Model.h"
+#include "Model.h"
 
 Model::Model(const std::string& model_filename) {
 

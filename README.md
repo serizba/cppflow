@@ -26,7 +26,12 @@ CppFlow uses Tensorflow C API to run the models, meaning you can use it without 
 
 ## How To Run It
 
-Since it uses TensorFlow C API you just have to [download it](https://www.tensorflow.org/install/lang_c). After it, you can run the examples:
+Since it uses TensorFlow C API you just have to [download it](https://www.tensorflow.org/install/lang_c).  
+
+You can either install the library system wide by following the tutorial on the Tensorflow page or you can place the contents of the archive
+in a folder called `libtensorflow` in the root directory of the repo.
+
+Afterwards, you can run the examples:
 
 ```sh
 git clone git@github.com:serizba/cppflow.git
