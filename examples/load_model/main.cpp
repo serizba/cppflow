@@ -12,9 +12,9 @@ int main() {
     Model model("../model.pb");
     model.init();
 
-    auto input_a = new Tensor(model, "input_a");
-    auto input_b = new Tensor(model, "input_b");
-    auto output  = new Tensor(model, "result");
+    auto input_a = std::make_unique<Tensor>(model, "input_a");
+    auto input_b = std::make_unique<Tensor>(model, "input_b");
+    auto output  = std::make_unique<Tensor>(model, "result");
 
     std::vector<float> data(100);
     std::iota(data.begin(), data.end(), 0);
@@ -22,7 +22,7 @@ int main() {
     input_a->set_data(data);
     input_b->set_data(data);
 
-    model.run({input_a, input_b}, output);
+    model.run({input_a.get(), input_b.get()}, output.get());
     for (float f : output->get_data<float>()) {
         std::cout << f << " ";
     }

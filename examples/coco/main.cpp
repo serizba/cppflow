@@ -10,12 +10,12 @@
 
 int main() {
     Model model("../ssd_inception/frozen_inference_graph.pb");
-    auto outNames1 = new Tensor(model, "num_detections");
-    auto outNames2 = new Tensor(model, "detection_scores");
-    auto outNames3 = new Tensor(model, "detection_boxes");
-    auto outNames4 = new Tensor(model, "detection_classes");
+    auto outNames1 = std::make_unique<Tensor>(model, "num_detections");
+    auto outNames2 = std::make_unique<Tensor>(model, "detection_scores");
+    auto outNames3 = std::make_unique<Tensor>(model, "detection_boxes");
+    auto outNames4 = std::make_unique<Tensor>(model, "detection_classes");
 
-    auto inpName = new Tensor(model, "image_tensor");
+    auto inpName = std::make_unique<Tensor>(model, "image_tensor");
 
 
     // Read image
@@ -33,7 +33,7 @@ int main() {
     img_data.assign(inp.data, inp.data + inp.total() * inp.channels());
     inpName->set_data(img_data, {1, 300, 300, 3});
 
-    model.run(inpName, {outNames1, outNames2, outNames3, outNames4});
+    model.run(inpName.get(), {outNames1.get(), outNames2.get(), outNames3.get(), outNames4.get()});
 
     // Visualize detected bounding boxes.
     int num_detections = (int)outNames1->get_data<float>()[0];

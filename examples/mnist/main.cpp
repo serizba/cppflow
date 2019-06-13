@@ -16,8 +16,8 @@ int main() {
     m.restore("../checkpoint/train.ckpt");
 
     // Create Tensors
-    auto input = new Tensor(m, "input");
-    auto prediction = new Tensor(m, "prediction");
+    auto input = std::make_unique<Tensor>(m, "input");
+    auto prediction = std::make_unique<Tensor>(m, "prediction");
 
     // Read image
     for (int i=0; i<10; i++) {
@@ -37,7 +37,7 @@ int main() {
         input->set_data(img_data);
 
         // Run and show predictions
-        m.run(input, prediction);
+        m.run(input.get(), prediction.get());
 
         // Get tensor with predictions
         auto result = prediction->get_data<double>();
