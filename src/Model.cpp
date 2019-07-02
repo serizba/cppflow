@@ -208,11 +208,12 @@ void Model::run(const std::vector<Tensor*>& inputs, const std::vector<Tensor*>& 
     this->status_check(true);
 
     // Save results on outputs and mark as full
-    for (int i=0; i<outputs.size(); i++) {
+    for (std::size_t i=0; i<outputs.size(); i++) {
         outputs[i]->val = ov[i];
         outputs[i]->flag = 1;
-        outputs[i]->deduce_shape(*this);
+        outputs[i]->deduce_shape();
     }
+
 
     // Mark input as empty
     std::for_each(inputs.begin(), inputs.end(), [] (Tensor* i) {i->clean();});

@@ -1,8 +1,4 @@
-cmake_minimum_required(VERSION 3.10)
-project(example)
-
-set(CMAKE_CXX_STANDARD 17)
-find_package( OpenCV REQUIRED )
-add_executable(example main.cpp ../../src/Model.cpp ../../src/Tensor.cpp)
-target_include_directories(example PRIVATE ../../include)
-target_link_libraries (example -ltensorflow ${OpenCV_LIBS})
+find_package(OpenCV REQUIRED )
+add_executable(nmist_example main.cpp ../../src/Model.cpp ../../src/Tensor.cpp)
+target_include_directories(nmist_example PRIVATE ../../include)
+target_link_libraries (nmist_example ${LIBS} ${OpenCV_LIBS})

@@ -6,6 +6,7 @@
 #define CPPFLOW_TENSOR_H
 
 #include <vector>
+#include <memory>
 #include <string>
 #include <algorithm>
 #include <numeric>
@@ -32,14 +33,14 @@ private:
     TF_Output op;
     TF_DataType type;
     std::vector<int64_t> shape;
-    std::vector<int64_t>* actual_shape;
+    std::unique_ptr<std::vector<int64_t>> actual_shape;
     void* data;
     int flag;
 
     // Aux functions
     void error_check(bool condition, const std::string& error);
     template <typename T> static TF_DataType deduce_type();
-    void deduce_shape(const Model& model);
+    void deduce_shape();
 
 public:
     friend class Model;

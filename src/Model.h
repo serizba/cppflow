@@ -44,7 +44,7 @@ private:
     TF_Status* status;
 
     // Read a file from a string
-    TF_Buffer* read(const std::string&);
+    static TF_Buffer* read(const std::string&);
 
     bool status_check(bool throw_exc) const;
     void error_check(bool condition, const std::string &error) const;

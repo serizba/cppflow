@@ -91,11 +91,11 @@ void Tensor::set_data(std::vector<T> new_data) {
     this->error_check(new_data.size() % exp_size == 0, "Expected and provided number of elements do not match");
 
     // Deallocator
-    auto d = [](void* ddata, size_t, void* arg) {delete[] static_cast<T*>(ddata);};
+    auto d = [](void* ddata, size_t, void*) {free(static_cast<T*>(ddata));};
 
 
     // Calculate actual shape of unknown dimensions
-    this->actual_shape = new std::vector<int64_t>(shape.begin(), shape.end());
+    this->actual_shape = std::make_unique<decltype(actual_shape)::element_type>(shape.begin(), shape.end());
     std::replace_if (actual_shape->begin(), actual_shape->end(), [](int64_t r) {return r==-1;}, new_data.size()/exp_size);
 
     // Saves data on class
@@ -171,9 +171,11 @@ TF_DataType Tensor::deduce_type() {
         return TF_UINT32;
     if (std::is_same<T, uint64_t>::value)
         return TF_UINT64;
+
+    throw std::runtime_error{"Could not deduce type!"};
 }
 
-void Tensor::deduce_shape(const Model& model) {
+void Tensor::deduce_shape() {
     // Get number of dimensions
     int n_dims = TF_NumDims(this->val);
 

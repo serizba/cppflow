@@ -2,8 +2,8 @@
 // Created by sergio on 12/05/19.
 //
 
-#include "../../include/Model.h"
-#include "../../include/Tensor.h"
+#include "../../src/Model.h"
+#include "../../src/Tensor.h"
 #include <opencv2/opencv.hpp>
 #include <algorithm>
 #include <iterator>
@@ -12,19 +12,19 @@
 int main() {
 
     // Create model
-    Model m("../model.pb");
-    m.restore("../checkpoint/train.ckpt");
+    Model m("model.pb");
+    m.restore("checkpoint/train.ckpt");
 
     // Create Tensors
-    auto input = std::make_unique<Tensor>(m, "input");
-    auto prediction = std::make_unique<Tensor>(m, "prediction");
+    Tensor input(m, "input");
+    Tensor prediction(m, "prediction");
 
     // Read image
     for (int i=0; i<10; i++) {
         cv::Mat img, scaled;
 
         // Read image
-        img = cv::imread("../images/"+std::to_string(i)+".png");
+        img = cv::imread("images/"+std::to_string(i)+".png");
 
         // Scale image to range 0-1
         img.convertTo(scaled, CV_64F, 1.f/255);
@@ -34,13 +34,13 @@ int main() {
         img_data.assign(scaled.begin<double>(), scaled.end<double>());
 
         // Feed data to input tensor
-        input->set_data(img_data);
+        input.set_data(img_data);
 
         // Run and show predictions
-        m.run(input.get(), prediction.get());
+        m.run(input, prediction);
 
         // Get tensor with predictions
-        auto result = prediction->get_data<double>();
+        auto result = prediction.Tensor::get_data<double>();
 
         // Maximum prob
         auto max_result = std::max_element(result.begin(), result.end());

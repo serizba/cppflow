@@ -39,7 +39,7 @@ endif()
 
 include_directories(${CMAKE_SOURCE_DIR}/src)
 add_library(${PROJECT_NAME} SHARED ${SOURCES})
-target_link_libraries(${PROJECT_NAME} ${LIBS})
+target_link_libraries(${PROJECT_NAME} PRIVATE ${LIBS})
 
 # Installation via make install
 include(GNUInstallDirs)
@@ -50,3 +50,7 @@ set_target_properties(${PROJECT_NAME} PROPERTIES
 install(TARGETS ${PROJECT_NAME}
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
     PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/${PROJECT_NAME})
+
+add_subdirectory(examples/coco)
+add_subdirectory(examples/load_model)
+add_subdirectory(examples/mnist)
