@@ -36,6 +36,8 @@ Tensor::Tensor(const Model& model, const std::string& operation) {
 
         // Only one dimension can be unknown using this constructor
         // error_check(std::count(this->shape.begin(), this->shape.end(), -1) <= 1, "At most one dimension can be unknown");
+
+        delete[] dims;
     }
 
     this->flag = 0;

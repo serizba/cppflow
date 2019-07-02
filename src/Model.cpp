@@ -214,9 +214,10 @@ void Model::run(const std::vector<Tensor*>& inputs, const std::vector<Tensor*>& 
         outputs[i]->deduce_shape();
     }
 
-
     // Mark input as empty
     std::for_each(inputs.begin(), inputs.end(), [] (Tensor* i) {i->clean();});
+
+    delete[] ov;
 }
 
 void Model::run(Tensor &input, Tensor &output) {
