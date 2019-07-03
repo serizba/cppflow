@@ -18,6 +18,14 @@ class Tensor;
 class Model {
 public:
     explicit Model(const std::string&);
+
+    // Rule of five, moving is easy as the pointers can be copied, copying not as i have no idea how to copy
+    // the contents of the pointer (i guess dereferencing won't do a deep copy)
+    Model(const Model &model) = delete;
+    Model(Model &&model) = default;
+    Model& operator=(const Model &model) = delete;
+    Model& operator=(Model &&model) = default;
+
     ~Model();
 
     void init();
