@@ -20,13 +20,13 @@ int main() {
 
     // Read image
     cv::Mat img, inp;
-    img = cv::imread("../test.jpg", CV_LOAD_IMAGE_COLOR);
+    img = cv::imread("../test.jpg", cv::IMREAD_COLOR);
 
     int rows = img.rows;
     int cols = img.cols;
 
     cv::resize(img, inp, cv::Size(300, 300));
-    cv::cvtColor(inp, inp, CV_BGR2RGB);
+    cv::cvtColor(inp, inp, cv::COLOR_BGR2RGB);
 
     // Put image in Tensor
     std::vector<uint8_t > img_data;
