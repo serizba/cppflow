@@ -3,12 +3,12 @@ Run TensorFlow models in c++ without Bazel, without TensorFlow installation and 
 
 ```c++
     // Read the graph
-    Model model("graph.pb");
+    Model model{"graph.pb"};
     model.init();
     
     // Prepare inputs and outputs
-    auto input = new Tensor(model, "input");
-    auto output = new Tensor(model, "output");
+    Tensor input{model, "input"};
+    Tensor output{model, "output"};
     
     // Run
     model.run(input, output);
@@ -64,9 +64,9 @@ model.restore("train.ckpt")
 ### Define Inputs and Outputs
 You can create the Tensors by the name of the operations (if you don't know use model.get_operations())
 ```c++
-auto input_a = new Tensor(model, "input_a");
-auto input_b = new Tensor(model, "input_b");
-auto output = new Tensor(model, "result");
+Tensor input_a{model, "input_a"};
+Tensor input_b{model, "input_b"};
+Tensor output{model, "result"};
 ```
 ### Feed new data to the inputs
 Excepected inputs have a shape=(1,100), therefore we have to supply 100 elements:
