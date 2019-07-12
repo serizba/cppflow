@@ -144,7 +144,7 @@ std::vector<T> Tensor::get_data() {
 
     // Convert to correct type
     const auto T_data = static_cast<T*>(raw_data);
-    return {T_data, T_data + size};
+    return std::vector<T>(T_data, T_data + size);
 }
 
 
