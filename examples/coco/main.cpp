@@ -10,12 +10,12 @@
 
 int main() {
     Model model("../ssd_inception/frozen_inference_graph.pb");
-    auto outNames1 = std::make_unique<Tensor>(model, "num_detections");
-    auto outNames2 = std::make_unique<Tensor>(model, "detection_scores");
-    auto outNames3 = std::make_unique<Tensor>(model, "detection_boxes");
-    auto outNames4 = std::make_unique<Tensor>(model, "detection_classes");
+    Tensor outNames1{model, "num_detections"};
+    Tensor outNames2{model, "detection_scores"};
+    Tensor outNames3{model, "detection_boxes"};
+    Tensor outNames4{model, "detection_classes"};
 
-    auto inpName = std::make_unique<Tensor>(model, "image_tensor");
+    Tensor inpName{model, "image_tensor"};
 
 
     // Read image
@@ -31,16 +31,16 @@ int main() {
     // Put image in Tensor
     std::vector<uint8_t > img_data;
     img_data.assign(inp.data, inp.data + inp.total() * inp.channels());
-    inpName->set_data(img_data, {1, 300, 300, 3});
+    inpName.set_data(img_data, {1, 300, 300, 3});
 
-    model.run(inpName.get(), {outNames1.get(), outNames2.get(), outNames3.get(), outNames4.get()});
+    model.run(inpName, {&outNames1, &outNames2, &outNames3, &outNames4});
 
     // Visualize detected bounding boxes.
-    int num_detections = (int)outNames1->get_data<float>()[0];
+    int num_detections = (int)outNames1.get_data<float>()[0];
     for (int i=0; i<num_detections; i++) {
-        int classId = (int)outNames4->get_data<float>()[i];
-        float score = outNames2->get_data<float>()[i];
-        auto bbox_data = outNames3->get_data<float>();
+        int classId = (int)outNames4.get_data<float>()[i];
+        float score = outNames2.get_data<float>()[i];
+        auto bbox_data = outNames3.get_data<float>();
         std::vector<float> bbox = {bbox_data[i*4], bbox_data[i*4+1], bbox_data[i*4+2], bbox_data[i*4+3]};
         if (score > 0.3) {
             float x = bbox[1] * cols;
