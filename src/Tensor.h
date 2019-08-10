@@ -40,6 +40,8 @@ public:
     template<typename T>
     std::vector<T> get_data();
 
+	std::vector<int64_t> get_shape();
+
 private:
     TF_Tensor* val;
     TF_Output op;

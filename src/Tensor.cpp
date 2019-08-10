@@ -147,7 +147,9 @@ std::vector<T> Tensor::get_data() {
     return std::vector<T>(T_data, T_data + size);
 }
 
-
+std::vector<int64_t> Tensor::get_shape() {
+	return shape;
+}
 
 template<typename T>
 TF_DataType Tensor::deduce_type() {
