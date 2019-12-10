@@ -22,9 +22,9 @@ def main():
     # Saver
     saver = tf.train.Saver()
 
-    Save graph definition
-    Write the model definition
-    with open('models/example_mnist.pb', 'wb') as f:
+    # Save graph definition
+    # Write the model definition
+    with open('model.pb', 'wb') as f:
         f.write(tf.get_default_graph().as_graph_def().SerializeToString())
 
     # MNIST data
@@ -39,7 +39,7 @@ def main():
             batch = mnist_data.train.next_batch(50)
             l = sess.run([loss, train_step], feed_dict={inputs: batch[0], labels: batch[1]})[0]
 
-        saver.save(sess, "models/mnist/train.ckpt")
+        saver.save(sess, "checkpoint/train.ckpt")
         print("Finished with loss=", l)
 
 
