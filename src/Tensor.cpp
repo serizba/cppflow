@@ -2,7 +2,7 @@
 // Created by sergio on 13/05/19.
 //
 
-#include "Tensor.h"
+#include "../include/Tensor.h"
 
 #include <utility>
 

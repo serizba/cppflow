@@ -11,7 +11,7 @@
 #include <algorithm>
 #include <numeric>
 #include <cstring>
-#include "c_api.h"
+#include <tensorflow/c/c_api.h>
 #include "Model.h"
 
 class Model;

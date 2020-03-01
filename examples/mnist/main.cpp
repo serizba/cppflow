@@ -2,8 +2,8 @@
 // Created by sergio on 12/05/19.
 //
 
-#include "../../src/Model.h"
-#include "../../src/Tensor.h"
+#include "../../include/Model.h"
+#include "../../include/Tensor.h"
 #include <opencv2/opencv.hpp>
 #include <algorithm>
 #include <iterator>
@@ -12,8 +12,8 @@
 int main() {
 
     // Create model
-    Model m("model.pb");
-    m.restore("checkpoint/train.ckpt");
+    Model m("../model.pb");
+    m.restore("../checkpoint/train.ckpt");
 
     // Create Tensors
     Tensor input(m, "input");
@@ -24,7 +24,7 @@ int main() {
         cv::Mat img, scaled;
 
         // Read image
-        img = cv::imread("images/"+std::to_string(i)+".png");
+        img = cv::imread("../images/"+std::to_string(i)+".png");
 
         // Scale image to range 0-1
         img.convertTo(scaled, CV_64F, 1.f/255);

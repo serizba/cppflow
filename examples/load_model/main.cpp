@@ -2,8 +2,8 @@
 // Created by sergio on 16/05/19.
 //
 
-#include "../../src/Model.h"
-#include "../../src/Tensor.h"
+#include "../../include/Model.h"
+#include "../../include/Tensor.h"
 
 #include <numeric>
 #include <iomanip>

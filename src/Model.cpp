@@ -2,9 +2,7 @@
 // Created by sergio on 12/05/19.
 //
 
-#include <cstring>
-#include <algorithm>
-#include "Model.h"
+#include "../include/Model.h"
 
 Model::Model(const std::string& model_filename) {
 
