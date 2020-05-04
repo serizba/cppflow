@@ -29,7 +29,7 @@ CppFlow uses Tensorflow C API to run the models, meaning you can use it without 
 Since it uses TensorFlow C API you just have to [download it](https://www.tensorflow.org/install/lang_c).  
 
 You can either install the library system wide by following the tutorial on the Tensorflow page or you can place the contents of the archive
-in a folder called `libtensorflow` in the root directory of the repo.
+in a folder called `libtensorflow` in the home directory.
 
 Afterwards, you can run the examples:
 
@@ -39,7 +39,7 @@ cd cppflow/examples/load_model
 mkdir build
 cd build
 cmake ..
-make .
+make
 ./example
 ```
 
