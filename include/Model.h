@@ -19,7 +19,7 @@ class Tensor;
 
 class Model {
 public:
-    explicit Model(const std::string&);
+    explicit Model(const std::string& model_filename, const std::vector<uint8_t>& config_options = {});
 
     // Rule of five, moving is easy as the pointers can be copied, copying not as i have no idea how to copy
     // the contents of the pointer (i guess dereferencing won't do a deep copy)
