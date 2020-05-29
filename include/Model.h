@@ -19,6 +19,7 @@ class Tensor;
 
 class Model {
 public:
+    // Pass a path to the model file and optional Tensorflow config options. See examples/load_model/main.cpp.
     explicit Model(const std::string& model_filename, const std::vector<uint8_t>& config_options = {});
 
     // Rule of five, moving is easy as the pointers can be copied, copying not as i have no idea how to copy
