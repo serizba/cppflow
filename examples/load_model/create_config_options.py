@@ -4,7 +4,7 @@ def create_serialized_options(fraction, growth):
     gpu_options = tf.GPUOptions(per_process_gpu_memory_fraction=fraction, allow_growth=growth)
     config = tf.ConfigProto(gpu_options=gpu_options)
     serialized = config.SerializeToString()
-    return list(map(hex, serialized))
+    return '{' + ','.join(list(map(hex, serialized))) + '}'
 
 if __name__ == "__main__":
     print("Create serialized options which allow TF to use a certain percentage of GPU memory and allow TF to expand this memory if required.")
