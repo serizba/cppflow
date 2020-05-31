@@ -13,7 +13,7 @@ def example_1():
     i = tf.initializers.global_variables()
 
     # Write the model definition
-    with open('models/load_model.pb', 'wb') as f:
+    with open('load_model.pb', 'wb') as f:
         f.write(tf.get_default_graph().as_graph_def().SerializeToString())
 
 

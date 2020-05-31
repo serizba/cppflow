@@ -4,13 +4,18 @@
 
 #include "../include/Model.h"
 
-Model::Model(const std::string& model_filename) {
-
+Model::Model(const std::string& model_filename, const std::vector<uint8_t>& config_options) {
     this->status = TF_NewStatus();
     this->graph = TF_NewGraph();
 
     // Create the session.
     TF_SessionOptions* sess_opts = TF_NewSessionOptions();
+
+    if (!config_options.empty())
+    {
+        TF_SetConfig(sess_opts, static_cast<const void*>(config_options.data()), config_options.size(), this->status);
+        this->status_check(true);
+    }
 
     this->session = TF_NewSession(this->graph, sess_opts, this->status);
     TF_DeleteSessionOptions(sess_opts);
