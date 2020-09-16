@@ -1,4 +1,7 @@
 # CppFlow
+
+(try out [CppFlow 2](https://github.com/serizba/cppflow/tree/cppflow2), compatible with TensorFlow 2, enabling tensor manipulation from C++, eager execution, saved model... This version is under development, is incomplete and probably it contains bugs :bug: )
+
 Run TensorFlow models in c++ without Bazel, without TensorFlow installation and without compiling Tensorflow.
 
 ```c++
