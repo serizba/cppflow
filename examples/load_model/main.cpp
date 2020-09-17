@@ -7,10 +7,10 @@
 int main() {
 
     auto input = cppflow::fill({10, 5}, 1.0f);
-    cppflow::model m("../model");
-    auto output = m.run(input);
+    cppflow::model model("../model");
+    auto output = model(input);
     
     std::cout << output << std::endl;
-    
+
     return 0;
 }

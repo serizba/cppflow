@@ -23,34 +23,10 @@ namespace cppflow {
         std::vector<std::string> get_operations() const;
 
         //std::vector<tensor> operator()(std::vector<std::tuple<std::string, tensor>> inputs, std::vector<tensor> outputs);
-        //std::vector<tensor> operator()(s)
 
-        tensor run(const tensor& input) {
+        // At the moment only default run with one input and one output is implemented
+        tensor operator()(const tensor& input);
 
-            auto inputs = new TF_Output[1];
-            inputs[0].oper = TF_GraphOperationByName(this->graph, "serving_default_input_1");
-            inputs[0].index = 0;
-
-            TF_Output op2[1];
-            op2[0].oper = TF_GraphOperationByName(this->graph, "StatefulPartitionedCall");
-            op2[0].index = 0;
-
-
-            // TRY TO RUN
-            //********* Allocate data for inputs & outputs
-            auto inp_tensor = TFE_TensorHandleResolve(input.tfe_handle.get(), context::get_status());
-            status_check(context::get_status());
-
-
-            TF_Tensor* inpvals[1] = {inp_tensor};
-            TF_Tensor* outvals[1] = {nullptr};
-
-
-            TF_SessionRun(this->session, NULL, inputs, inpvals, 1, op2, outvals, 1, NULL, 0,NULL , context::get_status());
-            status_check(context::get_status());
-
-            return tensor(outvals[0]);
-        }
 
     private:
 
@@ -89,6 +65,31 @@ namespace cppflow {
             result.emplace_back(TF_OperationName(oper));
         }
         return result;
+    }
+
+    tensor model::operator()(const tensor& input) {
+        auto inputs = new TF_Output[1];
+        inputs[0].oper = TF_GraphOperationByName(this->graph, "serving_default_input_1");
+        inputs[0].index = 0;
+
+        TF_Output op2[1];
+        op2[0].oper = TF_GraphOperationByName(this->graph, "StatefulPartitionedCall");
+        op2[0].index = 0;
+
+
+        //********* Allocate data for inputs & outputs
+        auto inp_tensor = TFE_TensorHandleResolve(input.tfe_handle.get(), context::get_status());
+        status_check(context::get_status());
+
+
+        TF_Tensor* inpvals[1] = {inp_tensor};
+        TF_Tensor* outvals[1] = {nullptr};
+
+
+        TF_SessionRun(this->session, NULL, inputs, inpvals, 1, op2, outvals, 1, NULL, 0,NULL , context::get_status());
+        status_check(context::get_status());
+
+        return tensor(outvals[0]);
     }
 }
 
