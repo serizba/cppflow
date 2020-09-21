@@ -146,9 +146,9 @@ TF_Buffer *Model::read(const std::string& filename) {
     file.seekg (0, std::ios::beg);
 
     // Read
-    auto data = new char [size];
+    auto data = std::make_unique<char[]>(size);
     file.seekg (0, std::ios::beg);
-    file.read (data, size);
+    file.read (data.get(), size);
 
     // Error reading the file
     if (!file) {
@@ -158,11 +158,10 @@ TF_Buffer *Model::read(const std::string& filename) {
 
 
     // Create tensorflow buffer from read data
-    TF_Buffer* buffer = TF_NewBufferFromString(data, size);
+    TF_Buffer* buffer = TF_NewBufferFromString(data.get(), size);
 
     // Close file and remove data
     file.close();
-    delete[] data;
 
     return buffer;
 }
