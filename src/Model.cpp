@@ -58,6 +58,12 @@ void Model::init() {
 }
 
 void Model::save(const std::string &ckpt) {
+#ifdef TENSORFLOW_C_TF_TSTRING_H_
+    std::unique_ptr<TF_TString, decltype(&TF_TString_Dealloc)> tstr(new TF_TString, &TF_TString_Dealloc);
+    TF_TString_Copy(tstr.get(), ckpt.c_str(), ckpt.size());
+    auto deallocator = [](void* data, size_t len, void* arg) {};
+    TF_Tensor* t = TF_NewTensor(TF_STRING, nullptr, 0, tstr.get(), 1, deallocator, nullptr);
+#else
     // Encode file_name to tensor
     size_t size = 8 + TF_StringEncodedSize(ckpt.length());
     TF_Tensor* t = TF_AllocateTensor(TF_STRING, nullptr, 0, size);
@@ -67,6 +73,7 @@ void Model::save(const std::string &ckpt) {
 
     memset(data, 0, 8);  // 8-byte offset of first string.
     TF_StringEncode(ckpt.c_str(), ckpt.length(), (char*)(data + 8), size - 8, status);
+#endif // TENSORFLOW_C_TF_TSTRING_H_
 
     // Check errors
     if (!this->status_check(false)) {
@@ -95,13 +102,19 @@ void Model::save(const std::string &ckpt) {
 }
 
 void Model::restore(const std::string& ckpt) {
-
+#ifdef TENSORFLOW_C_TF_TSTRING_H_
+    std::unique_ptr<TF_TString, decltype(&TF_TString_Dealloc)> tstr(new TF_TString, &TF_TString_Dealloc);
+    TF_TString_Copy(tstr.get(), ckpt.c_str(), ckpt.size());
+    auto deallocator = [](void* data, size_t len, void* arg) {};
+    TF_Tensor* t = TF_NewTensor(TF_STRING, nullptr, 0, tstr.get(), 1, deallocator, nullptr);
+#else
     // Encode file_name to tensor
     size_t size = 8 + TF_StringEncodedSize(ckpt.size());
     TF_Tensor* t = TF_AllocateTensor(TF_STRING, nullptr, 0, size);
     char* data = static_cast<char *>(TF_TensorData(t));
     for (int i=0; i<8; i++) {data[i]=0;}
     TF_StringEncode(ckpt.c_str(), ckpt.size(), data + 8, size - 8, status);
+#endif // TENSORFLOW_C_TF_TSTRING_H_
 
     // Check errors
     if (!this->status_check(false)) {
