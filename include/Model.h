@@ -49,10 +49,12 @@ public:
     void run(const std::vector<Tensor*>& inputs, Tensor* output);
     void run(Tensor* input, Tensor* output);
 
-private:
-    TF_Graph* graph;
-    TF_Session* session;
-    TF_Status* status;
+protected:
+    Model()=default;
+
+    TF_Graph* graph{nullptr};
+    TF_Session* session{nullptr};
+    TF_Status* status{nullptr};
 
     // Read a file from a string
     static TF_Buffer* read(const std::string&);
