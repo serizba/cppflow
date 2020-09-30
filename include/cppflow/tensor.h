@@ -11,7 +11,6 @@
 #include <string>
 #include <tensorflow/c/tf_tensor.h>
 #include <tensorflow/c/eager/c_api.h>
-#include <bits/shared_ptr.h>
 
 #include "context.h"
 #include "datatype.h"
