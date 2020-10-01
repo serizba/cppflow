@@ -40,3 +40,21 @@ As this is still a work under development, there are still many things to do... 
   - Model eager API: Calling model with the eager API instead of the TF_SessionRun API. I have tried using TF_GraphToFunction but I could not achieve it.
   - Cover more raw_ops: Currently, the generator that creates the raw_ops facade converts many of the raw_ops but not all of them. Improve the generator to cover these cases (which are marked in the generator code).
   - Include testing
+
+## How To Run It
+
+Since it uses TensorFlow 2 C API you just have to [download it](https://www.tensorflow.org/install/lang_c).  
+
+You can either install the library system wide by following the tutorial on the Tensorflow page or you can place the contents of the archive in a folder called `libtensorflow2` in the home directory.
+
+Afterwards, you can run the examples:
+
+```sh
+git clone git@github.com:serizba/cppflow.git
+cd cppflow/examples/load_model
+mkdir build
+cd build
+cmake ..
+make
+./example
+```
