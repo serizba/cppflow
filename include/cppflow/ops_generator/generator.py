@@ -78,18 +78,18 @@ class Attribute:
                 'string' : '''
                             std::vector<std::size_t> {0}_sizes; {0}_sizes.reserve({0}.size());
                             std::transform({0}.begin(), {0}.end(), std::back_inserter({0}_sizes), [](const auto& s) {{ return s.size();}});
-                            TFE_OpSetAttrStringList(op, "{orig:}", reinterpret_cast<const void *const *>({0}.data()), {0}_sizes.data(), {0}.size());
+                            TFE_OpSetAttrStringList(op.get(), "{orig:}", reinterpret_cast<const void *const *>({0}.data()), {0}_sizes.data(), {0}.size());
                             ''',
-                'int'    : 'TFE_OpSetAttrIntList(op, "{orig:}", {0}.data(), {0}.size());',
-                'float'  : 'TFE_OpSetAttrFloatList(op, "{orig:}", {0}.data(), {0}.size());',
-                'bool'   : 'TFE_OpSetAttrBoolList(op, "{orig:}", std::vector<unsigned char>({0}.begin(), {0}.end()).data(), {0}.size());',
-                'type'   : 'TFE_OpSetAttrTypeList(op, "{orig:}", reinterpret_cast<const enum TF_DataType *>({0}.data()), {0}.size());',
+                'int'    : 'TFE_OpSetAttrIntList(op.get(), "{orig:}", {0}.data(), {0}.size());',
+                'float'  : 'TFE_OpSetAttrFloatList(op.get(), "{orig:}", {0}.data(), {0}.size());',
+                'bool'   : 'TFE_OpSetAttrBoolList(op.get(), "{orig:}", std::vector<unsigned char>({0}.begin(), {0}.end()).data(), {0}.size());',
+                'type'   : 'TFE_OpSetAttrTypeList(op.get(), "{orig:}", reinterpret_cast<const enum TF_DataType *>({0}.data()), {0}.size());',
                 'shape'  : '''
                             std::vector<const int64_t*> {0}_values; {0}_values.reserve({0}.size());
                             std::vector<int> {0}_ndims; {0}_ndims.reserve({0}.size());
                             std::transform({0}.begin(), {0}.end(), std::back_inserter({0}_values), [](const auto& v) {{ return v.data();}});
                             std::transform({0}.begin(), {0}.end(), std::back_inserter({0}_ndims), [](const auto& v) {{ return v.size();}});
-                            TFE_OpSetAttrShapeList(op, "{orig:}", {0}_values.data(), {0}_ndims.data(), {0}.size(), context::get_status());
+                            TFE_OpSetAttrShapeList(op.get(), "{orig:}", {0}_values.data(), {0}_ndims.data(), {0}.size(), context::get_status());
                             status_check(context::get_status());
                             ''',
             }[self.type].format(self.name.replace('template', 'template_arg'), orig=self.name)).replace('\n', '\n    ')
@@ -97,19 +97,19 @@ class Attribute:
         else:
             return textwrap.dedent({
                 'shape' : '''
-                          TFE_OpSetAttrShape(op, "{orig:}", {0}.data(), {0}.size(), context::get_status());
+                          TFE_OpSetAttrShape(op.get(), "{orig:}", {0}.data(), {0}.size(), context::get_status());
                           status_check(context::get_status());
                            ''',
-                'int'   : 'TFE_OpSetAttrInt(op, "{orig:}", {0});',
-                'float' : 'TFE_OpSetAttrFloat(op, "{orig:}", {0});',
-                'string': 'TFE_OpSetAttrString(op, "{orig:}", (void*) {0}.c_str(), {0}.size());',
-                'type'  : 'TFE_OpSetAttrType(op, "{orig:}", {0});', 
-                'bool'  : 'TFE_OpSetAttrBool(op, "{orig:}", (unsigned char){0});',
+                'int'   : 'TFE_OpSetAttrInt(op.get(), "{orig:}", {0});',
+                'float' : 'TFE_OpSetAttrFloat(op.get(), "{orig:}", {0});',
+                'string': 'TFE_OpSetAttrString(op.get(), "{orig:}", (void*) {0}.c_str(), {0}.size());',
+                'type'  : 'TFE_OpSetAttrType(op.get(), "{orig:}", {0});', 
+                'bool'  : 'TFE_OpSetAttrBool(op.get(), "{orig:}", (unsigned char){0});',
                 'tensor': '''
-                           TFE_OpSetAttrTensor(op, "{orig:}", {0}.tf_tensor.get(), context::get_status());
+                           TFE_OpSetAttrTensor(op.get(), "{orig:}", {0}.tf_tensor.get(), context::get_status());
                            status_check(context::get_status());
                            ''',
-                'n_attr': 'TFE_OpSetAttrInt(op, "{orig:}", {n_attr:}.size());'
+                'n_attr': 'TFE_OpSetAttrInt(op.get(), "{orig:}", {n_attr:}.size());'
 
             }[self.type].format(self.name.replace('template', 'template_arg'), orig=self.name, n_attr=self.number_attr)).replace('\n', '\n    ')    
 
@@ -145,7 +145,7 @@ class Operation:
         {} {}({}{}) {{
 
             // Define Op
-            auto op = TFE_NewOp(context::get_context(), "{}", context::get_status());
+            std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "{}", context::get_status()), &TFE_DeleteOp);
             status_check(context::get_status());
             
             // Required input arguments
@@ -157,23 +157,22 @@ class Operation:
             // Execute Op
             int num_outputs_op = 1;
             TFE_TensorHandle* res[1] = {{nullptr}};
-            TFE_Execute(op, res, &num_outputs_op, context::get_status());
+            TFE_Execute(op.get(), res, &num_outputs_op, context::get_status());
             status_check(context::get_status());
-            TFE_DeleteOp(op);
             return tensor(res[0]);
         }}
         ''')
 
         # Add single input template
         add_inputs = textwrap.dedent('''
-            TFE_OpAddInput(op, {}.tfe_handle.get(), context::get_status());
+            TFE_OpAddInput(op.get(), {}.tfe_handle.get(), context::get_status());
             status_check(context::get_status());
         ''').replace('\n', '\n    ')
 
         add_inputs_list = textwrap.dedent('''
             std::vector<TFE_TensorHandle*> {0}_handles; {0}_handles.reserve({0}.size());
             std::transform({0}.begin(), {0}.end(), std::back_inserter({0}_handles), [](const auto& t) {{ return t.tfe_handle.get();}});
-            TFE_OpAddInputList(op, {0}_handles.data(), {0}.size(), context::get_status());
+            TFE_OpAddInputList(op.get(), {0}_handles.data(), {0}.size(), context::get_status());
             status_check(context::get_status());
         ''').replace('\n', '\n    ')
 
