@@ -22,11 +22,8 @@ namespace cppflow {
 
         std::vector<std::string> get_operations() const;
 
-        //std::vector<tensor> operator()(std::vector<std::tuple<std::string, tensor>> inputs, std::vector<tensor> outputs);
-
-        // At the moment only default run with one input and one output is implemented
+        std::vector<tensor> operator()(std::vector<std::tuple<std::string, tensor>> inputs, std::vector<std::string> outputs);
         tensor operator()(const tensor& input);
-
 
     private:
 
@@ -67,29 +64,61 @@ namespace cppflow {
         return result;
     }
 
+    std::tuple<std::string, int> parse_name(const std::string& name) {
+        auto idx = name.find(':');
+        return (idx == -1 ? std::make_tuple(name, 0) : std::make_tuple(name.substr(0, idx), std::stoi(name.substr(idx + 1))));
+    }
+
+    std::vector<tensor> model::operator()(std::vector<std::tuple<std::string, tensor>> inputs, std::vector<std::string> outputs) {
+
+        std::vector<TF_Output> inp_ops(inputs.size());
+        std::vector<TF_Tensor*> inp_val(inputs.size());
+        for (int i=0; i<inputs.size(); i++) {
+
+            // Operations
+            const auto[op_name, op_idx] = parse_name(std::get<0>(inputs[i]));
+            inp_ops[i].oper = TF_GraphOperationByName(this->graph, op_name.c_str());
+            inp_ops[i].index = op_idx;
+
+            if (!inp_ops[i].oper)
+                throw std::runtime_error("No operation named \"" + op_name + "\" exists");
+
+            // Values
+            auto inp_tensor = TFE_TensorHandleResolve(std::get<1>(inputs[i]).tfe_handle.get(), context::get_status());
+            status_check(context::get_status());
+            inp_val[i] = inp_tensor;
+        }
+
+        std::vector<TF_Output> out_ops(outputs.size());
+        auto out_val = std::make_unique<TF_Tensor*[]>(outputs.size());
+        for (int i=0; i<outputs.size(); i++) {
+
+            const auto[op_name, op_idx] = parse_name(outputs[i]);
+            out_ops[i].oper = TF_GraphOperationByName(this->graph, op_name.c_str());
+            out_ops[i].index = op_idx;
+
+            if (!out_ops[i].oper)
+                throw std::runtime_error("No operation named \"" + op_name + "\" exists");
+
+        }
+
+        TF_SessionRun(this->session, NULL,
+                inp_ops.data(), inp_val.data(), inputs.size(),
+                out_ops.data(), out_val.get(), outputs.size(),
+                NULL, 0,NULL , context::get_status());
+        status_check(context::get_status());
+
+        std::vector<tensor> result;
+        result.reserve(outputs.size());
+        for (int i=0; i<outputs.size(); i++) {
+            result.emplace_back(tensor(out_val[i]));
+        }
+
+        return result;
+    }
+
     tensor model::operator()(const tensor& input) {
-        auto inputs = new TF_Output[1];
-        inputs[0].oper = TF_GraphOperationByName(this->graph, "serving_default_input_1");
-        inputs[0].index = 0;
-
-        TF_Output op2[1];
-        op2[0].oper = TF_GraphOperationByName(this->graph, "StatefulPartitionedCall");
-        op2[0].index = 0;
-
-
-        //********* Allocate data for inputs & outputs
-        auto inp_tensor = TFE_TensorHandleResolve(input.tfe_handle.get(), context::get_status());
-        status_check(context::get_status());
-
-
-        TF_Tensor* inpvals[1] = {inp_tensor};
-        TF_Tensor* outvals[1] = {nullptr};
-
-
-        TF_SessionRun(this->session, NULL, inputs, inpvals, 1, op2, outvals, 1, NULL, 0,NULL , context::get_status());
-        status_check(context::get_status());
-
-        return tensor(outvals[0]);
+        return (*this)({{"serving_default_input_1", input}}, {"StatefulPartitionedCall"})[0];
     }
 }
 
