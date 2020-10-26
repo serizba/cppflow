@@ -83,16 +83,18 @@ namespace cppflow {
         auto res_tensor_h = TFE_TensorHandleResolve(res_tensor.tfe_handle.get(), context::get_status());
         status_check(context::get_status());
 
+#ifdef TENSORFLOW_C_TF_TSTRING_H_
         // For future version TensorFlow 2.4
         //auto *t_str = reinterpret_cast<TF_TString *>(TF_TensorData(res_tensor_h));
-        //auto *t_str = (TF_TString *)(TF_TensorData(res_tensor_h));
-        //auto result = std::string(TF_TString_GetDataPointer(t_str), TF_TString_GetSize(t_str));
-
+        auto *t_str = (TF_TString *)(TF_TensorData(res_tensor_h));
+        auto result = std::string(TF_TString_GetDataPointer(t_str), TF_TString_GetSize(t_str));
+#else
         const char* dst[1] = {nullptr};
         size_t dst_len[1] = {3};
         TF_StringDecode(static_cast<char*>(TF_TensorData(res_tensor_h)) + 8, TF_TensorByteSize(res_tensor_h), dst, dst_len, context::get_status());
         status_check(context::get_status());
         auto result = std::string(dst[0], *dst_len);
+#endif // TENSORFLOW_C_TF_TSTRING_H_
 
         TF_DeleteTensor(res_tensor_h);
 

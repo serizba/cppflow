@@ -5,51 +5,81 @@
 #ifndef CPPFLOW2_CONTEXT_H
 #define CPPFLOW2_CONTEXT_H
 
+#include <memory>
+#include <utility>
+
 #include <tensorflow/c/c_api.h>
 #include <tensorflow/c/eager/c_api.h>
 
-bool status_check(TF_Status* status) {
+namespace cppflow {
 
-    if (TF_GetCode(status) != TF_OK) {
-        throw std::runtime_error(TF_Message(status));
+    bool status_check(TF_Status* status) {
+        if (TF_GetCode(status) != TF_OK) {
+            throw std::runtime_error(TF_Message(status));
+        }
+        return true;
     }
-    return true;
+
+    class context {
+        public:
+            static TFE_Context* get_context();
+            static TF_Status* get_status();
+
+        private:
+            TFE_Context* tfe_context{nullptr};
+
+        public:
+            explicit context(TFE_ContextOptions* opts = nullptr);
+
+            context(context const&) = delete;
+            context& operator=(context const&) = delete;
+            context(context&&) noexcept;
+            context& operator=(context&&) noexcept;
+
+            ~context();
+    };
+
+    // TODO: create ContextManager class if needed
+    static context global_context;
+
 }
 
-class context {
+namespace cppflow {
 
-    public:
-        static TFE_Context* get_context() {
-            static context context; // Guaranteed to be destroyed.
-            // Instantiated on first use.
-            return context.tfe_context;
+    inline TFE_Context* context::get_context() {
+        return global_context.tfe_context;
+    }
+
+    inline TF_Status* context::get_status() {
+        thread_local std::unique_ptr<TF_Status, decltype(&TF_DeleteStatus)> local_tf_status(TF_NewStatus(), &TF_DeleteStatus);
+        return local_tf_status.get();
+    }
+
+    inline context::context(TFE_ContextOptions* opts) {
+        auto tf_status = context::get_status();
+        if(opts == nullptr) {
+            std::unique_ptr<TFE_ContextOptions, decltype(&TFE_DeleteContextOptions)> opts(TFE_NewContextOptions(), &TFE_DeleteContextOptions);
+            this->tfe_context = TFE_NewContext(opts.get(), tf_status);
+        } else {
+            this->tfe_context = TFE_NewContext(opts, tf_status);
         }
+        status_check(tf_status);
+    }
 
-        static TF_Status* get_status() {
-            static context context; // Guaranteed to be destroyed.
-            // Instantiated on first use.
-            return context.tf_status;
-        }
-    private:
-        context() {
-            this->tf_status = TF_NewStatus();
-            this->tfe_opts = TFE_NewContextOptions();
-            this->tfe_context = TFE_NewContext(this->tfe_opts, tf_status);
-            status_check(tf_status);
-        }
+    inline context::context(context&& ctx) noexcept :
+        tfe_context(std::exchange(ctx.tfe_context, nullptr))
+    {
+    }
 
-        TF_Status* tf_status;
-        TFE_Context* tfe_context;
-        TFE_ContextOptions* tfe_opts;
+    inline context& context::operator=(context&& ctx) noexcept {
+        tfe_context = std::exchange(ctx.tfe_context, nullptr);
+        return *this;
+    }
 
-    public:
-        context(context const&)         = delete;
-        void operator=(context const&)  = delete;
+    inline context::~context() {
+        TFE_DeleteContext(this->tfe_context);
+    }
 
-        ~context() {
-            TFE_DeleteContextOptions(this->tfe_opts);
-            TFE_DeleteContext(this->tfe_context);
-        }
-};
+}
 
 #endif //CPPFLOW2_CONTEXT_H

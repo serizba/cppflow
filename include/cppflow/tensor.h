@@ -124,16 +124,17 @@ namespace cppflow {
     tensor::tensor(const T& value) :
             tensor(std::vector<T>({value}), {}) {}
 
+#ifdef TENSORFLOW_C_TF_TSTRING_H_
     // For future version TensorFlow 2.4
-    //template<>
-    //tensor::tensor(const std::string& value) {
-    //    TF_TString tstr[1];
-    //    TF_TString_Init(&tstr[0]);
-    //    TF_TString_Copy(&tstr[0], value.c_str(), value.size());
-    //
-    //    *this = tensor(static_cast<enum TF_DataType>(TF_STRING), (void *) tstr, TF_TString_GetSize(tstr), {});
-    //}
+    template<>
+    tensor::tensor(const std::string& value) {
+        TF_TString tstr[1];
+        TF_TString_Init(&tstr[0]);
+        TF_TString_Copy(&tstr[0], value.c_str(), value.size());
 
+        *this = tensor(static_cast<enum TF_DataType>(TF_STRING), (void *) tstr, sizeof(tstr), {});
+    }
+#else
     template<>
     tensor::tensor(const std::string& value) {
         size_t size = 8 + TF_StringEncodedSize(value.length());
@@ -145,6 +146,7 @@ namespace cppflow {
         *this = tensor(static_cast<enum TF_DataType>(TF_STRING), (void *) data, size, {});
         delete [] data;
     }
+#endif // TENSORFLOW_C_TF_TSTRING_H_
 
     tensor::tensor(TFE_TensorHandle* handle) {
             this->tfe_handle = {handle, TFE_DeleteTensorHandle};
