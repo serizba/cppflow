@@ -40,7 +40,7 @@ namespace cppflow {
     };
 
     // TODO: create ContextManager class if needed
-    static context global_context;
+    inline context global_context;
 
 }
 
