@@ -1,0 +1,324 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Quickstart &mdash; cppflow 2.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Examples" href="examples.html" />
+    <link rel="prev" title="Installation" href="installation.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> cppflow
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Quickstart</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#first-example">First example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-cmake">Using CMake</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#load-a-model">Load a model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#complex-model-call-multi-input-output-models">Complex model call (multi input/output models)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">cppflow</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Quickstart</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/quickstart.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="quickstart">
+<h1>Quickstart<a class="headerlink" href="#quickstart" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="first-example">
+<span id="id1"></span><h2>First example<a class="headerlink" href="#first-example" title="Permalink to this headline">¶</a></h2>
+<p>Once you have downloaded the TF C API and cppflow you can start playing with tensors from C++:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;cppflow/cppflow.h&quot;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+
+    <span class="c1">// Create a tensor from a list, a = [1.0, 2.0, 3.0]</span>
+    <span class="k">auto</span> <span class="n">a</span> <span class="o">=</span> <span class="n">cppflow</span><span class="o">::</span><span class="n">tensor</span><span class="p">({</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">});</span>
+    <span class="c1">// Create a tensor of shape 3 filled with 1.0, b = [1.0, 2.0, 3.0]</span>
+    <span class="k">auto</span> <span class="n">b</span> <span class="o">=</span> <span class="n">cppflow</span><span class="o">::</span><span class="n">fill</span><span class="p">({</span><span class="mi">3</span><span class="p">},</span> <span class="mf">1.0</span><span class="p">);</span>
+
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Easy right?, now you can compile it with the terminal (if you have configured the TF C API as stated in <a class="reference internal" href="installation.html#installation"><span class="std std-ref">Installation</span></a>) using the following command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>g++ -std<span class="o">=</span>c++17 -o main.out -I /path/to/libtensorflow2/include/ -I/path/to/cppflow/include/ main.cpp -ltensorflow
+./main.out
+</pre></div>
+</div>
+<p>You should see the result of <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">+</span> <span class="pre">b</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">tensor</span><span class="p">:</span> <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">data</span><span class="o">=</span>
+ <span class="p">[</span><span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-cmake">
+<h2>Using CMake<a class="headerlink" href="#using-cmake" title="Permalink to this headline">¶</a></h2>
+<p>Probably a more convenient way of compiling your code is using CMake.</p>
+<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nb">cmake_minimum_required</span><span class="p">(</span><span class="s">VERSION</span> <span class="s">3.10</span><span class="p">)</span>
+<span class="nb">project</span><span class="p">(</span><span class="s">example</span><span class="p">)</span>
+
+<span class="nb">find_library</span><span class="p">(</span><span class="s">TENSORFLOW_LIB</span> <span class="s">tensorflow</span> <span class="s">HINT</span> <span class="o">$ENV{</span><span class="nv">HOME</span><span class="o">}</span><span class="s">/libtensorflow2/lib</span><span class="p">)</span>
+
+<span class="nb">set</span><span class="p">(</span><span class="s">CMAKE_CXX_STANDARD</span> <span class="s">17</span><span class="p">)</span>
+
+<span class="nb">add_executable</span><span class="p">(</span><span class="s">example</span> <span class="s">main.cpp</span><span class="p">)</span>
+<span class="nb">target_include_directories</span><span class="p">(</span><span class="s">example</span> <span class="s">PRIVATE</span> <span class="s">/path/to/cppflow/include/</span> <span class="o">$ENV{</span><span class="nv">HOME</span><span class="o">}</span><span class="s">/libtensorflow2/include</span><span class="p">)</span>
+<span class="nb">target_link_libraries</span> <span class="p">(</span><span class="s">example</span> <span class="s2">&quot;${TENSORFLOW_LIB}&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="load-a-model">
+<h2>Load a model<a class="headerlink" href="#load-a-model" title="Permalink to this headline">¶</a></h2>
+<p>You can easily run TensorFlow models with cppflow by loading a <a class="reference external" href="https://www.tensorflow.org/guide/saved_model">saved model</a>. Imagine you have a model saved on the folder <code class="docutils literal notranslate"><span class="pre">coolpredictor</span></code> that takes an image as an input and produces a vector of probabilities of the class belonging to each possible class. You can load the model, read your image, preprocess it, run the model and get the output just using cppflow:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;cppflow/cppflow.h&quot;</span><span class="cp"></span>
+
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+
+    <span class="c1">// Load the model</span>
+    <span class="n">cppflow</span><span class="o">::</span><span class="n">model</span> <span class="n">model</span><span class="p">(</span><span class="s">&quot;coolpredictor&quot;</span><span class="p">);</span>
+
+    <span class="c1">// Load an image</span>
+    <span class="k">auto</span> <span class="n">input</span> <span class="o">=</span> <span class="n">cppflow</span><span class="o">::</span><span class="n">decode_jpeg</span><span class="p">(</span><span class="n">cppflow</span><span class="o">::</span><span class="n">read_file</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">(</span><span class="s">&quot;image.jpg&quot;</span><span class="p">)));</span>
+
+    <span class="c1">// Cast it to float, normalize to range [0, 1], and add batch_dimension</span>
+    <span class="n">input</span> <span class="o">=</span> <span class="n">cppflow</span><span class="o">::</span><span class="n">cast</span><span class="p">(</span><span class="n">input</span><span class="p">,</span> <span class="n">TF_UINT8</span><span class="p">,</span> <span class="n">TF_FLOAT</span><span class="p">);</span>
+    <span class="n">input</span> <span class="o">=</span> <span class="n">input</span> <span class="o">/</span> <span class="mf">255.f</span><span class="p">;</span>
+    <span class="n">input</span> <span class="o">=</span> <span class="n">cppflow</span><span class="o">::</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">input</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+
+    <span class="c1">// Run</span>
+    <span class="k">auto</span> <span class="n">output</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">input</span><span class="p">);</span>
+
+    <span class="c1">// Show the predicted class</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">cppflow</span><span class="o">::</span><span class="n">arg_max</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>For a complete (runnable) example you can check <a class="reference internal" href="examples.html#efficientnet"><span class="std std-ref">this example</span></a>, which performs inference on an EfficientNet trained on ImageNet.</p>
+</div>
+<div class="section" id="complex-model-call-multi-input-output-models">
+<h2>Complex model call (multi input/output models)<a class="headerlink" href="#complex-model-call-multi-input-output-models" title="Permalink to this headline">¶</a></h2>
+<p>By default, calling <code class="docutils literal notranslate"><span class="pre">model(input)</span></code> will use the input operation named <code class="docutils literal notranslate"><span class="pre">serving_default_input_1</span></code> and output operation <code class="docutils literal notranslate"><span class="pre">StatefulPartitionedCall</span></code>. If you need to use other operations or you need to use multiple inputs or outputs you can directly specify your desired inputs and outputs operations:</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// Calling model in default mode</span>
+<span class="k">auto</span> <span class="n">output</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">input</span><span class="p">);</span>
+
+<span class="c1">// Calling model as in default mode (but specifying signature)</span>
+<span class="k">auto</span> <span class="n">output</span> <span class="o">=</span> <span class="n">model</span><span class="p">({{</span><span class="s">&quot;serving_default_input_1:0&quot;</span><span class="p">,</span> <span class="n">input</span><span class="p">}},{</span><span class="s">&quot;StatefulPartitionedCall:0&quot;</span><span class="p">});</span>
+
+<span class="c1">// Calling model with two inputs, named &quot;serving_default_input_1&quot; and &quot;serving_default_input_2&quot;</span>
+<span class="k">auto</span> <span class="n">output</span> <span class="o">=</span> <span class="n">model</span><span class="p">({{</span><span class="s">&quot;serving_default_input_1:0&quot;</span><span class="p">,</span> <span class="n">input1</span><span class="p">},</span> <span class="p">{</span><span class="s">&quot;serving_default_input_2:0&quot;</span><span class="p">,</span> <span class="n">input2</span><span class="p">}},{</span><span class="s">&quot;StatefulPartitionedCall:0&quot;</span><span class="p">});</span>
+
+<span class="c1">// Calling model with two outputs, named &quot;StatefulPartitionedCall:0&quot; and &quot;StatefulPartitionedCall:1&quot;</span>
+<span class="k">auto</span> <span class="n">output</span> <span class="o">=</span> <span class="n">model</span><span class="p">({{</span><span class="s">&quot;serving_default_input_1:0&quot;</span><span class="p">,</span> <span class="n">input</span><span class="p">}},{</span><span class="s">&quot;StatefulPartitionedCall:0&quot;</span><span class="p">,</span> <span class="s">&quot;StatefulPartitionedCall:1&quot;</span><span class="p">});</span>
+
+<span class="c1">// Calling model with two inputs and two outputs</span>
+<span class="k">auto</span> <span class="n">output</span> <span class="o">=</span> <span class="n">model</span><span class="p">({{</span><span class="s">&quot;serving_default_my_input_1:0&quot;</span><span class="p">,</span> <span class="n">input_1</span><span class="p">},</span> <span class="p">{</span><span class="s">&quot;serving_default_my_input_2:0&quot;</span><span class="p">,</span> <span class="n">input_2</span><span class="p">}},</span> <span class="p">{</span><span class="s">&quot;StatefulPartitionedCall:0&quot;</span><span class="p">,</span> <span class="s">&quot;StatefulPartitionedCall:1&quot;</span><span class="p">});</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you don’t know the name of the operations of your model you can use the <a class="reference external" href="https://www.tensorflow.org/guide/saved_model#show_command">saved_model_cli</a> to print all the information:</p>
+<p><code class="docutils literal notranslate"><span class="pre">saved_model_cli</span> <span class="pre">show</span> <span class="pre">--dir</span> <span class="pre">/path/to/model</span> <span class="pre">--all</span></code></p>
+<p>Or you can use <code class="docutils literal notranslate"><span class="pre">model::get_operations()</span></code> to retrieve the name of the available operations.</p>
+</div>
+<p>For a complete (runnable) example you can check <a class="reference internal" href="examples.html#multiinputoutput"><span class="std std-ref">this example</span></a>., which uses a toy model with two inputs and two outputs.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="examples.html" class="btn btn-neutral float-right" title="Examples" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="installation.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Sergio Izquierdo
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
