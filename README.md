@@ -25,6 +25,12 @@ Run TensorFlow models in c++ without Bazel, without TensorFlow installation and 
 
 You can take a look to the [examples](https://github.com/serizba/cppflow/tree/cppflow2/examples) to see a full example on how to load a deep network and feed it with a sample image.
 
+## Documentation
+
+Check the docs at [https://serizba.github.io/cppflow/](https://serizba.github.io/cppflow/).
+
+There you can find quickstart guides and more information about how to install the library and run the examples.
+
 ## Development
 
 CppFlow is basically a wrapper over TensorFlow C API. The basic class, [tensor](https://github.com/serizba/cppflow/blob/cppflow2/include/cppflow/tensor.h) is a wrapper of a TF eager tensor, and it just constains a pointer to its TF representation. 
