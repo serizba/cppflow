@@ -6,7 +6,7 @@
 Easily run TensorFlow models from C++
 =====================================
 
-With `cppflow` you can easily run TensorFlow models in C++ without Bazel, without TensorFlow installation and without compiling Tensorflow. Perform tensor manipulation, use eager execution and run saved models directly from C++.
+With cppflow you can easily run TensorFlow models in C++ without Bazel, without TensorFlow installation and without compiling Tensorflow. Perform tensor manipulation, use eager execution and run saved models directly from C++.
 
 .. toctree::
    :maxdepth: 2

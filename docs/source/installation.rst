@@ -3,7 +3,7 @@
 Installation
 ============
 
-One of the advantages of cppflow is that you don't need to compile or install TensorFlow, you just need to download the `TF C API <https://www.tensorflow.org/install/lang_c>`_. As `cppflow` is a header-only library, once you have the C API, the only thing you need to do is include the cppflow files from your project.
+One of the advantages of cppflow is that you don't need to compile or install TensorFlow, you just need to download the `TF C API <https://www.tensorflow.org/install/lang_c>`_. As cppflow is a header-only library, once you have the C API, the only thing you need to do is include the cppflow files from your project.
 
 To install the C API in your system you have two options:
 
