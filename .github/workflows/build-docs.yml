@@ -1,0 +1,33 @@
+name: deploy-docs
+on:
+  push:
+    branches:
+      - cppflow2
+jobs:
+  check-bats-version:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+            persist-credentials: false
+      - name: Set up Python 3.7
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.7
+      - name: Install dependencies
+        run: |
+          sudo apt install doxygen
+          python -m pip install --upgrade pip
+          pip install sphinx breathe sphinx_rtd_theme
+      - name: Build Documentation
+        run: |
+          cd docs
+          make html
+
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@3.7.1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: docs
+          FOLDER: docs/build/html
+          CLEAN: true
