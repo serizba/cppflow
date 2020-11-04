@@ -14,6 +14,7 @@
 
 #include "context.h"
 #include "datatype.h"
+#include "span.h"
 
 namespace cppflow {
 
@@ -70,12 +71,12 @@ namespace cppflow {
         datatype dtype() const;
 
         /**
-         * Converts the tensor into a C++ vector
+         * Converts the tensor into a C++ span. There is no data copy on span for perfomance.
          * @tparam T The c++ type (must be equivalent to the tensor type)
-         * @return A vector representing the flat tensor
+         * @return A span representing the flat tensor
          */
         template<typename T>
-        std::vector<T> get_data() const;
+        std::span<T> get_data() const;
 
 
         ~tensor() = default;
@@ -211,7 +212,7 @@ namespace cppflow {
     }
 
     template<typename T>
-    std::vector<T> tensor::get_data() const {
+    std::span<T> tensor::get_data() const {
         auto res_tensor = get_tensor();
 
         // Check tensor data is not empty
@@ -221,10 +222,8 @@ namespace cppflow {
         size_t size = TF_TensorByteSize(res_tensor.get()) / TF_DataTypeSize(TF_TensorType(res_tensor.get()));
 
         // Convert to correct type
-        const auto T_data = static_cast<T*>(raw_data);
-        std::vector<T> r(T_data, T_data + size);
-
-        return r;
+        const auto t_data = static_cast<T*>(raw_data);
+        return std::span<T>(t_data, size);
     }
 
     datatype tensor::dtype() const {
