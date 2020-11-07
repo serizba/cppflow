@@ -167,7 +167,7 @@ namespace cppflow {
 
         // EXECUTE
         int n = 1;
-        TFE_TensorHandle* res[1];
+        TFE_TensorHandle* res[1] = { nullptr };
         TFE_Execute(op, res, &n, context::get_status());
         status_check(context::get_status());
         TFE_DeleteOp(op);
@@ -175,6 +175,8 @@ namespace cppflow {
         tensor r;
         r.tf_tensor = { TFE_TensorHandleResolve(res[0], context::get_status()), TF_DeleteTensor};
         status_check(context::get_status());
+        TFE_DeleteTensorHandle(res[0]);
+
         r.tfe_handle = {TFE_NewTensorHandle(r.tf_tensor.get(), context::get_status()), TFE_DeleteTensorHandle};
         status_check(context::get_status());
 
@@ -205,7 +207,10 @@ namespace cppflow {
 
         // Convert to correct type
         const auto T_data = static_cast<T*>(raw_data);
-        return std::vector<T>(T_data, T_data + size);
+        std::vector<T> r(T_data, T_data + size);
+        TF_DeleteTensor(res_tensor);
+
+        return r;
     }
 
     datatype tensor::dtype() const {
