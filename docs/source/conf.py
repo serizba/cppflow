@@ -14,6 +14,13 @@
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
 
+# Workaround for issue https://github.com/sphinx-contrib/googleanalytics/issues/2
+# Note that a warning still will be issued "unsupported object from its setup() function"
+# Remove this workaround when the issue has been resolved upstream
+import sphinx.application
+import sphinx.errors
+sphinx.application.ExtensionError = sphinx.errors.ExtensionError
+
 
 # -- Project information -----------------------------------------------------
 
@@ -32,6 +39,7 @@ release = '2.0'
 # ones.
 extensions = [
 	'breathe',
+	'sphinxcontrib.googleanalytics',
 ]
 
 breathe_projects = { 'cppflow': '../xml' }
@@ -56,3 +64,7 @@ html_theme = 'sphinx_rtd_theme'
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = []
+
+# -- Google Analytics --------------------------------------------------------
+
+googleanalytics_id = 'UA-110983956-1'
