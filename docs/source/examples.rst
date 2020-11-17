@@ -40,7 +40,7 @@ Now a new directory named ``model`` is created, and it contains the saved model.
 .. code:: c++
 
     #include <iostream>
-    #include "cppflow/cppflow.h
+    #include "cppflow/cppflow.h"
 
 
     int main() {
