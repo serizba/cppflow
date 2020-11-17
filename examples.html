@@ -188,13 +188,13 @@ make
 </div>
 <p>Now a new directory named <code class="docutils literal notranslate"><span class="pre">model</span></code> is created, and it contains the saved model. You can open it from cppflow using the <code class="docutils literal notranslate"><span class="pre">model</span></code> class, to then feed it with a tensor to obtain the output.</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&quot;cppflow/cppflow.h</span>
+<span class="cp">#include</span> <span class="cpf">&quot;cppflow/cppflow.h&quot;</span><span class="cp"></span>
 
 
-<span class="cpf">int main() {</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
 
-<span class="cpf">    auto input = cppflow::fill({10, 5}, 1.0f);</span>
-<span class="cpf">    cppflow::model model(&quot;</span><span class="c1">../model&quot;);</span><span class="cp"></span>
+    <span class="k">auto</span> <span class="n">input</span> <span class="o">=</span> <span class="n">cppflow</span><span class="o">::</span><span class="n">fill</span><span class="p">({</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">},</span> <span class="mf">1.0f</span><span class="p">);</span>
+    <span class="n">cppflow</span><span class="o">::</span><span class="n">model</span> <span class="n">model</span><span class="p">(</span><span class="s">&quot;../model&quot;</span><span class="p">);</span>
     <span class="k">auto</span> <span class="n">output</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">input</span><span class="p">);</span>
 
     <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">output</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
