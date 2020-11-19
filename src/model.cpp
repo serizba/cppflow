@@ -54,7 +54,10 @@ namespace cppflow {
         for (int i=0; i<inputs.size(); i++) {
 
             // Operations
-            const auto[op_name, op_idx] = parse_name(std::get<0>(inputs[i]));
+            const auto tupleReturn = parse_name(std::get<0>(inputs[i]));
+            auto op_name = std::get<0>(tupleReturn);
+            auto op_idx = std::get<1>(tupleReturn);
+        	
             inp_ops[i].oper = TF_GraphOperationByName(this->graph.get(), op_name.c_str());
             inp_ops[i].index = op_idx;
 
@@ -71,7 +74,10 @@ namespace cppflow {
         auto out_val = std::make_unique<TF_Tensor*[]>(outputs.size());
         for (int i=0; i<outputs.size(); i++) {
 
-            const auto[op_name, op_idx] = parse_name(outputs[i]);
+            const auto tupleReturn = parse_name(outputs[i]);
+            auto op_name = std::get<0>(tupleReturn);
+            auto op_idx = std::get<1>(tupleReturn);
+        	
             out_ops[i].oper = TF_GraphOperationByName(this->graph.get(), op_name.c_str());
             out_ops[i].index = op_idx;
 

@@ -2,7 +2,6 @@
 // Created by serizba on 27/6/20.
 //
 
-#pragma once
 #ifndef CPPFLOW2_CONTEXT_H
 #define CPPFLOW2_CONTEXT_H
 
@@ -37,7 +36,7 @@ namespace cppflow {
     };
 
     // TODO: create ContextManager class if needed
-    inline context global_context;
+    static const context global_context;
 
 }
 
