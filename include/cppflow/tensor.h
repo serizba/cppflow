@@ -1,7 +1,7 @@
 //
 // Created by serizba on 27/6/20.
 //
-#pragma once
+
 #ifndef CPPFLOW2_TENSOR_H
 #define CPPFLOW2_TENSOR_H
 
