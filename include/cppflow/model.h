@@ -12,6 +12,7 @@
 #include <vector>
 
 #include "context.h"
+#include "defer.h"
 #include "tensor.h"
 
 namespace cppflow {
@@ -84,6 +85,12 @@ namespace cppflow {
 
         std::vector<TF_Output> inp_ops(inputs.size());
         std::vector<TF_Tensor*> inp_val(inputs.size());
+
+        defer d([&inp_val]{
+            for (auto* tf_tensor : inp_val) {
+                TF_DeleteTensor(tf_tensor);
+            }
+        });
         for (int i=0; i<inputs.size(); i++) {
 
             // Operations
