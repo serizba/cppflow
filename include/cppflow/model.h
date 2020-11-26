@@ -84,7 +84,7 @@ namespace cppflow {
     std::vector<tensor> model::operator()(std::vector<std::tuple<std::string, tensor>> inputs, std::vector<std::string> outputs) {
 
         std::vector<TF_Output> inp_ops(inputs.size());
-        std::vector<TF_Tensor*> inp_val(inputs.size());
+        std::vector<TF_Tensor*> inp_val(inputs.size(), nullptr);
 
         defer d([&inp_val]{
             for (auto* tf_tensor : inp_val) {
