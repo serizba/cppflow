@@ -86,11 +86,6 @@ namespace cppflow {
         std::vector<TF_Output> inp_ops(inputs.size());
         std::vector<TF_Tensor*> inp_val(inputs.size(), nullptr);
 
-        defer d([&inp_val]{
-            for (auto* tf_tensor : inp_val) {
-                TF_DeleteTensor(tf_tensor);
-            }
-        });
         for (int i=0; i<inputs.size(); i++) {
 
             // Operations
@@ -102,9 +97,7 @@ namespace cppflow {
                 throw std::runtime_error("No operation named \"" + op_name + "\" exists");
 
             // Values
-            auto inp_tensor = TFE_TensorHandleResolve(std::get<1>(inputs[i]).tfe_handle.get(), context::get_status());
-            status_check(context::get_status());
-            inp_val[i] = inp_tensor;
+            inp_val[i] = std::get<1>(inputs[i]).get_tensor().get();
         }
 
         std::vector<TF_Output> out_ops(outputs.size());
