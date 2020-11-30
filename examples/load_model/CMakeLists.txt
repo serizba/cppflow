@@ -4,6 +4,8 @@ project(example)
 find_library(TENSORFLOW_LIB tensorflow HINT $ENV{HOME}/libtensorflow2/lib)
 
 set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fno-omit-frame-pointer -fsanitize=address")
+set(CMAKE_LINKER_FLAGS "${CMAKE_LINKER_FLAGS} -lasan")
 
 add_executable(example main.cpp ../../src/context.cpp ../../src/cppflow.cpp ../../src/datatype.cpp ../../src/model.cpp ../../src/ops.cpp ../../src/raw_ops.cpp ../../src/tensor.cpp)
 

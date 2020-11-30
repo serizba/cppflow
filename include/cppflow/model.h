@@ -13,6 +13,7 @@
 #include <vector>
 
 #include "context.h"
+#include "defer.h"
 #include "tensor.h"
 
 namespace cppflow {
@@ -38,5 +39,4 @@ namespace cppflow {
         std::shared_ptr<TF_Session> session;
     };
 }
-
 #endif //CPPFLOW2_MODEL_H

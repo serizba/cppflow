@@ -143,7 +143,6 @@ namespace cppflow
 		const auto T_data = static_cast<T*>(raw_data);
 		return std::vector<T>(T_data, T_data + size);
 	}
-
 }
 
 #endif //CPPFLOW2_TENSOR_H

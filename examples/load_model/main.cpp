@@ -12,5 +12,10 @@ int main() {
     
     std::cout << output << std::endl;
 
+    auto values = output.get_data<float>();
+
+    for (auto v : values) {
+        std::cout << v << std::endl;
+    }
     return 0;
 }

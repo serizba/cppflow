@@ -6,6 +6,7 @@
 #define CPPFLOW2_CONTEXT_H
 
 #include <memory>
+#include <stdexcept>
 #include <utility>
 #include <stdexcept>
 
