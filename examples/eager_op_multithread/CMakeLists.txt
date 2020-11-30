@@ -9,6 +9,7 @@ set(CMAKE_CXX_STANDARD 17)
 #set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fno-omit-frame-pointer -fsanitize=thread")
 #set(CMAKE_LINKER_FLAGS "${CMAKE_LINKER_FLAGS} -fno-omit-frame-pointer -fsanitize=thread")
 
-add_executable(example main.cpp)
+add_executable(example main.cpp ../../src/context.cpp ../../src/cppflow.cpp ../../src/datatype.cpp ../../src/model.cpp ../../src/ops.cpp ../../src/raw_ops.cpp ../../src/tensor.cpp)
+
 target_include_directories(example PRIVATE ../../include $ENV{HOME}/libtensorflow2/include)
 target_link_libraries(example "${TENSORFLOW_LIB}" Threads::Threads)

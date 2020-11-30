@@ -4,14 +4,9 @@
 
 #ifndef EXAMPLE_CPPFLOW_H
 #define EXAMPLE_CPPFLOW_H
-
-#include "tensor.h"
-#include "model.h"
-#include "raw_ops.h"
-#include "ops.h"
-#include "datatype.h"
-
+#include <string>
 #include <tensorflow/c/c_api.h>
+
 
 namespace cppflow {
 
@@ -22,15 +17,4 @@ namespace cppflow {
     std::string version();
 
 }
-
-/******************************
- *   IMPLEMENTATION DETAILS   *
- ******************************/
-
-namespace cppflow {
-    std::string version() {
-        return "TensorFlow: " + std::string(TF_Version()) + " CppFlow: 2.0.0";
-    }
-}
-
 #endif //EXAMPLE_CPPFLOW_H
