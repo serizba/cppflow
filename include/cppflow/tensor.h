@@ -84,14 +84,38 @@ namespace cppflow {
         tensor &operator=(const tensor &other) = default;
         tensor &operator=(tensor &&other) = default;
 
-
-        std::shared_ptr<TF_Tensor> tf_tensor;
-        std::shared_ptr<TFE_TensorHandle> tfe_handle;
-
         explicit tensor(TFE_TensorHandle* handle);
         explicit tensor(TF_Tensor* t);
 
+        // NOTE: Usually, one should not call get_eager_handle() or get_tensor() below.
+        //       They are designed for implementation details in cppflow.
+        //       If you are calling them directly, it is likely that you are using some
+        //       tenforflow APIs not supported in cppflow.
+        
+        // Additional NOTE: TF_Tensor is an immutable tensor inside tensorflow.
+        // TFE_TensorHandle is a TF_Tensor and the associated device, plus some data cache
+        
+        // TODO: Need to determine if we can mark the return value or *this as const
+        std::shared_ptr<TFE_TensorHandle> get_eager_handle() const { return tfe_handle; }
+
+        // Get the TF_Tensor data from the eager handle
+        // Call `get_data<T>()` instead if possible
+        // NOTE: Changes to the returned TF_Tensor may not be reflected in the actual device memory!
+        //       Do *NOT* modify the returned TF_Tensor!
+        //       See comments of `tf_tensor` for more details.
+        std::shared_ptr<TF_Tensor> get_tensor() const;
+        
+        // DO NOT directly access this member, call get_eager_handle() instead
+        // TODO: This is kept as public to be compatible with existing code and should be mark as private
+        std::shared_ptr<TFE_TensorHandle> tfe_handle;
+
     private:
+        // This member serves as a local cache of the data in tfe_handle.
+        // It refers to `local_mirrors_` if on device, or `data_` if on host CPU.
+        // Changes to this variable may not be reflected in the actual device memory,
+        // e.g. on GPUs or on remote nodes.
+        // Access it via get_tensor() if not in constructor
+        mutable std::shared_ptr<TF_Tensor> tf_tensor;
 
         tensor(enum TF_DataType type, const void* data, size_t len, const std::vector<int64_t>& shape);
     };
@@ -172,15 +196,7 @@ namespace cppflow {
         status_check(context::get_status());
         TFE_DeleteOp(op);
 
-        tensor r;
-        r.tf_tensor = { TFE_TensorHandleResolve(res[0], context::get_status()), TF_DeleteTensor};
-        status_check(context::get_status());
-        TFE_DeleteTensorHandle(res[0]);
-
-        r.tfe_handle = {TFE_NewTensorHandle(r.tf_tensor.get(), context::get_status()), TFE_DeleteTensorHandle};
-        status_check(context::get_status());
-
-        return r;
+        return tensor(res[0]);
     }
 
     std::string tensor::device(bool on_memory) const {
@@ -196,25 +212,32 @@ namespace cppflow {
 
     template<typename T>
     std::vector<T> tensor::get_data() const {
-        auto res_tensor = TFE_TensorHandleResolve(this->tfe_handle.get(), context::get_status());
-        status_check(context::get_status());
+        auto res_tensor = get_tensor();
 
         // Check tensor data is not empty
-        auto raw_data = TF_TensorData(res_tensor);
+        auto raw_data = TF_TensorData(res_tensor.get());
         //this->error_check(raw_data != nullptr, "Tensor data is empty");
 
-        size_t size = TF_TensorByteSize(res_tensor) / TF_DataTypeSize(TF_TensorType(res_tensor));
+        size_t size = TF_TensorByteSize(res_tensor.get()) / TF_DataTypeSize(TF_TensorType(res_tensor.get()));
 
         // Convert to correct type
         const auto T_data = static_cast<T*>(raw_data);
         std::vector<T> r(T_data, T_data + size);
-        TF_DeleteTensor(res_tensor);
 
         return r;
     }
 
     datatype tensor::dtype() const {
         return TFE_TensorHandleDataType(this->tfe_handle.get());
+    }
+    
+    // NOTE: Changes to the returned TF_Tensor are not reflected in the actual device memory!
+    inline std::shared_ptr<TF_Tensor> tensor::get_tensor() const {
+        if(!tf_tensor) {
+            tf_tensor = {TFE_TensorHandleResolve(tfe_handle.get(), context::get_status()), TF_DeleteTensor};
+            status_check(context::get_status());
+        }
+        return tf_tensor;
     }
 }
 

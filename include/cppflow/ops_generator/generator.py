@@ -106,7 +106,7 @@ class Attribute:
                 'type'  : 'TFE_OpSetAttrType(op.get(), "{orig:}", {0});', 
                 'bool'  : 'TFE_OpSetAttrBool(op.get(), "{orig:}", (unsigned char){0});',
                 'tensor': '''
-                           TFE_OpSetAttrTensor(op.get(), "{orig:}", {0}.tf_tensor.get(), context::get_status());
+                           TFE_OpSetAttrTensor(op.get(), "{orig:}", {0}.get_tensor().get(), context::get_status());
                            status_check(context::get_status());
                            ''',
                 'n_attr': 'TFE_OpSetAttrInt(op.get(), "{orig:}", {n_attr:}.size());'
