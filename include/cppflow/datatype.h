@@ -13,7 +13,7 @@ namespace cppflow {
      * @return A string representing dt
      *
      */
-    std::string to_string(datatype dt) {
+    inline std::string to_string(datatype dt) {
         switch (dt) {
             case TF_FLOAT:
                 return "TF_FLOAT";
@@ -103,7 +103,7 @@ namespace cppflow {
      * @return  The stream os after inserting the string representation of dt
      *
      */
-    std::ostream& operator<<(std::ostream& os, datatype dt) {
+    inline std::ostream& operator<<(std::ostream& os, datatype dt) {
         os << to_string(dt);
         return os;
     }
