@@ -142,7 +142,7 @@ class Operation:
         # C++ function body
         template = textwrap.dedent('''
         {}
-        {} {}({}{}) {{
+        inline {} {}({}{}) {{
 
             // Define Op
             std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "{}", context::get_status()), &TFE_DeleteOp);

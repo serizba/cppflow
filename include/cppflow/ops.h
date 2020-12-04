@@ -56,29 +56,29 @@ namespace cppflow {
 
     // Operators
 
-    tensor operator+(const tensor& x, const tensor& y) {
+    inline tensor operator+(const tensor& x, const tensor& y) {
         return add(x, y);
     }
 
-    tensor operator-(const tensor& x, const tensor& y) {
+    inline tensor operator-(const tensor& x, const tensor& y) {
         return sub(x, y);
     }
 
-    tensor operator*(const tensor& x, const tensor& y) {
+    inline tensor operator*(const tensor& x, const tensor& y) {
         return mul(x, y);
     }
 
-    tensor operator/(const tensor& x, const tensor& y) {
+    inline tensor operator/(const tensor& x, const tensor& y) {
         return div(x, y);
     }
 
-    std::ostream& operator<<(std::ostream& os, const cppflow::tensor& t) {
+    inline std::ostream& operator<<(std::ostream& os, const cppflow::tensor& t) {
         std::string res =  to_string(t);
         return os << res;
     }
 
 
-    std::string to_string(const tensor &t) {
+    inline std::string to_string(const tensor &t) {
         auto res_tensor = string_format({t.shape(), t}, "(tensor: shape=%s, data=\n%s)");
         auto res_tensor_h = res_tensor.get_tensor();
 

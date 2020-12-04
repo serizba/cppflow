@@ -23,7 +23,7 @@ namespace cppflow {
 
 
 
-tensor abs(const tensor& x) {
+inline tensor abs(const tensor& x) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Abs", context::get_status()), &TFE_DeleteOp);
@@ -47,7 +47,7 @@ tensor abs(const tensor& x) {
 }
 
 
-tensor accumulate_n_v2(const std::vector<tensor>&inputs, const std::vector<int64_t>& shape) {
+inline tensor accumulate_n_v2(const std::vector<tensor>&inputs, const std::vector<int64_t>& shape) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "AccumulateNV2", context::get_status()), &TFE_DeleteOp);
@@ -77,7 +77,7 @@ tensor accumulate_n_v2(const std::vector<tensor>&inputs, const std::vector<int64
 }
 
 
-tensor accumulator_num_accumulated(const tensor& handle) {
+inline tensor accumulator_num_accumulated(const tensor& handle) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "AccumulatorNumAccumulated", context::get_status()), &TFE_DeleteOp);
@@ -101,7 +101,7 @@ tensor accumulator_num_accumulated(const tensor& handle) {
 }
 
 
-tensor accumulator_take_gradient(const tensor& handle, const tensor& num_required, datatype dtype) {
+inline tensor accumulator_take_gradient(const tensor& handle, const tensor& num_required, datatype dtype) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "AccumulatorTakeGradient", context::get_status()), &TFE_DeleteOp);
@@ -129,7 +129,7 @@ tensor accumulator_take_gradient(const tensor& handle, const tensor& num_require
 }
 
 
-tensor acos(const tensor& x) {
+inline tensor acos(const tensor& x) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Acos", context::get_status()), &TFE_DeleteOp);
@@ -153,7 +153,7 @@ tensor acos(const tensor& x) {
 }
 
 
-tensor acosh(const tensor& x) {
+inline tensor acosh(const tensor& x) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Acosh", context::get_status()), &TFE_DeleteOp);
@@ -177,7 +177,7 @@ tensor acosh(const tensor& x) {
 }
 
 
-tensor add(const tensor& x, const tensor& y) {
+inline tensor add(const tensor& x, const tensor& y) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Add", context::get_status()), &TFE_DeleteOp);
@@ -205,7 +205,7 @@ tensor add(const tensor& x, const tensor& y) {
 }
 
 
-tensor add_many_sparse_to_tensors_map(const tensor& sparse_indices, const tensor& sparse_values, const tensor& sparse_shape, const std::string& container="", const std::string& shared_name="") {
+inline tensor add_many_sparse_to_tensors_map(const tensor& sparse_indices, const tensor& sparse_values, const tensor& sparse_shape, const std::string& container="", const std::string& shared_name="") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "AddManySparseToTensorsMap", context::get_status()), &TFE_DeleteOp);
@@ -238,7 +238,7 @@ tensor add_many_sparse_to_tensors_map(const tensor& sparse_indices, const tensor
 }
 
 
-tensor add_n(const std::vector<tensor>&inputs) {
+inline tensor add_n(const std::vector<tensor>&inputs) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "AddN", context::get_status()), &TFE_DeleteOp);
@@ -264,7 +264,7 @@ tensor add_n(const std::vector<tensor>&inputs) {
 }
 
 
-tensor add_sparse_to_tensors_map(const tensor& sparse_indices, const tensor& sparse_values, const tensor& sparse_shape, const std::string& container="", const std::string& shared_name="") {
+inline tensor add_sparse_to_tensors_map(const tensor& sparse_indices, const tensor& sparse_values, const tensor& sparse_shape, const std::string& container="", const std::string& shared_name="") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "AddSparseToTensorsMap", context::get_status()), &TFE_DeleteOp);
@@ -297,7 +297,7 @@ tensor add_sparse_to_tensors_map(const tensor& sparse_indices, const tensor& spa
 }
 
 
-tensor add_v2(const tensor& x, const tensor& y) {
+inline tensor add_v2(const tensor& x, const tensor& y) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "AddV2", context::get_status()), &TFE_DeleteOp);
@@ -325,7 +325,7 @@ tensor add_v2(const tensor& x, const tensor& y) {
 }
 
 
-tensor adjust_contrast(const tensor& images, const tensor& contrast_factor, const tensor& min_value, const tensor& max_value) {
+inline tensor adjust_contrast(const tensor& images, const tensor& contrast_factor, const tensor& min_value, const tensor& max_value) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "AdjustContrast", context::get_status()), &TFE_DeleteOp);
@@ -361,7 +361,7 @@ tensor adjust_contrast(const tensor& images, const tensor& contrast_factor, cons
 }
 
 
-tensor adjust_contrastv2(const tensor& images, const tensor& contrast_factor) {
+inline tensor adjust_contrastv2(const tensor& images, const tensor& contrast_factor) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "AdjustContrastv2", context::get_status()), &TFE_DeleteOp);
@@ -389,7 +389,7 @@ tensor adjust_contrastv2(const tensor& images, const tensor& contrast_factor) {
 }
 
 
-tensor adjust_hue(const tensor& images, const tensor& delta) {
+inline tensor adjust_hue(const tensor& images, const tensor& delta) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "AdjustHue", context::get_status()), &TFE_DeleteOp);
@@ -417,7 +417,7 @@ tensor adjust_hue(const tensor& images, const tensor& delta) {
 }
 
 
-tensor adjust_saturation(const tensor& images, const tensor& scale) {
+inline tensor adjust_saturation(const tensor& images, const tensor& scale) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "AdjustSaturation", context::get_status()), &TFE_DeleteOp);
@@ -445,7 +445,7 @@ tensor adjust_saturation(const tensor& images, const tensor& scale) {
 }
 
 
-tensor all(const tensor& input, const tensor& reduction_indices, bool keep_dims=false, datatype Tidx=static_cast<datatype>(3)) {
+inline tensor all(const tensor& input, const tensor& reduction_indices, bool keep_dims=false, datatype Tidx=static_cast<datatype>(3)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "All", context::get_status()), &TFE_DeleteOp);
@@ -474,7 +474,7 @@ tensor all(const tensor& input, const tensor& reduction_indices, bool keep_dims=
 }
 
 
-tensor all_to_all(const tensor& input, const tensor& group_assignment, int64_t concat_dimension, int64_t split_dimension, int64_t split_count) {
+inline tensor all_to_all(const tensor& input, const tensor& group_assignment, int64_t concat_dimension, int64_t split_dimension, int64_t split_count) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "AllToAll", context::get_status()), &TFE_DeleteOp);
@@ -504,7 +504,7 @@ tensor all_to_all(const tensor& input, const tensor& group_assignment, int64_t c
 }
 
 
-tensor angle(const tensor& input, datatype Tout=static_cast<datatype>(1)) {
+inline tensor angle(const tensor& input, datatype Tout=static_cast<datatype>(1)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Angle", context::get_status()), &TFE_DeleteOp);
@@ -528,7 +528,7 @@ tensor angle(const tensor& input, datatype Tout=static_cast<datatype>(1)) {
 }
 
 
-tensor anonymous_iterator(const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
+inline tensor anonymous_iterator(const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "AnonymousIterator", context::get_status()), &TFE_DeleteOp);
@@ -557,7 +557,7 @@ tensor anonymous_iterator(const std::vector<datatype>& output_types, const std::
 }
 
 
-tensor any(const tensor& input, const tensor& reduction_indices, bool keep_dims=false, datatype Tidx=static_cast<datatype>(3)) {
+inline tensor any(const tensor& input, const tensor& reduction_indices, bool keep_dims=false, datatype Tidx=static_cast<datatype>(3)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Any", context::get_status()), &TFE_DeleteOp);
@@ -586,7 +586,7 @@ tensor any(const tensor& input, const tensor& reduction_indices, bool keep_dims=
 }
 
 
-tensor apply_ada_max(const tensor& var, const tensor& m, const tensor& v, const tensor& beta1_power, const tensor& lr, const tensor& beta1, const tensor& beta2, const tensor& epsilon, const tensor& grad, bool use_locking=false) {
+inline tensor apply_ada_max(const tensor& var, const tensor& m, const tensor& v, const tensor& beta1_power, const tensor& lr, const tensor& beta1, const tensor& beta2, const tensor& epsilon, const tensor& grad, bool use_locking=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ApplyAdaMax", context::get_status()), &TFE_DeleteOp);
@@ -642,7 +642,7 @@ tensor apply_ada_max(const tensor& var, const tensor& m, const tensor& v, const 
 }
 
 
-tensor apply_adadelta(const tensor& var, const tensor& accum, const tensor& accum_update, const tensor& lr, const tensor& rho, const tensor& epsilon, const tensor& grad, bool use_locking=false) {
+inline tensor apply_adadelta(const tensor& var, const tensor& accum, const tensor& accum_update, const tensor& lr, const tensor& rho, const tensor& epsilon, const tensor& grad, bool use_locking=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ApplyAdadelta", context::get_status()), &TFE_DeleteOp);
@@ -690,7 +690,7 @@ tensor apply_adadelta(const tensor& var, const tensor& accum, const tensor& accu
 }
 
 
-tensor apply_adagrad(const tensor& var, const tensor& accum, const tensor& lr, const tensor& grad, bool use_locking=false, bool update_slots=true) {
+inline tensor apply_adagrad(const tensor& var, const tensor& accum, const tensor& lr, const tensor& grad, bool use_locking=false, bool update_slots=true) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ApplyAdagrad", context::get_status()), &TFE_DeleteOp);
@@ -727,7 +727,7 @@ tensor apply_adagrad(const tensor& var, const tensor& accum, const tensor& lr, c
 }
 
 
-tensor apply_adagrad_d_a(const tensor& var, const tensor& gradient_accumulator, const tensor& gradient_squared_accumulator, const tensor& grad, const tensor& lr, const tensor& l1, const tensor& l2, const tensor& global_step, bool use_locking=false) {
+inline tensor apply_adagrad_d_a(const tensor& var, const tensor& gradient_accumulator, const tensor& gradient_squared_accumulator, const tensor& grad, const tensor& lr, const tensor& l1, const tensor& l2, const tensor& global_step, bool use_locking=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ApplyAdagradDA", context::get_status()), &TFE_DeleteOp);
@@ -779,7 +779,7 @@ tensor apply_adagrad_d_a(const tensor& var, const tensor& gradient_accumulator, 
 }
 
 
-tensor apply_adagrad_v2(const tensor& var, const tensor& accum, const tensor& lr, const tensor& epsilon, const tensor& grad, bool use_locking=false, bool update_slots=true) {
+inline tensor apply_adagrad_v2(const tensor& var, const tensor& accum, const tensor& lr, const tensor& epsilon, const tensor& grad, bool use_locking=false, bool update_slots=true) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ApplyAdagradV2", context::get_status()), &TFE_DeleteOp);
@@ -820,7 +820,7 @@ tensor apply_adagrad_v2(const tensor& var, const tensor& accum, const tensor& lr
 }
 
 
-tensor apply_adam(const tensor& var, const tensor& m, const tensor& v, const tensor& beta1_power, const tensor& beta2_power, const tensor& lr, const tensor& beta1, const tensor& beta2, const tensor& epsilon, const tensor& grad, bool use_locking=false, bool use_nesterov=false) {
+inline tensor apply_adam(const tensor& var, const tensor& m, const tensor& v, const tensor& beta1_power, const tensor& beta2_power, const tensor& lr, const tensor& beta1, const tensor& beta2, const tensor& epsilon, const tensor& grad, bool use_locking=false, bool use_nesterov=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ApplyAdam", context::get_status()), &TFE_DeleteOp);
@@ -881,7 +881,7 @@ tensor apply_adam(const tensor& var, const tensor& m, const tensor& v, const ten
 }
 
 
-tensor apply_add_sign(const tensor& var, const tensor& m, const tensor& lr, const tensor& alpha, const tensor& sign_decay, const tensor& beta, const tensor& grad, bool use_locking=false) {
+inline tensor apply_add_sign(const tensor& var, const tensor& m, const tensor& lr, const tensor& alpha, const tensor& sign_decay, const tensor& beta, const tensor& grad, bool use_locking=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ApplyAddSign", context::get_status()), &TFE_DeleteOp);
@@ -929,7 +929,7 @@ tensor apply_add_sign(const tensor& var, const tensor& m, const tensor& lr, cons
 }
 
 
-tensor apply_centered_r_m_s_prop(const tensor& var, const tensor& mg, const tensor& ms, const tensor& mom, const tensor& lr, const tensor& rho, const tensor& momentum, const tensor& epsilon, const tensor& grad, bool use_locking=false) {
+inline tensor apply_centered_r_m_s_prop(const tensor& var, const tensor& mg, const tensor& ms, const tensor& mom, const tensor& lr, const tensor& rho, const tensor& momentum, const tensor& epsilon, const tensor& grad, bool use_locking=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ApplyCenteredRMSProp", context::get_status()), &TFE_DeleteOp);
@@ -985,7 +985,7 @@ tensor apply_centered_r_m_s_prop(const tensor& var, const tensor& mg, const tens
 }
 
 
-tensor apply_ftrl(const tensor& var, const tensor& accum, const tensor& linear, const tensor& grad, const tensor& lr, const tensor& l1, const tensor& l2, const tensor& lr_power, bool use_locking=false, bool multiply_linear_by_lr=false) {
+inline tensor apply_ftrl(const tensor& var, const tensor& accum, const tensor& linear, const tensor& grad, const tensor& lr, const tensor& l1, const tensor& l2, const tensor& lr_power, bool use_locking=false, bool multiply_linear_by_lr=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ApplyFtrl", context::get_status()), &TFE_DeleteOp);
@@ -1038,7 +1038,7 @@ tensor apply_ftrl(const tensor& var, const tensor& accum, const tensor& linear, 
 }
 
 
-tensor apply_ftrl_v2(const tensor& var, const tensor& accum, const tensor& linear, const tensor& grad, const tensor& lr, const tensor& l1, const tensor& l2, const tensor& l2_shrinkage, const tensor& lr_power, bool use_locking=false, bool multiply_linear_by_lr=false) {
+inline tensor apply_ftrl_v2(const tensor& var, const tensor& accum, const tensor& linear, const tensor& grad, const tensor& lr, const tensor& l1, const tensor& l2, const tensor& l2_shrinkage, const tensor& lr_power, bool use_locking=false, bool multiply_linear_by_lr=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ApplyFtrlV2", context::get_status()), &TFE_DeleteOp);
@@ -1095,7 +1095,7 @@ tensor apply_ftrl_v2(const tensor& var, const tensor& accum, const tensor& linea
 }
 
 
-tensor apply_gradient_descent(const tensor& var, const tensor& alpha, const tensor& delta, bool use_locking=false) {
+inline tensor apply_gradient_descent(const tensor& var, const tensor& alpha, const tensor& delta, bool use_locking=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ApplyGradientDescent", context::get_status()), &TFE_DeleteOp);
@@ -1127,7 +1127,7 @@ tensor apply_gradient_descent(const tensor& var, const tensor& alpha, const tens
 }
 
 
-tensor apply_momentum(const tensor& var, const tensor& accum, const tensor& lr, const tensor& grad, const tensor& momentum, bool use_locking=false, bool use_nesterov=false) {
+inline tensor apply_momentum(const tensor& var, const tensor& accum, const tensor& lr, const tensor& grad, const tensor& momentum, bool use_locking=false, bool use_nesterov=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ApplyMomentum", context::get_status()), &TFE_DeleteOp);
@@ -1168,7 +1168,7 @@ tensor apply_momentum(const tensor& var, const tensor& accum, const tensor& lr, 
 }
 
 
-tensor apply_power_sign(const tensor& var, const tensor& m, const tensor& lr, const tensor& logbase, const tensor& sign_decay, const tensor& beta, const tensor& grad, bool use_locking=false) {
+inline tensor apply_power_sign(const tensor& var, const tensor& m, const tensor& lr, const tensor& logbase, const tensor& sign_decay, const tensor& beta, const tensor& grad, bool use_locking=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ApplyPowerSign", context::get_status()), &TFE_DeleteOp);
@@ -1216,7 +1216,7 @@ tensor apply_power_sign(const tensor& var, const tensor& m, const tensor& lr, co
 }
 
 
-tensor apply_proximal_adagrad(const tensor& var, const tensor& accum, const tensor& lr, const tensor& l1, const tensor& l2, const tensor& grad, bool use_locking=false) {
+inline tensor apply_proximal_adagrad(const tensor& var, const tensor& accum, const tensor& lr, const tensor& l1, const tensor& l2, const tensor& grad, bool use_locking=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ApplyProximalAdagrad", context::get_status()), &TFE_DeleteOp);
@@ -1260,7 +1260,7 @@ tensor apply_proximal_adagrad(const tensor& var, const tensor& accum, const tens
 }
 
 
-tensor apply_proximal_gradient_descent(const tensor& var, const tensor& alpha, const tensor& l1, const tensor& l2, const tensor& delta, bool use_locking=false) {
+inline tensor apply_proximal_gradient_descent(const tensor& var, const tensor& alpha, const tensor& l1, const tensor& l2, const tensor& delta, bool use_locking=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ApplyProximalGradientDescent", context::get_status()), &TFE_DeleteOp);
@@ -1300,7 +1300,7 @@ tensor apply_proximal_gradient_descent(const tensor& var, const tensor& alpha, c
 }
 
 
-tensor apply_r_m_s_prop(const tensor& var, const tensor& ms, const tensor& mom, const tensor& lr, const tensor& rho, const tensor& momentum, const tensor& epsilon, const tensor& grad, bool use_locking=false) {
+inline tensor apply_r_m_s_prop(const tensor& var, const tensor& ms, const tensor& mom, const tensor& lr, const tensor& rho, const tensor& momentum, const tensor& epsilon, const tensor& grad, bool use_locking=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ApplyRMSProp", context::get_status()), &TFE_DeleteOp);
@@ -1352,7 +1352,7 @@ tensor apply_r_m_s_prop(const tensor& var, const tensor& ms, const tensor& mom, 
 }
 
 
-tensor approximate_equal(const tensor& x, const tensor& y, float tolerance=1.0000e-05) {
+inline tensor approximate_equal(const tensor& x, const tensor& y, float tolerance=1.0000e-05) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ApproximateEqual", context::get_status()), &TFE_DeleteOp);
@@ -1380,7 +1380,7 @@ tensor approximate_equal(const tensor& x, const tensor& y, float tolerance=1.000
 }
 
 
-tensor arg_max(const tensor& input, const tensor& dimension, datatype Tidx=static_cast<datatype>(3), datatype output_type=static_cast<datatype>(9)) {
+inline tensor arg_max(const tensor& input, const tensor& dimension, datatype Tidx=static_cast<datatype>(3), datatype output_type=static_cast<datatype>(9)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ArgMax", context::get_status()), &TFE_DeleteOp);
@@ -1409,7 +1409,7 @@ tensor arg_max(const tensor& input, const tensor& dimension, datatype Tidx=stati
 }
 
 
-tensor arg_min(const tensor& input, const tensor& dimension, datatype Tidx=static_cast<datatype>(3), datatype output_type=static_cast<datatype>(9)) {
+inline tensor arg_min(const tensor& input, const tensor& dimension, datatype Tidx=static_cast<datatype>(3), datatype output_type=static_cast<datatype>(9)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ArgMin", context::get_status()), &TFE_DeleteOp);
@@ -1438,7 +1438,7 @@ tensor arg_min(const tensor& input, const tensor& dimension, datatype Tidx=stati
 }
 
 
-tensor as_string(const tensor& input, int64_t precision=-1, bool scientific=false, bool shortest=false, int64_t width=-1, const std::string& fill="") {
+inline tensor as_string(const tensor& input, int64_t precision=-1, bool scientific=false, bool shortest=false, int64_t width=-1, const std::string& fill="") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "AsString", context::get_status()), &TFE_DeleteOp);
@@ -1466,7 +1466,7 @@ tensor as_string(const tensor& input, int64_t precision=-1, bool scientific=fals
 }
 
 
-tensor asin(const tensor& x) {
+inline tensor asin(const tensor& x) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Asin", context::get_status()), &TFE_DeleteOp);
@@ -1490,7 +1490,7 @@ tensor asin(const tensor& x) {
 }
 
 
-tensor asinh(const tensor& x) {
+inline tensor asinh(const tensor& x) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Asinh", context::get_status()), &TFE_DeleteOp);
@@ -1514,7 +1514,7 @@ tensor asinh(const tensor& x) {
 }
 
 
-tensor assert_cardinality_dataset(const tensor& input_dataset, const tensor& cardinality, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
+inline tensor assert_cardinality_dataset(const tensor& input_dataset, const tensor& cardinality, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "AssertCardinalityDataset", context::get_status()), &TFE_DeleteOp);
@@ -1550,7 +1550,7 @@ tensor assert_cardinality_dataset(const tensor& input_dataset, const tensor& car
 }
 
 
-tensor assert_next_dataset(const tensor& input_dataset, const tensor& transformations, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
+inline tensor assert_next_dataset(const tensor& input_dataset, const tensor& transformations, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "AssertNextDataset", context::get_status()), &TFE_DeleteOp);
@@ -1586,7 +1586,7 @@ tensor assert_next_dataset(const tensor& input_dataset, const tensor& transforma
 }
 
 
-tensor assign(const tensor& ref, const tensor& value, bool validate_shape=true, bool use_locking=true) {
+inline tensor assign(const tensor& ref, const tensor& value, bool validate_shape=true, bool use_locking=true) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Assign", context::get_status()), &TFE_DeleteOp);
@@ -1615,7 +1615,7 @@ tensor assign(const tensor& ref, const tensor& value, bool validate_shape=true, 
 }
 
 
-tensor assign_add(const tensor& ref, const tensor& value, bool use_locking=false) {
+inline tensor assign_add(const tensor& ref, const tensor& value, bool use_locking=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "AssignAdd", context::get_status()), &TFE_DeleteOp);
@@ -1643,7 +1643,7 @@ tensor assign_add(const tensor& ref, const tensor& value, bool use_locking=false
 }
 
 
-tensor assign_sub(const tensor& ref, const tensor& value, bool use_locking=false) {
+inline tensor assign_sub(const tensor& ref, const tensor& value, bool use_locking=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "AssignSub", context::get_status()), &TFE_DeleteOp);
@@ -1671,7 +1671,7 @@ tensor assign_sub(const tensor& ref, const tensor& value, bool use_locking=false
 }
 
 
-tensor atan(const tensor& x) {
+inline tensor atan(const tensor& x) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Atan", context::get_status()), &TFE_DeleteOp);
@@ -1695,7 +1695,7 @@ tensor atan(const tensor& x) {
 }
 
 
-tensor atan2(const tensor& y, const tensor& x) {
+inline tensor atan2(const tensor& y, const tensor& x) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Atan2", context::get_status()), &TFE_DeleteOp);
@@ -1723,7 +1723,7 @@ tensor atan2(const tensor& y, const tensor& x) {
 }
 
 
-tensor atanh(const tensor& x) {
+inline tensor atanh(const tensor& x) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Atanh", context::get_status()), &TFE_DeleteOp);
@@ -1747,7 +1747,7 @@ tensor atanh(const tensor& x) {
 }
 
 
-tensor audio_spectrogram(const tensor& input, int64_t window_size, int64_t stride, bool magnitude_squared=false) {
+inline tensor audio_spectrogram(const tensor& input, int64_t window_size, int64_t stride, bool magnitude_squared=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "AudioSpectrogram", context::get_status()), &TFE_DeleteOp);
@@ -1773,7 +1773,7 @@ tensor audio_spectrogram(const tensor& input, int64_t window_size, int64_t strid
 }
 
 
-tensor audio_summary(const tensor& tag, const tensor& input_tensor, float sample_rate, int64_t max_outputs=3) {
+inline tensor audio_summary(const tensor& tag, const tensor& input_tensor, float sample_rate, int64_t max_outputs=3) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "AudioSummary", context::get_status()), &TFE_DeleteOp);
@@ -1802,7 +1802,7 @@ tensor audio_summary(const tensor& tag, const tensor& input_tensor, float sample
 }
 
 
-tensor audio_summary_v2(const tensor& tag, const tensor& input_tensor, const tensor& sample_rate, int64_t max_outputs=3) {
+inline tensor audio_summary_v2(const tensor& tag, const tensor& input_tensor, const tensor& sample_rate, int64_t max_outputs=3) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "AudioSummaryV2", context::get_status()), &TFE_DeleteOp);
@@ -1834,7 +1834,7 @@ tensor audio_summary_v2(const tensor& tag, const tensor& input_tensor, const ten
 }
 
 
-tensor auto_shard_dataset(const tensor& input_dataset, const tensor& num_workers, const tensor& index, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes, int64_t auto_shard_policy=0) {
+inline tensor auto_shard_dataset(const tensor& input_dataset, const tensor& num_workers, const tensor& index, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes, int64_t auto_shard_policy=0) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "AutoShardDataset", context::get_status()), &TFE_DeleteOp);
@@ -1875,7 +1875,7 @@ tensor auto_shard_dataset(const tensor& input_dataset, const tensor& num_workers
 }
 
 
-tensor avg_pool(const tensor& value, const std::vector<int64_t>& ksize, const std::vector<int64_t>& strides, const std::string& padding, const std::string& data_format="NHWC") {
+inline tensor avg_pool(const tensor& value, const std::vector<int64_t>& ksize, const std::vector<int64_t>& strides, const std::string& padding, const std::string& data_format="NHWC") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "AvgPool", context::get_status()), &TFE_DeleteOp);
@@ -1902,7 +1902,7 @@ tensor avg_pool(const tensor& value, const std::vector<int64_t>& ksize, const st
 }
 
 
-tensor avg_pool3_d(const tensor& input, const std::vector<int64_t>& ksize, const std::vector<int64_t>& strides, const std::string& padding, const std::string& data_format="NDHWC") {
+inline tensor avg_pool3_d(const tensor& input, const std::vector<int64_t>& ksize, const std::vector<int64_t>& strides, const std::string& padding, const std::string& data_format="NDHWC") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "AvgPool3D", context::get_status()), &TFE_DeleteOp);
@@ -1929,7 +1929,7 @@ tensor avg_pool3_d(const tensor& input, const std::vector<int64_t>& ksize, const
 }
 
 
-tensor avg_pool3_d_grad(const tensor& orig_input_shape, const tensor& grad, const std::vector<int64_t>& ksize, const std::vector<int64_t>& strides, const std::string& padding, const std::string& data_format="NDHWC") {
+inline tensor avg_pool3_d_grad(const tensor& orig_input_shape, const tensor& grad, const std::vector<int64_t>& ksize, const std::vector<int64_t>& strides, const std::string& padding, const std::string& data_format="NDHWC") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "AvgPool3DGrad", context::get_status()), &TFE_DeleteOp);
@@ -1960,7 +1960,7 @@ tensor avg_pool3_d_grad(const tensor& orig_input_shape, const tensor& grad, cons
 }
 
 
-tensor avg_pool_grad(const tensor& orig_input_shape, const tensor& grad, const std::vector<int64_t>& ksize, const std::vector<int64_t>& strides, const std::string& padding, const std::string& data_format="NHWC") {
+inline tensor avg_pool_grad(const tensor& orig_input_shape, const tensor& grad, const std::vector<int64_t>& ksize, const std::vector<int64_t>& strides, const std::string& padding, const std::string& data_format="NHWC") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "AvgPoolGrad", context::get_status()), &TFE_DeleteOp);
@@ -1991,7 +1991,7 @@ tensor avg_pool_grad(const tensor& orig_input_shape, const tensor& grad, const s
 }
 
 
-tensor banded_triangular_solve(const tensor& matrix, const tensor& rhs, bool lower=true, bool adjoint=false) {
+inline tensor banded_triangular_solve(const tensor& matrix, const tensor& rhs, bool lower=true, bool adjoint=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "BandedTriangularSolve", context::get_status()), &TFE_DeleteOp);
@@ -2020,7 +2020,7 @@ tensor banded_triangular_solve(const tensor& matrix, const tensor& rhs, bool low
 }
 
 
-tensor barrier(const std::vector<datatype>& component_types, const std::vector< std::vector<int64_t>>& shapes, int64_t capacity=-1, const std::string& container="", const std::string& shared_name="") {
+inline tensor barrier(const std::vector<datatype>& component_types, const std::vector< std::vector<int64_t>>& shapes, int64_t capacity=-1, const std::string& container="", const std::string& shared_name="") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Barrier", context::get_status()), &TFE_DeleteOp);
@@ -2052,7 +2052,7 @@ tensor barrier(const std::vector<datatype>& component_types, const std::vector< 
 }
 
 
-tensor barrier_incomplete_size(const tensor& handle) {
+inline tensor barrier_incomplete_size(const tensor& handle) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "BarrierIncompleteSize", context::get_status()), &TFE_DeleteOp);
@@ -2076,7 +2076,7 @@ tensor barrier_incomplete_size(const tensor& handle) {
 }
 
 
-tensor barrier_ready_size(const tensor& handle) {
+inline tensor barrier_ready_size(const tensor& handle) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "BarrierReadySize", context::get_status()), &TFE_DeleteOp);
@@ -2100,7 +2100,7 @@ tensor barrier_ready_size(const tensor& handle) {
 }
 
 
-tensor batch_cholesky(const tensor& input) {
+inline tensor batch_cholesky(const tensor& input) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "BatchCholesky", context::get_status()), &TFE_DeleteOp);
@@ -2124,7 +2124,7 @@ tensor batch_cholesky(const tensor& input) {
 }
 
 
-tensor batch_cholesky_grad(const tensor& l, const tensor& grad) {
+inline tensor batch_cholesky_grad(const tensor& l, const tensor& grad) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "BatchCholeskyGrad", context::get_status()), &TFE_DeleteOp);
@@ -2152,7 +2152,7 @@ tensor batch_cholesky_grad(const tensor& l, const tensor& grad) {
 }
 
 
-tensor batch_dataset(const tensor& input_dataset, const tensor& batch_size, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
+inline tensor batch_dataset(const tensor& input_dataset, const tensor& batch_size, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "BatchDataset", context::get_status()), &TFE_DeleteOp);
@@ -2188,7 +2188,7 @@ tensor batch_dataset(const tensor& input_dataset, const tensor& batch_size, cons
 }
 
 
-tensor batch_dataset_v2(const tensor& input_dataset, const tensor& batch_size, const tensor& drop_remainder, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes, bool parallel_copy=false) {
+inline tensor batch_dataset_v2(const tensor& input_dataset, const tensor& batch_size, const tensor& drop_remainder, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes, bool parallel_copy=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "BatchDatasetV2", context::get_status()), &TFE_DeleteOp);
@@ -2229,7 +2229,7 @@ tensor batch_dataset_v2(const tensor& input_dataset, const tensor& batch_size, c
 }
 
 
-tensor batch_f_f_t(const tensor& input) {
+inline tensor batch_f_f_t(const tensor& input) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "BatchFFT", context::get_status()), &TFE_DeleteOp);
@@ -2253,7 +2253,7 @@ tensor batch_f_f_t(const tensor& input) {
 }
 
 
-tensor batch_f_f_t2_d(const tensor& input) {
+inline tensor batch_f_f_t2_d(const tensor& input) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "BatchFFT2D", context::get_status()), &TFE_DeleteOp);
@@ -2277,7 +2277,7 @@ tensor batch_f_f_t2_d(const tensor& input) {
 }
 
 
-tensor batch_f_f_t3_d(const tensor& input) {
+inline tensor batch_f_f_t3_d(const tensor& input) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "BatchFFT3D", context::get_status()), &TFE_DeleteOp);
@@ -2301,7 +2301,7 @@ tensor batch_f_f_t3_d(const tensor& input) {
 }
 
 
-tensor batch_i_f_f_t(const tensor& input) {
+inline tensor batch_i_f_f_t(const tensor& input) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "BatchIFFT", context::get_status()), &TFE_DeleteOp);
@@ -2325,7 +2325,7 @@ tensor batch_i_f_f_t(const tensor& input) {
 }
 
 
-tensor batch_i_f_f_t2_d(const tensor& input) {
+inline tensor batch_i_f_f_t2_d(const tensor& input) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "BatchIFFT2D", context::get_status()), &TFE_DeleteOp);
@@ -2349,7 +2349,7 @@ tensor batch_i_f_f_t2_d(const tensor& input) {
 }
 
 
-tensor batch_i_f_f_t3_d(const tensor& input) {
+inline tensor batch_i_f_f_t3_d(const tensor& input) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "BatchIFFT3D", context::get_status()), &TFE_DeleteOp);
@@ -2373,7 +2373,7 @@ tensor batch_i_f_f_t3_d(const tensor& input) {
 }
 
 
-tensor batch_mat_mul(const tensor& x, const tensor& y, bool adj_x=false, bool adj_y=false) {
+inline tensor batch_mat_mul(const tensor& x, const tensor& y, bool adj_x=false, bool adj_y=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "BatchMatMul", context::get_status()), &TFE_DeleteOp);
@@ -2402,7 +2402,7 @@ tensor batch_mat_mul(const tensor& x, const tensor& y, bool adj_x=false, bool ad
 }
 
 
-tensor batch_mat_mul_v2(const tensor& x, const tensor& y, bool adj_x=false, bool adj_y=false) {
+inline tensor batch_mat_mul_v2(const tensor& x, const tensor& y, bool adj_x=false, bool adj_y=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "BatchMatMulV2", context::get_status()), &TFE_DeleteOp);
@@ -2431,7 +2431,7 @@ tensor batch_mat_mul_v2(const tensor& x, const tensor& y, bool adj_x=false, bool
 }
 
 
-tensor batch_matrix_band_part(const tensor& input, const tensor& num_lower, const tensor& num_upper) {
+inline tensor batch_matrix_band_part(const tensor& input, const tensor& num_lower, const tensor& num_upper) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "BatchMatrixBandPart", context::get_status()), &TFE_DeleteOp);
@@ -2463,7 +2463,7 @@ tensor batch_matrix_band_part(const tensor& input, const tensor& num_lower, cons
 }
 
 
-tensor batch_matrix_determinant(const tensor& input) {
+inline tensor batch_matrix_determinant(const tensor& input) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "BatchMatrixDeterminant", context::get_status()), &TFE_DeleteOp);
@@ -2487,7 +2487,7 @@ tensor batch_matrix_determinant(const tensor& input) {
 }
 
 
-tensor batch_matrix_diag(const tensor& diagonal) {
+inline tensor batch_matrix_diag(const tensor& diagonal) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "BatchMatrixDiag", context::get_status()), &TFE_DeleteOp);
@@ -2511,7 +2511,7 @@ tensor batch_matrix_diag(const tensor& diagonal) {
 }
 
 
-tensor batch_matrix_diag_part(const tensor& input) {
+inline tensor batch_matrix_diag_part(const tensor& input) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "BatchMatrixDiagPart", context::get_status()), &TFE_DeleteOp);
@@ -2535,7 +2535,7 @@ tensor batch_matrix_diag_part(const tensor& input) {
 }
 
 
-tensor batch_matrix_inverse(const tensor& input, bool adjoint=false) {
+inline tensor batch_matrix_inverse(const tensor& input, bool adjoint=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "BatchMatrixInverse", context::get_status()), &TFE_DeleteOp);
@@ -2559,7 +2559,7 @@ tensor batch_matrix_inverse(const tensor& input, bool adjoint=false) {
 }
 
 
-tensor batch_matrix_set_diag(const tensor& input, const tensor& diagonal) {
+inline tensor batch_matrix_set_diag(const tensor& input, const tensor& diagonal) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "BatchMatrixSetDiag", context::get_status()), &TFE_DeleteOp);
@@ -2587,7 +2587,7 @@ tensor batch_matrix_set_diag(const tensor& input, const tensor& diagonal) {
 }
 
 
-tensor batch_matrix_solve(const tensor& matrix, const tensor& rhs, bool adjoint=false) {
+inline tensor batch_matrix_solve(const tensor& matrix, const tensor& rhs, bool adjoint=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "BatchMatrixSolve", context::get_status()), &TFE_DeleteOp);
@@ -2615,7 +2615,7 @@ tensor batch_matrix_solve(const tensor& matrix, const tensor& rhs, bool adjoint=
 }
 
 
-tensor batch_matrix_solve_ls(const tensor& matrix, const tensor& rhs, const tensor& l2_regularizer, bool fast=true) {
+inline tensor batch_matrix_solve_ls(const tensor& matrix, const tensor& rhs, const tensor& l2_regularizer, bool fast=true) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "BatchMatrixSolveLs", context::get_status()), &TFE_DeleteOp);
@@ -2647,7 +2647,7 @@ tensor batch_matrix_solve_ls(const tensor& matrix, const tensor& rhs, const tens
 }
 
 
-tensor batch_matrix_triangular_solve(const tensor& matrix, const tensor& rhs, bool lower=true, bool adjoint=false) {
+inline tensor batch_matrix_triangular_solve(const tensor& matrix, const tensor& rhs, bool lower=true, bool adjoint=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "BatchMatrixTriangularSolve", context::get_status()), &TFE_DeleteOp);
@@ -2676,7 +2676,7 @@ tensor batch_matrix_triangular_solve(const tensor& matrix, const tensor& rhs, bo
 }
 
 
-tensor batch_norm_with_global_normalization(const tensor& t, const tensor& m, const tensor& v, const tensor& beta, const tensor& gamma, float variance_epsilon, bool scale_after_normalization) {
+inline tensor batch_norm_with_global_normalization(const tensor& t, const tensor& m, const tensor& v, const tensor& beta, const tensor& gamma, float variance_epsilon, bool scale_after_normalization) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "BatchNormWithGlobalNormalization", context::get_status()), &TFE_DeleteOp);
@@ -2717,7 +2717,7 @@ tensor batch_norm_with_global_normalization(const tensor& t, const tensor& m, co
 }
 
 
-tensor batch_self_adjoint_eig(const tensor& input) {
+inline tensor batch_self_adjoint_eig(const tensor& input) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "BatchSelfAdjointEig", context::get_status()), &TFE_DeleteOp);
@@ -2741,7 +2741,7 @@ tensor batch_self_adjoint_eig(const tensor& input) {
 }
 
 
-tensor batch_to_space(const tensor& input, const tensor& crops, int64_t block_size, datatype Tidx=static_cast<datatype>(3)) {
+inline tensor batch_to_space(const tensor& input, const tensor& crops, int64_t block_size, datatype Tidx=static_cast<datatype>(3)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "BatchToSpace", context::get_status()), &TFE_DeleteOp);
@@ -2770,7 +2770,7 @@ tensor batch_to_space(const tensor& input, const tensor& crops, int64_t block_si
 }
 
 
-tensor batch_to_space_n_d(const tensor& input, const tensor& block_shape, const tensor& crops, datatype Tblock_shape=static_cast<datatype>(3), datatype Tcrops=static_cast<datatype>(3)) {
+inline tensor batch_to_space_n_d(const tensor& input, const tensor& block_shape, const tensor& crops, datatype Tblock_shape=static_cast<datatype>(3), datatype Tcrops=static_cast<datatype>(3)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "BatchToSpaceND", context::get_status()), &TFE_DeleteOp);
@@ -2803,7 +2803,7 @@ tensor batch_to_space_n_d(const tensor& input, const tensor& block_shape, const 
 }
 
 
-tensor bessel_i0(const tensor& x) {
+inline tensor bessel_i0(const tensor& x) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "BesselI0", context::get_status()), &TFE_DeleteOp);
@@ -2827,7 +2827,7 @@ tensor bessel_i0(const tensor& x) {
 }
 
 
-tensor bessel_i0e(const tensor& x) {
+inline tensor bessel_i0e(const tensor& x) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "BesselI0e", context::get_status()), &TFE_DeleteOp);
@@ -2851,7 +2851,7 @@ tensor bessel_i0e(const tensor& x) {
 }
 
 
-tensor bessel_i1(const tensor& x) {
+inline tensor bessel_i1(const tensor& x) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "BesselI1", context::get_status()), &TFE_DeleteOp);
@@ -2875,7 +2875,7 @@ tensor bessel_i1(const tensor& x) {
 }
 
 
-tensor bessel_i1e(const tensor& x) {
+inline tensor bessel_i1e(const tensor& x) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "BesselI1e", context::get_status()), &TFE_DeleteOp);
@@ -2899,7 +2899,7 @@ tensor bessel_i1e(const tensor& x) {
 }
 
 
-tensor bessel_j0(const tensor& x) {
+inline tensor bessel_j0(const tensor& x) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "BesselJ0", context::get_status()), &TFE_DeleteOp);
@@ -2923,7 +2923,7 @@ tensor bessel_j0(const tensor& x) {
 }
 
 
-tensor bessel_j1(const tensor& x) {
+inline tensor bessel_j1(const tensor& x) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "BesselJ1", context::get_status()), &TFE_DeleteOp);
@@ -2947,7 +2947,7 @@ tensor bessel_j1(const tensor& x) {
 }
 
 
-tensor bessel_k0(const tensor& x) {
+inline tensor bessel_k0(const tensor& x) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "BesselK0", context::get_status()), &TFE_DeleteOp);
@@ -2971,7 +2971,7 @@ tensor bessel_k0(const tensor& x) {
 }
 
 
-tensor bessel_k0e(const tensor& x) {
+inline tensor bessel_k0e(const tensor& x) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "BesselK0e", context::get_status()), &TFE_DeleteOp);
@@ -2995,7 +2995,7 @@ tensor bessel_k0e(const tensor& x) {
 }
 
 
-tensor bessel_k1(const tensor& x) {
+inline tensor bessel_k1(const tensor& x) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "BesselK1", context::get_status()), &TFE_DeleteOp);
@@ -3019,7 +3019,7 @@ tensor bessel_k1(const tensor& x) {
 }
 
 
-tensor bessel_k1e(const tensor& x) {
+inline tensor bessel_k1e(const tensor& x) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "BesselK1e", context::get_status()), &TFE_DeleteOp);
@@ -3043,7 +3043,7 @@ tensor bessel_k1e(const tensor& x) {
 }
 
 
-tensor bessel_y0(const tensor& x) {
+inline tensor bessel_y0(const tensor& x) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "BesselY0", context::get_status()), &TFE_DeleteOp);
@@ -3067,7 +3067,7 @@ tensor bessel_y0(const tensor& x) {
 }
 
 
-tensor bessel_y1(const tensor& x) {
+inline tensor bessel_y1(const tensor& x) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "BesselY1", context::get_status()), &TFE_DeleteOp);
@@ -3091,7 +3091,7 @@ tensor bessel_y1(const tensor& x) {
 }
 
 
-tensor betainc(const tensor& a, const tensor& b, const tensor& x) {
+inline tensor betainc(const tensor& a, const tensor& b, const tensor& x) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Betainc", context::get_status()), &TFE_DeleteOp);
@@ -3123,7 +3123,7 @@ tensor betainc(const tensor& a, const tensor& b, const tensor& x) {
 }
 
 
-tensor bias_add(const tensor& value, const tensor& bias, const std::string& data_format="NHWC") {
+inline tensor bias_add(const tensor& value, const tensor& bias, const std::string& data_format="NHWC") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "BiasAdd", context::get_status()), &TFE_DeleteOp);
@@ -3151,7 +3151,7 @@ tensor bias_add(const tensor& value, const tensor& bias, const std::string& data
 }
 
 
-tensor bias_add_grad(const tensor& out_backprop, const std::string& data_format="NHWC") {
+inline tensor bias_add_grad(const tensor& out_backprop, const std::string& data_format="NHWC") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "BiasAddGrad", context::get_status()), &TFE_DeleteOp);
@@ -3175,7 +3175,7 @@ tensor bias_add_grad(const tensor& out_backprop, const std::string& data_format=
 }
 
 
-tensor bias_add_v1(const tensor& value, const tensor& bias) {
+inline tensor bias_add_v1(const tensor& value, const tensor& bias) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "BiasAddV1", context::get_status()), &TFE_DeleteOp);
@@ -3203,7 +3203,7 @@ tensor bias_add_v1(const tensor& value, const tensor& bias) {
 }
 
 
-tensor bincount(const tensor& arr, const tensor& size, const tensor& weights) {
+inline tensor bincount(const tensor& arr, const tensor& size, const tensor& weights) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Bincount", context::get_status()), &TFE_DeleteOp);
@@ -3235,7 +3235,7 @@ tensor bincount(const tensor& arr, const tensor& size, const tensor& weights) {
 }
 
 
-tensor bitcast(const tensor& input, datatype type) {
+inline tensor bitcast(const tensor& input, datatype type) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Bitcast", context::get_status()), &TFE_DeleteOp);
@@ -3259,7 +3259,7 @@ tensor bitcast(const tensor& input, datatype type) {
 }
 
 
-tensor bitwise_and(const tensor& x, const tensor& y) {
+inline tensor bitwise_and(const tensor& x, const tensor& y) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "BitwiseAnd", context::get_status()), &TFE_DeleteOp);
@@ -3287,7 +3287,7 @@ tensor bitwise_and(const tensor& x, const tensor& y) {
 }
 
 
-tensor bitwise_or(const tensor& x, const tensor& y) {
+inline tensor bitwise_or(const tensor& x, const tensor& y) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "BitwiseOr", context::get_status()), &TFE_DeleteOp);
@@ -3315,7 +3315,7 @@ tensor bitwise_or(const tensor& x, const tensor& y) {
 }
 
 
-tensor bitwise_xor(const tensor& x, const tensor& y) {
+inline tensor bitwise_xor(const tensor& x, const tensor& y) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "BitwiseXor", context::get_status()), &TFE_DeleteOp);
@@ -3343,7 +3343,7 @@ tensor bitwise_xor(const tensor& x, const tensor& y) {
 }
 
 
-tensor boosted_trees_aggregate_stats(const tensor& node_ids, const tensor& gradients, const tensor& hessians, const tensor& feature, int64_t max_splits, int64_t num_buckets) {
+inline tensor boosted_trees_aggregate_stats(const tensor& node_ids, const tensor& gradients, const tensor& hessians, const tensor& feature, int64_t max_splits, int64_t num_buckets) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "BoostedTreesAggregateStats", context::get_status()), &TFE_DeleteOp);
@@ -3380,7 +3380,7 @@ tensor boosted_trees_aggregate_stats(const tensor& node_ids, const tensor& gradi
 }
 
 
-tensor boosted_trees_bucketize(const std::vector<tensor>&float_values, const std::vector<tensor>&bucket_boundaries) {
+inline tensor boosted_trees_bucketize(const std::vector<tensor>&float_values, const std::vector<tensor>&bucket_boundaries) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "BoostedTreesBucketize", context::get_status()), &TFE_DeleteOp);
@@ -3412,7 +3412,7 @@ tensor boosted_trees_bucketize(const std::vector<tensor>&float_values, const std
 }
 
 
-tensor boosted_trees_center_bias(const tensor& tree_ensemble_handle, const tensor& mean_gradients, const tensor& mean_hessians, const tensor& l1, const tensor& l2) {
+inline tensor boosted_trees_center_bias(const tensor& tree_ensemble_handle, const tensor& mean_gradients, const tensor& mean_hessians, const tensor& l1, const tensor& l2) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "BoostedTreesCenterBias", context::get_status()), &TFE_DeleteOp);
@@ -3452,7 +3452,7 @@ tensor boosted_trees_center_bias(const tensor& tree_ensemble_handle, const tenso
 }
 
 
-tensor boosted_trees_ensemble_resource_handle_op(const std::string& container="", const std::string& shared_name="") {
+inline tensor boosted_trees_ensemble_resource_handle_op(const std::string& container="", const std::string& shared_name="") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "BoostedTreesEnsembleResourceHandleOp", context::get_status()), &TFE_DeleteOp);
@@ -3474,7 +3474,7 @@ tensor boosted_trees_ensemble_resource_handle_op(const std::string& container=""
 }
 
 
-tensor boosted_trees_example_debug_outputs(const tensor& tree_ensemble_handle, const std::vector<tensor>&bucketized_features, int64_t logits_dimension) {
+inline tensor boosted_trees_example_debug_outputs(const tensor& tree_ensemble_handle, const std::vector<tensor>&bucketized_features, int64_t logits_dimension) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "BoostedTreesExampleDebugOutputs", context::get_status()), &TFE_DeleteOp);
@@ -3505,7 +3505,7 @@ tensor boosted_trees_example_debug_outputs(const tensor& tree_ensemble_handle, c
 }
 
 
-tensor boosted_trees_flush_quantile_summaries(const tensor& quantile_stream_resource_handle, int64_t num_features) {
+inline tensor boosted_trees_flush_quantile_summaries(const tensor& quantile_stream_resource_handle, int64_t num_features) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "BoostedTreesFlushQuantileSummaries", context::get_status()), &TFE_DeleteOp);
@@ -3529,7 +3529,7 @@ tensor boosted_trees_flush_quantile_summaries(const tensor& quantile_stream_reso
 }
 
 
-tensor boosted_trees_make_quantile_summaries(const std::vector<tensor>&float_values, const tensor& example_weights, const tensor& epsilon) {
+inline tensor boosted_trees_make_quantile_summaries(const std::vector<tensor>&float_values, const tensor& example_weights, const tensor& epsilon) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "BoostedTreesMakeQuantileSummaries", context::get_status()), &TFE_DeleteOp);
@@ -3563,7 +3563,7 @@ tensor boosted_trees_make_quantile_summaries(const std::vector<tensor>&float_val
 }
 
 
-tensor boosted_trees_make_stats_summary(const tensor& node_ids, const tensor& gradients, const tensor& hessians, const std::vector<tensor>&bucketized_features_list, int64_t max_splits, int64_t num_buckets) {
+inline tensor boosted_trees_make_stats_summary(const tensor& node_ids, const tensor& gradients, const tensor& hessians, const std::vector<tensor>&bucketized_features_list, int64_t max_splits, int64_t num_buckets) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "BoostedTreesMakeStatsSummary", context::get_status()), &TFE_DeleteOp);
@@ -3603,7 +3603,7 @@ tensor boosted_trees_make_stats_summary(const tensor& node_ids, const tensor& gr
 }
 
 
-tensor boosted_trees_predict(const tensor& tree_ensemble_handle, const std::vector<tensor>&bucketized_features, int64_t logits_dimension) {
+inline tensor boosted_trees_predict(const tensor& tree_ensemble_handle, const std::vector<tensor>&bucketized_features, int64_t logits_dimension) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "BoostedTreesPredict", context::get_status()), &TFE_DeleteOp);
@@ -3634,7 +3634,7 @@ tensor boosted_trees_predict(const tensor& tree_ensemble_handle, const std::vect
 }
 
 
-tensor boosted_trees_quantile_stream_resource_get_bucket_boundaries(const tensor& quantile_stream_resource_handle, int64_t num_features) {
+inline tensor boosted_trees_quantile_stream_resource_get_bucket_boundaries(const tensor& quantile_stream_resource_handle, int64_t num_features) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "BoostedTreesQuantileStreamResourceGetBucketBoundaries", context::get_status()), &TFE_DeleteOp);
@@ -3658,7 +3658,7 @@ tensor boosted_trees_quantile_stream_resource_get_bucket_boundaries(const tensor
 }
 
 
-tensor boosted_trees_quantile_stream_resource_handle_op(const std::string& container="", const std::string& shared_name="") {
+inline tensor boosted_trees_quantile_stream_resource_handle_op(const std::string& container="", const std::string& shared_name="") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "BoostedTreesQuantileStreamResourceHandleOp", context::get_status()), &TFE_DeleteOp);
@@ -3680,7 +3680,7 @@ tensor boosted_trees_quantile_stream_resource_handle_op(const std::string& conta
 }
 
 
-tensor broadcast_args(const tensor& s0, const tensor& s1) {
+inline tensor broadcast_args(const tensor& s0, const tensor& s1) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "BroadcastArgs", context::get_status()), &TFE_DeleteOp);
@@ -3708,7 +3708,7 @@ tensor broadcast_args(const tensor& s0, const tensor& s1) {
 }
 
 
-tensor broadcast_to(const tensor& input, const tensor& shape, datatype Tidx=static_cast<datatype>(3)) {
+inline tensor broadcast_to(const tensor& input, const tensor& shape, datatype Tidx=static_cast<datatype>(3)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "BroadcastTo", context::get_status()), &TFE_DeleteOp);
@@ -3736,7 +3736,7 @@ tensor broadcast_to(const tensor& input, const tensor& shape, datatype Tidx=stat
 }
 
 
-tensor bucketize(const tensor& input, const std::vector<float>& boundaries) {
+inline tensor bucketize(const tensor& input, const std::vector<float>& boundaries) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Bucketize", context::get_status()), &TFE_DeleteOp);
@@ -3760,7 +3760,7 @@ tensor bucketize(const tensor& input, const std::vector<float>& boundaries) {
 }
 
 
-tensor bytes_produced_stats_dataset(const tensor& input_dataset, const tensor& tag, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
+inline tensor bytes_produced_stats_dataset(const tensor& input_dataset, const tensor& tag, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "BytesProducedStatsDataset", context::get_status()), &TFE_DeleteOp);
@@ -3796,7 +3796,7 @@ tensor bytes_produced_stats_dataset(const tensor& input_dataset, const tensor& t
 }
 
 
-tensor c_s_r_sparse_matrix_to_dense(const tensor& sparse_input, datatype type) {
+inline tensor c_s_r_sparse_matrix_to_dense(const tensor& sparse_input, datatype type) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "CSRSparseMatrixToDense", context::get_status()), &TFE_DeleteOp);
@@ -3820,7 +3820,7 @@ tensor c_s_r_sparse_matrix_to_dense(const tensor& sparse_input, datatype type) {
 }
 
 
-tensor c_s_v_dataset(const tensor& filenames, const tensor& compression_type, const tensor& buffer_size, const tensor& header, const tensor& field_delim, const tensor& use_quote_delim, const tensor& na_value, const tensor& select_cols, const std::vector<tensor>&record_defaults, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
+inline tensor c_s_v_dataset(const tensor& filenames, const tensor& compression_type, const tensor& buffer_size, const tensor& header, const tensor& field_delim, const tensor& use_quote_delim, const tensor& na_value, const tensor& select_cols, const std::vector<tensor>&record_defaults, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "CSVDataset", context::get_status()), &TFE_DeleteOp);
@@ -3886,7 +3886,7 @@ tensor c_s_v_dataset(const tensor& filenames, const tensor& compression_type, co
 }
 
 
-tensor cache_dataset(const tensor& input_dataset, const tensor& filename, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
+inline tensor cache_dataset(const tensor& input_dataset, const tensor& filename, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "CacheDataset", context::get_status()), &TFE_DeleteOp);
@@ -3922,7 +3922,7 @@ tensor cache_dataset(const tensor& input_dataset, const tensor& filename, const 
 }
 
 
-tensor cache_dataset_v2(const tensor& input_dataset, const tensor& filename, const tensor& cache, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
+inline tensor cache_dataset_v2(const tensor& input_dataset, const tensor& filename, const tensor& cache, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "CacheDatasetV2", context::get_status()), &TFE_DeleteOp);
@@ -3962,7 +3962,7 @@ tensor cache_dataset_v2(const tensor& input_dataset, const tensor& filename, con
 }
 
 
-tensor cast(const tensor& x, datatype SrcT, datatype DstT, bool Truncate=false) {
+inline tensor cast(const tensor& x, datatype SrcT, datatype DstT, bool Truncate=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Cast", context::get_status()), &TFE_DeleteOp);
@@ -3988,7 +3988,7 @@ tensor cast(const tensor& x, datatype SrcT, datatype DstT, bool Truncate=false) 
 }
 
 
-tensor ceil(const tensor& x) {
+inline tensor ceil(const tensor& x) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Ceil", context::get_status()), &TFE_DeleteOp);
@@ -4012,7 +4012,7 @@ tensor ceil(const tensor& x) {
 }
 
 
-tensor check_numerics(const tensor& input_tensor, const std::string& message) {
+inline tensor check_numerics(const tensor& input_tensor, const std::string& message) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "CheckNumerics", context::get_status()), &TFE_DeleteOp);
@@ -4036,7 +4036,7 @@ tensor check_numerics(const tensor& input_tensor, const std::string& message) {
 }
 
 
-tensor check_numerics_v2(const tensor& input_tensor, const std::string& message) {
+inline tensor check_numerics_v2(const tensor& input_tensor, const std::string& message) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "CheckNumericsV2", context::get_status()), &TFE_DeleteOp);
@@ -4060,7 +4060,7 @@ tensor check_numerics_v2(const tensor& input_tensor, const std::string& message)
 }
 
 
-tensor cholesky(const tensor& input) {
+inline tensor cholesky(const tensor& input) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Cholesky", context::get_status()), &TFE_DeleteOp);
@@ -4084,7 +4084,7 @@ tensor cholesky(const tensor& input) {
 }
 
 
-tensor cholesky_grad(const tensor& l, const tensor& grad) {
+inline tensor cholesky_grad(const tensor& l, const tensor& grad) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "CholeskyGrad", context::get_status()), &TFE_DeleteOp);
@@ -4112,7 +4112,7 @@ tensor cholesky_grad(const tensor& l, const tensor& grad) {
 }
 
 
-tensor choose_fastest_dataset(const std::vector<tensor>&input_datasets, int64_t num_experiments, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
+inline tensor choose_fastest_dataset(const std::vector<tensor>&input_datasets, int64_t num_experiments, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ChooseFastestDataset", context::get_status()), &TFE_DeleteOp);
@@ -4148,7 +4148,7 @@ tensor choose_fastest_dataset(const std::vector<tensor>&input_datasets, int64_t 
 }
 
 
-tensor clip_by_value(const tensor& t, const tensor& clip_value_min, const tensor& clip_value_max) {
+inline tensor clip_by_value(const tensor& t, const tensor& clip_value_min, const tensor& clip_value_max) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ClipByValue", context::get_status()), &TFE_DeleteOp);
@@ -4180,7 +4180,7 @@ tensor clip_by_value(const tensor& t, const tensor& clip_value_min, const tensor
 }
 
 
-tensor collective_bcast_recv(int64_t group_size, int64_t group_key, int64_t instance_key, const std::vector<int64_t>& shape, const std::string& communication_hint="auto", float timeout_seconds=0.0000e+00) {
+inline tensor collective_bcast_recv(int64_t group_size, int64_t group_key, int64_t instance_key, const std::vector<int64_t>& shape, const std::string& communication_hint="auto", float timeout_seconds=0.0000e+00) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "CollectiveBcastRecv", context::get_status()), &TFE_DeleteOp);
@@ -4209,7 +4209,7 @@ tensor collective_bcast_recv(int64_t group_size, int64_t group_key, int64_t inst
 }
 
 
-tensor collective_bcast_send(const tensor& input, int64_t group_size, int64_t group_key, int64_t instance_key, const std::vector<int64_t>& shape, const std::string& communication_hint="auto", float timeout_seconds=0.0000e+00) {
+inline tensor collective_bcast_send(const tensor& input, int64_t group_size, int64_t group_key, int64_t instance_key, const std::vector<int64_t>& shape, const std::string& communication_hint="auto", float timeout_seconds=0.0000e+00) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "CollectiveBcastSend", context::get_status()), &TFE_DeleteOp);
@@ -4241,7 +4241,7 @@ tensor collective_bcast_send(const tensor& input, int64_t group_size, int64_t gr
 }
 
 
-tensor collective_gather(const tensor& input, int64_t group_size, int64_t group_key, int64_t instance_key, const std::vector<int64_t>& shape, const std::string& communication_hint="auto", float timeout_seconds=0.0000e+00) {
+inline tensor collective_gather(const tensor& input, int64_t group_size, int64_t group_key, int64_t instance_key, const std::vector<int64_t>& shape, const std::string& communication_hint="auto", float timeout_seconds=0.0000e+00) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "CollectiveGather", context::get_status()), &TFE_DeleteOp);
@@ -4273,7 +4273,7 @@ tensor collective_gather(const tensor& input, int64_t group_size, int64_t group_
 }
 
 
-tensor collective_permute(const tensor& input, const tensor& source_target_pairs) {
+inline tensor collective_permute(const tensor& input, const tensor& source_target_pairs) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "CollectivePermute", context::get_status()), &TFE_DeleteOp);
@@ -4301,7 +4301,7 @@ tensor collective_permute(const tensor& input, const tensor& source_target_pairs
 }
 
 
-tensor collective_reduce(const tensor& input, int64_t group_size, int64_t group_key, int64_t instance_key, const std::string& merge_op, const std::string& final_op, const std::vector<int64_t>& subdiv_offsets, const std::vector<int64_t>& wait_for, const std::string& communication_hint="auto", float timeout_seconds=0.0000e+00) {
+inline tensor collective_reduce(const tensor& input, int64_t group_size, int64_t group_key, int64_t instance_key, const std::string& merge_op, const std::string& final_op, const std::vector<int64_t>& subdiv_offsets, const std::vector<int64_t>& wait_for, const std::string& communication_hint="auto", float timeout_seconds=0.0000e+00) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "CollectiveReduce", context::get_status()), &TFE_DeleteOp);
@@ -4333,7 +4333,7 @@ tensor collective_reduce(const tensor& input, int64_t group_size, int64_t group_
 }
 
 
-tensor compare_and_bitpack(const tensor& input, const tensor& threshold) {
+inline tensor compare_and_bitpack(const tensor& input, const tensor& threshold) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "CompareAndBitpack", context::get_status()), &TFE_DeleteOp);
@@ -4361,7 +4361,7 @@ tensor compare_and_bitpack(const tensor& input, const tensor& threshold) {
 }
 
 
-tensor complex(const tensor& real, const tensor& imag, datatype Tout=static_cast<datatype>(8)) {
+inline tensor complex(const tensor& real, const tensor& imag, datatype Tout=static_cast<datatype>(8)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Complex", context::get_status()), &TFE_DeleteOp);
@@ -4389,7 +4389,7 @@ tensor complex(const tensor& real, const tensor& imag, datatype Tout=static_cast
 }
 
 
-tensor complex_abs(const tensor& x, datatype Tout=static_cast<datatype>(1)) {
+inline tensor complex_abs(const tensor& x, datatype Tout=static_cast<datatype>(1)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ComplexAbs", context::get_status()), &TFE_DeleteOp);
@@ -4413,7 +4413,7 @@ tensor complex_abs(const tensor& x, datatype Tout=static_cast<datatype>(1)) {
 }
 
 
-tensor compress_element(const std::vector<tensor>&components, const std::vector<datatype>& input_types) {
+inline tensor compress_element(const std::vector<tensor>&components, const std::vector<datatype>& input_types) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "CompressElement", context::get_status()), &TFE_DeleteOp);
@@ -4439,7 +4439,7 @@ tensor compress_element(const std::vector<tensor>&components, const std::vector<
 }
 
 
-tensor concat(const tensor& concat_dim, const std::vector<tensor>&values) {
+inline tensor concat(const tensor& concat_dim, const std::vector<tensor>&values) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Concat", context::get_status()), &TFE_DeleteOp);
@@ -4469,7 +4469,7 @@ tensor concat(const tensor& concat_dim, const std::vector<tensor>&values) {
 }
 
 
-tensor concat_offset(const tensor& concat_dim, const std::vector<tensor>&shape) {
+inline tensor concat_offset(const tensor& concat_dim, const std::vector<tensor>&shape) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ConcatOffset", context::get_status()), &TFE_DeleteOp);
@@ -4499,7 +4499,7 @@ tensor concat_offset(const tensor& concat_dim, const std::vector<tensor>&shape) 
 }
 
 
-tensor concat_v2(const std::vector<tensor>&values, const tensor& axis, datatype Tidx=static_cast<datatype>(3)) {
+inline tensor concat_v2(const std::vector<tensor>&values, const tensor& axis, datatype Tidx=static_cast<datatype>(3)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ConcatV2", context::get_status()), &TFE_DeleteOp);
@@ -4530,7 +4530,7 @@ tensor concat_v2(const std::vector<tensor>&values, const tensor& axis, datatype 
 }
 
 
-tensor concatenate_dataset(const tensor& input_dataset, const tensor& another_dataset, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
+inline tensor concatenate_dataset(const tensor& input_dataset, const tensor& another_dataset, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ConcatenateDataset", context::get_status()), &TFE_DeleteOp);
@@ -4566,7 +4566,7 @@ tensor concatenate_dataset(const tensor& input_dataset, const tensor& another_da
 }
 
 
-tensor conditional_accumulator(datatype dtype, const std::vector<int64_t>& shape, const std::string& container="", const std::string& shared_name="", const std::string& reduction_type="MEAN") {
+inline tensor conditional_accumulator(datatype dtype, const std::vector<int64_t>& shape, const std::string& container="", const std::string& shared_name="", const std::string& reduction_type="MEAN") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ConditionalAccumulator", context::get_status()), &TFE_DeleteOp);
@@ -4594,7 +4594,7 @@ tensor conditional_accumulator(datatype dtype, const std::vector<int64_t>& shape
 }
 
 
-tensor configure_distributed_t_p_u(const std::string& embedding_config="", const std::string& tpu_embedding_config="", bool is_global_init=false, bool enable_whole_mesh_compilations=false, bool compilation_failure_closes_chips=true) {
+inline tensor configure_distributed_t_p_u(const std::string& embedding_config="", const std::string& tpu_embedding_config="", bool is_global_init=false, bool enable_whole_mesh_compilations=false, bool compilation_failure_closes_chips=true) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ConfigureDistributedTPU", context::get_status()), &TFE_DeleteOp);
@@ -4619,7 +4619,7 @@ tensor configure_distributed_t_p_u(const std::string& embedding_config="", const
 }
 
 
-tensor conj(const tensor& input) {
+inline tensor conj(const tensor& input) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Conj", context::get_status()), &TFE_DeleteOp);
@@ -4643,7 +4643,7 @@ tensor conj(const tensor& input) {
 }
 
 
-tensor conjugate_transpose(const tensor& x, const tensor& perm, datatype Tperm=static_cast<datatype>(3)) {
+inline tensor conjugate_transpose(const tensor& x, const tensor& perm, datatype Tperm=static_cast<datatype>(3)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ConjugateTranspose", context::get_status()), &TFE_DeleteOp);
@@ -4671,7 +4671,7 @@ tensor conjugate_transpose(const tensor& x, const tensor& perm, datatype Tperm=s
 }
 
 
-tensor const_tensor(const tensor& value, datatype dtype) {
+inline tensor const_tensor(const tensor& value, datatype dtype) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Const", context::get_status()), &TFE_DeleteOp);
@@ -4696,7 +4696,7 @@ tensor const_tensor(const tensor& value, datatype dtype) {
 }
 
 
-tensor conv2_d(const tensor& input, const tensor& filter, const std::vector<int64_t>& strides, const std::string& padding, const std::vector<int64_t>& explicit_paddings, const std::vector<int64_t>& dilations, bool use_cudnn_on_gpu=true, const std::string& data_format="NHWC") {
+inline tensor conv2_d(const tensor& input, const tensor& filter, const std::vector<int64_t>& strides, const std::string& padding, const std::vector<int64_t>& explicit_paddings, const std::vector<int64_t>& dilations, bool use_cudnn_on_gpu=true, const std::string& data_format="NHWC") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Conv2D", context::get_status()), &TFE_DeleteOp);
@@ -4729,7 +4729,7 @@ tensor conv2_d(const tensor& input, const tensor& filter, const std::vector<int6
 }
 
 
-tensor conv2_d_backprop_filter(const tensor& input, const tensor& filter_sizes, const tensor& out_backprop, const std::vector<int64_t>& strides, const std::string& padding, const std::vector<int64_t>& explicit_paddings, const std::vector<int64_t>& dilations, bool use_cudnn_on_gpu=true, const std::string& data_format="NHWC") {
+inline tensor conv2_d_backprop_filter(const tensor& input, const tensor& filter_sizes, const tensor& out_backprop, const std::vector<int64_t>& strides, const std::string& padding, const std::vector<int64_t>& explicit_paddings, const std::vector<int64_t>& dilations, bool use_cudnn_on_gpu=true, const std::string& data_format="NHWC") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Conv2DBackpropFilter", context::get_status()), &TFE_DeleteOp);
@@ -4766,7 +4766,7 @@ tensor conv2_d_backprop_filter(const tensor& input, const tensor& filter_sizes, 
 }
 
 
-tensor conv2_d_backprop_input(const tensor& input_sizes, const tensor& filter, const tensor& out_backprop, const std::vector<int64_t>& strides, const std::string& padding, const std::vector<int64_t>& explicit_paddings, const std::vector<int64_t>& dilations, bool use_cudnn_on_gpu=true, const std::string& data_format="NHWC") {
+inline tensor conv2_d_backprop_input(const tensor& input_sizes, const tensor& filter, const tensor& out_backprop, const std::vector<int64_t>& strides, const std::string& padding, const std::vector<int64_t>& explicit_paddings, const std::vector<int64_t>& dilations, bool use_cudnn_on_gpu=true, const std::string& data_format="NHWC") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Conv2DBackpropInput", context::get_status()), &TFE_DeleteOp);
@@ -4803,7 +4803,7 @@ tensor conv2_d_backprop_input(const tensor& input_sizes, const tensor& filter, c
 }
 
 
-tensor conv3_d(const tensor& input, const tensor& filter, const std::vector<int64_t>& strides, const std::string& padding, const std::vector<int64_t>& dilations, const std::string& data_format="NDHWC") {
+inline tensor conv3_d(const tensor& input, const tensor& filter, const std::vector<int64_t>& strides, const std::string& padding, const std::vector<int64_t>& dilations, const std::string& data_format="NDHWC") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Conv3D", context::get_status()), &TFE_DeleteOp);
@@ -4834,7 +4834,7 @@ tensor conv3_d(const tensor& input, const tensor& filter, const std::vector<int6
 }
 
 
-tensor conv3_d_backprop_filter(const tensor& input, const tensor& filter, const tensor& out_backprop, const std::vector<int64_t>& strides, const std::string& padding, const std::vector<int64_t>& dilations) {
+inline tensor conv3_d_backprop_filter(const tensor& input, const tensor& filter, const tensor& out_backprop, const std::vector<int64_t>& strides, const std::string& padding, const std::vector<int64_t>& dilations) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Conv3DBackpropFilter", context::get_status()), &TFE_DeleteOp);
@@ -4868,7 +4868,7 @@ tensor conv3_d_backprop_filter(const tensor& input, const tensor& filter, const 
 }
 
 
-tensor conv3_d_backprop_filter_v2(const tensor& input, const tensor& filter_sizes, const tensor& out_backprop, const std::vector<int64_t>& strides, const std::string& padding, const std::vector<int64_t>& dilations, const std::string& data_format="NDHWC") {
+inline tensor conv3_d_backprop_filter_v2(const tensor& input, const tensor& filter_sizes, const tensor& out_backprop, const std::vector<int64_t>& strides, const std::string& padding, const std::vector<int64_t>& dilations, const std::string& data_format="NDHWC") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Conv3DBackpropFilterV2", context::get_status()), &TFE_DeleteOp);
@@ -4903,7 +4903,7 @@ tensor conv3_d_backprop_filter_v2(const tensor& input, const tensor& filter_size
 }
 
 
-tensor conv3_d_backprop_input(const tensor& input, const tensor& filter, const tensor& out_backprop, const std::vector<int64_t>& strides, const std::string& padding, const std::vector<int64_t>& dilations) {
+inline tensor conv3_d_backprop_input(const tensor& input, const tensor& filter, const tensor& out_backprop, const std::vector<int64_t>& strides, const std::string& padding, const std::vector<int64_t>& dilations) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Conv3DBackpropInput", context::get_status()), &TFE_DeleteOp);
@@ -4937,7 +4937,7 @@ tensor conv3_d_backprop_input(const tensor& input, const tensor& filter, const t
 }
 
 
-tensor conv3_d_backprop_input_v2(const tensor& input_sizes, const tensor& filter, const tensor& out_backprop, const std::vector<int64_t>& strides, const std::string& padding, const std::vector<int64_t>& dilations, const std::string& data_format="NDHWC", datatype Tshape=static_cast<datatype>(3)) {
+inline tensor conv3_d_backprop_input_v2(const tensor& input_sizes, const tensor& filter, const tensor& out_backprop, const std::vector<int64_t>& strides, const std::string& padding, const std::vector<int64_t>& dilations, const std::string& data_format="NDHWC", datatype Tshape=static_cast<datatype>(3)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Conv3DBackpropInputV2", context::get_status()), &TFE_DeleteOp);
@@ -4973,7 +4973,7 @@ tensor conv3_d_backprop_input_v2(const tensor& input_sizes, const tensor& filter
 }
 
 
-tensor copy(const tensor& input, const std::vector< std::string>& debug_ops_spec, const std::string& tensor_name="") {
+inline tensor copy(const tensor& input, const std::vector< std::string>& debug_ops_spec, const std::string& tensor_name="") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Copy", context::get_status()), &TFE_DeleteOp);
@@ -5002,7 +5002,7 @@ tensor copy(const tensor& input, const std::vector< std::string>& debug_ops_spec
 }
 
 
-tensor copy_host(const tensor& input, const std::vector< std::string>& debug_ops_spec, const std::string& tensor_name="") {
+inline tensor copy_host(const tensor& input, const std::vector< std::string>& debug_ops_spec, const std::string& tensor_name="") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "CopyHost", context::get_status()), &TFE_DeleteOp);
@@ -5031,7 +5031,7 @@ tensor copy_host(const tensor& input, const std::vector< std::string>& debug_ops
 }
 
 
-tensor cos(const tensor& x) {
+inline tensor cos(const tensor& x) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Cos", context::get_status()), &TFE_DeleteOp);
@@ -5055,7 +5055,7 @@ tensor cos(const tensor& x) {
 }
 
 
-tensor cosh(const tensor& x) {
+inline tensor cosh(const tensor& x) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Cosh", context::get_status()), &TFE_DeleteOp);
@@ -5079,7 +5079,7 @@ tensor cosh(const tensor& x) {
 }
 
 
-tensor count_up_to(const tensor& ref, int64_t limit) {
+inline tensor count_up_to(const tensor& ref, int64_t limit) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "CountUpTo", context::get_status()), &TFE_DeleteOp);
@@ -5103,7 +5103,7 @@ tensor count_up_to(const tensor& ref, int64_t limit) {
 }
 
 
-tensor crop_and_resize(const tensor& image, const tensor& boxes, const tensor& box_ind, const tensor& crop_size, const std::string& method="bilinear", float extrapolation_value=0.0000e+00) {
+inline tensor crop_and_resize(const tensor& image, const tensor& boxes, const tensor& box_ind, const tensor& crop_size, const std::string& method="bilinear", float extrapolation_value=0.0000e+00) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "CropAndResize", context::get_status()), &TFE_DeleteOp);
@@ -5140,7 +5140,7 @@ tensor crop_and_resize(const tensor& image, const tensor& boxes, const tensor& b
 }
 
 
-tensor crop_and_resize_grad_boxes(const tensor& grads, const tensor& image, const tensor& boxes, const tensor& box_ind, const std::string& method="bilinear") {
+inline tensor crop_and_resize_grad_boxes(const tensor& grads, const tensor& image, const tensor& boxes, const tensor& box_ind, const std::string& method="bilinear") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "CropAndResizeGradBoxes", context::get_status()), &TFE_DeleteOp);
@@ -5176,7 +5176,7 @@ tensor crop_and_resize_grad_boxes(const tensor& grads, const tensor& image, cons
 }
 
 
-tensor crop_and_resize_grad_image(const tensor& grads, const tensor& boxes, const tensor& box_ind, const tensor& image_size, const std::string& method="bilinear") {
+inline tensor crop_and_resize_grad_image(const tensor& grads, const tensor& boxes, const tensor& box_ind, const tensor& image_size, const std::string& method="bilinear") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "CropAndResizeGradImage", context::get_status()), &TFE_DeleteOp);
@@ -5212,7 +5212,7 @@ tensor crop_and_resize_grad_image(const tensor& grads, const tensor& boxes, cons
 }
 
 
-tensor cross(const tensor& a, const tensor& b) {
+inline tensor cross(const tensor& a, const tensor& b) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Cross", context::get_status()), &TFE_DeleteOp);
@@ -5240,7 +5240,7 @@ tensor cross(const tensor& a, const tensor& b) {
 }
 
 
-tensor cross_replica_sum(const tensor& input, const tensor& group_assignment) {
+inline tensor cross_replica_sum(const tensor& input, const tensor& group_assignment) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "CrossReplicaSum", context::get_status()), &TFE_DeleteOp);
@@ -5268,7 +5268,7 @@ tensor cross_replica_sum(const tensor& input, const tensor& group_assignment) {
 }
 
 
-tensor cudnn_r_n_n_canonical_to_params(const tensor& num_layers, const tensor& num_units, const tensor& input_size, const std::vector<tensor>&weights, const std::vector<tensor>&biases, const std::string& rnn_mode="lstm", const std::string& input_mode="linear_input", const std::string& direction="unidirectional", float dropout=0.0000e+00, int64_t seed=0, int64_t seed2=0) {
+inline tensor cudnn_r_n_n_canonical_to_params(const tensor& num_layers, const tensor& num_units, const tensor& input_size, const std::vector<tensor>&weights, const std::vector<tensor>&biases, const std::string& rnn_mode="lstm", const std::string& input_mode="linear_input", const std::string& direction="unidirectional", float dropout=0.0000e+00, int64_t seed=0, int64_t seed2=0) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "CudnnRNNCanonicalToParams", context::get_status()), &TFE_DeleteOp);
@@ -5318,7 +5318,7 @@ tensor cudnn_r_n_n_canonical_to_params(const tensor& num_layers, const tensor& n
 }
 
 
-tensor cudnn_r_n_n_canonical_to_params_v2(const tensor& num_layers, const tensor& num_units, const tensor& input_size, const std::vector<tensor>&weights, const std::vector<tensor>&biases, const std::string& rnn_mode="lstm", const std::string& input_mode="linear_input", const std::string& direction="unidirectional", float dropout=0.0000e+00, int64_t seed=0, int64_t seed2=0, int64_t num_proj=0) {
+inline tensor cudnn_r_n_n_canonical_to_params_v2(const tensor& num_layers, const tensor& num_units, const tensor& input_size, const std::vector<tensor>&weights, const std::vector<tensor>&biases, const std::string& rnn_mode="lstm", const std::string& input_mode="linear_input", const std::string& direction="unidirectional", float dropout=0.0000e+00, int64_t seed=0, int64_t seed2=0, int64_t num_proj=0) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "CudnnRNNCanonicalToParamsV2", context::get_status()), &TFE_DeleteOp);
@@ -5370,7 +5370,7 @@ tensor cudnn_r_n_n_canonical_to_params_v2(const tensor& num_layers, const tensor
 }
 
 
-tensor cudnn_r_n_n_params_size(const tensor& num_layers, const tensor& num_units, const tensor& input_size, datatype S, const std::string& rnn_mode="lstm", const std::string& input_mode="linear_input", const std::string& direction="unidirectional", float dropout=0.0000e+00, int64_t seed=0, int64_t seed2=0, int64_t num_proj=0) {
+inline tensor cudnn_r_n_n_params_size(const tensor& num_layers, const tensor& num_units, const tensor& input_size, datatype S, const std::string& rnn_mode="lstm", const std::string& input_mode="linear_input", const std::string& direction="unidirectional", float dropout=0.0000e+00, int64_t seed=0, int64_t seed2=0, int64_t num_proj=0) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "CudnnRNNParamsSize", context::get_status()), &TFE_DeleteOp);
@@ -5409,7 +5409,7 @@ tensor cudnn_r_n_n_params_size(const tensor& num_layers, const tensor& num_units
 }
 
 
-tensor cumprod(const tensor& x, const tensor& axis, bool exclusive=false, bool reverse=false, datatype Tidx=static_cast<datatype>(3)) {
+inline tensor cumprod(const tensor& x, const tensor& axis, bool exclusive=false, bool reverse=false, datatype Tidx=static_cast<datatype>(3)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Cumprod", context::get_status()), &TFE_DeleteOp);
@@ -5439,7 +5439,7 @@ tensor cumprod(const tensor& x, const tensor& axis, bool exclusive=false, bool r
 }
 
 
-tensor cumsum(const tensor& x, const tensor& axis, bool exclusive=false, bool reverse=false, datatype Tidx=static_cast<datatype>(3)) {
+inline tensor cumsum(const tensor& x, const tensor& axis, bool exclusive=false, bool reverse=false, datatype Tidx=static_cast<datatype>(3)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Cumsum", context::get_status()), &TFE_DeleteOp);
@@ -5469,7 +5469,7 @@ tensor cumsum(const tensor& x, const tensor& axis, bool exclusive=false, bool re
 }
 
 
-tensor cumulative_logsumexp(const tensor& x, const tensor& axis, bool exclusive=false, bool reverse=false, datatype Tidx=static_cast<datatype>(3)) {
+inline tensor cumulative_logsumexp(const tensor& x, const tensor& axis, bool exclusive=false, bool reverse=false, datatype Tidx=static_cast<datatype>(3)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "CumulativeLogsumexp", context::get_status()), &TFE_DeleteOp);
@@ -5499,7 +5499,7 @@ tensor cumulative_logsumexp(const tensor& x, const tensor& axis, bool exclusive=
 }
 
 
-tensor data_format_dim_map(const tensor& x, const std::string& src_format="NHWC", const std::string& dst_format="NCHW") {
+inline tensor data_format_dim_map(const tensor& x, const std::string& src_format="NHWC", const std::string& dst_format="NCHW") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "DataFormatDimMap", context::get_status()), &TFE_DeleteOp);
@@ -5524,7 +5524,7 @@ tensor data_format_dim_map(const tensor& x, const std::string& src_format="NHWC"
 }
 
 
-tensor data_format_vec_permute(const tensor& x, const std::string& src_format="NHWC", const std::string& dst_format="NCHW") {
+inline tensor data_format_vec_permute(const tensor& x, const std::string& src_format="NHWC", const std::string& dst_format="NCHW") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "DataFormatVecPermute", context::get_status()), &TFE_DeleteOp);
@@ -5549,7 +5549,7 @@ tensor data_format_vec_permute(const tensor& x, const std::string& src_format="N
 }
 
 
-tensor data_service_dataset(const tensor& dataset_id, const tensor& processing_mode, const tensor& address, const tensor& protocol, const tensor& job_name, const tensor& max_outstanding_requests, const tensor& iteration_counter, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes, int64_t task_refresh_interval_hint_ms=-1) {
+inline tensor data_service_dataset(const tensor& dataset_id, const tensor& processing_mode, const tensor& address, const tensor& protocol, const tensor& job_name, const tensor& max_outstanding_requests, const tensor& iteration_counter, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes, int64_t task_refresh_interval_hint_ms=-1) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "DataServiceDataset", context::get_status()), &TFE_DeleteOp);
@@ -5606,7 +5606,7 @@ tensor data_service_dataset(const tensor& dataset_id, const tensor& processing_m
 }
 
 
-tensor dataset_cardinality(const tensor& input_dataset) {
+inline tensor dataset_cardinality(const tensor& input_dataset) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "DatasetCardinality", context::get_status()), &TFE_DeleteOp);
@@ -5630,7 +5630,7 @@ tensor dataset_cardinality(const tensor& input_dataset) {
 }
 
 
-tensor dataset_from_graph(const tensor& graph_def) {
+inline tensor dataset_from_graph(const tensor& graph_def) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "DatasetFromGraph", context::get_status()), &TFE_DeleteOp);
@@ -5654,7 +5654,7 @@ tensor dataset_from_graph(const tensor& graph_def) {
 }
 
 
-tensor dataset_to_graph(const tensor& input_dataset, const std::vector< std::string>& stateful_whitelist, bool allow_stateful=false, bool strip_device_assignment=false) {
+inline tensor dataset_to_graph(const tensor& input_dataset, const std::vector< std::string>& stateful_whitelist, bool allow_stateful=false, bool strip_device_assignment=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "DatasetToGraph", context::get_status()), &TFE_DeleteOp);
@@ -5684,7 +5684,7 @@ tensor dataset_to_graph(const tensor& input_dataset, const std::vector< std::str
 }
 
 
-tensor dataset_to_graph_v2(const tensor& input_dataset, int64_t external_state_policy=0, bool strip_device_assignment=false) {
+inline tensor dataset_to_graph_v2(const tensor& input_dataset, int64_t external_state_policy=0, bool strip_device_assignment=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "DatasetToGraphV2", context::get_status()), &TFE_DeleteOp);
@@ -5709,7 +5709,7 @@ tensor dataset_to_graph_v2(const tensor& input_dataset, int64_t external_state_p
 }
 
 
-tensor dataset_to_single_element(const tensor& dataset, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
+inline tensor dataset_to_single_element(const tensor& dataset, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "DatasetToSingleElement", context::get_status()), &TFE_DeleteOp);
@@ -5741,7 +5741,7 @@ tensor dataset_to_single_element(const tensor& dataset, const std::vector<dataty
 }
 
 
-tensor dawsn(const tensor& x) {
+inline tensor dawsn(const tensor& x) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Dawsn", context::get_status()), &TFE_DeleteOp);
@@ -5765,7 +5765,7 @@ tensor dawsn(const tensor& x) {
 }
 
 
-tensor debug_gradient_identity(const tensor& input) {
+inline tensor debug_gradient_identity(const tensor& input) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "DebugGradientIdentity", context::get_status()), &TFE_DeleteOp);
@@ -5789,7 +5789,7 @@ tensor debug_gradient_identity(const tensor& input) {
 }
 
 
-tensor debug_gradient_ref_identity(const tensor& input) {
+inline tensor debug_gradient_ref_identity(const tensor& input) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "DebugGradientRefIdentity", context::get_status()), &TFE_DeleteOp);
@@ -5813,7 +5813,7 @@ tensor debug_gradient_ref_identity(const tensor& input) {
 }
 
 
-tensor debug_identity(const tensor& input, const std::vector< std::string>& debug_urls, const std::string& device_name="", const std::string& tensor_name="", bool gated_grpc=false) {
+inline tensor debug_identity(const tensor& input, const std::vector< std::string>& debug_urls, const std::string& device_name="", const std::string& tensor_name="", bool gated_grpc=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "DebugIdentity", context::get_status()), &TFE_DeleteOp);
@@ -5844,7 +5844,7 @@ tensor debug_identity(const tensor& input, const std::vector< std::string>& debu
 }
 
 
-tensor debug_identity_v2(const tensor& input, const std::vector< std::string>& debug_urls, const std::string& tfdbg_context_id="", const std::string& op_name="", int64_t output_slot=-1, int64_t tensor_debug_mode=-1, int64_t circular_buffer_size=1000, const std::string& tfdbg_run_id="") {
+inline tensor debug_identity_v2(const tensor& input, const std::vector< std::string>& debug_urls, const std::string& tfdbg_context_id="", const std::string& op_name="", int64_t output_slot=-1, int64_t tensor_debug_mode=-1, int64_t circular_buffer_size=1000, const std::string& tfdbg_run_id="") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "DebugIdentityV2", context::get_status()), &TFE_DeleteOp);
@@ -5878,7 +5878,7 @@ tensor debug_identity_v2(const tensor& input, const std::vector< std::string>& d
 }
 
 
-tensor debug_nan_count(const tensor& input, const std::vector< std::string>& debug_urls, const std::string& device_name="", const std::string& tensor_name="", bool gated_grpc=false) {
+inline tensor debug_nan_count(const tensor& input, const std::vector< std::string>& debug_urls, const std::string& device_name="", const std::string& tensor_name="", bool gated_grpc=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "DebugNanCount", context::get_status()), &TFE_DeleteOp);
@@ -5909,7 +5909,7 @@ tensor debug_nan_count(const tensor& input, const std::vector< std::string>& deb
 }
 
 
-tensor debug_numeric_summary(const tensor& input, const std::vector< std::string>& debug_urls, const std::string& device_name="", const std::string& tensor_name="", float lower_bound=-std::numeric_limits<float>::infinity(), float upper_bound=std::numeric_limits<float>::infinity(), bool mute_if_healthy=false, bool gated_grpc=false) {
+inline tensor debug_numeric_summary(const tensor& input, const std::vector< std::string>& debug_urls, const std::string& device_name="", const std::string& tensor_name="", float lower_bound=-std::numeric_limits<float>::infinity(), float upper_bound=std::numeric_limits<float>::infinity(), bool mute_if_healthy=false, bool gated_grpc=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "DebugNumericSummary", context::get_status()), &TFE_DeleteOp);
@@ -5943,7 +5943,7 @@ tensor debug_numeric_summary(const tensor& input, const std::vector< std::string
 }
 
 
-tensor debug_numeric_summary_v2(const tensor& input, datatype output_dtype=static_cast<datatype>(1), int64_t tensor_debug_mode=-1, int64_t tensor_id=-1) {
+inline tensor debug_numeric_summary_v2(const tensor& input, datatype output_dtype=static_cast<datatype>(1), int64_t tensor_debug_mode=-1, int64_t tensor_id=-1) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "DebugNumericSummaryV2", context::get_status()), &TFE_DeleteOp);
@@ -5969,7 +5969,7 @@ tensor debug_numeric_summary_v2(const tensor& input, datatype output_dtype=stati
 }
 
 
-tensor decode_and_crop_jpeg(const tensor& contents, const tensor& crop_window, int64_t channels=0, int64_t ratio=1, bool fancy_upscaling=true, bool try_recover_truncated=false, float acceptable_fraction=1.0000e+00, const std::string& dct_method="") {
+inline tensor decode_and_crop_jpeg(const tensor& contents, const tensor& crop_window, int64_t channels=0, int64_t ratio=1, bool fancy_upscaling=true, bool try_recover_truncated=false, float acceptable_fraction=1.0000e+00, const std::string& dct_method="") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "DecodeAndCropJpeg", context::get_status()), &TFE_DeleteOp);
@@ -6002,7 +6002,7 @@ tensor decode_and_crop_jpeg(const tensor& contents, const tensor& crop_window, i
 }
 
 
-tensor decode_base64(const tensor& input) {
+inline tensor decode_base64(const tensor& input) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "DecodeBase64", context::get_status()), &TFE_DeleteOp);
@@ -6026,7 +6026,7 @@ tensor decode_base64(const tensor& input) {
 }
 
 
-tensor decode_bmp(const tensor& contents, int64_t channels=0) {
+inline tensor decode_bmp(const tensor& contents, int64_t channels=0) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "DecodeBmp", context::get_status()), &TFE_DeleteOp);
@@ -6050,7 +6050,7 @@ tensor decode_bmp(const tensor& contents, int64_t channels=0) {
 }
 
 
-tensor decode_c_s_v(const tensor& records, const std::vector<tensor>&record_defaults, const std::vector<datatype>& OUT_TYPE, const std::vector<int64_t>& select_cols, const std::string& field_delim=",", bool use_quote_delim=true, const std::string& na_value="") {
+inline tensor decode_c_s_v(const tensor& records, const std::vector<tensor>&record_defaults, const std::vector<datatype>& OUT_TYPE, const std::vector<int64_t>& select_cols, const std::string& field_delim=",", bool use_quote_delim=true, const std::string& na_value="") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "DecodeCSV", context::get_status()), &TFE_DeleteOp);
@@ -6084,7 +6084,7 @@ tensor decode_c_s_v(const tensor& records, const std::vector<tensor>&record_defa
 }
 
 
-tensor decode_compressed(const tensor& bytes, const std::string& compression_type="") {
+inline tensor decode_compressed(const tensor& bytes, const std::string& compression_type="") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "DecodeCompressed", context::get_status()), &TFE_DeleteOp);
@@ -6108,7 +6108,7 @@ tensor decode_compressed(const tensor& bytes, const std::string& compression_typ
 }
 
 
-tensor decode_gif(const tensor& contents) {
+inline tensor decode_gif(const tensor& contents) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "DecodeGif", context::get_status()), &TFE_DeleteOp);
@@ -6132,7 +6132,7 @@ tensor decode_gif(const tensor& contents) {
 }
 
 
-tensor decode_j_s_o_n_example(const tensor& json_examples) {
+inline tensor decode_j_s_o_n_example(const tensor& json_examples) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "DecodeJSONExample", context::get_status()), &TFE_DeleteOp);
@@ -6156,7 +6156,7 @@ tensor decode_j_s_o_n_example(const tensor& json_examples) {
 }
 
 
-tensor decode_jpeg(const tensor& contents, int64_t channels=0, int64_t ratio=1, bool fancy_upscaling=true, bool try_recover_truncated=false, float acceptable_fraction=1.0000e+00, const std::string& dct_method="") {
+inline tensor decode_jpeg(const tensor& contents, int64_t channels=0, int64_t ratio=1, bool fancy_upscaling=true, bool try_recover_truncated=false, float acceptable_fraction=1.0000e+00, const std::string& dct_method="") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "DecodeJpeg", context::get_status()), &TFE_DeleteOp);
@@ -6185,7 +6185,7 @@ tensor decode_jpeg(const tensor& contents, int64_t channels=0, int64_t ratio=1, 
 }
 
 
-tensor decode_padded_raw(const tensor& input_bytes, const tensor& fixed_length, datatype out_type, bool little_endian=true) {
+inline tensor decode_padded_raw(const tensor& input_bytes, const tensor& fixed_length, datatype out_type, bool little_endian=true) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "DecodePaddedRaw", context::get_status()), &TFE_DeleteOp);
@@ -6214,7 +6214,7 @@ tensor decode_padded_raw(const tensor& input_bytes, const tensor& fixed_length, 
 }
 
 
-tensor decode_png(const tensor& contents, int64_t channels=0, datatype dtype=static_cast<datatype>(4)) {
+inline tensor decode_png(const tensor& contents, int64_t channels=0, datatype dtype=static_cast<datatype>(4)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "DecodePng", context::get_status()), &TFE_DeleteOp);
@@ -6239,7 +6239,7 @@ tensor decode_png(const tensor& contents, int64_t channels=0, datatype dtype=sta
 }
 
 
-tensor decode_raw(const tensor& bytes, datatype out_type, bool little_endian=true) {
+inline tensor decode_raw(const tensor& bytes, datatype out_type, bool little_endian=true) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "DecodeRaw", context::get_status()), &TFE_DeleteOp);
@@ -6264,7 +6264,7 @@ tensor decode_raw(const tensor& bytes, datatype out_type, bool little_endian=tru
 }
 
 
-tensor deep_copy(const tensor& x) {
+inline tensor deep_copy(const tensor& x) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "DeepCopy", context::get_status()), &TFE_DeleteOp);
@@ -6288,7 +6288,7 @@ tensor deep_copy(const tensor& x) {
 }
 
 
-tensor dense_bincount(const tensor& input, const tensor& size, const tensor& weights, datatype Tidx, bool binary_output=false) {
+inline tensor dense_bincount(const tensor& input, const tensor& size, const tensor& weights, datatype Tidx, bool binary_output=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "DenseBincount", context::get_status()), &TFE_DeleteOp);
@@ -6321,7 +6321,7 @@ tensor dense_bincount(const tensor& input, const tensor& size, const tensor& wei
 }
 
 
-tensor dense_to_c_s_r_sparse_matrix(const tensor& dense_input, const tensor& indices) {
+inline tensor dense_to_c_s_r_sparse_matrix(const tensor& dense_input, const tensor& indices) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "DenseToCSRSparseMatrix", context::get_status()), &TFE_DeleteOp);
@@ -6349,7 +6349,7 @@ tensor dense_to_c_s_r_sparse_matrix(const tensor& dense_input, const tensor& ind
 }
 
 
-tensor dense_to_sparse_batch_dataset(const tensor& input_dataset, const tensor& batch_size, const tensor& row_shape, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
+inline tensor dense_to_sparse_batch_dataset(const tensor& input_dataset, const tensor& batch_size, const tensor& row_shape, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "DenseToSparseBatchDataset", context::get_status()), &TFE_DeleteOp);
@@ -6389,7 +6389,7 @@ tensor dense_to_sparse_batch_dataset(const tensor& input_dataset, const tensor& 
 }
 
 
-tensor depth_to_space(const tensor& input, int64_t block_size, const std::string& data_format="NHWC") {
+inline tensor depth_to_space(const tensor& input, int64_t block_size, const std::string& data_format="NHWC") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "DepthToSpace", context::get_status()), &TFE_DeleteOp);
@@ -6414,7 +6414,7 @@ tensor depth_to_space(const tensor& input, int64_t block_size, const std::string
 }
 
 
-tensor depthwise_conv2d_native(const tensor& input, const tensor& filter, const std::vector<int64_t>& strides, const std::string& padding, const std::vector<int64_t>& explicit_paddings, const std::vector<int64_t>& dilations, const std::string& data_format="NHWC") {
+inline tensor depthwise_conv2d_native(const tensor& input, const tensor& filter, const std::vector<int64_t>& strides, const std::string& padding, const std::vector<int64_t>& explicit_paddings, const std::vector<int64_t>& dilations, const std::string& data_format="NHWC") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "DepthwiseConv2dNative", context::get_status()), &TFE_DeleteOp);
@@ -6446,7 +6446,7 @@ tensor depthwise_conv2d_native(const tensor& input, const tensor& filter, const 
 }
 
 
-tensor depthwise_conv2d_native_backprop_filter(const tensor& input, const tensor& filter_sizes, const tensor& out_backprop, const std::vector<int64_t>& strides, const std::string& padding, const std::vector<int64_t>& explicit_paddings, const std::vector<int64_t>& dilations, const std::string& data_format="NHWC") {
+inline tensor depthwise_conv2d_native_backprop_filter(const tensor& input, const tensor& filter_sizes, const tensor& out_backprop, const std::vector<int64_t>& strides, const std::string& padding, const std::vector<int64_t>& explicit_paddings, const std::vector<int64_t>& dilations, const std::string& data_format="NHWC") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "DepthwiseConv2dNativeBackpropFilter", context::get_status()), &TFE_DeleteOp);
@@ -6482,7 +6482,7 @@ tensor depthwise_conv2d_native_backprop_filter(const tensor& input, const tensor
 }
 
 
-tensor depthwise_conv2d_native_backprop_input(const tensor& input_sizes, const tensor& filter, const tensor& out_backprop, const std::vector<int64_t>& strides, const std::string& padding, const std::vector<int64_t>& explicit_paddings, const std::vector<int64_t>& dilations, const std::string& data_format="NHWC") {
+inline tensor depthwise_conv2d_native_backprop_input(const tensor& input_sizes, const tensor& filter, const tensor& out_backprop, const std::vector<int64_t>& strides, const std::string& padding, const std::vector<int64_t>& explicit_paddings, const std::vector<int64_t>& dilations, const std::string& data_format="NHWC") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "DepthwiseConv2dNativeBackpropInput", context::get_status()), &TFE_DeleteOp);
@@ -6518,7 +6518,7 @@ tensor depthwise_conv2d_native_backprop_input(const tensor& input_sizes, const t
 }
 
 
-tensor dequantize(const tensor& input, const tensor& min_range, const tensor& max_range, const std::string& mode="MIN_COMBINED", bool narrow_range=false, int64_t axis=-1, datatype dtype=static_cast<datatype>(1)) {
+inline tensor dequantize(const tensor& input, const tensor& min_range, const tensor& max_range, const std::string& mode="MIN_COMBINED", bool narrow_range=false, int64_t axis=-1, datatype dtype=static_cast<datatype>(1)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Dequantize", context::get_status()), &TFE_DeleteOp);
@@ -6553,7 +6553,7 @@ tensor dequantize(const tensor& input, const tensor& min_range, const tensor& ma
 }
 
 
-tensor destroy_temporary_variable(const tensor& ref, const std::string& var_name) {
+inline tensor destroy_temporary_variable(const tensor& ref, const std::string& var_name) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "DestroyTemporaryVariable", context::get_status()), &TFE_DeleteOp);
@@ -6577,7 +6577,7 @@ tensor destroy_temporary_variable(const tensor& ref, const std::string& var_name
 }
 
 
-tensor device_index(const std::vector< std::string>& device_names) {
+inline tensor device_index(const std::vector< std::string>& device_names) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "DeviceIndex", context::get_status()), &TFE_DeleteOp);
@@ -6602,7 +6602,7 @@ tensor device_index(const std::vector< std::string>& device_names) {
 }
 
 
-tensor diag(const tensor& diagonal) {
+inline tensor diag(const tensor& diagonal) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Diag", context::get_status()), &TFE_DeleteOp);
@@ -6626,7 +6626,7 @@ tensor diag(const tensor& diagonal) {
 }
 
 
-tensor diag_part(const tensor& input) {
+inline tensor diag_part(const tensor& input) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "DiagPart", context::get_status()), &TFE_DeleteOp);
@@ -6650,7 +6650,7 @@ tensor diag_part(const tensor& input) {
 }
 
 
-tensor digamma(const tensor& x) {
+inline tensor digamma(const tensor& x) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Digamma", context::get_status()), &TFE_DeleteOp);
@@ -6674,7 +6674,7 @@ tensor digamma(const tensor& x) {
 }
 
 
-tensor dilation2_d(const tensor& input, const tensor& filter, const std::vector<int64_t>& strides, const std::vector<int64_t>& rates, const std::string& padding) {
+inline tensor dilation2_d(const tensor& input, const tensor& filter, const std::vector<int64_t>& strides, const std::vector<int64_t>& rates, const std::string& padding) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Dilation2D", context::get_status()), &TFE_DeleteOp);
@@ -6704,7 +6704,7 @@ tensor dilation2_d(const tensor& input, const tensor& filter, const std::vector<
 }
 
 
-tensor dilation2_d_backprop_filter(const tensor& input, const tensor& filter, const tensor& out_backprop, const std::vector<int64_t>& strides, const std::vector<int64_t>& rates, const std::string& padding) {
+inline tensor dilation2_d_backprop_filter(const tensor& input, const tensor& filter, const tensor& out_backprop, const std::vector<int64_t>& strides, const std::vector<int64_t>& rates, const std::string& padding) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Dilation2DBackpropFilter", context::get_status()), &TFE_DeleteOp);
@@ -6738,7 +6738,7 @@ tensor dilation2_d_backprop_filter(const tensor& input, const tensor& filter, co
 }
 
 
-tensor dilation2_d_backprop_input(const tensor& input, const tensor& filter, const tensor& out_backprop, const std::vector<int64_t>& strides, const std::vector<int64_t>& rates, const std::string& padding) {
+inline tensor dilation2_d_backprop_input(const tensor& input, const tensor& filter, const tensor& out_backprop, const std::vector<int64_t>& strides, const std::vector<int64_t>& rates, const std::string& padding) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Dilation2DBackpropInput", context::get_status()), &TFE_DeleteOp);
@@ -6772,7 +6772,7 @@ tensor dilation2_d_backprop_input(const tensor& input, const tensor& filter, con
 }
 
 
-tensor directed_interleave_dataset(const tensor& selector_input_dataset, const std::vector<tensor>&data_input_datasets, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
+inline tensor directed_interleave_dataset(const tensor& selector_input_dataset, const std::vector<tensor>&data_input_datasets, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "DirectedInterleaveDataset", context::get_status()), &TFE_DeleteOp);
@@ -6811,7 +6811,7 @@ tensor directed_interleave_dataset(const tensor& selector_input_dataset, const s
 }
 
 
-tensor div(const tensor& x, const tensor& y) {
+inline tensor div(const tensor& x, const tensor& y) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Div", context::get_status()), &TFE_DeleteOp);
@@ -6839,7 +6839,7 @@ tensor div(const tensor& x, const tensor& y) {
 }
 
 
-tensor div_no_nan(const tensor& x, const tensor& y) {
+inline tensor div_no_nan(const tensor& x, const tensor& y) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "DivNoNan", context::get_status()), &TFE_DeleteOp);
@@ -6867,7 +6867,7 @@ tensor div_no_nan(const tensor& x, const tensor& y) {
 }
 
 
-tensor draw_bounding_boxes(const tensor& images, const tensor& boxes) {
+inline tensor draw_bounding_boxes(const tensor& images, const tensor& boxes) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "DrawBoundingBoxes", context::get_status()), &TFE_DeleteOp);
@@ -6895,7 +6895,7 @@ tensor draw_bounding_boxes(const tensor& images, const tensor& boxes) {
 }
 
 
-tensor draw_bounding_boxes_v2(const tensor& images, const tensor& boxes, const tensor& colors) {
+inline tensor draw_bounding_boxes_v2(const tensor& images, const tensor& boxes, const tensor& colors) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "DrawBoundingBoxesV2", context::get_status()), &TFE_DeleteOp);
@@ -6927,7 +6927,7 @@ tensor draw_bounding_boxes_v2(const tensor& images, const tensor& boxes, const t
 }
 
 
-tensor dummy_iteration_counter() {
+inline tensor dummy_iteration_counter() {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "DummyIterationCounter", context::get_status()), &TFE_DeleteOp);
@@ -6948,7 +6948,7 @@ tensor dummy_iteration_counter() {
 }
 
 
-tensor dummy_memory_cache() {
+inline tensor dummy_memory_cache() {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "DummyMemoryCache", context::get_status()), &TFE_DeleteOp);
@@ -6969,7 +6969,7 @@ tensor dummy_memory_cache() {
 }
 
 
-tensor dummy_seed_generator() {
+inline tensor dummy_seed_generator() {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "DummySeedGenerator", context::get_status()), &TFE_DeleteOp);
@@ -6990,7 +6990,7 @@ tensor dummy_seed_generator() {
 }
 
 
-tensor dynamic_partition(const tensor& data, const tensor& partitions, int64_t num_partitions) {
+inline tensor dynamic_partition(const tensor& data, const tensor& partitions, int64_t num_partitions) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "DynamicPartition", context::get_status()), &TFE_DeleteOp);
@@ -7018,7 +7018,7 @@ tensor dynamic_partition(const tensor& data, const tensor& partitions, int64_t n
 }
 
 
-tensor dynamic_stitch(const std::vector<tensor>&indices, const std::vector<tensor>&data) {
+inline tensor dynamic_stitch(const std::vector<tensor>&indices, const std::vector<tensor>&data) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "DynamicStitch", context::get_status()), &TFE_DeleteOp);
@@ -7050,7 +7050,7 @@ tensor dynamic_stitch(const std::vector<tensor>&indices, const std::vector<tenso
 }
 
 
-tensor eager_py_func(const std::vector<tensor>&input, const std::string& token, const std::vector<datatype>& Tin, const std::vector<datatype>& Tout, bool is_async=false) {
+inline tensor eager_py_func(const std::vector<tensor>&input, const std::string& token, const std::vector<datatype>& Tin, const std::vector<datatype>& Tout, bool is_async=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "EagerPyFunc", context::get_status()), &TFE_DeleteOp);
@@ -7079,7 +7079,7 @@ tensor eager_py_func(const std::vector<tensor>&input, const std::string& token, 
 }
 
 
-tensor edit_distance(const tensor& hypothesis_indices, const tensor& hypothesis_values, const tensor& hypothesis_shape, const tensor& truth_indices, const tensor& truth_values, const tensor& truth_shape, bool normalize=true) {
+inline tensor edit_distance(const tensor& hypothesis_indices, const tensor& hypothesis_values, const tensor& hypothesis_shape, const tensor& truth_indices, const tensor& truth_values, const tensor& truth_shape, bool normalize=true) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "EditDistance", context::get_status()), &TFE_DeleteOp);
@@ -7123,7 +7123,7 @@ tensor edit_distance(const tensor& hypothesis_indices, const tensor& hypothesis_
 }
 
 
-tensor einsum(const std::vector<tensor>&inputs, const std::string& equation) {
+inline tensor einsum(const std::vector<tensor>&inputs, const std::string& equation) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Einsum", context::get_status()), &TFE_DeleteOp);
@@ -7150,7 +7150,7 @@ tensor einsum(const std::vector<tensor>&inputs, const std::string& equation) {
 }
 
 
-tensor elu(const tensor& features) {
+inline tensor elu(const tensor& features) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Elu", context::get_status()), &TFE_DeleteOp);
@@ -7174,7 +7174,7 @@ tensor elu(const tensor& features) {
 }
 
 
-tensor elu_grad(const tensor& gradients, const tensor& outputs) {
+inline tensor elu_grad(const tensor& gradients, const tensor& outputs) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "EluGrad", context::get_status()), &TFE_DeleteOp);
@@ -7202,7 +7202,7 @@ tensor elu_grad(const tensor& gradients, const tensor& outputs) {
 }
 
 
-tensor empty(const tensor& shape, datatype dtype, bool init=false) {
+inline tensor empty(const tensor& shape, datatype dtype, bool init=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Empty", context::get_status()), &TFE_DeleteOp);
@@ -7227,7 +7227,7 @@ tensor empty(const tensor& shape, datatype dtype, bool init=false) {
 }
 
 
-tensor empty_tensor_list(const tensor& element_shape, const tensor& max_num_elements, datatype element_dtype, datatype shape_type) {
+inline tensor empty_tensor_list(const tensor& element_shape, const tensor& max_num_elements, datatype element_dtype, datatype shape_type) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "EmptyTensorList", context::get_status()), &TFE_DeleteOp);
@@ -7256,7 +7256,7 @@ tensor empty_tensor_list(const tensor& element_shape, const tensor& max_num_elem
 }
 
 
-tensor encode_base64(const tensor& input, bool pad=false) {
+inline tensor encode_base64(const tensor& input, bool pad=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "EncodeBase64", context::get_status()), &TFE_DeleteOp);
@@ -7280,7 +7280,7 @@ tensor encode_base64(const tensor& input, bool pad=false) {
 }
 
 
-tensor encode_jpeg(const tensor& image, const std::string& format="", int64_t quality=95, bool progressive=false, bool optimize_size=false, bool chroma_downsampling=true, const std::string& density_unit="in", int64_t x_density=300, int64_t y_density=300, const std::string& xmp_metadata="") {
+inline tensor encode_jpeg(const tensor& image, const std::string& format="", int64_t quality=95, bool progressive=false, bool optimize_size=false, bool chroma_downsampling=true, const std::string& density_unit="in", int64_t x_density=300, int64_t y_density=300, const std::string& xmp_metadata="") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "EncodeJpeg", context::get_status()), &TFE_DeleteOp);
@@ -7312,7 +7312,7 @@ tensor encode_jpeg(const tensor& image, const std::string& format="", int64_t qu
 }
 
 
-tensor encode_jpeg_variable_quality(const tensor& images, const tensor& quality) {
+inline tensor encode_jpeg_variable_quality(const tensor& images, const tensor& quality) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "EncodeJpegVariableQuality", context::get_status()), &TFE_DeleteOp);
@@ -7340,7 +7340,7 @@ tensor encode_jpeg_variable_quality(const tensor& images, const tensor& quality)
 }
 
 
-tensor encode_png(const tensor& image, int64_t compression=-1) {
+inline tensor encode_png(const tensor& image, int64_t compression=-1) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "EncodePng", context::get_status()), &TFE_DeleteOp);
@@ -7364,7 +7364,7 @@ tensor encode_png(const tensor& image, int64_t compression=-1) {
 }
 
 
-tensor encode_proto(const tensor& sizes, const std::vector<tensor>&values, const std::vector< std::string>& field_names, const std::string& message_type, const std::vector<datatype>& Tinput_types, const std::string& descriptor_source="local://") {
+inline tensor encode_proto(const tensor& sizes, const std::vector<tensor>&values, const std::vector< std::string>& field_names, const std::string& message_type, const std::vector<datatype>& Tinput_types, const std::string& descriptor_source="local://") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "EncodeProto", context::get_status()), &TFE_DeleteOp);
@@ -7401,7 +7401,7 @@ tensor encode_proto(const tensor& sizes, const std::vector<tensor>&values, const
 }
 
 
-tensor encode_wav(const tensor& audio, const tensor& sample_rate) {
+inline tensor encode_wav(const tensor& audio, const tensor& sample_rate) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "EncodeWav", context::get_status()), &TFE_DeleteOp);
@@ -7429,7 +7429,7 @@ tensor encode_wav(const tensor& audio, const tensor& sample_rate) {
 }
 
 
-tensor ensure_shape(const tensor& input, const std::vector<int64_t>& shape) {
+inline tensor ensure_shape(const tensor& input, const std::vector<int64_t>& shape) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "EnsureShape", context::get_status()), &TFE_DeleteOp);
@@ -7456,7 +7456,7 @@ tensor ensure_shape(const tensor& input, const std::vector<int64_t>& shape) {
 }
 
 
-tensor enter(const tensor& data, const std::string& frame_name, bool is_constant=false, int64_t parallel_iterations=10) {
+inline tensor enter(const tensor& data, const std::string& frame_name, bool is_constant=false, int64_t parallel_iterations=10) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Enter", context::get_status()), &TFE_DeleteOp);
@@ -7482,7 +7482,7 @@ tensor enter(const tensor& data, const std::string& frame_name, bool is_constant
 }
 
 
-tensor equal(const tensor& x, const tensor& y, bool incompatible_shape_error=true) {
+inline tensor equal(const tensor& x, const tensor& y, bool incompatible_shape_error=true) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Equal", context::get_status()), &TFE_DeleteOp);
@@ -7510,7 +7510,7 @@ tensor equal(const tensor& x, const tensor& y, bool incompatible_shape_error=tru
 }
 
 
-tensor erf(const tensor& x) {
+inline tensor erf(const tensor& x) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Erf", context::get_status()), &TFE_DeleteOp);
@@ -7534,7 +7534,7 @@ tensor erf(const tensor& x) {
 }
 
 
-tensor erfc(const tensor& x) {
+inline tensor erfc(const tensor& x) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Erfc", context::get_status()), &TFE_DeleteOp);
@@ -7558,7 +7558,7 @@ tensor erfc(const tensor& x) {
 }
 
 
-tensor erfinv(const tensor& x) {
+inline tensor erfinv(const tensor& x) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Erfinv", context::get_status()), &TFE_DeleteOp);
@@ -7582,7 +7582,7 @@ tensor erfinv(const tensor& x) {
 }
 
 
-tensor euclidean_norm(const tensor& input, const tensor& reduction_indices, bool keep_dims=false, datatype Tidx=static_cast<datatype>(3)) {
+inline tensor euclidean_norm(const tensor& input, const tensor& reduction_indices, bool keep_dims=false, datatype Tidx=static_cast<datatype>(3)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "EuclideanNorm", context::get_status()), &TFE_DeleteOp);
@@ -7611,7 +7611,7 @@ tensor euclidean_norm(const tensor& input, const tensor& reduction_indices, bool
 }
 
 
-tensor exit(const tensor& data) {
+inline tensor exit(const tensor& data) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Exit", context::get_status()), &TFE_DeleteOp);
@@ -7635,7 +7635,7 @@ tensor exit(const tensor& data) {
 }
 
 
-tensor exp(const tensor& x) {
+inline tensor exp(const tensor& x) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Exp", context::get_status()), &TFE_DeleteOp);
@@ -7659,7 +7659,7 @@ tensor exp(const tensor& x) {
 }
 
 
-tensor expand_dims(const tensor& input, const tensor& dim, datatype Tdim=static_cast<datatype>(3)) {
+inline tensor expand_dims(const tensor& input, const tensor& dim, datatype Tdim=static_cast<datatype>(3)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ExpandDims", context::get_status()), &TFE_DeleteOp);
@@ -7687,7 +7687,7 @@ tensor expand_dims(const tensor& input, const tensor& dim, datatype Tdim=static_
 }
 
 
-tensor experimental_assert_next_dataset(const tensor& input_dataset, const tensor& transformations, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
+inline tensor experimental_assert_next_dataset(const tensor& input_dataset, const tensor& transformations, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ExperimentalAssertNextDataset", context::get_status()), &TFE_DeleteOp);
@@ -7723,7 +7723,7 @@ tensor experimental_assert_next_dataset(const tensor& input_dataset, const tenso
 }
 
 
-tensor experimental_auto_shard_dataset(const tensor& input_dataset, const tensor& num_workers, const tensor& index, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes, int64_t auto_shard_policy=0) {
+inline tensor experimental_auto_shard_dataset(const tensor& input_dataset, const tensor& num_workers, const tensor& index, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes, int64_t auto_shard_policy=0) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ExperimentalAutoShardDataset", context::get_status()), &TFE_DeleteOp);
@@ -7764,7 +7764,7 @@ tensor experimental_auto_shard_dataset(const tensor& input_dataset, const tensor
 }
 
 
-tensor experimental_bytes_produced_stats_dataset(const tensor& input_dataset, const tensor& tag, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
+inline tensor experimental_bytes_produced_stats_dataset(const tensor& input_dataset, const tensor& tag, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ExperimentalBytesProducedStatsDataset", context::get_status()), &TFE_DeleteOp);
@@ -7800,7 +7800,7 @@ tensor experimental_bytes_produced_stats_dataset(const tensor& input_dataset, co
 }
 
 
-tensor experimental_c_s_v_dataset(const tensor& filenames, const tensor& compression_type, const tensor& buffer_size, const tensor& header, const tensor& field_delim, const tensor& use_quote_delim, const tensor& na_value, const tensor& select_cols, const std::vector<tensor>&record_defaults, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
+inline tensor experimental_c_s_v_dataset(const tensor& filenames, const tensor& compression_type, const tensor& buffer_size, const tensor& header, const tensor& field_delim, const tensor& use_quote_delim, const tensor& na_value, const tensor& select_cols, const std::vector<tensor>&record_defaults, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ExperimentalCSVDataset", context::get_status()), &TFE_DeleteOp);
@@ -7866,7 +7866,7 @@ tensor experimental_c_s_v_dataset(const tensor& filenames, const tensor& compres
 }
 
 
-tensor experimental_choose_fastest_dataset(const std::vector<tensor>&input_datasets, int64_t num_experiments, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
+inline tensor experimental_choose_fastest_dataset(const std::vector<tensor>&input_datasets, int64_t num_experiments, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ExperimentalChooseFastestDataset", context::get_status()), &TFE_DeleteOp);
@@ -7902,7 +7902,7 @@ tensor experimental_choose_fastest_dataset(const std::vector<tensor>&input_datas
 }
 
 
-tensor experimental_dataset_cardinality(const tensor& input_dataset) {
+inline tensor experimental_dataset_cardinality(const tensor& input_dataset) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ExperimentalDatasetCardinality", context::get_status()), &TFE_DeleteOp);
@@ -7926,7 +7926,7 @@ tensor experimental_dataset_cardinality(const tensor& input_dataset) {
 }
 
 
-tensor experimental_dense_to_sparse_batch_dataset(const tensor& input_dataset, const tensor& batch_size, const tensor& row_shape, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
+inline tensor experimental_dense_to_sparse_batch_dataset(const tensor& input_dataset, const tensor& batch_size, const tensor& row_shape, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ExperimentalDenseToSparseBatchDataset", context::get_status()), &TFE_DeleteOp);
@@ -7966,7 +7966,7 @@ tensor experimental_dense_to_sparse_batch_dataset(const tensor& input_dataset, c
 }
 
 
-tensor experimental_directed_interleave_dataset(const tensor& selector_input_dataset, const std::vector<tensor>&data_input_datasets, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
+inline tensor experimental_directed_interleave_dataset(const tensor& selector_input_dataset, const std::vector<tensor>&data_input_datasets, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ExperimentalDirectedInterleaveDataset", context::get_status()), &TFE_DeleteOp);
@@ -8005,7 +8005,7 @@ tensor experimental_directed_interleave_dataset(const tensor& selector_input_dat
 }
 
 
-tensor experimental_ignore_errors_dataset(const tensor& input_dataset, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
+inline tensor experimental_ignore_errors_dataset(const tensor& input_dataset, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ExperimentalIgnoreErrorsDataset", context::get_status()), &TFE_DeleteOp);
@@ -8037,7 +8037,7 @@ tensor experimental_ignore_errors_dataset(const tensor& input_dataset, const std
 }
 
 
-tensor experimental_iterator_get_device(const tensor& resource) {
+inline tensor experimental_iterator_get_device(const tensor& resource) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ExperimentalIteratorGetDevice", context::get_status()), &TFE_DeleteOp);
@@ -8061,7 +8061,7 @@ tensor experimental_iterator_get_device(const tensor& resource) {
 }
 
 
-tensor experimental_l_m_d_b_dataset(const tensor& filenames, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
+inline tensor experimental_l_m_d_b_dataset(const tensor& filenames, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ExperimentalLMDBDataset", context::get_status()), &TFE_DeleteOp);
@@ -8093,7 +8093,7 @@ tensor experimental_l_m_d_b_dataset(const tensor& filenames, const std::vector<d
 }
 
 
-tensor experimental_latency_stats_dataset(const tensor& input_dataset, const tensor& tag, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
+inline tensor experimental_latency_stats_dataset(const tensor& input_dataset, const tensor& tag, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ExperimentalLatencyStatsDataset", context::get_status()), &TFE_DeleteOp);
@@ -8129,7 +8129,7 @@ tensor experimental_latency_stats_dataset(const tensor& input_dataset, const ten
 }
 
 
-tensor experimental_matching_files_dataset(const tensor& patterns) {
+inline tensor experimental_matching_files_dataset(const tensor& patterns) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ExperimentalMatchingFilesDataset", context::get_status()), &TFE_DeleteOp);
@@ -8153,7 +8153,7 @@ tensor experimental_matching_files_dataset(const tensor& patterns) {
 }
 
 
-tensor experimental_max_intra_op_parallelism_dataset(const tensor& input_dataset, const tensor& max_intra_op_parallelism, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
+inline tensor experimental_max_intra_op_parallelism_dataset(const tensor& input_dataset, const tensor& max_intra_op_parallelism, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ExperimentalMaxIntraOpParallelismDataset", context::get_status()), &TFE_DeleteOp);
@@ -8189,7 +8189,7 @@ tensor experimental_max_intra_op_parallelism_dataset(const tensor& input_dataset
 }
 
 
-tensor experimental_non_serializable_dataset(const tensor& input_dataset, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
+inline tensor experimental_non_serializable_dataset(const tensor& input_dataset, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ExperimentalNonSerializableDataset", context::get_status()), &TFE_DeleteOp);
@@ -8221,7 +8221,7 @@ tensor experimental_non_serializable_dataset(const tensor& input_dataset, const 
 }
 
 
-tensor experimental_parse_example_dataset(const tensor& input_dataset, const tensor& num_parallel_calls, const std::vector<tensor>&dense_defaults, const std::vector< std::string>& sparse_keys, const std::vector< std::string>& dense_keys, const std::vector<datatype>& sparse_types, const std::vector<datatype>& Tdense, const std::vector< std::vector<int64_t>>& dense_shapes, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes, bool sloppy=false) {
+inline tensor experimental_parse_example_dataset(const tensor& input_dataset, const tensor& num_parallel_calls, const std::vector<tensor>&dense_defaults, const std::vector< std::string>& sparse_keys, const std::vector< std::string>& dense_keys, const std::vector<datatype>& sparse_types, const std::vector<datatype>& Tdense, const std::vector< std::vector<int64_t>>& dense_shapes, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes, bool sloppy=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ExperimentalParseExampleDataset", context::get_status()), &TFE_DeleteOp);
@@ -8284,7 +8284,7 @@ tensor experimental_parse_example_dataset(const tensor& input_dataset, const ten
 }
 
 
-tensor experimental_private_thread_pool_dataset(const tensor& input_dataset, const tensor& num_threads, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
+inline tensor experimental_private_thread_pool_dataset(const tensor& input_dataset, const tensor& num_threads, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ExperimentalPrivateThreadPoolDataset", context::get_status()), &TFE_DeleteOp);
@@ -8320,7 +8320,7 @@ tensor experimental_private_thread_pool_dataset(const tensor& input_dataset, con
 }
 
 
-tensor experimental_random_dataset(const tensor& seed, const tensor& seed2, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
+inline tensor experimental_random_dataset(const tensor& seed, const tensor& seed2, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ExperimentalRandomDataset", context::get_status()), &TFE_DeleteOp);
@@ -8356,7 +8356,7 @@ tensor experimental_random_dataset(const tensor& seed, const tensor& seed2, cons
 }
 
 
-tensor experimental_rebatch_dataset(const tensor& input_dataset, const tensor& num_replicas, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes, bool use_fallback=true) {
+inline tensor experimental_rebatch_dataset(const tensor& input_dataset, const tensor& num_replicas, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes, bool use_fallback=true) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ExperimentalRebatchDataset", context::get_status()), &TFE_DeleteOp);
@@ -8393,7 +8393,7 @@ tensor experimental_rebatch_dataset(const tensor& input_dataset, const tensor& n
 }
 
 
-tensor experimental_set_stats_aggregator_dataset(const tensor& input_dataset, const tensor& stats_aggregator, const tensor& tag, const tensor& counter_prefix, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
+inline tensor experimental_set_stats_aggregator_dataset(const tensor& input_dataset, const tensor& stats_aggregator, const tensor& tag, const tensor& counter_prefix, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ExperimentalSetStatsAggregatorDataset", context::get_status()), &TFE_DeleteOp);
@@ -8437,7 +8437,7 @@ tensor experimental_set_stats_aggregator_dataset(const tensor& input_dataset, co
 }
 
 
-tensor experimental_sleep_dataset(const tensor& input_dataset, const tensor& sleep_microseconds, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
+inline tensor experimental_sleep_dataset(const tensor& input_dataset, const tensor& sleep_microseconds, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ExperimentalSleepDataset", context::get_status()), &TFE_DeleteOp);
@@ -8473,7 +8473,7 @@ tensor experimental_sleep_dataset(const tensor& input_dataset, const tensor& sle
 }
 
 
-tensor experimental_sliding_window_dataset(const tensor& input_dataset, const tensor& window_size, const tensor& window_shift, const tensor& window_stride, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
+inline tensor experimental_sliding_window_dataset(const tensor& input_dataset, const tensor& window_size, const tensor& window_shift, const tensor& window_stride, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ExperimentalSlidingWindowDataset", context::get_status()), &TFE_DeleteOp);
@@ -8517,7 +8517,7 @@ tensor experimental_sliding_window_dataset(const tensor& input_dataset, const te
 }
 
 
-tensor experimental_sql_dataset(const tensor& driver_name, const tensor& data_source_name, const tensor& query, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
+inline tensor experimental_sql_dataset(const tensor& driver_name, const tensor& data_source_name, const tensor& query, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ExperimentalSqlDataset", context::get_status()), &TFE_DeleteOp);
@@ -8557,7 +8557,7 @@ tensor experimental_sql_dataset(const tensor& driver_name, const tensor& data_so
 }
 
 
-tensor experimental_stats_aggregator_handle(const std::string& container="", const std::string& shared_name="") {
+inline tensor experimental_stats_aggregator_handle(const std::string& container="", const std::string& shared_name="") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ExperimentalStatsAggregatorHandle", context::get_status()), &TFE_DeleteOp);
@@ -8579,7 +8579,7 @@ tensor experimental_stats_aggregator_handle(const std::string& container="", con
 }
 
 
-tensor experimental_stats_aggregator_summary(const tensor& iterator) {
+inline tensor experimental_stats_aggregator_summary(const tensor& iterator) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ExperimentalStatsAggregatorSummary", context::get_status()), &TFE_DeleteOp);
@@ -8603,7 +8603,7 @@ tensor experimental_stats_aggregator_summary(const tensor& iterator) {
 }
 
 
-tensor experimental_thread_pool_dataset(const tensor& input_dataset, const tensor& thread_pool, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
+inline tensor experimental_thread_pool_dataset(const tensor& input_dataset, const tensor& thread_pool, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ExperimentalThreadPoolDataset", context::get_status()), &TFE_DeleteOp);
@@ -8639,7 +8639,7 @@ tensor experimental_thread_pool_dataset(const tensor& input_dataset, const tenso
 }
 
 
-tensor experimental_thread_pool_handle(int64_t num_threads, const std::string& display_name, int64_t max_intra_op_parallelism=1, const std::string& container="", const std::string& shared_name="") {
+inline tensor experimental_thread_pool_handle(int64_t num_threads, const std::string& display_name, int64_t max_intra_op_parallelism=1, const std::string& container="", const std::string& shared_name="") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ExperimentalThreadPoolHandle", context::get_status()), &TFE_DeleteOp);
@@ -8664,7 +8664,7 @@ tensor experimental_thread_pool_handle(int64_t num_threads, const std::string& d
 }
 
 
-tensor experimental_unbatch_dataset(const tensor& input_dataset, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
+inline tensor experimental_unbatch_dataset(const tensor& input_dataset, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ExperimentalUnbatchDataset", context::get_status()), &TFE_DeleteOp);
@@ -8696,7 +8696,7 @@ tensor experimental_unbatch_dataset(const tensor& input_dataset, const std::vect
 }
 
 
-tensor experimental_unique_dataset(const tensor& input_dataset, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
+inline tensor experimental_unique_dataset(const tensor& input_dataset, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ExperimentalUniqueDataset", context::get_status()), &TFE_DeleteOp);
@@ -8728,7 +8728,7 @@ tensor experimental_unique_dataset(const tensor& input_dataset, const std::vecto
 }
 
 
-tensor expint(const tensor& x) {
+inline tensor expint(const tensor& x) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Expint", context::get_status()), &TFE_DeleteOp);
@@ -8752,7 +8752,7 @@ tensor expint(const tensor& x) {
 }
 
 
-tensor expm1(const tensor& x) {
+inline tensor expm1(const tensor& x) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Expm1", context::get_status()), &TFE_DeleteOp);
@@ -8776,7 +8776,7 @@ tensor expm1(const tensor& x) {
 }
 
 
-tensor extract_glimpse(const tensor& input, const tensor& size, const tensor& offsets, bool centered=true, bool normalized=true, bool uniform_noise=true, const std::string& noise="uniform") {
+inline tensor extract_glimpse(const tensor& input, const tensor& size, const tensor& offsets, bool centered=true, bool normalized=true, bool uniform_noise=true, const std::string& noise="uniform") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ExtractGlimpse", context::get_status()), &TFE_DeleteOp);
@@ -8811,7 +8811,7 @@ tensor extract_glimpse(const tensor& input, const tensor& size, const tensor& of
 }
 
 
-tensor extract_glimpse_v2(const tensor& input, const tensor& size, const tensor& offsets, bool centered=true, bool normalized=true, bool uniform_noise=true, const std::string& noise="uniform") {
+inline tensor extract_glimpse_v2(const tensor& input, const tensor& size, const tensor& offsets, bool centered=true, bool normalized=true, bool uniform_noise=true, const std::string& noise="uniform") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ExtractGlimpseV2", context::get_status()), &TFE_DeleteOp);
@@ -8846,7 +8846,7 @@ tensor extract_glimpse_v2(const tensor& input, const tensor& size, const tensor&
 }
 
 
-tensor extract_image_patches(const tensor& images, const std::vector<int64_t>& ksizes, const std::vector<int64_t>& strides, const std::vector<int64_t>& rates, const std::string& padding) {
+inline tensor extract_image_patches(const tensor& images, const std::vector<int64_t>& ksizes, const std::vector<int64_t>& strides, const std::vector<int64_t>& rates, const std::string& padding) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ExtractImagePatches", context::get_status()), &TFE_DeleteOp);
@@ -8873,7 +8873,7 @@ tensor extract_image_patches(const tensor& images, const std::vector<int64_t>& k
 }
 
 
-tensor extract_jpeg_shape(const tensor& contents, datatype output_type=static_cast<datatype>(3)) {
+inline tensor extract_jpeg_shape(const tensor& contents, datatype output_type=static_cast<datatype>(3)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ExtractJpegShape", context::get_status()), &TFE_DeleteOp);
@@ -8897,7 +8897,7 @@ tensor extract_jpeg_shape(const tensor& contents, datatype output_type=static_ca
 }
 
 
-tensor extract_volume_patches(const tensor& input, const std::vector<int64_t>& ksizes, const std::vector<int64_t>& strides, const std::string& padding) {
+inline tensor extract_volume_patches(const tensor& input, const std::vector<int64_t>& ksizes, const std::vector<int64_t>& strides, const std::string& padding) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ExtractVolumePatches", context::get_status()), &TFE_DeleteOp);
@@ -8923,7 +8923,7 @@ tensor extract_volume_patches(const tensor& input, const std::vector<int64_t>& k
 }
 
 
-tensor f_f_t(const tensor& input, datatype Tcomplex=static_cast<datatype>(8)) {
+inline tensor f_f_t(const tensor& input, datatype Tcomplex=static_cast<datatype>(8)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "FFT", context::get_status()), &TFE_DeleteOp);
@@ -8947,7 +8947,7 @@ tensor f_f_t(const tensor& input, datatype Tcomplex=static_cast<datatype>(8)) {
 }
 
 
-tensor f_f_t2_d(const tensor& input, datatype Tcomplex=static_cast<datatype>(8)) {
+inline tensor f_f_t2_d(const tensor& input, datatype Tcomplex=static_cast<datatype>(8)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "FFT2D", context::get_status()), &TFE_DeleteOp);
@@ -8971,7 +8971,7 @@ tensor f_f_t2_d(const tensor& input, datatype Tcomplex=static_cast<datatype>(8))
 }
 
 
-tensor f_f_t3_d(const tensor& input, datatype Tcomplex=static_cast<datatype>(8)) {
+inline tensor f_f_t3_d(const tensor& input, datatype Tcomplex=static_cast<datatype>(8)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "FFT3D", context::get_status()), &TFE_DeleteOp);
@@ -8995,7 +8995,7 @@ tensor f_f_t3_d(const tensor& input, datatype Tcomplex=static_cast<datatype>(8))
 }
 
 
-tensor f_i_f_o_queue(const std::vector<datatype>& component_types, const std::vector< std::vector<int64_t>>& shapes, int64_t capacity=-1, const std::string& container="", const std::string& shared_name="") {
+inline tensor f_i_f_o_queue(const std::vector<datatype>& component_types, const std::vector< std::vector<int64_t>>& shapes, int64_t capacity=-1, const std::string& container="", const std::string& shared_name="") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "FIFOQueue", context::get_status()), &TFE_DeleteOp);
@@ -9027,7 +9027,7 @@ tensor f_i_f_o_queue(const std::vector<datatype>& component_types, const std::ve
 }
 
 
-tensor f_i_f_o_queue_v2(const std::vector<datatype>& component_types, const std::vector< std::vector<int64_t>>& shapes, int64_t capacity=-1, const std::string& container="", const std::string& shared_name="") {
+inline tensor f_i_f_o_queue_v2(const std::vector<datatype>& component_types, const std::vector< std::vector<int64_t>>& shapes, int64_t capacity=-1, const std::string& container="", const std::string& shared_name="") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "FIFOQueueV2", context::get_status()), &TFE_DeleteOp);
@@ -9059,7 +9059,7 @@ tensor f_i_f_o_queue_v2(const std::vector<datatype>& component_types, const std:
 }
 
 
-tensor fact() {
+inline tensor fact() {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Fact", context::get_status()), &TFE_DeleteOp);
@@ -9080,7 +9080,7 @@ tensor fact() {
 }
 
 
-tensor fake_param(datatype dtype, const std::vector<int64_t>& shape) {
+inline tensor fake_param(datatype dtype, const std::vector<int64_t>& shape) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "FakeParam", context::get_status()), &TFE_DeleteOp);
@@ -9105,7 +9105,7 @@ tensor fake_param(datatype dtype, const std::vector<int64_t>& shape) {
 }
 
 
-tensor fake_quant_with_min_max_args(const tensor& inputs, float min=-6.0000e+00, float max=6.0000e+00, int64_t num_bits=8, bool narrow_range=false) {
+inline tensor fake_quant_with_min_max_args(const tensor& inputs, float min=-6.0000e+00, float max=6.0000e+00, int64_t num_bits=8, bool narrow_range=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "FakeQuantWithMinMaxArgs", context::get_status()), &TFE_DeleteOp);
@@ -9132,7 +9132,7 @@ tensor fake_quant_with_min_max_args(const tensor& inputs, float min=-6.0000e+00,
 }
 
 
-tensor fake_quant_with_min_max_args_gradient(const tensor& gradients, const tensor& inputs, float min=-6.0000e+00, float max=6.0000e+00, int64_t num_bits=8, bool narrow_range=false) {
+inline tensor fake_quant_with_min_max_args_gradient(const tensor& gradients, const tensor& inputs, float min=-6.0000e+00, float max=6.0000e+00, int64_t num_bits=8, bool narrow_range=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "FakeQuantWithMinMaxArgsGradient", context::get_status()), &TFE_DeleteOp);
@@ -9163,7 +9163,7 @@ tensor fake_quant_with_min_max_args_gradient(const tensor& gradients, const tens
 }
 
 
-tensor fake_quant_with_min_max_vars(const tensor& inputs, const tensor& min, const tensor& max, int64_t num_bits=8, bool narrow_range=false) {
+inline tensor fake_quant_with_min_max_vars(const tensor& inputs, const tensor& min, const tensor& max, int64_t num_bits=8, bool narrow_range=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "FakeQuantWithMinMaxVars", context::get_status()), &TFE_DeleteOp);
@@ -9196,7 +9196,7 @@ tensor fake_quant_with_min_max_vars(const tensor& inputs, const tensor& min, con
 }
 
 
-tensor fake_quant_with_min_max_vars_per_channel(const tensor& inputs, const tensor& min, const tensor& max, int64_t num_bits=8, bool narrow_range=false) {
+inline tensor fake_quant_with_min_max_vars_per_channel(const tensor& inputs, const tensor& min, const tensor& max, int64_t num_bits=8, bool narrow_range=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "FakeQuantWithMinMaxVarsPerChannel", context::get_status()), &TFE_DeleteOp);
@@ -9229,7 +9229,7 @@ tensor fake_quant_with_min_max_vars_per_channel(const tensor& inputs, const tens
 }
 
 
-tensor fake_queue(const tensor& resource) {
+inline tensor fake_queue(const tensor& resource) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "FakeQueue", context::get_status()), &TFE_DeleteOp);
@@ -9253,7 +9253,7 @@ tensor fake_queue(const tensor& resource) {
 }
 
 
-tensor fill(const tensor& dims, const tensor& value, datatype index_type=static_cast<datatype>(3)) {
+inline tensor fill(const tensor& dims, const tensor& value, datatype index_type=static_cast<datatype>(3)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Fill", context::get_status()), &TFE_DeleteOp);
@@ -9281,7 +9281,7 @@ tensor fill(const tensor& dims, const tensor& value, datatype index_type=static_
 }
 
 
-tensor filter_by_last_component_dataset(const tensor& input_dataset, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
+inline tensor filter_by_last_component_dataset(const tensor& input_dataset, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "FilterByLastComponentDataset", context::get_status()), &TFE_DeleteOp);
@@ -9313,7 +9313,7 @@ tensor filter_by_last_component_dataset(const tensor& input_dataset, const std::
 }
 
 
-tensor fingerprint(const tensor& data, const tensor& method) {
+inline tensor fingerprint(const tensor& data, const tensor& method) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Fingerprint", context::get_status()), &TFE_DeleteOp);
@@ -9341,7 +9341,7 @@ tensor fingerprint(const tensor& data, const tensor& method) {
 }
 
 
-tensor fixed_length_record_dataset(const tensor& filenames, const tensor& header_bytes, const tensor& record_bytes, const tensor& footer_bytes, const tensor& buffer_size) {
+inline tensor fixed_length_record_dataset(const tensor& filenames, const tensor& header_bytes, const tensor& record_bytes, const tensor& footer_bytes, const tensor& buffer_size) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "FixedLengthRecordDataset", context::get_status()), &TFE_DeleteOp);
@@ -9381,7 +9381,7 @@ tensor fixed_length_record_dataset(const tensor& filenames, const tensor& header
 }
 
 
-tensor fixed_length_record_dataset_v2(const tensor& filenames, const tensor& header_bytes, const tensor& record_bytes, const tensor& footer_bytes, const tensor& buffer_size, const tensor& compression_type) {
+inline tensor fixed_length_record_dataset_v2(const tensor& filenames, const tensor& header_bytes, const tensor& record_bytes, const tensor& footer_bytes, const tensor& buffer_size, const tensor& compression_type) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "FixedLengthRecordDatasetV2", context::get_status()), &TFE_DeleteOp);
@@ -9425,7 +9425,7 @@ tensor fixed_length_record_dataset_v2(const tensor& filenames, const tensor& hea
 }
 
 
-tensor fixed_length_record_reader(int64_t record_bytes, int64_t header_bytes=0, int64_t footer_bytes=0, int64_t hop_bytes=0, const std::string& container="", const std::string& shared_name="") {
+inline tensor fixed_length_record_reader(int64_t record_bytes, int64_t header_bytes=0, int64_t footer_bytes=0, int64_t hop_bytes=0, const std::string& container="", const std::string& shared_name="") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "FixedLengthRecordReader", context::get_status()), &TFE_DeleteOp);
@@ -9451,7 +9451,7 @@ tensor fixed_length_record_reader(int64_t record_bytes, int64_t header_bytes=0, 
 }
 
 
-tensor fixed_length_record_reader_v2(int64_t record_bytes, int64_t header_bytes=0, int64_t footer_bytes=0, int64_t hop_bytes=0, const std::string& container="", const std::string& shared_name="", const std::string& encoding="") {
+inline tensor fixed_length_record_reader_v2(int64_t record_bytes, int64_t header_bytes=0, int64_t footer_bytes=0, int64_t hop_bytes=0, const std::string& container="", const std::string& shared_name="", const std::string& encoding="") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "FixedLengthRecordReaderV2", context::get_status()), &TFE_DeleteOp);
@@ -9478,7 +9478,7 @@ tensor fixed_length_record_reader_v2(int64_t record_bytes, int64_t header_bytes=
 }
 
 
-tensor floor(const tensor& x) {
+inline tensor floor(const tensor& x) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Floor", context::get_status()), &TFE_DeleteOp);
@@ -9502,7 +9502,7 @@ tensor floor(const tensor& x) {
 }
 
 
-tensor floor_div(const tensor& x, const tensor& y) {
+inline tensor floor_div(const tensor& x, const tensor& y) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "FloorDiv", context::get_status()), &TFE_DeleteOp);
@@ -9530,7 +9530,7 @@ tensor floor_div(const tensor& x, const tensor& y) {
 }
 
 
-tensor floor_mod(const tensor& x, const tensor& y) {
+inline tensor floor_mod(const tensor& x, const tensor& y) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "FloorMod", context::get_status()), &TFE_DeleteOp);
@@ -9558,7 +9558,7 @@ tensor floor_mod(const tensor& x, const tensor& y) {
 }
 
 
-tensor fractional_avg_pool_grad(const tensor& orig_input_input_tensor_shape, const tensor& out_backprop, const tensor& row_pooling_sequence, const tensor& col_pooling_sequence, bool overlapping=false) {
+inline tensor fractional_avg_pool_grad(const tensor& orig_input_input_tensor_shape, const tensor& out_backprop, const tensor& row_pooling_sequence, const tensor& col_pooling_sequence, bool overlapping=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "FractionalAvgPoolGrad", context::get_status()), &TFE_DeleteOp);
@@ -9594,7 +9594,7 @@ tensor fractional_avg_pool_grad(const tensor& orig_input_input_tensor_shape, con
 }
 
 
-tensor fractional_max_pool_grad(const tensor& orig_input, const tensor& orig_output, const tensor& out_backprop, const tensor& row_pooling_sequence, const tensor& col_pooling_sequence, bool overlapping=false) {
+inline tensor fractional_max_pool_grad(const tensor& orig_input, const tensor& orig_output, const tensor& out_backprop, const tensor& row_pooling_sequence, const tensor& col_pooling_sequence, bool overlapping=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "FractionalMaxPoolGrad", context::get_status()), &TFE_DeleteOp);
@@ -9634,7 +9634,7 @@ tensor fractional_max_pool_grad(const tensor& orig_input, const tensor& orig_out
 }
 
 
-tensor fresnel_cos(const tensor& x) {
+inline tensor fresnel_cos(const tensor& x) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "FresnelCos", context::get_status()), &TFE_DeleteOp);
@@ -9658,7 +9658,7 @@ tensor fresnel_cos(const tensor& x) {
 }
 
 
-tensor fresnel_sin(const tensor& x) {
+inline tensor fresnel_sin(const tensor& x) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "FresnelSin", context::get_status()), &TFE_DeleteOp);
@@ -9682,7 +9682,7 @@ tensor fresnel_sin(const tensor& x) {
 }
 
 
-tensor fused_pad_conv2_d(const tensor& input, const tensor& paddings, const tensor& filter, const std::string& mode, const std::vector<int64_t>& strides, const std::string& padding) {
+inline tensor fused_pad_conv2_d(const tensor& input, const tensor& paddings, const tensor& filter, const std::string& mode, const std::vector<int64_t>& strides, const std::string& padding) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "FusedPadConv2D", context::get_status()), &TFE_DeleteOp);
@@ -9716,7 +9716,7 @@ tensor fused_pad_conv2_d(const tensor& input, const tensor& paddings, const tens
 }
 
 
-tensor fused_resize_and_pad_conv2_d(const tensor& input, const tensor& size, const tensor& paddings, const tensor& filter, const std::string& mode, const std::vector<int64_t>& strides, const std::string& padding, bool resize_align_corners=false) {
+inline tensor fused_resize_and_pad_conv2_d(const tensor& input, const tensor& size, const tensor& paddings, const tensor& filter, const std::string& mode, const std::vector<int64_t>& strides, const std::string& padding, bool resize_align_corners=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "FusedResizeAndPadConv2D", context::get_status()), &TFE_DeleteOp);
@@ -9755,7 +9755,7 @@ tensor fused_resize_and_pad_conv2_d(const tensor& input, const tensor& size, con
 }
 
 
-tensor gather(const tensor& params, const tensor& indices, datatype Tparams, datatype Tindices, bool validate_indices=true) {
+inline tensor gather(const tensor& params, const tensor& indices, datatype Tparams, datatype Tindices, bool validate_indices=true) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Gather", context::get_status()), &TFE_DeleteOp);
@@ -9785,7 +9785,7 @@ tensor gather(const tensor& params, const tensor& indices, datatype Tparams, dat
 }
 
 
-tensor gather_nd(const tensor& params, const tensor& indices, datatype Tparams, datatype Tindices) {
+inline tensor gather_nd(const tensor& params, const tensor& indices, datatype Tparams, datatype Tindices) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "GatherNd", context::get_status()), &TFE_DeleteOp);
@@ -9814,7 +9814,7 @@ tensor gather_nd(const tensor& params, const tensor& indices, datatype Tparams, 
 }
 
 
-tensor gather_v2(const tensor& params, const tensor& indices, const tensor& axis, datatype Tparams, datatype Tindices, datatype Taxis, int64_t batch_dims=0) {
+inline tensor gather_v2(const tensor& params, const tensor& indices, const tensor& axis, datatype Tparams, datatype Tindices, datatype Taxis, int64_t batch_dims=0) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "GatherV2", context::get_status()), &TFE_DeleteOp);
@@ -9849,7 +9849,7 @@ tensor gather_v2(const tensor& params, const tensor& indices, const tensor& axis
 }
 
 
-tensor get_session_handle(const tensor& value) {
+inline tensor get_session_handle(const tensor& value) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "GetSessionHandle", context::get_status()), &TFE_DeleteOp);
@@ -9873,7 +9873,7 @@ tensor get_session_handle(const tensor& value) {
 }
 
 
-tensor get_session_handle_v2(const tensor& value) {
+inline tensor get_session_handle_v2(const tensor& value) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "GetSessionHandleV2", context::get_status()), &TFE_DeleteOp);
@@ -9897,7 +9897,7 @@ tensor get_session_handle_v2(const tensor& value) {
 }
 
 
-tensor get_session_tensor(const tensor& handle, datatype dtype) {
+inline tensor get_session_tensor(const tensor& handle, datatype dtype) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "GetSessionTensor", context::get_status()), &TFE_DeleteOp);
@@ -9921,7 +9921,7 @@ tensor get_session_tensor(const tensor& handle, datatype dtype) {
 }
 
 
-tensor greater(const tensor& x, const tensor& y) {
+inline tensor greater(const tensor& x, const tensor& y) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Greater", context::get_status()), &TFE_DeleteOp);
@@ -9949,7 +9949,7 @@ tensor greater(const tensor& x, const tensor& y) {
 }
 
 
-tensor greater_equal(const tensor& x, const tensor& y) {
+inline tensor greater_equal(const tensor& x, const tensor& y) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "GreaterEqual", context::get_status()), &TFE_DeleteOp);
@@ -9977,7 +9977,7 @@ tensor greater_equal(const tensor& x, const tensor& y) {
 }
 
 
-tensor guarantee_const_tensor(const tensor& input) {
+inline tensor guarantee_const_tensor(const tensor& input) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "GuaranteeConst", context::get_status()), &TFE_DeleteOp);
@@ -10001,7 +10001,7 @@ tensor guarantee_const_tensor(const tensor& input) {
 }
 
 
-tensor h_s_v_to_r_g_b(const tensor& images) {
+inline tensor h_s_v_to_r_g_b(const tensor& images) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "HSVToRGB", context::get_status()), &TFE_DeleteOp);
@@ -10025,7 +10025,7 @@ tensor h_s_v_to_r_g_b(const tensor& images) {
 }
 
 
-tensor hash_table(datatype key_dtype, datatype value_dtype, const std::string& container="", const std::string& shared_name="", bool use_node_name_sharing=false) {
+inline tensor hash_table(datatype key_dtype, datatype value_dtype, const std::string& container="", const std::string& shared_name="", bool use_node_name_sharing=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "HashTable", context::get_status()), &TFE_DeleteOp);
@@ -10050,7 +10050,7 @@ tensor hash_table(datatype key_dtype, datatype value_dtype, const std::string& c
 }
 
 
-tensor hash_table_v2(datatype key_dtype, datatype value_dtype, const std::string& container="", const std::string& shared_name="", bool use_node_name_sharing=false) {
+inline tensor hash_table_v2(datatype key_dtype, datatype value_dtype, const std::string& container="", const std::string& shared_name="", bool use_node_name_sharing=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "HashTableV2", context::get_status()), &TFE_DeleteOp);
@@ -10075,7 +10075,7 @@ tensor hash_table_v2(datatype key_dtype, datatype value_dtype, const std::string
 }
 
 
-tensor histogram_fixed_width(const tensor& values, const tensor& value_range, const tensor& nbins, datatype dtype=static_cast<datatype>(3)) {
+inline tensor histogram_fixed_width(const tensor& values, const tensor& value_range, const tensor& nbins, datatype dtype=static_cast<datatype>(3)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "HistogramFixedWidth", context::get_status()), &TFE_DeleteOp);
@@ -10107,7 +10107,7 @@ tensor histogram_fixed_width(const tensor& values, const tensor& value_range, co
 }
 
 
-tensor histogram_summary(const tensor& tag, const tensor& values) {
+inline tensor histogram_summary(const tensor& tag, const tensor& values) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "HistogramSummary", context::get_status()), &TFE_DeleteOp);
@@ -10135,7 +10135,7 @@ tensor histogram_summary(const tensor& tag, const tensor& values) {
 }
 
 
-tensor i_f_f_t(const tensor& input, datatype Tcomplex=static_cast<datatype>(8)) {
+inline tensor i_f_f_t(const tensor& input, datatype Tcomplex=static_cast<datatype>(8)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "IFFT", context::get_status()), &TFE_DeleteOp);
@@ -10159,7 +10159,7 @@ tensor i_f_f_t(const tensor& input, datatype Tcomplex=static_cast<datatype>(8)) 
 }
 
 
-tensor i_f_f_t2_d(const tensor& input, datatype Tcomplex=static_cast<datatype>(8)) {
+inline tensor i_f_f_t2_d(const tensor& input, datatype Tcomplex=static_cast<datatype>(8)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "IFFT2D", context::get_status()), &TFE_DeleteOp);
@@ -10183,7 +10183,7 @@ tensor i_f_f_t2_d(const tensor& input, datatype Tcomplex=static_cast<datatype>(8
 }
 
 
-tensor i_f_f_t3_d(const tensor& input, datatype Tcomplex=static_cast<datatype>(8)) {
+inline tensor i_f_f_t3_d(const tensor& input, datatype Tcomplex=static_cast<datatype>(8)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "IFFT3D", context::get_status()), &TFE_DeleteOp);
@@ -10207,7 +10207,7 @@ tensor i_f_f_t3_d(const tensor& input, datatype Tcomplex=static_cast<datatype>(8
 }
 
 
-tensor i_r_f_f_t(const tensor& input, const tensor& fft_length, datatype Treal=static_cast<datatype>(1), datatype Tcomplex=static_cast<datatype>(8)) {
+inline tensor i_r_f_f_t(const tensor& input, const tensor& fft_length, datatype Treal=static_cast<datatype>(1), datatype Tcomplex=static_cast<datatype>(8)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "IRFFT", context::get_status()), &TFE_DeleteOp);
@@ -10236,7 +10236,7 @@ tensor i_r_f_f_t(const tensor& input, const tensor& fft_length, datatype Treal=s
 }
 
 
-tensor i_r_f_f_t2_d(const tensor& input, const tensor& fft_length, datatype Treal=static_cast<datatype>(1), datatype Tcomplex=static_cast<datatype>(8)) {
+inline tensor i_r_f_f_t2_d(const tensor& input, const tensor& fft_length, datatype Treal=static_cast<datatype>(1), datatype Tcomplex=static_cast<datatype>(8)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "IRFFT2D", context::get_status()), &TFE_DeleteOp);
@@ -10265,7 +10265,7 @@ tensor i_r_f_f_t2_d(const tensor& input, const tensor& fft_length, datatype Trea
 }
 
 
-tensor i_r_f_f_t3_d(const tensor& input, const tensor& fft_length, datatype Treal=static_cast<datatype>(1), datatype Tcomplex=static_cast<datatype>(8)) {
+inline tensor i_r_f_f_t3_d(const tensor& input, const tensor& fft_length, datatype Treal=static_cast<datatype>(1), datatype Tcomplex=static_cast<datatype>(8)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "IRFFT3D", context::get_status()), &TFE_DeleteOp);
@@ -10294,7 +10294,7 @@ tensor i_r_f_f_t3_d(const tensor& input, const tensor& fft_length, datatype Trea
 }
 
 
-tensor identity(const tensor& input) {
+inline tensor identity(const tensor& input) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Identity", context::get_status()), &TFE_DeleteOp);
@@ -10318,7 +10318,7 @@ tensor identity(const tensor& input) {
 }
 
 
-tensor identity_n(const std::vector<tensor>&input) {
+inline tensor identity_n(const std::vector<tensor>&input) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "IdentityN", context::get_status()), &TFE_DeleteOp);
@@ -10344,7 +10344,7 @@ tensor identity_n(const std::vector<tensor>&input) {
 }
 
 
-tensor identity_reader(const std::string& container="", const std::string& shared_name="") {
+inline tensor identity_reader(const std::string& container="", const std::string& shared_name="") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "IdentityReader", context::get_status()), &TFE_DeleteOp);
@@ -10366,7 +10366,7 @@ tensor identity_reader(const std::string& container="", const std::string& share
 }
 
 
-tensor identity_reader_v2(const std::string& container="", const std::string& shared_name="") {
+inline tensor identity_reader_v2(const std::string& container="", const std::string& shared_name="") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "IdentityReaderV2", context::get_status()), &TFE_DeleteOp);
@@ -10388,7 +10388,7 @@ tensor identity_reader_v2(const std::string& container="", const std::string& sh
 }
 
 
-tensor igamma(const tensor& a, const tensor& x) {
+inline tensor igamma(const tensor& a, const tensor& x) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Igamma", context::get_status()), &TFE_DeleteOp);
@@ -10416,7 +10416,7 @@ tensor igamma(const tensor& a, const tensor& x) {
 }
 
 
-tensor igamma_grad_a(const tensor& a, const tensor& x) {
+inline tensor igamma_grad_a(const tensor& a, const tensor& x) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "IgammaGradA", context::get_status()), &TFE_DeleteOp);
@@ -10444,7 +10444,7 @@ tensor igamma_grad_a(const tensor& a, const tensor& x) {
 }
 
 
-tensor igammac(const tensor& a, const tensor& x) {
+inline tensor igammac(const tensor& a, const tensor& x) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Igammac", context::get_status()), &TFE_DeleteOp);
@@ -10472,7 +10472,7 @@ tensor igammac(const tensor& a, const tensor& x) {
 }
 
 
-tensor ignore_errors_dataset(const tensor& input_dataset, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
+inline tensor ignore_errors_dataset(const tensor& input_dataset, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "IgnoreErrorsDataset", context::get_status()), &TFE_DeleteOp);
@@ -10504,7 +10504,7 @@ tensor ignore_errors_dataset(const tensor& input_dataset, const std::vector<data
 }
 
 
-tensor imag(const tensor& input, datatype Tout=static_cast<datatype>(1)) {
+inline tensor imag(const tensor& input, datatype Tout=static_cast<datatype>(1)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Imag", context::get_status()), &TFE_DeleteOp);
@@ -10528,7 +10528,7 @@ tensor imag(const tensor& input, datatype Tout=static_cast<datatype>(1)) {
 }
 
 
-tensor image_projective_transform_v2(const tensor& images, const tensor& transforms, const tensor& output_shape, datatype dtype, const std::string& interpolation, const std::string& fill_mode="CONSTANT") {
+inline tensor image_projective_transform_v2(const tensor& images, const tensor& transforms, const tensor& output_shape, datatype dtype, const std::string& interpolation, const std::string& fill_mode="CONSTANT") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ImageProjectiveTransformV2", context::get_status()), &TFE_DeleteOp);
@@ -10562,7 +10562,7 @@ tensor image_projective_transform_v2(const tensor& images, const tensor& transfo
 }
 
 
-tensor image_summary(const tensor& tag, const tensor& input_tensor, const tensor& bad_color, int64_t max_images=3) {
+inline tensor image_summary(const tensor& tag, const tensor& input_tensor, const tensor& bad_color, int64_t max_images=3) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ImageSummary", context::get_status()), &TFE_DeleteOp);
@@ -10594,7 +10594,7 @@ tensor image_summary(const tensor& tag, const tensor& input_tensor, const tensor
 }
 
 
-tensor immutable_const_tensor(datatype dtype, const std::vector<int64_t>& shape, const std::string& memory_region_name) {
+inline tensor immutable_const_tensor(datatype dtype, const std::vector<int64_t>& shape, const std::string& memory_region_name) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ImmutableConst", context::get_status()), &TFE_DeleteOp);
@@ -10620,7 +10620,7 @@ tensor immutable_const_tensor(datatype dtype, const std::vector<int64_t>& shape,
 }
 
 
-tensor in_top_k(const tensor& predictions, const tensor& targets, int64_t k) {
+inline tensor in_top_k(const tensor& predictions, const tensor& targets, int64_t k) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "InTopK", context::get_status()), &TFE_DeleteOp);
@@ -10648,7 +10648,7 @@ tensor in_top_k(const tensor& predictions, const tensor& targets, int64_t k) {
 }
 
 
-tensor in_top_k_v2(const tensor& predictions, const tensor& targets, const tensor& k) {
+inline tensor in_top_k_v2(const tensor& predictions, const tensor& targets, const tensor& k) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "InTopKV2", context::get_status()), &TFE_DeleteOp);
@@ -10680,7 +10680,7 @@ tensor in_top_k_v2(const tensor& predictions, const tensor& targets, const tenso
 }
 
 
-tensor infeed_dequeue(datatype dtype, const std::vector<int64_t>& shape) {
+inline tensor infeed_dequeue(datatype dtype, const std::vector<int64_t>& shape) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "InfeedDequeue", context::get_status()), &TFE_DeleteOp);
@@ -10705,7 +10705,7 @@ tensor infeed_dequeue(datatype dtype, const std::vector<int64_t>& shape) {
 }
 
 
-tensor infeed_dequeue_tuple(const std::vector<datatype>& dtypes, const std::vector< std::vector<int64_t>>& shapes) {
+inline tensor infeed_dequeue_tuple(const std::vector<datatype>& dtypes, const std::vector< std::vector<int64_t>>& shapes) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "InfeedDequeueTuple", context::get_status()), &TFE_DeleteOp);
@@ -10734,7 +10734,7 @@ tensor infeed_dequeue_tuple(const std::vector<datatype>& dtypes, const std::vect
 }
 
 
-tensor inplace_add(const tensor& x, const tensor& i, const tensor& v) {
+inline tensor inplace_add(const tensor& x, const tensor& i, const tensor& v) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "InplaceAdd", context::get_status()), &TFE_DeleteOp);
@@ -10766,7 +10766,7 @@ tensor inplace_add(const tensor& x, const tensor& i, const tensor& v) {
 }
 
 
-tensor inplace_sub(const tensor& x, const tensor& i, const tensor& v) {
+inline tensor inplace_sub(const tensor& x, const tensor& i, const tensor& v) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "InplaceSub", context::get_status()), &TFE_DeleteOp);
@@ -10798,7 +10798,7 @@ tensor inplace_sub(const tensor& x, const tensor& i, const tensor& v) {
 }
 
 
-tensor inplace_update(const tensor& x, const tensor& i, const tensor& v) {
+inline tensor inplace_update(const tensor& x, const tensor& i, const tensor& v) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "InplaceUpdate", context::get_status()), &TFE_DeleteOp);
@@ -10830,7 +10830,7 @@ tensor inplace_update(const tensor& x, const tensor& i, const tensor& v) {
 }
 
 
-tensor inv(const tensor& x) {
+inline tensor inv(const tensor& x) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Inv", context::get_status()), &TFE_DeleteOp);
@@ -10854,7 +10854,7 @@ tensor inv(const tensor& x) {
 }
 
 
-tensor inv_grad(const tensor& y, const tensor& dy) {
+inline tensor inv_grad(const tensor& y, const tensor& dy) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "InvGrad", context::get_status()), &TFE_DeleteOp);
@@ -10882,7 +10882,7 @@ tensor inv_grad(const tensor& y, const tensor& dy) {
 }
 
 
-tensor invert(const tensor& x) {
+inline tensor invert(const tensor& x) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Invert", context::get_status()), &TFE_DeleteOp);
@@ -10906,7 +10906,7 @@ tensor invert(const tensor& x) {
 }
 
 
-tensor invert_permutation(const tensor& x) {
+inline tensor invert_permutation(const tensor& x) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "InvertPermutation", context::get_status()), &TFE_DeleteOp);
@@ -10930,7 +10930,7 @@ tensor invert_permutation(const tensor& x) {
 }
 
 
-tensor is_boosted_trees_ensemble_initialized(const tensor& tree_ensemble_handle) {
+inline tensor is_boosted_trees_ensemble_initialized(const tensor& tree_ensemble_handle) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "IsBoostedTreesEnsembleInitialized", context::get_status()), &TFE_DeleteOp);
@@ -10954,7 +10954,7 @@ tensor is_boosted_trees_ensemble_initialized(const tensor& tree_ensemble_handle)
 }
 
 
-tensor is_boosted_trees_quantile_stream_resource_initialized(const tensor& quantile_stream_resource_handle) {
+inline tensor is_boosted_trees_quantile_stream_resource_initialized(const tensor& quantile_stream_resource_handle) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "IsBoostedTreesQuantileStreamResourceInitialized", context::get_status()), &TFE_DeleteOp);
@@ -10978,7 +10978,7 @@ tensor is_boosted_trees_quantile_stream_resource_initialized(const tensor& quant
 }
 
 
-tensor is_finite(const tensor& x) {
+inline tensor is_finite(const tensor& x) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "IsFinite", context::get_status()), &TFE_DeleteOp);
@@ -11002,7 +11002,7 @@ tensor is_finite(const tensor& x) {
 }
 
 
-tensor is_inf(const tensor& x) {
+inline tensor is_inf(const tensor& x) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "IsInf", context::get_status()), &TFE_DeleteOp);
@@ -11026,7 +11026,7 @@ tensor is_inf(const tensor& x) {
 }
 
 
-tensor is_nan(const tensor& x) {
+inline tensor is_nan(const tensor& x) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "IsNan", context::get_status()), &TFE_DeleteOp);
@@ -11050,7 +11050,7 @@ tensor is_nan(const tensor& x) {
 }
 
 
-tensor is_variable_initialized(const tensor& ref, datatype dtype) {
+inline tensor is_variable_initialized(const tensor& ref, datatype dtype) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "IsVariableInitialized", context::get_status()), &TFE_DeleteOp);
@@ -11074,7 +11074,7 @@ tensor is_variable_initialized(const tensor& ref, datatype dtype) {
 }
 
 
-tensor iterator(const std::string& shared_name, const std::string& container, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
+inline tensor iterator(const std::string& shared_name, const std::string& container, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Iterator", context::get_status()), &TFE_DeleteOp);
@@ -11105,7 +11105,7 @@ tensor iterator(const std::string& shared_name, const std::string& container, co
 }
 
 
-tensor iterator_from_string_handle(const tensor& string_handle, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
+inline tensor iterator_from_string_handle(const tensor& string_handle, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "IteratorFromStringHandle", context::get_status()), &TFE_DeleteOp);
@@ -11137,7 +11137,7 @@ tensor iterator_from_string_handle(const tensor& string_handle, const std::vecto
 }
 
 
-tensor iterator_from_string_handle_v2(const tensor& string_handle, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
+inline tensor iterator_from_string_handle_v2(const tensor& string_handle, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "IteratorFromStringHandleV2", context::get_status()), &TFE_DeleteOp);
@@ -11169,7 +11169,7 @@ tensor iterator_from_string_handle_v2(const tensor& string_handle, const std::ve
 }
 
 
-tensor iterator_get_device(const tensor& resource) {
+inline tensor iterator_get_device(const tensor& resource) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "IteratorGetDevice", context::get_status()), &TFE_DeleteOp);
@@ -11193,7 +11193,7 @@ tensor iterator_get_device(const tensor& resource) {
 }
 
 
-tensor iterator_get_next(const tensor& iterator, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
+inline tensor iterator_get_next(const tensor& iterator, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "IteratorGetNext", context::get_status()), &TFE_DeleteOp);
@@ -11225,7 +11225,7 @@ tensor iterator_get_next(const tensor& iterator, const std::vector<datatype>& ou
 }
 
 
-tensor iterator_get_next_as_optional(const tensor& iterator, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
+inline tensor iterator_get_next_as_optional(const tensor& iterator, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "IteratorGetNextAsOptional", context::get_status()), &TFE_DeleteOp);
@@ -11257,7 +11257,7 @@ tensor iterator_get_next_as_optional(const tensor& iterator, const std::vector<d
 }
 
 
-tensor iterator_get_next_sync(const tensor& iterator, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
+inline tensor iterator_get_next_sync(const tensor& iterator, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "IteratorGetNextSync", context::get_status()), &TFE_DeleteOp);
@@ -11289,7 +11289,7 @@ tensor iterator_get_next_sync(const tensor& iterator, const std::vector<datatype
 }
 
 
-tensor iterator_to_string_handle(const tensor& resource_handle) {
+inline tensor iterator_to_string_handle(const tensor& resource_handle) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "IteratorToStringHandle", context::get_status()), &TFE_DeleteOp);
@@ -11313,7 +11313,7 @@ tensor iterator_to_string_handle(const tensor& resource_handle) {
 }
 
 
-tensor iterator_v2(const std::string& shared_name, const std::string& container, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
+inline tensor iterator_v2(const std::string& shared_name, const std::string& container, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "IteratorV2", context::get_status()), &TFE_DeleteOp);
@@ -11344,7 +11344,7 @@ tensor iterator_v2(const std::string& shared_name, const std::string& container,
 }
 
 
-tensor l2_loss(const tensor& t) {
+inline tensor l2_loss(const tensor& t) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "L2Loss", context::get_status()), &TFE_DeleteOp);
@@ -11368,7 +11368,7 @@ tensor l2_loss(const tensor& t) {
 }
 
 
-tensor l_m_d_b_dataset(const tensor& filenames, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
+inline tensor l_m_d_b_dataset(const tensor& filenames, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "LMDBDataset", context::get_status()), &TFE_DeleteOp);
@@ -11400,7 +11400,7 @@ tensor l_m_d_b_dataset(const tensor& filenames, const std::vector<datatype>& out
 }
 
 
-tensor l_m_d_b_reader(const std::string& container="", const std::string& shared_name="") {
+inline tensor l_m_d_b_reader(const std::string& container="", const std::string& shared_name="") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "LMDBReader", context::get_status()), &TFE_DeleteOp);
@@ -11422,7 +11422,7 @@ tensor l_m_d_b_reader(const std::string& container="", const std::string& shared
 }
 
 
-tensor l_r_n(const tensor& input, int64_t depth_radius=5, float bias=1.0000e+00, float alpha=1.0000e+00, float beta=5.0000e-01) {
+inline tensor l_r_n(const tensor& input, int64_t depth_radius=5, float bias=1.0000e+00, float alpha=1.0000e+00, float beta=5.0000e-01) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "LRN", context::get_status()), &TFE_DeleteOp);
@@ -11449,7 +11449,7 @@ tensor l_r_n(const tensor& input, int64_t depth_radius=5, float bias=1.0000e+00,
 }
 
 
-tensor l_r_n_grad(const tensor& input_grads, const tensor& input_image, const tensor& output_image, int64_t depth_radius=5, float bias=1.0000e+00, float alpha=1.0000e+00, float beta=5.0000e-01) {
+inline tensor l_r_n_grad(const tensor& input_grads, const tensor& input_image, const tensor& output_image, int64_t depth_radius=5, float bias=1.0000e+00, float alpha=1.0000e+00, float beta=5.0000e-01) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "LRNGrad", context::get_status()), &TFE_DeleteOp);
@@ -11484,7 +11484,7 @@ tensor l_r_n_grad(const tensor& input_grads, const tensor& input_image, const te
 }
 
 
-tensor latency_stats_dataset(const tensor& input_dataset, const tensor& tag, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
+inline tensor latency_stats_dataset(const tensor& input_dataset, const tensor& tag, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "LatencyStatsDataset", context::get_status()), &TFE_DeleteOp);
@@ -11520,7 +11520,7 @@ tensor latency_stats_dataset(const tensor& input_dataset, const tensor& tag, con
 }
 
 
-tensor leaky_relu(const tensor& features, float alpha=2.0000e-01) {
+inline tensor leaky_relu(const tensor& features, float alpha=2.0000e-01) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "LeakyRelu", context::get_status()), &TFE_DeleteOp);
@@ -11544,7 +11544,7 @@ tensor leaky_relu(const tensor& features, float alpha=2.0000e-01) {
 }
 
 
-tensor leaky_relu_grad(const tensor& gradients, const tensor& features, float alpha=2.0000e-01) {
+inline tensor leaky_relu_grad(const tensor& gradients, const tensor& features, float alpha=2.0000e-01) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "LeakyReluGrad", context::get_status()), &TFE_DeleteOp);
@@ -11572,7 +11572,7 @@ tensor leaky_relu_grad(const tensor& gradients, const tensor& features, float al
 }
 
 
-tensor left_shift(const tensor& x, const tensor& y) {
+inline tensor left_shift(const tensor& x, const tensor& y) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "LeftShift", context::get_status()), &TFE_DeleteOp);
@@ -11600,7 +11600,7 @@ tensor left_shift(const tensor& x, const tensor& y) {
 }
 
 
-tensor less(const tensor& x, const tensor& y) {
+inline tensor less(const tensor& x, const tensor& y) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Less", context::get_status()), &TFE_DeleteOp);
@@ -11628,7 +11628,7 @@ tensor less(const tensor& x, const tensor& y) {
 }
 
 
-tensor less_equal(const tensor& x, const tensor& y) {
+inline tensor less_equal(const tensor& x, const tensor& y) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "LessEqual", context::get_status()), &TFE_DeleteOp);
@@ -11656,7 +11656,7 @@ tensor less_equal(const tensor& x, const tensor& y) {
 }
 
 
-tensor lgamma(const tensor& x) {
+inline tensor lgamma(const tensor& x) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Lgamma", context::get_status()), &TFE_DeleteOp);
@@ -11680,7 +11680,7 @@ tensor lgamma(const tensor& x) {
 }
 
 
-tensor lin_space(const tensor& start, const tensor& stop, const tensor& num, datatype Tidx=static_cast<datatype>(3)) {
+inline tensor lin_space(const tensor& start, const tensor& stop, const tensor& num, datatype Tidx=static_cast<datatype>(3)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "LinSpace", context::get_status()), &TFE_DeleteOp);
@@ -11712,7 +11712,7 @@ tensor lin_space(const tensor& start, const tensor& stop, const tensor& num, dat
 }
 
 
-tensor load_and_remap_matrix(const tensor& ckpt_path, const tensor& old_input_tensor_name, const tensor& row_remapping, const tensor& col_remapping, const tensor& initializing_values, int64_t num_rows, int64_t num_cols, int64_t max_rows_in_memory=-1) {
+inline tensor load_and_remap_matrix(const tensor& ckpt_path, const tensor& old_input_tensor_name, const tensor& row_remapping, const tensor& col_remapping, const tensor& initializing_values, int64_t num_rows, int64_t num_cols, int64_t max_rows_in_memory=-1) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "LoadAndRemapMatrix", context::get_status()), &TFE_DeleteOp);
@@ -11754,7 +11754,7 @@ tensor load_and_remap_matrix(const tensor& ckpt_path, const tensor& old_input_te
 }
 
 
-tensor log(const tensor& x) {
+inline tensor log(const tensor& x) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Log", context::get_status()), &TFE_DeleteOp);
@@ -11778,7 +11778,7 @@ tensor log(const tensor& x) {
 }
 
 
-tensor log1p(const tensor& x) {
+inline tensor log1p(const tensor& x) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Log1p", context::get_status()), &TFE_DeleteOp);
@@ -11802,7 +11802,7 @@ tensor log1p(const tensor& x) {
 }
 
 
-tensor log_softmax(const tensor& logits) {
+inline tensor log_softmax(const tensor& logits) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "LogSoftmax", context::get_status()), &TFE_DeleteOp);
@@ -11826,7 +11826,7 @@ tensor log_softmax(const tensor& logits) {
 }
 
 
-tensor logical_and(const tensor& x, const tensor& y) {
+inline tensor logical_and(const tensor& x, const tensor& y) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "LogicalAnd", context::get_status()), &TFE_DeleteOp);
@@ -11854,7 +11854,7 @@ tensor logical_and(const tensor& x, const tensor& y) {
 }
 
 
-tensor logical_not(const tensor& x) {
+inline tensor logical_not(const tensor& x) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "LogicalNot", context::get_status()), &TFE_DeleteOp);
@@ -11878,7 +11878,7 @@ tensor logical_not(const tensor& x) {
 }
 
 
-tensor logical_or(const tensor& x, const tensor& y) {
+inline tensor logical_or(const tensor& x, const tensor& y) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "LogicalOr", context::get_status()), &TFE_DeleteOp);
@@ -11906,7 +11906,7 @@ tensor logical_or(const tensor& x, const tensor& y) {
 }
 
 
-tensor lookup_table_find(const tensor& table_handle, const tensor& keys, const tensor& default_value, datatype Tin, datatype Tout) {
+inline tensor lookup_table_find(const tensor& table_handle, const tensor& keys, const tensor& default_value, datatype Tin, datatype Tout) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "LookupTableFind", context::get_status()), &TFE_DeleteOp);
@@ -11939,7 +11939,7 @@ tensor lookup_table_find(const tensor& table_handle, const tensor& keys, const t
 }
 
 
-tensor lookup_table_find_v2(const tensor& table_handle, const tensor& keys, const tensor& default_value, datatype Tin, datatype Tout) {
+inline tensor lookup_table_find_v2(const tensor& table_handle, const tensor& keys, const tensor& default_value, datatype Tin, datatype Tout) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "LookupTableFindV2", context::get_status()), &TFE_DeleteOp);
@@ -11972,7 +11972,7 @@ tensor lookup_table_find_v2(const tensor& table_handle, const tensor& keys, cons
 }
 
 
-tensor lookup_table_size(const tensor& table_handle) {
+inline tensor lookup_table_size(const tensor& table_handle) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "LookupTableSize", context::get_status()), &TFE_DeleteOp);
@@ -11996,7 +11996,7 @@ tensor lookup_table_size(const tensor& table_handle) {
 }
 
 
-tensor lookup_table_size_v2(const tensor& table_handle) {
+inline tensor lookup_table_size_v2(const tensor& table_handle) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "LookupTableSizeV2", context::get_status()), &TFE_DeleteOp);
@@ -12020,7 +12020,7 @@ tensor lookup_table_size_v2(const tensor& table_handle) {
 }
 
 
-tensor loop_cond(const tensor& input) {
+inline tensor loop_cond(const tensor& input) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "LoopCond", context::get_status()), &TFE_DeleteOp);
@@ -12044,7 +12044,7 @@ tensor loop_cond(const tensor& input) {
 }
 
 
-tensor lower_bound(const tensor& sorted_inputs, const tensor& values, datatype out_type=static_cast<datatype>(3)) {
+inline tensor lower_bound(const tensor& sorted_inputs, const tensor& values, datatype out_type=static_cast<datatype>(3)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "LowerBound", context::get_status()), &TFE_DeleteOp);
@@ -12072,7 +12072,7 @@ tensor lower_bound(const tensor& sorted_inputs, const tensor& values, datatype o
 }
 
 
-tensor map_incomplete_size(const std::vector<datatype>& dtypes, int64_t capacity=0, int64_t memory_limit=0, const std::string& container="", const std::string& shared_name="") {
+inline tensor map_incomplete_size(const std::vector<datatype>& dtypes, int64_t capacity=0, int64_t memory_limit=0, const std::string& container="", const std::string& shared_name="") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "MapIncompleteSize", context::get_status()), &TFE_DeleteOp);
@@ -12097,7 +12097,7 @@ tensor map_incomplete_size(const std::vector<datatype>& dtypes, int64_t capacity
 }
 
 
-tensor map_peek(const tensor& key, const tensor& indices, const std::vector<datatype>& dtypes, int64_t capacity=0, int64_t memory_limit=0, const std::string& container="", const std::string& shared_name="") {
+inline tensor map_peek(const tensor& key, const tensor& indices, const std::vector<datatype>& dtypes, int64_t capacity=0, int64_t memory_limit=0, const std::string& container="", const std::string& shared_name="") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "MapPeek", context::get_status()), &TFE_DeleteOp);
@@ -12129,7 +12129,7 @@ tensor map_peek(const tensor& key, const tensor& indices, const std::vector<data
 }
 
 
-tensor map_size(const std::vector<datatype>& dtypes, int64_t capacity=0, int64_t memory_limit=0, const std::string& container="", const std::string& shared_name="") {
+inline tensor map_size(const std::vector<datatype>& dtypes, int64_t capacity=0, int64_t memory_limit=0, const std::string& container="", const std::string& shared_name="") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "MapSize", context::get_status()), &TFE_DeleteOp);
@@ -12154,7 +12154,7 @@ tensor map_size(const std::vector<datatype>& dtypes, int64_t capacity=0, int64_t
 }
 
 
-tensor map_unstage(const tensor& key, const tensor& indices, const std::vector<datatype>& dtypes, int64_t capacity=0, int64_t memory_limit=0, const std::string& container="", const std::string& shared_name="") {
+inline tensor map_unstage(const tensor& key, const tensor& indices, const std::vector<datatype>& dtypes, int64_t capacity=0, int64_t memory_limit=0, const std::string& container="", const std::string& shared_name="") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "MapUnstage", context::get_status()), &TFE_DeleteOp);
@@ -12186,7 +12186,7 @@ tensor map_unstage(const tensor& key, const tensor& indices, const std::vector<d
 }
 
 
-tensor mat_mul(const tensor& a, const tensor& b, bool transpose_a=false, bool transpose_b=false) {
+inline tensor mat_mul(const tensor& a, const tensor& b, bool transpose_a=false, bool transpose_b=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "MatMul", context::get_status()), &TFE_DeleteOp);
@@ -12215,7 +12215,7 @@ tensor mat_mul(const tensor& a, const tensor& b, bool transpose_a=false, bool tr
 }
 
 
-tensor matching_files(const tensor& pattern) {
+inline tensor matching_files(const tensor& pattern) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "MatchingFiles", context::get_status()), &TFE_DeleteOp);
@@ -12239,7 +12239,7 @@ tensor matching_files(const tensor& pattern) {
 }
 
 
-tensor matching_files_dataset(const tensor& patterns) {
+inline tensor matching_files_dataset(const tensor& patterns) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "MatchingFilesDataset", context::get_status()), &TFE_DeleteOp);
@@ -12263,7 +12263,7 @@ tensor matching_files_dataset(const tensor& patterns) {
 }
 
 
-tensor matrix_band_part(const tensor& input, const tensor& num_lower, const tensor& num_upper, datatype Tindex=static_cast<datatype>(9)) {
+inline tensor matrix_band_part(const tensor& input, const tensor& num_lower, const tensor& num_upper, datatype Tindex=static_cast<datatype>(9)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "MatrixBandPart", context::get_status()), &TFE_DeleteOp);
@@ -12295,7 +12295,7 @@ tensor matrix_band_part(const tensor& input, const tensor& num_lower, const tens
 }
 
 
-tensor matrix_determinant(const tensor& input) {
+inline tensor matrix_determinant(const tensor& input) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "MatrixDeterminant", context::get_status()), &TFE_DeleteOp);
@@ -12319,7 +12319,7 @@ tensor matrix_determinant(const tensor& input) {
 }
 
 
-tensor matrix_diag(const tensor& diagonal) {
+inline tensor matrix_diag(const tensor& diagonal) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "MatrixDiag", context::get_status()), &TFE_DeleteOp);
@@ -12343,7 +12343,7 @@ tensor matrix_diag(const tensor& diagonal) {
 }
 
 
-tensor matrix_diag_part(const tensor& input) {
+inline tensor matrix_diag_part(const tensor& input) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "MatrixDiagPart", context::get_status()), &TFE_DeleteOp);
@@ -12367,7 +12367,7 @@ tensor matrix_diag_part(const tensor& input) {
 }
 
 
-tensor matrix_diag_part_v2(const tensor& input, const tensor& k, const tensor& padding_value) {
+inline tensor matrix_diag_part_v2(const tensor& input, const tensor& k, const tensor& padding_value) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "MatrixDiagPartV2", context::get_status()), &TFE_DeleteOp);
@@ -12399,7 +12399,7 @@ tensor matrix_diag_part_v2(const tensor& input, const tensor& k, const tensor& p
 }
 
 
-tensor matrix_diag_part_v3(const tensor& input, const tensor& k, const tensor& padding_value, const std::string& align="RIGHT_LEFT") {
+inline tensor matrix_diag_part_v3(const tensor& input, const tensor& k, const tensor& padding_value, const std::string& align="RIGHT_LEFT") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "MatrixDiagPartV3", context::get_status()), &TFE_DeleteOp);
@@ -12431,7 +12431,7 @@ tensor matrix_diag_part_v3(const tensor& input, const tensor& k, const tensor& p
 }
 
 
-tensor matrix_diag_v2(const tensor& diagonal, const tensor& k, const tensor& num_rows, const tensor& num_cols, const tensor& padding_value) {
+inline tensor matrix_diag_v2(const tensor& diagonal, const tensor& k, const tensor& num_rows, const tensor& num_cols, const tensor& padding_value) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "MatrixDiagV2", context::get_status()), &TFE_DeleteOp);
@@ -12471,7 +12471,7 @@ tensor matrix_diag_v2(const tensor& diagonal, const tensor& k, const tensor& num
 }
 
 
-tensor matrix_diag_v3(const tensor& diagonal, const tensor& k, const tensor& num_rows, const tensor& num_cols, const tensor& padding_value, const std::string& align="RIGHT_LEFT") {
+inline tensor matrix_diag_v3(const tensor& diagonal, const tensor& k, const tensor& num_rows, const tensor& num_cols, const tensor& padding_value, const std::string& align="RIGHT_LEFT") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "MatrixDiagV3", context::get_status()), &TFE_DeleteOp);
@@ -12511,7 +12511,7 @@ tensor matrix_diag_v3(const tensor& diagonal, const tensor& k, const tensor& num
 }
 
 
-tensor matrix_exponential(const tensor& input) {
+inline tensor matrix_exponential(const tensor& input) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "MatrixExponential", context::get_status()), &TFE_DeleteOp);
@@ -12535,7 +12535,7 @@ tensor matrix_exponential(const tensor& input) {
 }
 
 
-tensor matrix_inverse(const tensor& input, bool adjoint=false) {
+inline tensor matrix_inverse(const tensor& input, bool adjoint=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "MatrixInverse", context::get_status()), &TFE_DeleteOp);
@@ -12559,7 +12559,7 @@ tensor matrix_inverse(const tensor& input, bool adjoint=false) {
 }
 
 
-tensor matrix_logarithm(const tensor& input) {
+inline tensor matrix_logarithm(const tensor& input) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "MatrixLogarithm", context::get_status()), &TFE_DeleteOp);
@@ -12583,7 +12583,7 @@ tensor matrix_logarithm(const tensor& input) {
 }
 
 
-tensor matrix_set_diag(const tensor& input, const tensor& diagonal) {
+inline tensor matrix_set_diag(const tensor& input, const tensor& diagonal) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "MatrixSetDiag", context::get_status()), &TFE_DeleteOp);
@@ -12611,7 +12611,7 @@ tensor matrix_set_diag(const tensor& input, const tensor& diagonal) {
 }
 
 
-tensor matrix_set_diag_v2(const tensor& input, const tensor& diagonal, const tensor& k) {
+inline tensor matrix_set_diag_v2(const tensor& input, const tensor& diagonal, const tensor& k) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "MatrixSetDiagV2", context::get_status()), &TFE_DeleteOp);
@@ -12643,7 +12643,7 @@ tensor matrix_set_diag_v2(const tensor& input, const tensor& diagonal, const ten
 }
 
 
-tensor matrix_set_diag_v3(const tensor& input, const tensor& diagonal, const tensor& k, const std::string& align="RIGHT_LEFT") {
+inline tensor matrix_set_diag_v3(const tensor& input, const tensor& diagonal, const tensor& k, const std::string& align="RIGHT_LEFT") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "MatrixSetDiagV3", context::get_status()), &TFE_DeleteOp);
@@ -12675,7 +12675,7 @@ tensor matrix_set_diag_v3(const tensor& input, const tensor& diagonal, const ten
 }
 
 
-tensor matrix_solve(const tensor& matrix, const tensor& rhs, bool adjoint=false) {
+inline tensor matrix_solve(const tensor& matrix, const tensor& rhs, bool adjoint=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "MatrixSolve", context::get_status()), &TFE_DeleteOp);
@@ -12703,7 +12703,7 @@ tensor matrix_solve(const tensor& matrix, const tensor& rhs, bool adjoint=false)
 }
 
 
-tensor matrix_solve_ls(const tensor& matrix, const tensor& rhs, const tensor& l2_regularizer, bool fast=true) {
+inline tensor matrix_solve_ls(const tensor& matrix, const tensor& rhs, const tensor& l2_regularizer, bool fast=true) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "MatrixSolveLs", context::get_status()), &TFE_DeleteOp);
@@ -12735,7 +12735,7 @@ tensor matrix_solve_ls(const tensor& matrix, const tensor& rhs, const tensor& l2
 }
 
 
-tensor matrix_square_root(const tensor& input) {
+inline tensor matrix_square_root(const tensor& input) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "MatrixSquareRoot", context::get_status()), &TFE_DeleteOp);
@@ -12759,7 +12759,7 @@ tensor matrix_square_root(const tensor& input) {
 }
 
 
-tensor matrix_triangular_solve(const tensor& matrix, const tensor& rhs, bool lower=true, bool adjoint=false) {
+inline tensor matrix_triangular_solve(const tensor& matrix, const tensor& rhs, bool lower=true, bool adjoint=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "MatrixTriangularSolve", context::get_status()), &TFE_DeleteOp);
@@ -12788,7 +12788,7 @@ tensor matrix_triangular_solve(const tensor& matrix, const tensor& rhs, bool low
 }
 
 
-tensor max(const tensor& input, const tensor& reduction_indices, bool keep_dims=false, datatype Tidx=static_cast<datatype>(3)) {
+inline tensor max(const tensor& input, const tensor& reduction_indices, bool keep_dims=false, datatype Tidx=static_cast<datatype>(3)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Max", context::get_status()), &TFE_DeleteOp);
@@ -12817,7 +12817,7 @@ tensor max(const tensor& input, const tensor& reduction_indices, bool keep_dims=
 }
 
 
-tensor max_intra_op_parallelism_dataset(const tensor& input_dataset, const tensor& max_intra_op_parallelism, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
+inline tensor max_intra_op_parallelism_dataset(const tensor& input_dataset, const tensor& max_intra_op_parallelism, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "MaxIntraOpParallelismDataset", context::get_status()), &TFE_DeleteOp);
@@ -12853,7 +12853,7 @@ tensor max_intra_op_parallelism_dataset(const tensor& input_dataset, const tenso
 }
 
 
-tensor max_pool(const tensor& input, const std::vector<int64_t>& ksize, const std::vector<int64_t>& strides, const std::string& padding, const std::string& data_format="NHWC") {
+inline tensor max_pool(const tensor& input, const std::vector<int64_t>& ksize, const std::vector<int64_t>& strides, const std::string& padding, const std::string& data_format="NHWC") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "MaxPool", context::get_status()), &TFE_DeleteOp);
@@ -12880,7 +12880,7 @@ tensor max_pool(const tensor& input, const std::vector<int64_t>& ksize, const st
 }
 
 
-tensor max_pool3_d(const tensor& input, const std::vector<int64_t>& ksize, const std::vector<int64_t>& strides, const std::string& padding, const std::string& data_format="NDHWC") {
+inline tensor max_pool3_d(const tensor& input, const std::vector<int64_t>& ksize, const std::vector<int64_t>& strides, const std::string& padding, const std::string& data_format="NDHWC") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "MaxPool3D", context::get_status()), &TFE_DeleteOp);
@@ -12907,7 +12907,7 @@ tensor max_pool3_d(const tensor& input, const std::vector<int64_t>& ksize, const
 }
 
 
-tensor max_pool3_d_grad(const tensor& orig_input, const tensor& orig_output, const tensor& grad, const std::vector<int64_t>& ksize, const std::vector<int64_t>& strides, const std::string& padding, const std::string& data_format="NDHWC", datatype TInput=static_cast<datatype>(1)) {
+inline tensor max_pool3_d_grad(const tensor& orig_input, const tensor& orig_output, const tensor& grad, const std::vector<int64_t>& ksize, const std::vector<int64_t>& strides, const std::string& padding, const std::string& data_format="NDHWC", datatype TInput=static_cast<datatype>(1)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "MaxPool3DGrad", context::get_status()), &TFE_DeleteOp);
@@ -12943,7 +12943,7 @@ tensor max_pool3_d_grad(const tensor& orig_input, const tensor& orig_output, con
 }
 
 
-tensor max_pool3_d_grad_grad(const tensor& orig_input, const tensor& orig_output, const tensor& grad, const std::vector<int64_t>& ksize, const std::vector<int64_t>& strides, const std::string& padding, const std::string& data_format="NDHWC") {
+inline tensor max_pool3_d_grad_grad(const tensor& orig_input, const tensor& orig_output, const tensor& grad, const std::vector<int64_t>& ksize, const std::vector<int64_t>& strides, const std::string& padding, const std::string& data_format="NDHWC") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "MaxPool3DGradGrad", context::get_status()), &TFE_DeleteOp);
@@ -12978,7 +12978,7 @@ tensor max_pool3_d_grad_grad(const tensor& orig_input, const tensor& orig_output
 }
 
 
-tensor max_pool_grad(const tensor& orig_input, const tensor& orig_output, const tensor& grad, const std::vector<int64_t>& ksize, const std::vector<int64_t>& strides, const std::string& padding, const std::string& data_format="NHWC") {
+inline tensor max_pool_grad(const tensor& orig_input, const tensor& orig_output, const tensor& grad, const std::vector<int64_t>& ksize, const std::vector<int64_t>& strides, const std::string& padding, const std::string& data_format="NHWC") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "MaxPoolGrad", context::get_status()), &TFE_DeleteOp);
@@ -13013,7 +13013,7 @@ tensor max_pool_grad(const tensor& orig_input, const tensor& orig_output, const 
 }
 
 
-tensor max_pool_grad_grad(const tensor& orig_input, const tensor& orig_output, const tensor& grad, const std::vector<int64_t>& ksize, const std::vector<int64_t>& strides, const std::string& padding, const std::string& data_format="NHWC") {
+inline tensor max_pool_grad_grad(const tensor& orig_input, const tensor& orig_output, const tensor& grad, const std::vector<int64_t>& ksize, const std::vector<int64_t>& strides, const std::string& padding, const std::string& data_format="NHWC") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "MaxPoolGradGrad", context::get_status()), &TFE_DeleteOp);
@@ -13048,7 +13048,7 @@ tensor max_pool_grad_grad(const tensor& orig_input, const tensor& orig_output, c
 }
 
 
-tensor max_pool_grad_grad_v2(const tensor& orig_input, const tensor& orig_output, const tensor& grad, const tensor& ksize, const tensor& strides, const std::string& padding, const std::string& data_format="NHWC") {
+inline tensor max_pool_grad_grad_v2(const tensor& orig_input, const tensor& orig_output, const tensor& grad, const tensor& ksize, const tensor& strides, const std::string& padding, const std::string& data_format="NHWC") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "MaxPoolGradGradV2", context::get_status()), &TFE_DeleteOp);
@@ -13089,7 +13089,7 @@ tensor max_pool_grad_grad_v2(const tensor& orig_input, const tensor& orig_output
 }
 
 
-tensor max_pool_grad_grad_with_argmax(const tensor& input, const tensor& grad, const tensor& argmax, const std::vector<int64_t>& ksize, const std::vector<int64_t>& strides, const std::string& padding, datatype Targmax, bool include_batch_in_index=false) {
+inline tensor max_pool_grad_grad_with_argmax(const tensor& input, const tensor& grad, const tensor& argmax, const std::vector<int64_t>& ksize, const std::vector<int64_t>& strides, const std::string& padding, datatype Targmax, bool include_batch_in_index=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "MaxPoolGradGradWithArgmax", context::get_status()), &TFE_DeleteOp);
@@ -13125,7 +13125,7 @@ tensor max_pool_grad_grad_with_argmax(const tensor& input, const tensor& grad, c
 }
 
 
-tensor max_pool_grad_v2(const tensor& orig_input, const tensor& orig_output, const tensor& grad, const tensor& ksize, const tensor& strides, const std::string& padding, const std::string& data_format="NHWC") {
+inline tensor max_pool_grad_v2(const tensor& orig_input, const tensor& orig_output, const tensor& grad, const tensor& ksize, const tensor& strides, const std::string& padding, const std::string& data_format="NHWC") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "MaxPoolGradV2", context::get_status()), &TFE_DeleteOp);
@@ -13166,7 +13166,7 @@ tensor max_pool_grad_v2(const tensor& orig_input, const tensor& orig_output, con
 }
 
 
-tensor max_pool_grad_with_argmax(const tensor& input, const tensor& grad, const tensor& argmax, const std::vector<int64_t>& ksize, const std::vector<int64_t>& strides, const std::string& padding, datatype Targmax, bool include_batch_in_index=false) {
+inline tensor max_pool_grad_with_argmax(const tensor& input, const tensor& grad, const tensor& argmax, const std::vector<int64_t>& ksize, const std::vector<int64_t>& strides, const std::string& padding, datatype Targmax, bool include_batch_in_index=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "MaxPoolGradWithArgmax", context::get_status()), &TFE_DeleteOp);
@@ -13202,7 +13202,7 @@ tensor max_pool_grad_with_argmax(const tensor& input, const tensor& grad, const 
 }
 
 
-tensor max_pool_v2(const tensor& input, const tensor& ksize, const tensor& strides, const std::string& padding, const std::string& data_format="NHWC") {
+inline tensor max_pool_v2(const tensor& input, const tensor& ksize, const tensor& strides, const std::string& padding, const std::string& data_format="NHWC") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "MaxPoolV2", context::get_status()), &TFE_DeleteOp);
@@ -13235,7 +13235,7 @@ tensor max_pool_v2(const tensor& input, const tensor& ksize, const tensor& strid
 }
 
 
-tensor maximum(const tensor& x, const tensor& y) {
+inline tensor maximum(const tensor& x, const tensor& y) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Maximum", context::get_status()), &TFE_DeleteOp);
@@ -13263,7 +13263,7 @@ tensor maximum(const tensor& x, const tensor& y) {
 }
 
 
-tensor mean(const tensor& input, const tensor& reduction_indices, bool keep_dims=false, datatype Tidx=static_cast<datatype>(3)) {
+inline tensor mean(const tensor& input, const tensor& reduction_indices, bool keep_dims=false, datatype Tidx=static_cast<datatype>(3)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Mean", context::get_status()), &TFE_DeleteOp);
@@ -13292,7 +13292,7 @@ tensor mean(const tensor& input, const tensor& reduction_indices, bool keep_dims
 }
 
 
-tensor merge_summary(const std::vector<tensor>&inputs) {
+inline tensor merge_summary(const std::vector<tensor>&inputs) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "MergeSummary", context::get_status()), &TFE_DeleteOp);
@@ -13318,7 +13318,7 @@ tensor merge_summary(const std::vector<tensor>&inputs) {
 }
 
 
-tensor mfcc(const tensor& spectrogram, const tensor& sample_rate, float upper_frequency_limit=4.0000e+03, float lower_frequency_limit=2.0000e+01, int64_t filterbank_channel_count=40, int64_t dct_coefficient_count=13) {
+inline tensor mfcc(const tensor& spectrogram, const tensor& sample_rate, float upper_frequency_limit=4.0000e+03, float lower_frequency_limit=2.0000e+01, int64_t filterbank_channel_count=40, int64_t dct_coefficient_count=13) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Mfcc", context::get_status()), &TFE_DeleteOp);
@@ -13349,7 +13349,7 @@ tensor mfcc(const tensor& spectrogram, const tensor& sample_rate, float upper_fr
 }
 
 
-tensor min(const tensor& input, const tensor& reduction_indices, bool keep_dims=false, datatype Tidx=static_cast<datatype>(3)) {
+inline tensor min(const tensor& input, const tensor& reduction_indices, bool keep_dims=false, datatype Tidx=static_cast<datatype>(3)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Min", context::get_status()), &TFE_DeleteOp);
@@ -13378,7 +13378,7 @@ tensor min(const tensor& input, const tensor& reduction_indices, bool keep_dims=
 }
 
 
-tensor minimum(const tensor& x, const tensor& y) {
+inline tensor minimum(const tensor& x, const tensor& y) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Minimum", context::get_status()), &TFE_DeleteOp);
@@ -13406,7 +13406,7 @@ tensor minimum(const tensor& x, const tensor& y) {
 }
 
 
-tensor mirror_pad(const tensor& input, const tensor& paddings, const std::string& mode, datatype Tpaddings=static_cast<datatype>(3)) {
+inline tensor mirror_pad(const tensor& input, const tensor& paddings, const std::string& mode, datatype Tpaddings=static_cast<datatype>(3)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "MirrorPad", context::get_status()), &TFE_DeleteOp);
@@ -13435,7 +13435,7 @@ tensor mirror_pad(const tensor& input, const tensor& paddings, const std::string
 }
 
 
-tensor mirror_pad_grad(const tensor& input, const tensor& paddings, const std::string& mode, datatype Tpaddings=static_cast<datatype>(3)) {
+inline tensor mirror_pad_grad(const tensor& input, const tensor& paddings, const std::string& mode, datatype Tpaddings=static_cast<datatype>(3)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "MirrorPadGrad", context::get_status()), &TFE_DeleteOp);
@@ -13464,7 +13464,7 @@ tensor mirror_pad_grad(const tensor& input, const tensor& paddings, const std::s
 }
 
 
-tensor mod(const tensor& x, const tensor& y) {
+inline tensor mod(const tensor& x, const tensor& y) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Mod", context::get_status()), &TFE_DeleteOp);
@@ -13492,7 +13492,7 @@ tensor mod(const tensor& x, const tensor& y) {
 }
 
 
-tensor model_dataset(const tensor& input_dataset, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes, int64_t algorithm=0, int64_t cpu_budget=0) {
+inline tensor model_dataset(const tensor& input_dataset, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes, int64_t algorithm=0, int64_t cpu_budget=0) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ModelDataset", context::get_status()), &TFE_DeleteOp);
@@ -13526,7 +13526,7 @@ tensor model_dataset(const tensor& input_dataset, const std::vector<datatype>& o
 }
 
 
-tensor mul(const tensor& x, const tensor& y) {
+inline tensor mul(const tensor& x, const tensor& y) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Mul", context::get_status()), &TFE_DeleteOp);
@@ -13554,7 +13554,7 @@ tensor mul(const tensor& x, const tensor& y) {
 }
 
 
-tensor mul_no_nan(const tensor& x, const tensor& y) {
+inline tensor mul_no_nan(const tensor& x, const tensor& y) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "MulNoNan", context::get_status()), &TFE_DeleteOp);
@@ -13582,7 +13582,7 @@ tensor mul_no_nan(const tensor& x, const tensor& y) {
 }
 
 
-tensor multi_device_iterator(const std::vector< std::string>& devices, const std::string& shared_name, const std::string& container, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
+inline tensor multi_device_iterator(const std::vector< std::string>& devices, const std::string& shared_name, const std::string& container, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "MultiDeviceIterator", context::get_status()), &TFE_DeleteOp);
@@ -13618,7 +13618,7 @@ tensor multi_device_iterator(const std::vector< std::string>& devices, const std
 }
 
 
-tensor multi_device_iterator_from_string_handle(const tensor& string_handle, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
+inline tensor multi_device_iterator_from_string_handle(const tensor& string_handle, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "MultiDeviceIteratorFromStringHandle", context::get_status()), &TFE_DeleteOp);
@@ -13650,7 +13650,7 @@ tensor multi_device_iterator_from_string_handle(const tensor& string_handle, con
 }
 
 
-tensor multi_device_iterator_get_next_from_shard(const tensor& multi_device_iterator, const tensor& shard_num, const tensor& incarnation_id, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
+inline tensor multi_device_iterator_get_next_from_shard(const tensor& multi_device_iterator, const tensor& shard_num, const tensor& incarnation_id, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "MultiDeviceIteratorGetNextFromShard", context::get_status()), &TFE_DeleteOp);
@@ -13690,7 +13690,7 @@ tensor multi_device_iterator_get_next_from_shard(const tensor& multi_device_iter
 }
 
 
-tensor multi_device_iterator_init(const tensor& dataset, const tensor& multi_device_iterator, const tensor& max_buffer_size) {
+inline tensor multi_device_iterator_init(const tensor& dataset, const tensor& multi_device_iterator, const tensor& max_buffer_size) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "MultiDeviceIteratorInit", context::get_status()), &TFE_DeleteOp);
@@ -13722,7 +13722,7 @@ tensor multi_device_iterator_init(const tensor& dataset, const tensor& multi_dev
 }
 
 
-tensor multi_device_iterator_to_string_handle(const tensor& multi_device_iterator) {
+inline tensor multi_device_iterator_to_string_handle(const tensor& multi_device_iterator) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "MultiDeviceIteratorToStringHandle", context::get_status()), &TFE_DeleteOp);
@@ -13746,7 +13746,7 @@ tensor multi_device_iterator_to_string_handle(const tensor& multi_device_iterato
 }
 
 
-tensor multinomial(const tensor& logits, const tensor& num_samples, int64_t seed=0, int64_t seed2=0, datatype output_dtype=static_cast<datatype>(9)) {
+inline tensor multinomial(const tensor& logits, const tensor& num_samples, int64_t seed=0, int64_t seed2=0, datatype output_dtype=static_cast<datatype>(9)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Multinomial", context::get_status()), &TFE_DeleteOp);
@@ -13776,7 +13776,7 @@ tensor multinomial(const tensor& logits, const tensor& num_samples, int64_t seed
 }
 
 
-tensor mutable_dense_hash_table(const tensor& empty_key, datatype key_dtype, datatype value_dtype, const std::vector<int64_t>& value_shape, const std::string& container="", const std::string& shared_name="", bool use_node_name_sharing=false, int64_t initial_num_buckets=131072, float max_load_factor=8.0000e-01) {
+inline tensor mutable_dense_hash_table(const tensor& empty_key, datatype key_dtype, datatype value_dtype, const std::vector<int64_t>& value_shape, const std::string& container="", const std::string& shared_name="", bool use_node_name_sharing=false, int64_t initial_num_buckets=131072, float max_load_factor=8.0000e-01) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "MutableDenseHashTable", context::get_status()), &TFE_DeleteOp);
@@ -13810,7 +13810,7 @@ tensor mutable_dense_hash_table(const tensor& empty_key, datatype key_dtype, dat
 }
 
 
-tensor mutable_dense_hash_table_v2(const tensor& empty_key, const tensor& deleted_key, datatype key_dtype, datatype value_dtype, const std::vector<int64_t>& value_shape, const std::string& container="", const std::string& shared_name="", bool use_node_name_sharing=false, int64_t initial_num_buckets=131072, float max_load_factor=8.0000e-01) {
+inline tensor mutable_dense_hash_table_v2(const tensor& empty_key, const tensor& deleted_key, datatype key_dtype, datatype value_dtype, const std::vector<int64_t>& value_shape, const std::string& container="", const std::string& shared_name="", bool use_node_name_sharing=false, int64_t initial_num_buckets=131072, float max_load_factor=8.0000e-01) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "MutableDenseHashTableV2", context::get_status()), &TFE_DeleteOp);
@@ -13848,7 +13848,7 @@ tensor mutable_dense_hash_table_v2(const tensor& empty_key, const tensor& delete
 }
 
 
-tensor mutable_hash_table(datatype key_dtype, datatype value_dtype, const std::string& container="", const std::string& shared_name="", bool use_node_name_sharing=false) {
+inline tensor mutable_hash_table(datatype key_dtype, datatype value_dtype, const std::string& container="", const std::string& shared_name="", bool use_node_name_sharing=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "MutableHashTable", context::get_status()), &TFE_DeleteOp);
@@ -13873,7 +13873,7 @@ tensor mutable_hash_table(datatype key_dtype, datatype value_dtype, const std::s
 }
 
 
-tensor mutable_hash_table_of_tensors(datatype key_dtype, datatype value_dtype, const std::vector<int64_t>& value_shape, const std::string& container="", const std::string& shared_name="", bool use_node_name_sharing=false) {
+inline tensor mutable_hash_table_of_tensors(datatype key_dtype, datatype value_dtype, const std::vector<int64_t>& value_shape, const std::string& container="", const std::string& shared_name="", bool use_node_name_sharing=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "MutableHashTableOfTensors", context::get_status()), &TFE_DeleteOp);
@@ -13902,7 +13902,7 @@ tensor mutable_hash_table_of_tensors(datatype key_dtype, datatype value_dtype, c
 }
 
 
-tensor mutable_hash_table_of_tensors_v2(datatype key_dtype, datatype value_dtype, const std::vector<int64_t>& value_shape, const std::string& container="", const std::string& shared_name="", bool use_node_name_sharing=false) {
+inline tensor mutable_hash_table_of_tensors_v2(datatype key_dtype, datatype value_dtype, const std::vector<int64_t>& value_shape, const std::string& container="", const std::string& shared_name="", bool use_node_name_sharing=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "MutableHashTableOfTensorsV2", context::get_status()), &TFE_DeleteOp);
@@ -13931,7 +13931,7 @@ tensor mutable_hash_table_of_tensors_v2(datatype key_dtype, datatype value_dtype
 }
 
 
-tensor mutable_hash_table_v2(datatype key_dtype, datatype value_dtype, const std::string& container="", const std::string& shared_name="", bool use_node_name_sharing=false) {
+inline tensor mutable_hash_table_v2(datatype key_dtype, datatype value_dtype, const std::string& container="", const std::string& shared_name="", bool use_node_name_sharing=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "MutableHashTableV2", context::get_status()), &TFE_DeleteOp);
@@ -13956,7 +13956,7 @@ tensor mutable_hash_table_v2(datatype key_dtype, datatype value_dtype, const std
 }
 
 
-tensor mutex_lock(const tensor& mutex) {
+inline tensor mutex_lock(const tensor& mutex) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "MutexLock", context::get_status()), &TFE_DeleteOp);
@@ -13980,7 +13980,7 @@ tensor mutex_lock(const tensor& mutex) {
 }
 
 
-tensor mutex_v2(const std::string& container="", const std::string& shared_name="") {
+inline tensor mutex_v2(const std::string& container="", const std::string& shared_name="") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "MutexV2", context::get_status()), &TFE_DeleteOp);
@@ -14002,7 +14002,7 @@ tensor mutex_v2(const std::string& container="", const std::string& shared_name=
 }
 
 
-tensor nccl_all_reduce(const tensor& input, const std::string& reduction, int64_t num_devices, const std::string& shared_name) {
+inline tensor nccl_all_reduce(const tensor& input, const std::string& reduction, int64_t num_devices, const std::string& shared_name) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "NcclAllReduce", context::get_status()), &TFE_DeleteOp);
@@ -14028,7 +14028,7 @@ tensor nccl_all_reduce(const tensor& input, const std::string& reduction, int64_
 }
 
 
-tensor nccl_broadcast(const tensor& input, const std::vector<int64_t>& shape) {
+inline tensor nccl_broadcast(const tensor& input, const std::vector<int64_t>& shape) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "NcclBroadcast", context::get_status()), &TFE_DeleteOp);
@@ -14055,7 +14055,7 @@ tensor nccl_broadcast(const tensor& input, const std::vector<int64_t>& shape) {
 }
 
 
-tensor nccl_reduce(const std::vector<tensor>&input, const std::string& reduction) {
+inline tensor nccl_reduce(const std::vector<tensor>&input, const std::string& reduction) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "NcclReduce", context::get_status()), &TFE_DeleteOp);
@@ -14082,7 +14082,7 @@ tensor nccl_reduce(const std::vector<tensor>&input, const std::string& reduction
 }
 
 
-tensor ndtri(const tensor& x) {
+inline tensor ndtri(const tensor& x) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Ndtri", context::get_status()), &TFE_DeleteOp);
@@ -14106,7 +14106,7 @@ tensor ndtri(const tensor& x) {
 }
 
 
-tensor neg(const tensor& x) {
+inline tensor neg(const tensor& x) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Neg", context::get_status()), &TFE_DeleteOp);
@@ -14130,7 +14130,7 @@ tensor neg(const tensor& x) {
 }
 
 
-tensor next_after(const tensor& x1, const tensor& x2) {
+inline tensor next_after(const tensor& x1, const tensor& x2) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "NextAfter", context::get_status()), &TFE_DeleteOp);
@@ -14158,7 +14158,7 @@ tensor next_after(const tensor& x1, const tensor& x2) {
 }
 
 
-tensor next_iteration(const tensor& data) {
+inline tensor next_iteration(const tensor& data) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "NextIteration", context::get_status()), &TFE_DeleteOp);
@@ -14182,7 +14182,7 @@ tensor next_iteration(const tensor& data) {
 }
 
 
-tensor non_deterministic_ints(const tensor& shape, datatype dtype=static_cast<datatype>(9), datatype shape_dtype=static_cast<datatype>(9)) {
+inline tensor non_deterministic_ints(const tensor& shape, datatype dtype=static_cast<datatype>(9), datatype shape_dtype=static_cast<datatype>(9)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "NonDeterministicInts", context::get_status()), &TFE_DeleteOp);
@@ -14207,7 +14207,7 @@ tensor non_deterministic_ints(const tensor& shape, datatype dtype=static_cast<da
 }
 
 
-tensor non_max_suppression(const tensor& boxes, const tensor& scores, const tensor& max_output_size, float iou_threshold=5.0000e-01) {
+inline tensor non_max_suppression(const tensor& boxes, const tensor& scores, const tensor& max_output_size, float iou_threshold=5.0000e-01) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "NonMaxSuppression", context::get_status()), &TFE_DeleteOp);
@@ -14239,7 +14239,7 @@ tensor non_max_suppression(const tensor& boxes, const tensor& scores, const tens
 }
 
 
-tensor non_max_suppression_v2(const tensor& boxes, const tensor& scores, const tensor& max_output_size, const tensor& iou_threshold, datatype T_threshold=static_cast<datatype>(1)) {
+inline tensor non_max_suppression_v2(const tensor& boxes, const tensor& scores, const tensor& max_output_size, const tensor& iou_threshold, datatype T_threshold=static_cast<datatype>(1)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "NonMaxSuppressionV2", context::get_status()), &TFE_DeleteOp);
@@ -14275,7 +14275,7 @@ tensor non_max_suppression_v2(const tensor& boxes, const tensor& scores, const t
 }
 
 
-tensor non_max_suppression_v3(const tensor& boxes, const tensor& scores, const tensor& max_output_size, const tensor& iou_threshold, const tensor& score_threshold, datatype T_threshold=static_cast<datatype>(1)) {
+inline tensor non_max_suppression_v3(const tensor& boxes, const tensor& scores, const tensor& max_output_size, const tensor& iou_threshold, const tensor& score_threshold, datatype T_threshold=static_cast<datatype>(1)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "NonMaxSuppressionV3", context::get_status()), &TFE_DeleteOp);
@@ -14315,7 +14315,7 @@ tensor non_max_suppression_v3(const tensor& boxes, const tensor& scores, const t
 }
 
 
-tensor non_max_suppression_with_overlaps(const tensor& overlaps, const tensor& scores, const tensor& max_output_size, const tensor& overlap_threshold, const tensor& score_threshold) {
+inline tensor non_max_suppression_with_overlaps(const tensor& overlaps, const tensor& scores, const tensor& max_output_size, const tensor& overlap_threshold, const tensor& score_threshold) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "NonMaxSuppressionWithOverlaps", context::get_status()), &TFE_DeleteOp);
@@ -14355,7 +14355,7 @@ tensor non_max_suppression_with_overlaps(const tensor& overlaps, const tensor& s
 }
 
 
-tensor non_serializable_dataset(const tensor& input_dataset, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
+inline tensor non_serializable_dataset(const tensor& input_dataset, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "NonSerializableDataset", context::get_status()), &TFE_DeleteOp);
@@ -14387,7 +14387,7 @@ tensor non_serializable_dataset(const tensor& input_dataset, const std::vector<d
 }
 
 
-tensor not_equal(const tensor& x, const tensor& y, bool incompatible_shape_error=true) {
+inline tensor not_equal(const tensor& x, const tensor& y, bool incompatible_shape_error=true) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "NotEqual", context::get_status()), &TFE_DeleteOp);
@@ -14415,7 +14415,7 @@ tensor not_equal(const tensor& x, const tensor& y, bool incompatible_shape_error
 }
 
 
-tensor nth_element(const tensor& input, const tensor& n, bool reverse=false) {
+inline tensor nth_element(const tensor& input, const tensor& n, bool reverse=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "NthElement", context::get_status()), &TFE_DeleteOp);
@@ -14443,7 +14443,7 @@ tensor nth_element(const tensor& input, const tensor& n, bool reverse=false) {
 }
 
 
-tensor one_hot(const tensor& indices, const tensor& depth, const tensor& on_value, const tensor& off_value, int64_t axis=-1, datatype TI=static_cast<datatype>(9)) {
+inline tensor one_hot(const tensor& indices, const tensor& depth, const tensor& on_value, const tensor& off_value, int64_t axis=-1, datatype TI=static_cast<datatype>(9)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "OneHot", context::get_status()), &TFE_DeleteOp);
@@ -14480,7 +14480,7 @@ tensor one_hot(const tensor& indices, const tensor& depth, const tensor& on_valu
 }
 
 
-tensor ones_like(const tensor& x) {
+inline tensor ones_like(const tensor& x) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "OnesLike", context::get_status()), &TFE_DeleteOp);
@@ -14504,7 +14504,7 @@ tensor ones_like(const tensor& x) {
 }
 
 
-tensor optimize_dataset(const tensor& input_dataset, const tensor& optimizations, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes, const std::vector< std::string>& optimization_configs) {
+inline tensor optimize_dataset(const tensor& input_dataset, const tensor& optimizations, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes, const std::vector< std::string>& optimization_configs) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "OptimizeDataset", context::get_status()), &TFE_DeleteOp);
@@ -14545,7 +14545,7 @@ tensor optimize_dataset(const tensor& input_dataset, const tensor& optimizations
 }
 
 
-tensor optional_from_value(const std::vector<tensor>&components, const std::vector<datatype>& Toutput_types) {
+inline tensor optional_from_value(const std::vector<tensor>&components, const std::vector<datatype>& Toutput_types) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "OptionalFromValue", context::get_status()), &TFE_DeleteOp);
@@ -14571,7 +14571,7 @@ tensor optional_from_value(const std::vector<tensor>&components, const std::vect
 }
 
 
-tensor optional_get_value(const tensor& optional, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
+inline tensor optional_get_value(const tensor& optional, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "OptionalGetValue", context::get_status()), &TFE_DeleteOp);
@@ -14603,7 +14603,7 @@ tensor optional_get_value(const tensor& optional, const std::vector<datatype>& o
 }
 
 
-tensor optional_has_value(const tensor& optional) {
+inline tensor optional_has_value(const tensor& optional) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "OptionalHasValue", context::get_status()), &TFE_DeleteOp);
@@ -14627,7 +14627,7 @@ tensor optional_has_value(const tensor& optional) {
 }
 
 
-tensor optional_none() {
+inline tensor optional_none() {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "OptionalNone", context::get_status()), &TFE_DeleteOp);
@@ -14648,7 +14648,7 @@ tensor optional_none() {
 }
 
 
-tensor ordered_map_incomplete_size(const std::vector<datatype>& dtypes, int64_t capacity=0, int64_t memory_limit=0, const std::string& container="", const std::string& shared_name="") {
+inline tensor ordered_map_incomplete_size(const std::vector<datatype>& dtypes, int64_t capacity=0, int64_t memory_limit=0, const std::string& container="", const std::string& shared_name="") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "OrderedMapIncompleteSize", context::get_status()), &TFE_DeleteOp);
@@ -14673,7 +14673,7 @@ tensor ordered_map_incomplete_size(const std::vector<datatype>& dtypes, int64_t 
 }
 
 
-tensor ordered_map_peek(const tensor& key, const tensor& indices, const std::vector<datatype>& dtypes, int64_t capacity=0, int64_t memory_limit=0, const std::string& container="", const std::string& shared_name="") {
+inline tensor ordered_map_peek(const tensor& key, const tensor& indices, const std::vector<datatype>& dtypes, int64_t capacity=0, int64_t memory_limit=0, const std::string& container="", const std::string& shared_name="") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "OrderedMapPeek", context::get_status()), &TFE_DeleteOp);
@@ -14705,7 +14705,7 @@ tensor ordered_map_peek(const tensor& key, const tensor& indices, const std::vec
 }
 
 
-tensor ordered_map_size(const std::vector<datatype>& dtypes, int64_t capacity=0, int64_t memory_limit=0, const std::string& container="", const std::string& shared_name="") {
+inline tensor ordered_map_size(const std::vector<datatype>& dtypes, int64_t capacity=0, int64_t memory_limit=0, const std::string& container="", const std::string& shared_name="") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "OrderedMapSize", context::get_status()), &TFE_DeleteOp);
@@ -14730,7 +14730,7 @@ tensor ordered_map_size(const std::vector<datatype>& dtypes, int64_t capacity=0,
 }
 
 
-tensor ordered_map_unstage(const tensor& key, const tensor& indices, const std::vector<datatype>& dtypes, int64_t capacity=0, int64_t memory_limit=0, const std::string& container="", const std::string& shared_name="") {
+inline tensor ordered_map_unstage(const tensor& key, const tensor& indices, const std::vector<datatype>& dtypes, int64_t capacity=0, int64_t memory_limit=0, const std::string& container="", const std::string& shared_name="") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "OrderedMapUnstage", context::get_status()), &TFE_DeleteOp);
@@ -14762,7 +14762,7 @@ tensor ordered_map_unstage(const tensor& key, const tensor& indices, const std::
 }
 
 
-tensor outfeed_dequeue(datatype dtype, const std::vector<int64_t>& shape, int64_t device_ordinal=-1) {
+inline tensor outfeed_dequeue(datatype dtype, const std::vector<int64_t>& shape, int64_t device_ordinal=-1) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "OutfeedDequeue", context::get_status()), &TFE_DeleteOp);
@@ -14788,7 +14788,7 @@ tensor outfeed_dequeue(datatype dtype, const std::vector<int64_t>& shape, int64_
 }
 
 
-tensor outfeed_dequeue_tuple(const std::vector<datatype>& dtypes, const std::vector< std::vector<int64_t>>& shapes, int64_t device_ordinal=-1) {
+inline tensor outfeed_dequeue_tuple(const std::vector<datatype>& dtypes, const std::vector< std::vector<int64_t>>& shapes, int64_t device_ordinal=-1) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "OutfeedDequeueTuple", context::get_status()), &TFE_DeleteOp);
@@ -14818,7 +14818,7 @@ tensor outfeed_dequeue_tuple(const std::vector<datatype>& dtypes, const std::vec
 }
 
 
-tensor pack(const std::vector<tensor>&values, int64_t axis=0) {
+inline tensor pack(const std::vector<tensor>&values, int64_t axis=0) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Pack", context::get_status()), &TFE_DeleteOp);
@@ -14845,7 +14845,7 @@ tensor pack(const std::vector<tensor>&values, int64_t axis=0) {
 }
 
 
-tensor pad(const tensor& input, const tensor& paddings, datatype Tpaddings=static_cast<datatype>(3)) {
+inline tensor pad(const tensor& input, const tensor& paddings, datatype Tpaddings=static_cast<datatype>(3)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Pad", context::get_status()), &TFE_DeleteOp);
@@ -14873,7 +14873,7 @@ tensor pad(const tensor& input, const tensor& paddings, datatype Tpaddings=stati
 }
 
 
-tensor pad_v2(const tensor& input, const tensor& paddings, const tensor& constant_values, datatype Tpaddings=static_cast<datatype>(3)) {
+inline tensor pad_v2(const tensor& input, const tensor& paddings, const tensor& constant_values, datatype Tpaddings=static_cast<datatype>(3)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "PadV2", context::get_status()), &TFE_DeleteOp);
@@ -14905,7 +14905,7 @@ tensor pad_v2(const tensor& input, const tensor& paddings, const tensor& constan
 }
 
 
-tensor padded_batch_dataset(const tensor& input_dataset, const tensor& batch_size, const std::vector<tensor>&padded_shapes, const std::vector<tensor>&padding_values, const std::vector<datatype>& Toutput_types, const std::vector< std::vector<int64_t>>& output_shapes) {
+inline tensor padded_batch_dataset(const tensor& input_dataset, const tensor& batch_size, const std::vector<tensor>&padded_shapes, const std::vector<tensor>&padding_values, const std::vector<datatype>& Toutput_types, const std::vector< std::vector<int64_t>>& output_shapes) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "PaddedBatchDataset", context::get_status()), &TFE_DeleteOp);
@@ -14954,7 +14954,7 @@ tensor padded_batch_dataset(const tensor& input_dataset, const tensor& batch_siz
 }
 
 
-tensor padded_batch_dataset_v2(const tensor& input_dataset, const tensor& batch_size, const std::vector<tensor>&padded_shapes, const std::vector<tensor>&padding_values, const tensor& drop_remainder, const std::vector<datatype>& Toutput_types, const std::vector< std::vector<int64_t>>& output_shapes, bool parallel_copy=false) {
+inline tensor padded_batch_dataset_v2(const tensor& input_dataset, const tensor& batch_size, const std::vector<tensor>&padded_shapes, const std::vector<tensor>&padding_values, const tensor& drop_remainder, const std::vector<datatype>& Toutput_types, const std::vector< std::vector<int64_t>>& output_shapes, bool parallel_copy=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "PaddedBatchDatasetV2", context::get_status()), &TFE_DeleteOp);
@@ -15008,7 +15008,7 @@ tensor padded_batch_dataset_v2(const tensor& input_dataset, const tensor& batch_
 }
 
 
-tensor padding_f_i_f_o_queue(const std::vector<datatype>& component_types, const std::vector< std::vector<int64_t>>& shapes, int64_t capacity=-1, const std::string& container="", const std::string& shared_name="") {
+inline tensor padding_f_i_f_o_queue(const std::vector<datatype>& component_types, const std::vector< std::vector<int64_t>>& shapes, int64_t capacity=-1, const std::string& container="", const std::string& shared_name="") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "PaddingFIFOQueue", context::get_status()), &TFE_DeleteOp);
@@ -15040,7 +15040,7 @@ tensor padding_f_i_f_o_queue(const std::vector<datatype>& component_types, const
 }
 
 
-tensor padding_f_i_f_o_queue_v2(const std::vector<datatype>& component_types, const std::vector< std::vector<int64_t>>& shapes, int64_t capacity=-1, const std::string& container="", const std::string& shared_name="") {
+inline tensor padding_f_i_f_o_queue_v2(const std::vector<datatype>& component_types, const std::vector< std::vector<int64_t>>& shapes, int64_t capacity=-1, const std::string& container="", const std::string& shared_name="") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "PaddingFIFOQueueV2", context::get_status()), &TFE_DeleteOp);
@@ -15072,7 +15072,7 @@ tensor padding_f_i_f_o_queue_v2(const std::vector<datatype>& component_types, co
 }
 
 
-tensor parallel_concat(const std::vector<tensor>&values, const std::vector<int64_t>& shape) {
+inline tensor parallel_concat(const std::vector<tensor>&values, const std::vector<int64_t>& shape) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ParallelConcat", context::get_status()), &TFE_DeleteOp);
@@ -15102,7 +15102,7 @@ tensor parallel_concat(const std::vector<tensor>&values, const std::vector<int64
 }
 
 
-tensor parallel_dynamic_stitch(const std::vector<tensor>&indices, const std::vector<tensor>&data) {
+inline tensor parallel_dynamic_stitch(const std::vector<tensor>&indices, const std::vector<tensor>&data) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ParallelDynamicStitch", context::get_status()), &TFE_DeleteOp);
@@ -15134,7 +15134,7 @@ tensor parallel_dynamic_stitch(const std::vector<tensor>&indices, const std::vec
 }
 
 
-tensor parameterized_truncated_normal(const tensor& shape, const tensor& means, const tensor& stdevs, const tensor& minvals, const tensor& maxvals, datatype dtype, int64_t seed=0, int64_t seed2=0) {
+inline tensor parameterized_truncated_normal(const tensor& shape, const tensor& means, const tensor& stdevs, const tensor& minvals, const tensor& maxvals, datatype dtype, int64_t seed=0, int64_t seed2=0) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ParameterizedTruncatedNormal", context::get_status()), &TFE_DeleteOp);
@@ -15176,7 +15176,7 @@ tensor parameterized_truncated_normal(const tensor& shape, const tensor& means, 
 }
 
 
-tensor parse_example_dataset(const tensor& input_dataset, const tensor& num_parallel_calls, const std::vector<tensor>&dense_defaults, const std::vector< std::string>& sparse_keys, const std::vector< std::string>& dense_keys, const std::vector<datatype>& sparse_types, const std::vector<datatype>& Tdense, const std::vector< std::vector<int64_t>>& dense_shapes, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes, const std::vector< std::string>& ragged_keys, const std::vector<datatype>& ragged_value_types, const std::vector<datatype>& ragged_split_types, bool sloppy=false) {
+inline tensor parse_example_dataset(const tensor& input_dataset, const tensor& num_parallel_calls, const std::vector<tensor>&dense_defaults, const std::vector< std::string>& sparse_keys, const std::vector< std::string>& dense_keys, const std::vector<datatype>& sparse_types, const std::vector<datatype>& Tdense, const std::vector< std::vector<int64_t>>& dense_shapes, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes, const std::vector< std::string>& ragged_keys, const std::vector<datatype>& ragged_value_types, const std::vector<datatype>& ragged_split_types, bool sloppy=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ParseExampleDataset", context::get_status()), &TFE_DeleteOp);
@@ -15246,7 +15246,7 @@ tensor parse_example_dataset(const tensor& input_dataset, const tensor& num_para
 }
 
 
-tensor parse_example_dataset_v2(const tensor& input_dataset, const tensor& num_parallel_calls, const std::vector<tensor>&dense_defaults, const std::vector< std::string>& sparse_keys, const std::vector< std::string>& dense_keys, const std::vector<datatype>& sparse_types, const std::vector<datatype>& Tdense, const std::vector< std::vector<int64_t>>& dense_shapes, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes, const std::vector< std::string>& ragged_keys, const std::vector<datatype>& ragged_value_types, const std::vector<datatype>& ragged_split_types, const std::string& deterministic="default") {
+inline tensor parse_example_dataset_v2(const tensor& input_dataset, const tensor& num_parallel_calls, const std::vector<tensor>&dense_defaults, const std::vector< std::string>& sparse_keys, const std::vector< std::string>& dense_keys, const std::vector<datatype>& sparse_types, const std::vector<datatype>& Tdense, const std::vector< std::vector<int64_t>>& dense_shapes, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes, const std::vector< std::string>& ragged_keys, const std::vector<datatype>& ragged_value_types, const std::vector<datatype>& ragged_split_types, const std::string& deterministic="default") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ParseExampleDatasetV2", context::get_status()), &TFE_DeleteOp);
@@ -15316,7 +15316,7 @@ tensor parse_example_dataset_v2(const tensor& input_dataset, const tensor& num_p
 }
 
 
-tensor parse_tensor(const tensor& serialized, datatype out_type) {
+inline tensor parse_tensor(const tensor& serialized, datatype out_type) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ParseTensor", context::get_status()), &TFE_DeleteOp);
@@ -15340,7 +15340,7 @@ tensor parse_tensor(const tensor& serialized, datatype out_type) {
 }
 
 
-tensor placeholder(datatype dtype, const std::vector<int64_t>& shape) {
+inline tensor placeholder(datatype dtype, const std::vector<int64_t>& shape) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Placeholder", context::get_status()), &TFE_DeleteOp);
@@ -15365,7 +15365,7 @@ tensor placeholder(datatype dtype, const std::vector<int64_t>& shape) {
 }
 
 
-tensor placeholder_v2(datatype dtype, const std::vector<int64_t>& shape) {
+inline tensor placeholder_v2(datatype dtype, const std::vector<int64_t>& shape) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "PlaceholderV2", context::get_status()), &TFE_DeleteOp);
@@ -15390,7 +15390,7 @@ tensor placeholder_v2(datatype dtype, const std::vector<int64_t>& shape) {
 }
 
 
-tensor placeholder_with_default(const tensor& input, datatype dtype, const std::vector<int64_t>& shape) {
+inline tensor placeholder_with_default(const tensor& input, datatype dtype, const std::vector<int64_t>& shape) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "PlaceholderWithDefault", context::get_status()), &TFE_DeleteOp);
@@ -15418,7 +15418,7 @@ tensor placeholder_with_default(const tensor& input, datatype dtype, const std::
 }
 
 
-tensor polygamma(const tensor& a, const tensor& x) {
+inline tensor polygamma(const tensor& a, const tensor& x) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Polygamma", context::get_status()), &TFE_DeleteOp);
@@ -15446,7 +15446,7 @@ tensor polygamma(const tensor& a, const tensor& x) {
 }
 
 
-tensor population_count(const tensor& x) {
+inline tensor population_count(const tensor& x) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "PopulationCount", context::get_status()), &TFE_DeleteOp);
@@ -15470,7 +15470,7 @@ tensor population_count(const tensor& x) {
 }
 
 
-tensor pow(const tensor& x, const tensor& y) {
+inline tensor pow(const tensor& x, const tensor& y) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Pow", context::get_status()), &TFE_DeleteOp);
@@ -15498,7 +15498,7 @@ tensor pow(const tensor& x, const tensor& y) {
 }
 
 
-tensor prefetch_dataset(const tensor& input_dataset, const tensor& buffer_size, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes, int64_t slack_period=0, bool legacy_autotune=true) {
+inline tensor prefetch_dataset(const tensor& input_dataset, const tensor& buffer_size, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes, int64_t slack_period=0, bool legacy_autotune=true) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "PrefetchDataset", context::get_status()), &TFE_DeleteOp);
@@ -15536,7 +15536,7 @@ tensor prefetch_dataset(const tensor& input_dataset, const tensor& buffer_size, 
 }
 
 
-tensor prelinearize(const tensor& input, datatype dtype, const std::vector<int64_t>& shape, const std::vector<int64_t>& layout) {
+inline tensor prelinearize(const tensor& input, datatype dtype, const std::vector<int64_t>& shape, const std::vector<int64_t>& layout) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Prelinearize", context::get_status()), &TFE_DeleteOp);
@@ -15565,7 +15565,7 @@ tensor prelinearize(const tensor& input, datatype dtype, const std::vector<int64
 }
 
 
-tensor prelinearize_tuple(const std::vector<tensor>&inputs, const std::vector<datatype>& dtypes, const std::vector< std::vector<int64_t>>& shapes, const std::vector<int64_t>& layouts) {
+inline tensor prelinearize_tuple(const std::vector<tensor>&inputs, const std::vector<datatype>& dtypes, const std::vector< std::vector<int64_t>>& shapes, const std::vector<int64_t>& layouts) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "PrelinearizeTuple", context::get_status()), &TFE_DeleteOp);
@@ -15600,7 +15600,7 @@ tensor prelinearize_tuple(const std::vector<tensor>&inputs, const std::vector<da
 }
 
 
-tensor prevent_gradient(const tensor& input, const std::string& message="") {
+inline tensor prevent_gradient(const tensor& input, const std::string& message="") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "PreventGradient", context::get_status()), &TFE_DeleteOp);
@@ -15624,7 +15624,7 @@ tensor prevent_gradient(const tensor& input, const std::string& message="") {
 }
 
 
-tensor print(const tensor& input, const std::vector<tensor>&data, const std::vector<datatype>& U, const std::string& message="", int64_t first_n=-1, int64_t summarize=3) {
+inline tensor print(const tensor& input, const std::vector<tensor>&data, const std::vector<datatype>& U, const std::string& message="", int64_t first_n=-1, int64_t summarize=3) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Print", context::get_status()), &TFE_DeleteOp);
@@ -15657,7 +15657,7 @@ tensor print(const tensor& input, const std::vector<tensor>&data, const std::vec
 }
 
 
-tensor priority_queue(const std::vector<datatype>& component_types, const std::vector< std::vector<int64_t>>& shapes, int64_t capacity=-1, const std::string& container="", const std::string& shared_name="") {
+inline tensor priority_queue(const std::vector<datatype>& component_types, const std::vector< std::vector<int64_t>>& shapes, int64_t capacity=-1, const std::string& container="", const std::string& shared_name="") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "PriorityQueue", context::get_status()), &TFE_DeleteOp);
@@ -15689,7 +15689,7 @@ tensor priority_queue(const std::vector<datatype>& component_types, const std::v
 }
 
 
-tensor priority_queue_v2(const std::vector<datatype>& component_types, const std::vector< std::vector<int64_t>>& shapes, int64_t capacity=-1, const std::string& container="", const std::string& shared_name="") {
+inline tensor priority_queue_v2(const std::vector<datatype>& component_types, const std::vector< std::vector<int64_t>>& shapes, int64_t capacity=-1, const std::string& container="", const std::string& shared_name="") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "PriorityQueueV2", context::get_status()), &TFE_DeleteOp);
@@ -15721,7 +15721,7 @@ tensor priority_queue_v2(const std::vector<datatype>& component_types, const std
 }
 
 
-tensor private_thread_pool_dataset(const tensor& input_dataset, const tensor& num_threads, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
+inline tensor private_thread_pool_dataset(const tensor& input_dataset, const tensor& num_threads, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "PrivateThreadPoolDataset", context::get_status()), &TFE_DeleteOp);
@@ -15757,7 +15757,7 @@ tensor private_thread_pool_dataset(const tensor& input_dataset, const tensor& nu
 }
 
 
-tensor prod(const tensor& input, const tensor& reduction_indices, bool keep_dims=false, datatype Tidx=static_cast<datatype>(3)) {
+inline tensor prod(const tensor& input, const tensor& reduction_indices, bool keep_dims=false, datatype Tidx=static_cast<datatype>(3)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Prod", context::get_status()), &TFE_DeleteOp);
@@ -15786,7 +15786,7 @@ tensor prod(const tensor& input, const tensor& reduction_indices, bool keep_dims
 }
 
 
-tensor py_func(const std::vector<tensor>&input, const std::string& token, const std::vector<datatype>& Tin, const std::vector<datatype>& Tout) {
+inline tensor py_func(const std::vector<tensor>&input, const std::string& token, const std::vector<datatype>& Tin, const std::vector<datatype>& Tout) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "PyFunc", context::get_status()), &TFE_DeleteOp);
@@ -15814,7 +15814,7 @@ tensor py_func(const std::vector<tensor>&input, const std::string& token, const 
 }
 
 
-tensor py_func_stateless(const std::vector<tensor>&input, const std::string& token, const std::vector<datatype>& Tin, const std::vector<datatype>& Tout) {
+inline tensor py_func_stateless(const std::vector<tensor>&input, const std::string& token, const std::vector<datatype>& Tin, const std::vector<datatype>& Tout) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "PyFuncStateless", context::get_status()), &TFE_DeleteOp);
@@ -15842,7 +15842,7 @@ tensor py_func_stateless(const std::vector<tensor>&input, const std::string& tok
 }
 
 
-tensor quantize_and_dequantize(const tensor& input, bool signed_input=true, int64_t num_bits=8, bool range_given=false, float input_min=0.0000e+00, float input_max=0.0000e+00) {
+inline tensor quantize_and_dequantize(const tensor& input, bool signed_input=true, int64_t num_bits=8, bool range_given=false, float input_min=0.0000e+00, float input_max=0.0000e+00) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "QuantizeAndDequantize", context::get_status()), &TFE_DeleteOp);
@@ -15870,7 +15870,7 @@ tensor quantize_and_dequantize(const tensor& input, bool signed_input=true, int6
 }
 
 
-tensor quantize_and_dequantize_v2(const tensor& input, const tensor& input_min, const tensor& input_max, bool signed_input=true, int64_t num_bits=8, bool range_given=false, const std::string& round_mode="HALF_TO_EVEN", bool narrow_range=false, int64_t axis=-1) {
+inline tensor quantize_and_dequantize_v2(const tensor& input, const tensor& input_min, const tensor& input_max, bool signed_input=true, int64_t num_bits=8, bool range_given=false, const std::string& round_mode="HALF_TO_EVEN", bool narrow_range=false, int64_t axis=-1) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "QuantizeAndDequantizeV2", context::get_status()), &TFE_DeleteOp);
@@ -15907,7 +15907,7 @@ tensor quantize_and_dequantize_v2(const tensor& input, const tensor& input_min, 
 }
 
 
-tensor quantize_and_dequantize_v3(const tensor& input, const tensor& input_min, const tensor& input_max, const tensor& num_bits, bool signed_input=true, bool range_given=true, bool narrow_range=false, int64_t axis=-1) {
+inline tensor quantize_and_dequantize_v3(const tensor& input, const tensor& input_min, const tensor& input_max, const tensor& num_bits, bool signed_input=true, bool range_given=true, bool narrow_range=false, int64_t axis=-1) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "QuantizeAndDequantizeV3", context::get_status()), &TFE_DeleteOp);
@@ -15946,7 +15946,7 @@ tensor quantize_and_dequantize_v3(const tensor& input, const tensor& input_min, 
 }
 
 
-tensor quantized_mat_mul_with_bias_and_dequantize(const tensor& a, const tensor& b, const tensor& bias, const tensor& min_a, const tensor& max_a, const tensor& min_b, const tensor& max_b, const tensor& min_freezed_output, const tensor& max_freezed_output, datatype T1, datatype T2, datatype Tbias, datatype Toutput, bool transpose_a=false, bool transpose_b=false, const std::string& input_quant_mode="MIN_FIRST") {
+inline tensor quantized_mat_mul_with_bias_and_dequantize(const tensor& a, const tensor& b, const tensor& bias, const tensor& min_a, const tensor& max_a, const tensor& min_b, const tensor& max_b, const tensor& min_freezed_output, const tensor& max_freezed_output, datatype T1, datatype T2, datatype Tbias, datatype Toutput, bool transpose_a=false, bool transpose_b=false, const std::string& input_quant_mode="MIN_FIRST") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "QuantizedMatMulWithBiasAndDequantize", context::get_status()), &TFE_DeleteOp);
@@ -16008,7 +16008,7 @@ tensor quantized_mat_mul_with_bias_and_dequantize(const tensor& a, const tensor&
 }
 
 
-tensor queue_dequeue(const tensor& handle, const std::vector<datatype>& component_types, int64_t timeout_ms=-1) {
+inline tensor queue_dequeue(const tensor& handle, const std::vector<datatype>& component_types, int64_t timeout_ms=-1) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "QueueDequeue", context::get_status()), &TFE_DeleteOp);
@@ -16033,7 +16033,7 @@ tensor queue_dequeue(const tensor& handle, const std::vector<datatype>& componen
 }
 
 
-tensor queue_dequeue_many(const tensor& handle, const tensor& n, const std::vector<datatype>& component_types, int64_t timeout_ms=-1) {
+inline tensor queue_dequeue_many(const tensor& handle, const tensor& n, const std::vector<datatype>& component_types, int64_t timeout_ms=-1) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "QueueDequeueMany", context::get_status()), &TFE_DeleteOp);
@@ -16062,7 +16062,7 @@ tensor queue_dequeue_many(const tensor& handle, const tensor& n, const std::vect
 }
 
 
-tensor queue_dequeue_many_v2(const tensor& handle, const tensor& n, const std::vector<datatype>& component_types, int64_t timeout_ms=-1) {
+inline tensor queue_dequeue_many_v2(const tensor& handle, const tensor& n, const std::vector<datatype>& component_types, int64_t timeout_ms=-1) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "QueueDequeueManyV2", context::get_status()), &TFE_DeleteOp);
@@ -16091,7 +16091,7 @@ tensor queue_dequeue_many_v2(const tensor& handle, const tensor& n, const std::v
 }
 
 
-tensor queue_dequeue_up_to(const tensor& handle, const tensor& n, const std::vector<datatype>& component_types, int64_t timeout_ms=-1) {
+inline tensor queue_dequeue_up_to(const tensor& handle, const tensor& n, const std::vector<datatype>& component_types, int64_t timeout_ms=-1) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "QueueDequeueUpTo", context::get_status()), &TFE_DeleteOp);
@@ -16120,7 +16120,7 @@ tensor queue_dequeue_up_to(const tensor& handle, const tensor& n, const std::vec
 }
 
 
-tensor queue_dequeue_up_to_v2(const tensor& handle, const tensor& n, const std::vector<datatype>& component_types, int64_t timeout_ms=-1) {
+inline tensor queue_dequeue_up_to_v2(const tensor& handle, const tensor& n, const std::vector<datatype>& component_types, int64_t timeout_ms=-1) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "QueueDequeueUpToV2", context::get_status()), &TFE_DeleteOp);
@@ -16149,7 +16149,7 @@ tensor queue_dequeue_up_to_v2(const tensor& handle, const tensor& n, const std::
 }
 
 
-tensor queue_dequeue_v2(const tensor& handle, const std::vector<datatype>& component_types, int64_t timeout_ms=-1) {
+inline tensor queue_dequeue_v2(const tensor& handle, const std::vector<datatype>& component_types, int64_t timeout_ms=-1) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "QueueDequeueV2", context::get_status()), &TFE_DeleteOp);
@@ -16174,7 +16174,7 @@ tensor queue_dequeue_v2(const tensor& handle, const std::vector<datatype>& compo
 }
 
 
-tensor queue_is_closed(const tensor& handle) {
+inline tensor queue_is_closed(const tensor& handle) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "QueueIsClosed", context::get_status()), &TFE_DeleteOp);
@@ -16198,7 +16198,7 @@ tensor queue_is_closed(const tensor& handle) {
 }
 
 
-tensor queue_is_closed_v2(const tensor& handle) {
+inline tensor queue_is_closed_v2(const tensor& handle) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "QueueIsClosedV2", context::get_status()), &TFE_DeleteOp);
@@ -16222,7 +16222,7 @@ tensor queue_is_closed_v2(const tensor& handle) {
 }
 
 
-tensor queue_size(const tensor& handle) {
+inline tensor queue_size(const tensor& handle) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "QueueSize", context::get_status()), &TFE_DeleteOp);
@@ -16246,7 +16246,7 @@ tensor queue_size(const tensor& handle) {
 }
 
 
-tensor queue_size_v2(const tensor& handle) {
+inline tensor queue_size_v2(const tensor& handle) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "QueueSizeV2", context::get_status()), &TFE_DeleteOp);
@@ -16270,7 +16270,7 @@ tensor queue_size_v2(const tensor& handle) {
 }
 
 
-tensor r_f_f_t(const tensor& input, const tensor& fft_length, datatype Treal=static_cast<datatype>(1), datatype Tcomplex=static_cast<datatype>(8)) {
+inline tensor r_f_f_t(const tensor& input, const tensor& fft_length, datatype Treal=static_cast<datatype>(1), datatype Tcomplex=static_cast<datatype>(8)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "RFFT", context::get_status()), &TFE_DeleteOp);
@@ -16299,7 +16299,7 @@ tensor r_f_f_t(const tensor& input, const tensor& fft_length, datatype Treal=sta
 }
 
 
-tensor r_f_f_t2_d(const tensor& input, const tensor& fft_length, datatype Treal=static_cast<datatype>(1), datatype Tcomplex=static_cast<datatype>(8)) {
+inline tensor r_f_f_t2_d(const tensor& input, const tensor& fft_length, datatype Treal=static_cast<datatype>(1), datatype Tcomplex=static_cast<datatype>(8)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "RFFT2D", context::get_status()), &TFE_DeleteOp);
@@ -16328,7 +16328,7 @@ tensor r_f_f_t2_d(const tensor& input, const tensor& fft_length, datatype Treal=
 }
 
 
-tensor r_f_f_t3_d(const tensor& input, const tensor& fft_length, datatype Treal=static_cast<datatype>(1), datatype Tcomplex=static_cast<datatype>(8)) {
+inline tensor r_f_f_t3_d(const tensor& input, const tensor& fft_length, datatype Treal=static_cast<datatype>(1), datatype Tcomplex=static_cast<datatype>(8)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "RFFT3D", context::get_status()), &TFE_DeleteOp);
@@ -16357,7 +16357,7 @@ tensor r_f_f_t3_d(const tensor& input, const tensor& fft_length, datatype Treal=
 }
 
 
-tensor r_g_b_to_h_s_v(const tensor& images) {
+inline tensor r_g_b_to_h_s_v(const tensor& images) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "RGBToHSV", context::get_status()), &TFE_DeleteOp);
@@ -16381,7 +16381,7 @@ tensor r_g_b_to_h_s_v(const tensor& images) {
 }
 
 
-tensor ragged_bincount(const tensor& splits, const tensor& values, const tensor& size, const tensor& weights, datatype Tidx, bool binary_output=false) {
+inline tensor ragged_bincount(const tensor& splits, const tensor& values, const tensor& size, const tensor& weights, datatype Tidx, bool binary_output=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "RaggedBincount", context::get_status()), &TFE_DeleteOp);
@@ -16418,7 +16418,7 @@ tensor ragged_bincount(const tensor& splits, const tensor& values, const tensor&
 }
 
 
-tensor ragged_tensor_to_tensor(const tensor& shape, const tensor& values, const tensor& default_value, const std::vector<tensor>&row_partition_tensors, datatype Tindex, datatype Tshape, const std::vector< std::string>& row_partition_types) {
+inline tensor ragged_tensor_to_tensor(const tensor& shape, const tensor& values, const tensor& default_value, const std::vector<tensor>&row_partition_tensors, datatype Tindex, datatype Tshape, const std::vector< std::string>& row_partition_types) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "RaggedTensorToTensor", context::get_status()), &TFE_DeleteOp);
@@ -16463,7 +16463,7 @@ tensor ragged_tensor_to_tensor(const tensor& shape, const tensor& values, const 
 }
 
 
-tensor ragged_tensor_to_variant(const std::vector<tensor>&rt_nested_splits, const tensor& rt_dense_values, datatype Tvalues, bool batched_input, datatype Tsplits=static_cast<datatype>(9)) {
+inline tensor ragged_tensor_to_variant(const std::vector<tensor>&rt_nested_splits, const tensor& rt_dense_values, datatype Tvalues, bool batched_input, datatype Tsplits=static_cast<datatype>(9)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "RaggedTensorToVariant", context::get_status()), &TFE_DeleteOp);
@@ -16496,7 +16496,7 @@ tensor ragged_tensor_to_variant(const std::vector<tensor>&rt_nested_splits, cons
 }
 
 
-tensor random_crop(const tensor& image, const tensor& size, int64_t seed=0, int64_t seed2=0) {
+inline tensor random_crop(const tensor& image, const tensor& size, int64_t seed=0, int64_t seed2=0) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "RandomCrop", context::get_status()), &TFE_DeleteOp);
@@ -16525,7 +16525,7 @@ tensor random_crop(const tensor& image, const tensor& size, int64_t seed=0, int6
 }
 
 
-tensor random_dataset(const tensor& seed, const tensor& seed2, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
+inline tensor random_dataset(const tensor& seed, const tensor& seed2, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "RandomDataset", context::get_status()), &TFE_DeleteOp);
@@ -16561,7 +16561,7 @@ tensor random_dataset(const tensor& seed, const tensor& seed2, const std::vector
 }
 
 
-tensor random_gamma(const tensor& shape, const tensor& alpha, datatype S, int64_t seed=0, int64_t seed2=0) {
+inline tensor random_gamma(const tensor& shape, const tensor& alpha, datatype S, int64_t seed=0, int64_t seed2=0) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "RandomGamma", context::get_status()), &TFE_DeleteOp);
@@ -16591,7 +16591,7 @@ tensor random_gamma(const tensor& shape, const tensor& alpha, datatype S, int64_
 }
 
 
-tensor random_gamma_grad(const tensor& alpha, const tensor& sample) {
+inline tensor random_gamma_grad(const tensor& alpha, const tensor& sample) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "RandomGammaGrad", context::get_status()), &TFE_DeleteOp);
@@ -16619,7 +16619,7 @@ tensor random_gamma_grad(const tensor& alpha, const tensor& sample) {
 }
 
 
-tensor random_poisson(const tensor& shape, const tensor& rate, datatype S, datatype dtype, int64_t seed=0, int64_t seed2=0) {
+inline tensor random_poisson(const tensor& shape, const tensor& rate, datatype S, datatype dtype, int64_t seed=0, int64_t seed2=0) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "RandomPoisson", context::get_status()), &TFE_DeleteOp);
@@ -16650,7 +16650,7 @@ tensor random_poisson(const tensor& shape, const tensor& rate, datatype S, datat
 }
 
 
-tensor random_poisson_v2(const tensor& shape, const tensor& rate, datatype S, int64_t seed=0, int64_t seed2=0, datatype R=static_cast<datatype>(2), datatype dtype=static_cast<datatype>(9)) {
+inline tensor random_poisson_v2(const tensor& shape, const tensor& rate, datatype S, int64_t seed=0, int64_t seed2=0, datatype R=static_cast<datatype>(2), datatype dtype=static_cast<datatype>(9)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "RandomPoissonV2", context::get_status()), &TFE_DeleteOp);
@@ -16682,7 +16682,7 @@ tensor random_poisson_v2(const tensor& shape, const tensor& rate, datatype S, in
 }
 
 
-tensor random_shuffle(const tensor& value, int64_t seed=0, int64_t seed2=0) {
+inline tensor random_shuffle(const tensor& value, int64_t seed=0, int64_t seed2=0) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "RandomShuffle", context::get_status()), &TFE_DeleteOp);
@@ -16707,7 +16707,7 @@ tensor random_shuffle(const tensor& value, int64_t seed=0, int64_t seed2=0) {
 }
 
 
-tensor random_shuffle_queue(const std::vector<datatype>& component_types, const std::vector< std::vector<int64_t>>& shapes, int64_t capacity=-1, int64_t min_after_dequeue=0, int64_t seed=0, int64_t seed2=0, const std::string& container="", const std::string& shared_name="") {
+inline tensor random_shuffle_queue(const std::vector<datatype>& component_types, const std::vector< std::vector<int64_t>>& shapes, int64_t capacity=-1, int64_t min_after_dequeue=0, int64_t seed=0, int64_t seed2=0, const std::string& container="", const std::string& shared_name="") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "RandomShuffleQueue", context::get_status()), &TFE_DeleteOp);
@@ -16742,7 +16742,7 @@ tensor random_shuffle_queue(const std::vector<datatype>& component_types, const 
 }
 
 
-tensor random_shuffle_queue_v2(const std::vector<datatype>& component_types, const std::vector< std::vector<int64_t>>& shapes, int64_t capacity=-1, int64_t min_after_dequeue=0, int64_t seed=0, int64_t seed2=0, const std::string& container="", const std::string& shared_name="") {
+inline tensor random_shuffle_queue_v2(const std::vector<datatype>& component_types, const std::vector< std::vector<int64_t>>& shapes, int64_t capacity=-1, int64_t min_after_dequeue=0, int64_t seed=0, int64_t seed2=0, const std::string& container="", const std::string& shared_name="") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "RandomShuffleQueueV2", context::get_status()), &TFE_DeleteOp);
@@ -16777,7 +16777,7 @@ tensor random_shuffle_queue_v2(const std::vector<datatype>& component_types, con
 }
 
 
-tensor random_standard_normal(const tensor& shape, datatype dtype, int64_t seed=0, int64_t seed2=0) {
+inline tensor random_standard_normal(const tensor& shape, datatype dtype, int64_t seed=0, int64_t seed2=0) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "RandomStandardNormal", context::get_status()), &TFE_DeleteOp);
@@ -16803,7 +16803,7 @@ tensor random_standard_normal(const tensor& shape, datatype dtype, int64_t seed=
 }
 
 
-tensor random_uniform(const tensor& shape, datatype dtype, int64_t seed=0, int64_t seed2=0) {
+inline tensor random_uniform(const tensor& shape, datatype dtype, int64_t seed=0, int64_t seed2=0) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "RandomUniform", context::get_status()), &TFE_DeleteOp);
@@ -16829,7 +16829,7 @@ tensor random_uniform(const tensor& shape, datatype dtype, int64_t seed=0, int64
 }
 
 
-tensor random_uniform_int(const tensor& shape, const tensor& minval, const tensor& maxval, datatype Tout, int64_t seed=0, int64_t seed2=0) {
+inline tensor random_uniform_int(const tensor& shape, const tensor& minval, const tensor& maxval, datatype Tout, int64_t seed=0, int64_t seed2=0) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "RandomUniformInt", context::get_status()), &TFE_DeleteOp);
@@ -16863,7 +16863,7 @@ tensor random_uniform_int(const tensor& shape, const tensor& minval, const tenso
 }
 
 
-tensor range(const tensor& start, const tensor& limit, const tensor& delta, datatype Tidx=static_cast<datatype>(3)) {
+inline tensor range(const tensor& start, const tensor& limit, const tensor& delta, datatype Tidx=static_cast<datatype>(3)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Range", context::get_status()), &TFE_DeleteOp);
@@ -16895,7 +16895,7 @@ tensor range(const tensor& start, const tensor& limit, const tensor& delta, data
 }
 
 
-tensor range_dataset(const tensor& start, const tensor& stop, const tensor& step, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
+inline tensor range_dataset(const tensor& start, const tensor& stop, const tensor& step, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "RangeDataset", context::get_status()), &TFE_DeleteOp);
@@ -16935,7 +16935,7 @@ tensor range_dataset(const tensor& start, const tensor& stop, const tensor& step
 }
 
 
-tensor rank(const tensor& input) {
+inline tensor rank(const tensor& input) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Rank", context::get_status()), &TFE_DeleteOp);
@@ -16959,7 +16959,7 @@ tensor rank(const tensor& input) {
 }
 
 
-tensor read_file(const tensor& filename) {
+inline tensor read_file(const tensor& filename) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ReadFile", context::get_status()), &TFE_DeleteOp);
@@ -16983,7 +16983,7 @@ tensor read_file(const tensor& filename) {
 }
 
 
-tensor read_variable_op(const tensor& resource, datatype dtype) {
+inline tensor read_variable_op(const tensor& resource, datatype dtype) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ReadVariableOp", context::get_status()), &TFE_DeleteOp);
@@ -17007,7 +17007,7 @@ tensor read_variable_op(const tensor& resource, datatype dtype) {
 }
 
 
-tensor reader_num_records_produced(const tensor& reader_handle) {
+inline tensor reader_num_records_produced(const tensor& reader_handle) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ReaderNumRecordsProduced", context::get_status()), &TFE_DeleteOp);
@@ -17031,7 +17031,7 @@ tensor reader_num_records_produced(const tensor& reader_handle) {
 }
 
 
-tensor reader_num_records_produced_v2(const tensor& reader_handle) {
+inline tensor reader_num_records_produced_v2(const tensor& reader_handle) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ReaderNumRecordsProducedV2", context::get_status()), &TFE_DeleteOp);
@@ -17055,7 +17055,7 @@ tensor reader_num_records_produced_v2(const tensor& reader_handle) {
 }
 
 
-tensor reader_num_work_units_completed(const tensor& reader_handle) {
+inline tensor reader_num_work_units_completed(const tensor& reader_handle) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ReaderNumWorkUnitsCompleted", context::get_status()), &TFE_DeleteOp);
@@ -17079,7 +17079,7 @@ tensor reader_num_work_units_completed(const tensor& reader_handle) {
 }
 
 
-tensor reader_num_work_units_completed_v2(const tensor& reader_handle) {
+inline tensor reader_num_work_units_completed_v2(const tensor& reader_handle) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ReaderNumWorkUnitsCompletedV2", context::get_status()), &TFE_DeleteOp);
@@ -17103,7 +17103,7 @@ tensor reader_num_work_units_completed_v2(const tensor& reader_handle) {
 }
 
 
-tensor reader_serialize_state(const tensor& reader_handle) {
+inline tensor reader_serialize_state(const tensor& reader_handle) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ReaderSerializeState", context::get_status()), &TFE_DeleteOp);
@@ -17127,7 +17127,7 @@ tensor reader_serialize_state(const tensor& reader_handle) {
 }
 
 
-tensor reader_serialize_state_v2(const tensor& reader_handle) {
+inline tensor reader_serialize_state_v2(const tensor& reader_handle) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ReaderSerializeStateV2", context::get_status()), &TFE_DeleteOp);
@@ -17151,7 +17151,7 @@ tensor reader_serialize_state_v2(const tensor& reader_handle) {
 }
 
 
-tensor real(const tensor& input, datatype Tout=static_cast<datatype>(1)) {
+inline tensor real(const tensor& input, datatype Tout=static_cast<datatype>(1)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Real", context::get_status()), &TFE_DeleteOp);
@@ -17175,7 +17175,7 @@ tensor real(const tensor& input, datatype Tout=static_cast<datatype>(1)) {
 }
 
 
-tensor real_div(const tensor& x, const tensor& y) {
+inline tensor real_div(const tensor& x, const tensor& y) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "RealDiv", context::get_status()), &TFE_DeleteOp);
@@ -17203,7 +17203,7 @@ tensor real_div(const tensor& x, const tensor& y) {
 }
 
 
-tensor rebatch_dataset(const tensor& input_dataset, const tensor& num_replicas, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes, bool use_fallback=true) {
+inline tensor rebatch_dataset(const tensor& input_dataset, const tensor& num_replicas, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes, bool use_fallback=true) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "RebatchDataset", context::get_status()), &TFE_DeleteOp);
@@ -17240,7 +17240,7 @@ tensor rebatch_dataset(const tensor& input_dataset, const tensor& num_replicas, 
 }
 
 
-tensor reciprocal(const tensor& x) {
+inline tensor reciprocal(const tensor& x) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Reciprocal", context::get_status()), &TFE_DeleteOp);
@@ -17264,7 +17264,7 @@ tensor reciprocal(const tensor& x) {
 }
 
 
-tensor reciprocal_grad(const tensor& y, const tensor& dy) {
+inline tensor reciprocal_grad(const tensor& y, const tensor& dy) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ReciprocalGrad", context::get_status()), &TFE_DeleteOp);
@@ -17292,7 +17292,7 @@ tensor reciprocal_grad(const tensor& y, const tensor& dy) {
 }
 
 
-tensor record_input(const std::string& file_pattern, int64_t file_random_seed=301, float file_shuffle_shift_ratio=0.0000e+00, int64_t file_buffer_size=10000, int64_t file_parallelism=16, int64_t batch_size=32, const std::string& compression_type="") {
+inline tensor record_input(const std::string& file_pattern, int64_t file_random_seed=301, float file_shuffle_shift_ratio=0.0000e+00, int64_t file_buffer_size=10000, int64_t file_parallelism=16, int64_t batch_size=32, const std::string& compression_type="") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "RecordInput", context::get_status()), &TFE_DeleteOp);
@@ -17319,7 +17319,7 @@ tensor record_input(const std::string& file_pattern, int64_t file_random_seed=30
 }
 
 
-tensor recv(datatype tensor_type, const std::string& tensor_name, const std::string& send_device, int64_t send_device_incarnation, const std::string& recv_device, bool client_terminated=false) {
+inline tensor recv(datatype tensor_type, const std::string& tensor_name, const std::string& send_device, int64_t send_device_incarnation, const std::string& recv_device, bool client_terminated=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Recv", context::get_status()), &TFE_DeleteOp);
@@ -17345,7 +17345,7 @@ tensor recv(datatype tensor_type, const std::string& tensor_name, const std::str
 }
 
 
-tensor recv_t_p_u_embedding_activations(int64_t num_outputs, const std::string& config) {
+inline tensor recv_t_p_u_embedding_activations(int64_t num_outputs, const std::string& config) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "RecvTPUEmbeddingActivations", context::get_status()), &TFE_DeleteOp);
@@ -17367,7 +17367,7 @@ tensor recv_t_p_u_embedding_activations(int64_t num_outputs, const std::string& 
 }
 
 
-tensor reduce_join(const tensor& inputs, const tensor& reduction_indices, bool keep_dims=false, const std::string& separator="") {
+inline tensor reduce_join(const tensor& inputs, const tensor& reduction_indices, bool keep_dims=false, const std::string& separator="") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ReduceJoin", context::get_status()), &TFE_DeleteOp);
@@ -17396,7 +17396,7 @@ tensor reduce_join(const tensor& inputs, const tensor& reduction_indices, bool k
 }
 
 
-tensor ref_enter(const tensor& data, const std::string& frame_name, bool is_constant=false, int64_t parallel_iterations=10) {
+inline tensor ref_enter(const tensor& data, const std::string& frame_name, bool is_constant=false, int64_t parallel_iterations=10) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "RefEnter", context::get_status()), &TFE_DeleteOp);
@@ -17422,7 +17422,7 @@ tensor ref_enter(const tensor& data, const std::string& frame_name, bool is_cons
 }
 
 
-tensor ref_exit(const tensor& data) {
+inline tensor ref_exit(const tensor& data) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "RefExit", context::get_status()), &TFE_DeleteOp);
@@ -17446,7 +17446,7 @@ tensor ref_exit(const tensor& data) {
 }
 
 
-tensor ref_identity(const tensor& input) {
+inline tensor ref_identity(const tensor& input) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "RefIdentity", context::get_status()), &TFE_DeleteOp);
@@ -17470,7 +17470,7 @@ tensor ref_identity(const tensor& input) {
 }
 
 
-tensor ref_next_iteration(const tensor& data) {
+inline tensor ref_next_iteration(const tensor& data) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "RefNextIteration", context::get_status()), &TFE_DeleteOp);
@@ -17494,7 +17494,7 @@ tensor ref_next_iteration(const tensor& data) {
 }
 
 
-tensor ref_select(const tensor& index, const std::vector<tensor>&inputs) {
+inline tensor ref_select(const tensor& index, const std::vector<tensor>&inputs) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "RefSelect", context::get_status()), &TFE_DeleteOp);
@@ -17524,7 +17524,7 @@ tensor ref_select(const tensor& index, const std::vector<tensor>&inputs) {
 }
 
 
-tensor regex_full_match(const tensor& input, const tensor& pattern) {
+inline tensor regex_full_match(const tensor& input, const tensor& pattern) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "RegexFullMatch", context::get_status()), &TFE_DeleteOp);
@@ -17552,7 +17552,7 @@ tensor regex_full_match(const tensor& input, const tensor& pattern) {
 }
 
 
-tensor regex_replace(const tensor& input, const tensor& pattern, const tensor& rewrite, bool replace_global=true) {
+inline tensor regex_replace(const tensor& input, const tensor& pattern, const tensor& rewrite, bool replace_global=true) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "RegexReplace", context::get_status()), &TFE_DeleteOp);
@@ -17584,7 +17584,7 @@ tensor regex_replace(const tensor& input, const tensor& pattern, const tensor& r
 }
 
 
-tensor register_dataset(const tensor& dataset, const tensor& address, const tensor& protocol, int64_t external_state_policy) {
+inline tensor register_dataset(const tensor& dataset, const tensor& address, const tensor& protocol, int64_t external_state_policy) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "RegisterDataset", context::get_status()), &TFE_DeleteOp);
@@ -17616,7 +17616,7 @@ tensor register_dataset(const tensor& dataset, const tensor& address, const tens
 }
 
 
-tensor relu(const tensor& features) {
+inline tensor relu(const tensor& features) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Relu", context::get_status()), &TFE_DeleteOp);
@@ -17640,7 +17640,7 @@ tensor relu(const tensor& features) {
 }
 
 
-tensor relu6(const tensor& features) {
+inline tensor relu6(const tensor& features) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Relu6", context::get_status()), &TFE_DeleteOp);
@@ -17664,7 +17664,7 @@ tensor relu6(const tensor& features) {
 }
 
 
-tensor relu6_grad(const tensor& gradients, const tensor& features) {
+inline tensor relu6_grad(const tensor& gradients, const tensor& features) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Relu6Grad", context::get_status()), &TFE_DeleteOp);
@@ -17692,7 +17692,7 @@ tensor relu6_grad(const tensor& gradients, const tensor& features) {
 }
 
 
-tensor relu_grad(const tensor& gradients, const tensor& features) {
+inline tensor relu_grad(const tensor& gradients, const tensor& features) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ReluGrad", context::get_status()), &TFE_DeleteOp);
@@ -17720,7 +17720,7 @@ tensor relu_grad(const tensor& gradients, const tensor& features) {
 }
 
 
-tensor repeat_dataset(const tensor& input_dataset, const tensor& count, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
+inline tensor repeat_dataset(const tensor& input_dataset, const tensor& count, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "RepeatDataset", context::get_status()), &TFE_DeleteOp);
@@ -17756,7 +17756,7 @@ tensor repeat_dataset(const tensor& input_dataset, const tensor& count, const st
 }
 
 
-tensor reshape(const tensor& input_tensor, const tensor& shape, datatype Tshape=static_cast<datatype>(3)) {
+inline tensor reshape(const tensor& input_tensor, const tensor& shape, datatype Tshape=static_cast<datatype>(3)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Reshape", context::get_status()), &TFE_DeleteOp);
@@ -17784,7 +17784,7 @@ tensor reshape(const tensor& input_tensor, const tensor& shape, datatype Tshape=
 }
 
 
-tensor resize_area(const tensor& images, const tensor& size, bool align_corners=false) {
+inline tensor resize_area(const tensor& images, const tensor& size, bool align_corners=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ResizeArea", context::get_status()), &TFE_DeleteOp);
@@ -17812,7 +17812,7 @@ tensor resize_area(const tensor& images, const tensor& size, bool align_corners=
 }
 
 
-tensor resize_bicubic(const tensor& images, const tensor& size, bool align_corners=false, bool half_pixel_centers=false) {
+inline tensor resize_bicubic(const tensor& images, const tensor& size, bool align_corners=false, bool half_pixel_centers=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ResizeBicubic", context::get_status()), &TFE_DeleteOp);
@@ -17841,7 +17841,7 @@ tensor resize_bicubic(const tensor& images, const tensor& size, bool align_corne
 }
 
 
-tensor resize_bicubic_grad(const tensor& grads, const tensor& original_image, bool align_corners=false, bool half_pixel_centers=false) {
+inline tensor resize_bicubic_grad(const tensor& grads, const tensor& original_image, bool align_corners=false, bool half_pixel_centers=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ResizeBicubicGrad", context::get_status()), &TFE_DeleteOp);
@@ -17870,7 +17870,7 @@ tensor resize_bicubic_grad(const tensor& grads, const tensor& original_image, bo
 }
 
 
-tensor resize_bilinear(const tensor& images, const tensor& size, bool align_corners=false, bool half_pixel_centers=false) {
+inline tensor resize_bilinear(const tensor& images, const tensor& size, bool align_corners=false, bool half_pixel_centers=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ResizeBilinear", context::get_status()), &TFE_DeleteOp);
@@ -17899,7 +17899,7 @@ tensor resize_bilinear(const tensor& images, const tensor& size, bool align_corn
 }
 
 
-tensor resize_bilinear_grad(const tensor& grads, const tensor& original_image, bool align_corners=false, bool half_pixel_centers=false) {
+inline tensor resize_bilinear_grad(const tensor& grads, const tensor& original_image, bool align_corners=false, bool half_pixel_centers=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ResizeBilinearGrad", context::get_status()), &TFE_DeleteOp);
@@ -17928,7 +17928,7 @@ tensor resize_bilinear_grad(const tensor& grads, const tensor& original_image, b
 }
 
 
-tensor resize_nearest_neighbor(const tensor& images, const tensor& size, bool align_corners=false, bool half_pixel_centers=false) {
+inline tensor resize_nearest_neighbor(const tensor& images, const tensor& size, bool align_corners=false, bool half_pixel_centers=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ResizeNearestNeighbor", context::get_status()), &TFE_DeleteOp);
@@ -17957,7 +17957,7 @@ tensor resize_nearest_neighbor(const tensor& images, const tensor& size, bool al
 }
 
 
-tensor resize_nearest_neighbor_grad(const tensor& grads, const tensor& size, bool align_corners=false, bool half_pixel_centers=false) {
+inline tensor resize_nearest_neighbor_grad(const tensor& grads, const tensor& size, bool align_corners=false, bool half_pixel_centers=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ResizeNearestNeighborGrad", context::get_status()), &TFE_DeleteOp);
@@ -17986,7 +17986,7 @@ tensor resize_nearest_neighbor_grad(const tensor& grads, const tensor& size, boo
 }
 
 
-tensor resource_accumulator_num_accumulated(const tensor& handle) {
+inline tensor resource_accumulator_num_accumulated(const tensor& handle) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ResourceAccumulatorNumAccumulated", context::get_status()), &TFE_DeleteOp);
@@ -18010,7 +18010,7 @@ tensor resource_accumulator_num_accumulated(const tensor& handle) {
 }
 
 
-tensor resource_accumulator_take_gradient(const tensor& handle, const tensor& num_required, datatype dtype) {
+inline tensor resource_accumulator_take_gradient(const tensor& handle, const tensor& num_required, datatype dtype) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ResourceAccumulatorTakeGradient", context::get_status()), &TFE_DeleteOp);
@@ -18038,7 +18038,7 @@ tensor resource_accumulator_take_gradient(const tensor& handle, const tensor& nu
 }
 
 
-tensor resource_conditional_accumulator(datatype dtype, const std::vector<int64_t>& shape, const std::string& container="", const std::string& shared_name="", const std::string& reduction_type="MEAN") {
+inline tensor resource_conditional_accumulator(datatype dtype, const std::vector<int64_t>& shape, const std::string& container="", const std::string& shared_name="", const std::string& reduction_type="MEAN") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ResourceConditionalAccumulator", context::get_status()), &TFE_DeleteOp);
@@ -18066,7 +18066,7 @@ tensor resource_conditional_accumulator(datatype dtype, const std::vector<int64_
 }
 
 
-tensor resource_count_up_to(const tensor& resource, int64_t limit) {
+inline tensor resource_count_up_to(const tensor& resource, int64_t limit) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ResourceCountUpTo", context::get_status()), &TFE_DeleteOp);
@@ -18090,7 +18090,7 @@ tensor resource_count_up_to(const tensor& resource, int64_t limit) {
 }
 
 
-tensor resource_gather(const tensor& resource, const tensor& indices, datatype dtype, datatype Tindices, int64_t batch_dims=0, bool validate_indices=true) {
+inline tensor resource_gather(const tensor& resource, const tensor& indices, datatype dtype, datatype Tindices, int64_t batch_dims=0, bool validate_indices=true) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ResourceGather", context::get_status()), &TFE_DeleteOp);
@@ -18121,7 +18121,7 @@ tensor resource_gather(const tensor& resource, const tensor& indices, datatype d
 }
 
 
-tensor resource_gather_nd(const tensor& resource, const tensor& indices, datatype dtype, datatype Tindices) {
+inline tensor resource_gather_nd(const tensor& resource, const tensor& indices, datatype dtype, datatype Tindices) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ResourceGatherNd", context::get_status()), &TFE_DeleteOp);
@@ -18150,7 +18150,7 @@ tensor resource_gather_nd(const tensor& resource, const tensor& indices, datatyp
 }
 
 
-tensor restore(const tensor& file_pattern, const tensor& input_tensor_name, datatype dt, int64_t preferred_shard=-1) {
+inline tensor restore(const tensor& file_pattern, const tensor& input_tensor_name, datatype dt, int64_t preferred_shard=-1) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Restore", context::get_status()), &TFE_DeleteOp);
@@ -18179,7 +18179,7 @@ tensor restore(const tensor& file_pattern, const tensor& input_tensor_name, data
 }
 
 
-tensor restore_slice(const tensor& file_pattern, const tensor& input_tensor_name, const tensor& shape_and_slice, datatype dt, int64_t preferred_shard=-1) {
+inline tensor restore_slice(const tensor& file_pattern, const tensor& input_tensor_name, const tensor& shape_and_slice, datatype dt, int64_t preferred_shard=-1) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "RestoreSlice", context::get_status()), &TFE_DeleteOp);
@@ -18212,7 +18212,7 @@ tensor restore_slice(const tensor& file_pattern, const tensor& input_tensor_name
 }
 
 
-tensor restore_v2(const tensor& prefix, const tensor& input_tensor_names, const tensor& shape_and_slices, const std::vector<datatype>& dtypes) {
+inline tensor restore_v2(const tensor& prefix, const tensor& input_tensor_names, const tensor& shape_and_slices, const std::vector<datatype>& dtypes) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "RestoreV2", context::get_status()), &TFE_DeleteOp);
@@ -18244,7 +18244,7 @@ tensor restore_v2(const tensor& prefix, const tensor& input_tensor_names, const 
 }
 
 
-tensor retrieve_t_p_u_embedding_stochastic_gradient_descent_parameters(int64_t num_shards, int64_t shard_id, int64_t table_id=-1, const std::string& table_name="", const std::string& config="") {
+inline tensor retrieve_t_p_u_embedding_stochastic_gradient_descent_parameters(int64_t num_shards, int64_t shard_id, int64_t table_id=-1, const std::string& table_name="", const std::string& config="") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "RetrieveTPUEmbeddingStochasticGradientDescentParameters", context::get_status()), &TFE_DeleteOp);
@@ -18269,7 +18269,7 @@ tensor retrieve_t_p_u_embedding_stochastic_gradient_descent_parameters(int64_t n
 }
 
 
-tensor reverse(const tensor& input_tensor, const tensor& dims) {
+inline tensor reverse(const tensor& input_tensor, const tensor& dims) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Reverse", context::get_status()), &TFE_DeleteOp);
@@ -18297,7 +18297,7 @@ tensor reverse(const tensor& input_tensor, const tensor& dims) {
 }
 
 
-tensor reverse_sequence(const tensor& input, const tensor& seq_lengths, int64_t seq_dim, int64_t batch_dim=0, datatype Tlen=static_cast<datatype>(9)) {
+inline tensor reverse_sequence(const tensor& input, const tensor& seq_lengths, int64_t seq_dim, int64_t batch_dim=0, datatype Tlen=static_cast<datatype>(9)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ReverseSequence", context::get_status()), &TFE_DeleteOp);
@@ -18327,7 +18327,7 @@ tensor reverse_sequence(const tensor& input, const tensor& seq_lengths, int64_t 
 }
 
 
-tensor reverse_v2(const tensor& input_tensor, const tensor& axis, datatype Tidx=static_cast<datatype>(3)) {
+inline tensor reverse_v2(const tensor& input_tensor, const tensor& axis, datatype Tidx=static_cast<datatype>(3)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ReverseV2", context::get_status()), &TFE_DeleteOp);
@@ -18355,7 +18355,7 @@ tensor reverse_v2(const tensor& input_tensor, const tensor& axis, datatype Tidx=
 }
 
 
-tensor right_shift(const tensor& x, const tensor& y) {
+inline tensor right_shift(const tensor& x, const tensor& y) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "RightShift", context::get_status()), &TFE_DeleteOp);
@@ -18383,7 +18383,7 @@ tensor right_shift(const tensor& x, const tensor& y) {
 }
 
 
-tensor rint(const tensor& x) {
+inline tensor rint(const tensor& x) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Rint", context::get_status()), &TFE_DeleteOp);
@@ -18407,7 +18407,7 @@ tensor rint(const tensor& x) {
 }
 
 
-tensor roll(const tensor& input, const tensor& shift, const tensor& axis, datatype Tshift, datatype Taxis) {
+inline tensor roll(const tensor& input, const tensor& shift, const tensor& axis, datatype Tshift, datatype Taxis) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Roll", context::get_status()), &TFE_DeleteOp);
@@ -18440,7 +18440,7 @@ tensor roll(const tensor& input, const tensor& shift, const tensor& axis, dataty
 }
 
 
-tensor round(const tensor& x) {
+inline tensor round(const tensor& x) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Round", context::get_status()), &TFE_DeleteOp);
@@ -18464,7 +18464,7 @@ tensor round(const tensor& x) {
 }
 
 
-tensor rsqrt(const tensor& x) {
+inline tensor rsqrt(const tensor& x) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Rsqrt", context::get_status()), &TFE_DeleteOp);
@@ -18488,7 +18488,7 @@ tensor rsqrt(const tensor& x) {
 }
 
 
-tensor rsqrt_grad(const tensor& y, const tensor& dy) {
+inline tensor rsqrt_grad(const tensor& y, const tensor& dy) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "RsqrtGrad", context::get_status()), &TFE_DeleteOp);
@@ -18516,7 +18516,7 @@ tensor rsqrt_grad(const tensor& y, const tensor& dy) {
 }
 
 
-tensor sampling_dataset(const tensor& input_dataset, const tensor& rate, const tensor& seed, const tensor& seed2, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
+inline tensor sampling_dataset(const tensor& input_dataset, const tensor& rate, const tensor& seed, const tensor& seed2, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "SamplingDataset", context::get_status()), &TFE_DeleteOp);
@@ -18560,7 +18560,7 @@ tensor sampling_dataset(const tensor& input_dataset, const tensor& rate, const t
 }
 
 
-tensor scalar_summary(const tensor& tags, const tensor& values) {
+inline tensor scalar_summary(const tensor& tags, const tensor& values) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ScalarSummary", context::get_status()), &TFE_DeleteOp);
@@ -18588,7 +18588,7 @@ tensor scalar_summary(const tensor& tags, const tensor& values) {
 }
 
 
-tensor scale_and_translate(const tensor& images, const tensor& size, const tensor& scale, const tensor& translation, const std::string& kernel_type="lanczos3", bool antialias=true) {
+inline tensor scale_and_translate(const tensor& images, const tensor& size, const tensor& scale, const tensor& translation, const std::string& kernel_type="lanczos3", bool antialias=true) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ScaleAndTranslate", context::get_status()), &TFE_DeleteOp);
@@ -18625,7 +18625,7 @@ tensor scale_and_translate(const tensor& images, const tensor& size, const tenso
 }
 
 
-tensor scale_and_translate_grad(const tensor& grads, const tensor& original_image, const tensor& scale, const tensor& translation, const std::string& kernel_type="lanczos3", bool antialias=true) {
+inline tensor scale_and_translate_grad(const tensor& grads, const tensor& original_image, const tensor& scale, const tensor& translation, const std::string& kernel_type="lanczos3", bool antialias=true) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ScaleAndTranslateGrad", context::get_status()), &TFE_DeleteOp);
@@ -18662,7 +18662,7 @@ tensor scale_and_translate_grad(const tensor& grads, const tensor& original_imag
 }
 
 
-tensor scatter_add(const tensor& ref, const tensor& indices, const tensor& updates, datatype Tindices, bool use_locking=false) {
+inline tensor scatter_add(const tensor& ref, const tensor& indices, const tensor& updates, datatype Tindices, bool use_locking=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ScatterAdd", context::get_status()), &TFE_DeleteOp);
@@ -18695,7 +18695,7 @@ tensor scatter_add(const tensor& ref, const tensor& indices, const tensor& updat
 }
 
 
-tensor scatter_div(const tensor& ref, const tensor& indices, const tensor& updates, datatype Tindices, bool use_locking=false) {
+inline tensor scatter_div(const tensor& ref, const tensor& indices, const tensor& updates, datatype Tindices, bool use_locking=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ScatterDiv", context::get_status()), &TFE_DeleteOp);
@@ -18728,7 +18728,7 @@ tensor scatter_div(const tensor& ref, const tensor& indices, const tensor& updat
 }
 
 
-tensor scatter_max(const tensor& ref, const tensor& indices, const tensor& updates, datatype Tindices, bool use_locking=false) {
+inline tensor scatter_max(const tensor& ref, const tensor& indices, const tensor& updates, datatype Tindices, bool use_locking=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ScatterMax", context::get_status()), &TFE_DeleteOp);
@@ -18761,7 +18761,7 @@ tensor scatter_max(const tensor& ref, const tensor& indices, const tensor& updat
 }
 
 
-tensor scatter_min(const tensor& ref, const tensor& indices, const tensor& updates, datatype Tindices, bool use_locking=false) {
+inline tensor scatter_min(const tensor& ref, const tensor& indices, const tensor& updates, datatype Tindices, bool use_locking=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ScatterMin", context::get_status()), &TFE_DeleteOp);
@@ -18794,7 +18794,7 @@ tensor scatter_min(const tensor& ref, const tensor& indices, const tensor& updat
 }
 
 
-tensor scatter_mul(const tensor& ref, const tensor& indices, const tensor& updates, datatype Tindices, bool use_locking=false) {
+inline tensor scatter_mul(const tensor& ref, const tensor& indices, const tensor& updates, datatype Tindices, bool use_locking=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ScatterMul", context::get_status()), &TFE_DeleteOp);
@@ -18827,7 +18827,7 @@ tensor scatter_mul(const tensor& ref, const tensor& indices, const tensor& updat
 }
 
 
-tensor scatter_nd(const tensor& indices, const tensor& updates, const tensor& shape, datatype Tindices) {
+inline tensor scatter_nd(const tensor& indices, const tensor& updates, const tensor& shape, datatype Tindices) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ScatterNd", context::get_status()), &TFE_DeleteOp);
@@ -18859,7 +18859,7 @@ tensor scatter_nd(const tensor& indices, const tensor& updates, const tensor& sh
 }
 
 
-tensor scatter_nd_add(const tensor& ref, const tensor& indices, const tensor& updates, datatype Tindices, bool use_locking=false) {
+inline tensor scatter_nd_add(const tensor& ref, const tensor& indices, const tensor& updates, datatype Tindices, bool use_locking=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ScatterNdAdd", context::get_status()), &TFE_DeleteOp);
@@ -18892,7 +18892,7 @@ tensor scatter_nd_add(const tensor& ref, const tensor& indices, const tensor& up
 }
 
 
-tensor scatter_nd_max(const tensor& ref, const tensor& indices, const tensor& updates, datatype Tindices, bool use_locking=false) {
+inline tensor scatter_nd_max(const tensor& ref, const tensor& indices, const tensor& updates, datatype Tindices, bool use_locking=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ScatterNdMax", context::get_status()), &TFE_DeleteOp);
@@ -18925,7 +18925,7 @@ tensor scatter_nd_max(const tensor& ref, const tensor& indices, const tensor& up
 }
 
 
-tensor scatter_nd_min(const tensor& ref, const tensor& indices, const tensor& updates, datatype Tindices, bool use_locking=false) {
+inline tensor scatter_nd_min(const tensor& ref, const tensor& indices, const tensor& updates, datatype Tindices, bool use_locking=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ScatterNdMin", context::get_status()), &TFE_DeleteOp);
@@ -18958,7 +18958,7 @@ tensor scatter_nd_min(const tensor& ref, const tensor& indices, const tensor& up
 }
 
 
-tensor scatter_nd_non_aliasing_add(const tensor& input, const tensor& indices, const tensor& updates, datatype Tindices) {
+inline tensor scatter_nd_non_aliasing_add(const tensor& input, const tensor& indices, const tensor& updates, datatype Tindices) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ScatterNdNonAliasingAdd", context::get_status()), &TFE_DeleteOp);
@@ -18990,7 +18990,7 @@ tensor scatter_nd_non_aliasing_add(const tensor& input, const tensor& indices, c
 }
 
 
-tensor scatter_nd_sub(const tensor& ref, const tensor& indices, const tensor& updates, datatype Tindices, bool use_locking=false) {
+inline tensor scatter_nd_sub(const tensor& ref, const tensor& indices, const tensor& updates, datatype Tindices, bool use_locking=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ScatterNdSub", context::get_status()), &TFE_DeleteOp);
@@ -19023,7 +19023,7 @@ tensor scatter_nd_sub(const tensor& ref, const tensor& indices, const tensor& up
 }
 
 
-tensor scatter_nd_update(const tensor& ref, const tensor& indices, const tensor& updates, datatype Tindices, bool use_locking=true) {
+inline tensor scatter_nd_update(const tensor& ref, const tensor& indices, const tensor& updates, datatype Tindices, bool use_locking=true) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ScatterNdUpdate", context::get_status()), &TFE_DeleteOp);
@@ -19056,7 +19056,7 @@ tensor scatter_nd_update(const tensor& ref, const tensor& indices, const tensor&
 }
 
 
-tensor scatter_sub(const tensor& ref, const tensor& indices, const tensor& updates, datatype Tindices, bool use_locking=false) {
+inline tensor scatter_sub(const tensor& ref, const tensor& indices, const tensor& updates, datatype Tindices, bool use_locking=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ScatterSub", context::get_status()), &TFE_DeleteOp);
@@ -19089,7 +19089,7 @@ tensor scatter_sub(const tensor& ref, const tensor& indices, const tensor& updat
 }
 
 
-tensor scatter_update(const tensor& ref, const tensor& indices, const tensor& updates, datatype Tindices, bool use_locking=true) {
+inline tensor scatter_update(const tensor& ref, const tensor& indices, const tensor& updates, datatype Tindices, bool use_locking=true) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ScatterUpdate", context::get_status()), &TFE_DeleteOp);
@@ -19122,7 +19122,7 @@ tensor scatter_update(const tensor& ref, const tensor& indices, const tensor& up
 }
 
 
-tensor sdca_fprint(const tensor& input) {
+inline tensor sdca_fprint(const tensor& input) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "SdcaFprint", context::get_status()), &TFE_DeleteOp);
@@ -19146,7 +19146,7 @@ tensor sdca_fprint(const tensor& input) {
 }
 
 
-tensor segment_max(const tensor& data, const tensor& segment_ids, datatype Tindices) {
+inline tensor segment_max(const tensor& data, const tensor& segment_ids, datatype Tindices) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "SegmentMax", context::get_status()), &TFE_DeleteOp);
@@ -19174,7 +19174,7 @@ tensor segment_max(const tensor& data, const tensor& segment_ids, datatype Tindi
 }
 
 
-tensor segment_mean(const tensor& data, const tensor& segment_ids, datatype Tindices) {
+inline tensor segment_mean(const tensor& data, const tensor& segment_ids, datatype Tindices) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "SegmentMean", context::get_status()), &TFE_DeleteOp);
@@ -19202,7 +19202,7 @@ tensor segment_mean(const tensor& data, const tensor& segment_ids, datatype Tind
 }
 
 
-tensor segment_min(const tensor& data, const tensor& segment_ids, datatype Tindices) {
+inline tensor segment_min(const tensor& data, const tensor& segment_ids, datatype Tindices) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "SegmentMin", context::get_status()), &TFE_DeleteOp);
@@ -19230,7 +19230,7 @@ tensor segment_min(const tensor& data, const tensor& segment_ids, datatype Tindi
 }
 
 
-tensor segment_prod(const tensor& data, const tensor& segment_ids, datatype Tindices) {
+inline tensor segment_prod(const tensor& data, const tensor& segment_ids, datatype Tindices) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "SegmentProd", context::get_status()), &TFE_DeleteOp);
@@ -19258,7 +19258,7 @@ tensor segment_prod(const tensor& data, const tensor& segment_ids, datatype Tind
 }
 
 
-tensor segment_sum(const tensor& data, const tensor& segment_ids, datatype Tindices) {
+inline tensor segment_sum(const tensor& data, const tensor& segment_ids, datatype Tindices) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "SegmentSum", context::get_status()), &TFE_DeleteOp);
@@ -19286,7 +19286,7 @@ tensor segment_sum(const tensor& data, const tensor& segment_ids, datatype Tindi
 }
 
 
-tensor select(const tensor& condition, const tensor& t, const tensor& e) {
+inline tensor select(const tensor& condition, const tensor& t, const tensor& e) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Select", context::get_status()), &TFE_DeleteOp);
@@ -19318,7 +19318,7 @@ tensor select(const tensor& condition, const tensor& t, const tensor& e) {
 }
 
 
-tensor select_v2(const tensor& condition, const tensor& t, const tensor& e) {
+inline tensor select_v2(const tensor& condition, const tensor& t, const tensor& e) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "SelectV2", context::get_status()), &TFE_DeleteOp);
@@ -19350,7 +19350,7 @@ tensor select_v2(const tensor& condition, const tensor& t, const tensor& e) {
 }
 
 
-tensor self_adjoint_eig(const tensor& input) {
+inline tensor self_adjoint_eig(const tensor& input) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "SelfAdjointEig", context::get_status()), &TFE_DeleteOp);
@@ -19374,7 +19374,7 @@ tensor self_adjoint_eig(const tensor& input) {
 }
 
 
-tensor selu(const tensor& features) {
+inline tensor selu(const tensor& features) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Selu", context::get_status()), &TFE_DeleteOp);
@@ -19398,7 +19398,7 @@ tensor selu(const tensor& features) {
 }
 
 
-tensor selu_grad(const tensor& gradients, const tensor& outputs) {
+inline tensor selu_grad(const tensor& gradients, const tensor& outputs) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "SeluGrad", context::get_status()), &TFE_DeleteOp);
@@ -19426,7 +19426,7 @@ tensor selu_grad(const tensor& gradients, const tensor& outputs) {
 }
 
 
-tensor serialize_iterator(const tensor& resource_handle, int64_t external_state_policy=0) {
+inline tensor serialize_iterator(const tensor& resource_handle, int64_t external_state_policy=0) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "SerializeIterator", context::get_status()), &TFE_DeleteOp);
@@ -19450,7 +19450,7 @@ tensor serialize_iterator(const tensor& resource_handle, int64_t external_state_
 }
 
 
-tensor serialize_many_sparse(const tensor& sparse_indices, const tensor& sparse_values, const tensor& sparse_shape, datatype out_type=static_cast<datatype>(7)) {
+inline tensor serialize_many_sparse(const tensor& sparse_indices, const tensor& sparse_values, const tensor& sparse_shape, datatype out_type=static_cast<datatype>(7)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "SerializeManySparse", context::get_status()), &TFE_DeleteOp);
@@ -19482,7 +19482,7 @@ tensor serialize_many_sparse(const tensor& sparse_indices, const tensor& sparse_
 }
 
 
-tensor serialize_sparse(const tensor& sparse_indices, const tensor& sparse_values, const tensor& sparse_shape, datatype out_type=static_cast<datatype>(7)) {
+inline tensor serialize_sparse(const tensor& sparse_indices, const tensor& sparse_values, const tensor& sparse_shape, datatype out_type=static_cast<datatype>(7)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "SerializeSparse", context::get_status()), &TFE_DeleteOp);
@@ -19514,7 +19514,7 @@ tensor serialize_sparse(const tensor& sparse_indices, const tensor& sparse_value
 }
 
 
-tensor serialize_tensor(const tensor& input_tensor) {
+inline tensor serialize_tensor(const tensor& input_tensor) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "SerializeTensor", context::get_status()), &TFE_DeleteOp);
@@ -19538,7 +19538,7 @@ tensor serialize_tensor(const tensor& input_tensor) {
 }
 
 
-tensor set_size(const tensor& set_indices, const tensor& set_values, const tensor& set_shape, bool validate_indices=true) {
+inline tensor set_size(const tensor& set_indices, const tensor& set_values, const tensor& set_shape, bool validate_indices=true) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "SetSize", context::get_status()), &TFE_DeleteOp);
@@ -19570,7 +19570,7 @@ tensor set_size(const tensor& set_indices, const tensor& set_values, const tenso
 }
 
 
-tensor set_stats_aggregator_dataset(const tensor& input_dataset, const tensor& stats_aggregator, const tensor& tag, const tensor& counter_prefix, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
+inline tensor set_stats_aggregator_dataset(const tensor& input_dataset, const tensor& stats_aggregator, const tensor& tag, const tensor& counter_prefix, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "SetStatsAggregatorDataset", context::get_status()), &TFE_DeleteOp);
@@ -19614,7 +19614,7 @@ tensor set_stats_aggregator_dataset(const tensor& input_dataset, const tensor& s
 }
 
 
-tensor shape(const tensor& input, datatype out_type=static_cast<datatype>(3)) {
+inline tensor shape(const tensor& input, datatype out_type=static_cast<datatype>(3)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Shape", context::get_status()), &TFE_DeleteOp);
@@ -19638,7 +19638,7 @@ tensor shape(const tensor& input, datatype out_type=static_cast<datatype>(3)) {
 }
 
 
-tensor shape_n(const std::vector<tensor>&input, datatype out_type=static_cast<datatype>(3)) {
+inline tensor shape_n(const std::vector<tensor>&input, datatype out_type=static_cast<datatype>(3)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ShapeN", context::get_status()), &TFE_DeleteOp);
@@ -19665,7 +19665,7 @@ tensor shape_n(const std::vector<tensor>&input, datatype out_type=static_cast<da
 }
 
 
-tensor shard_dataset(const tensor& input_dataset, const tensor& num_shards, const tensor& index, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes, bool require_non_empty=false) {
+inline tensor shard_dataset(const tensor& input_dataset, const tensor& num_shards, const tensor& index, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes, bool require_non_empty=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ShardDataset", context::get_status()), &TFE_DeleteOp);
@@ -19706,7 +19706,7 @@ tensor shard_dataset(const tensor& input_dataset, const tensor& num_shards, cons
 }
 
 
-tensor sharded_filename(const tensor& basename, const tensor& shard, const tensor& num_shards) {
+inline tensor sharded_filename(const tensor& basename, const tensor& shard, const tensor& num_shards) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ShardedFilename", context::get_status()), &TFE_DeleteOp);
@@ -19738,7 +19738,7 @@ tensor sharded_filename(const tensor& basename, const tensor& shard, const tenso
 }
 
 
-tensor sharded_filespec(const tensor& basename, const tensor& num_shards) {
+inline tensor sharded_filespec(const tensor& basename, const tensor& num_shards) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ShardedFilespec", context::get_status()), &TFE_DeleteOp);
@@ -19766,7 +19766,7 @@ tensor sharded_filespec(const tensor& basename, const tensor& num_shards) {
 }
 
 
-tensor shuffle_and_repeat_dataset(const tensor& input_dataset, const tensor& buffer_size, const tensor& seed, const tensor& seed2, const tensor& count, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes, bool reshuffle_each_iteration=true) {
+inline tensor shuffle_and_repeat_dataset(const tensor& input_dataset, const tensor& buffer_size, const tensor& seed, const tensor& seed2, const tensor& count, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes, bool reshuffle_each_iteration=true) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ShuffleAndRepeatDataset", context::get_status()), &TFE_DeleteOp);
@@ -19815,7 +19815,7 @@ tensor shuffle_and_repeat_dataset(const tensor& input_dataset, const tensor& buf
 }
 
 
-tensor shuffle_and_repeat_dataset_v2(const tensor& input_dataset, const tensor& buffer_size, const tensor& seed, const tensor& seed2, const tensor& count, const tensor& seed_generator, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes, bool reshuffle_each_iteration=true) {
+inline tensor shuffle_and_repeat_dataset_v2(const tensor& input_dataset, const tensor& buffer_size, const tensor& seed, const tensor& seed2, const tensor& count, const tensor& seed_generator, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes, bool reshuffle_each_iteration=true) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ShuffleAndRepeatDatasetV2", context::get_status()), &TFE_DeleteOp);
@@ -19868,7 +19868,7 @@ tensor shuffle_and_repeat_dataset_v2(const tensor& input_dataset, const tensor& 
 }
 
 
-tensor shuffle_dataset(const tensor& input_dataset, const tensor& buffer_size, const tensor& seed, const tensor& seed2, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes, bool reshuffle_each_iteration=true) {
+inline tensor shuffle_dataset(const tensor& input_dataset, const tensor& buffer_size, const tensor& seed, const tensor& seed2, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes, bool reshuffle_each_iteration=true) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ShuffleDataset", context::get_status()), &TFE_DeleteOp);
@@ -19913,7 +19913,7 @@ tensor shuffle_dataset(const tensor& input_dataset, const tensor& buffer_size, c
 }
 
 
-tensor shuffle_dataset_v2(const tensor& input_dataset, const tensor& buffer_size, const tensor& seed_generator, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
+inline tensor shuffle_dataset_v2(const tensor& input_dataset, const tensor& buffer_size, const tensor& seed_generator, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ShuffleDatasetV2", context::get_status()), &TFE_DeleteOp);
@@ -19953,7 +19953,7 @@ tensor shuffle_dataset_v2(const tensor& input_dataset, const tensor& buffer_size
 }
 
 
-tensor shuffle_dataset_v3(const tensor& input_dataset, const tensor& buffer_size, const tensor& seed, const tensor& seed2, const tensor& seed_generator, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes, bool reshuffle_each_iteration=true) {
+inline tensor shuffle_dataset_v3(const tensor& input_dataset, const tensor& buffer_size, const tensor& seed, const tensor& seed2, const tensor& seed_generator, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes, bool reshuffle_each_iteration=true) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ShuffleDatasetV3", context::get_status()), &TFE_DeleteOp);
@@ -20002,7 +20002,7 @@ tensor shuffle_dataset_v3(const tensor& input_dataset, const tensor& buffer_size
 }
 
 
-tensor sigmoid(const tensor& x) {
+inline tensor sigmoid(const tensor& x) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Sigmoid", context::get_status()), &TFE_DeleteOp);
@@ -20026,7 +20026,7 @@ tensor sigmoid(const tensor& x) {
 }
 
 
-tensor sigmoid_grad(const tensor& y, const tensor& dy) {
+inline tensor sigmoid_grad(const tensor& y, const tensor& dy) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "SigmoidGrad", context::get_status()), &TFE_DeleteOp);
@@ -20054,7 +20054,7 @@ tensor sigmoid_grad(const tensor& y, const tensor& dy) {
 }
 
 
-tensor sign(const tensor& x) {
+inline tensor sign(const tensor& x) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Sign", context::get_status()), &TFE_DeleteOp);
@@ -20078,7 +20078,7 @@ tensor sign(const tensor& x) {
 }
 
 
-tensor sin(const tensor& x) {
+inline tensor sin(const tensor& x) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Sin", context::get_status()), &TFE_DeleteOp);
@@ -20102,7 +20102,7 @@ tensor sin(const tensor& x) {
 }
 
 
-tensor sinh(const tensor& x) {
+inline tensor sinh(const tensor& x) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Sinh", context::get_status()), &TFE_DeleteOp);
@@ -20126,7 +20126,7 @@ tensor sinh(const tensor& x) {
 }
 
 
-tensor size(const tensor& input, datatype out_type=static_cast<datatype>(3)) {
+inline tensor size(const tensor& input, datatype out_type=static_cast<datatype>(3)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Size", context::get_status()), &TFE_DeleteOp);
@@ -20150,7 +20150,7 @@ tensor size(const tensor& input, datatype out_type=static_cast<datatype>(3)) {
 }
 
 
-tensor skip_dataset(const tensor& input_dataset, const tensor& count, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
+inline tensor skip_dataset(const tensor& input_dataset, const tensor& count, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "SkipDataset", context::get_status()), &TFE_DeleteOp);
@@ -20186,7 +20186,7 @@ tensor skip_dataset(const tensor& input_dataset, const tensor& count, const std:
 }
 
 
-tensor sleep_dataset(const tensor& input_dataset, const tensor& sleep_microseconds, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
+inline tensor sleep_dataset(const tensor& input_dataset, const tensor& sleep_microseconds, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "SleepDataset", context::get_status()), &TFE_DeleteOp);
@@ -20222,7 +20222,7 @@ tensor sleep_dataset(const tensor& input_dataset, const tensor& sleep_microsecon
 }
 
 
-tensor slice(const tensor& input, const tensor& begin, const tensor& size, datatype Index) {
+inline tensor slice(const tensor& input, const tensor& begin, const tensor& size, datatype Index) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Slice", context::get_status()), &TFE_DeleteOp);
@@ -20254,7 +20254,7 @@ tensor slice(const tensor& input, const tensor& begin, const tensor& size, datat
 }
 
 
-tensor sliding_window_dataset(const tensor& input_dataset, const tensor& window_size, const tensor& window_shift, const tensor& window_stride, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
+inline tensor sliding_window_dataset(const tensor& input_dataset, const tensor& window_size, const tensor& window_shift, const tensor& window_stride, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "SlidingWindowDataset", context::get_status()), &TFE_DeleteOp);
@@ -20298,7 +20298,7 @@ tensor sliding_window_dataset(const tensor& input_dataset, const tensor& window_
 }
 
 
-tensor snapshot(const tensor& input) {
+inline tensor snapshot(const tensor& input) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Snapshot", context::get_status()), &TFE_DeleteOp);
@@ -20322,7 +20322,7 @@ tensor snapshot(const tensor& input) {
 }
 
 
-tensor snapshot_dataset(const tensor& input_dataset, const tensor& path, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes, const std::string& compression="", const std::string& reader_path_prefix="", const std::string& writer_path_prefix="", int64_t shard_size_bytes=10737418240, int64_t pending_snapshot_expiry_seconds=86400, int64_t num_reader_threads=1, int64_t reader_buffer_size=1, int64_t num_writer_threads=1, int64_t writer_buffer_size=1, bool shuffle_on_read=false, int64_t seed=0, int64_t seed2=0, const std::string& mode="auto", const std::string& snapshot_name="") {
+inline tensor snapshot_dataset(const tensor& input_dataset, const tensor& path, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes, const std::string& compression="", const std::string& reader_path_prefix="", const std::string& writer_path_prefix="", int64_t shard_size_bytes=10737418240, int64_t pending_snapshot_expiry_seconds=86400, int64_t num_reader_threads=1, int64_t reader_buffer_size=1, int64_t num_writer_threads=1, int64_t writer_buffer_size=1, bool shuffle_on_read=false, int64_t seed=0, int64_t seed2=0, const std::string& mode="auto", const std::string& snapshot_name="") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "SnapshotDataset", context::get_status()), &TFE_DeleteOp);
@@ -20372,7 +20372,7 @@ tensor snapshot_dataset(const tensor& input_dataset, const tensor& path, const s
 }
 
 
-tensor sobol_sample(const tensor& dim, const tensor& num_results, const tensor& skip, datatype dtype=static_cast<datatype>(1)) {
+inline tensor sobol_sample(const tensor& dim, const tensor& num_results, const tensor& skip, datatype dtype=static_cast<datatype>(1)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "SobolSample", context::get_status()), &TFE_DeleteOp);
@@ -20404,7 +20404,7 @@ tensor sobol_sample(const tensor& dim, const tensor& num_results, const tensor& 
 }
 
 
-tensor softmax(const tensor& logits) {
+inline tensor softmax(const tensor& logits) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Softmax", context::get_status()), &TFE_DeleteOp);
@@ -20428,7 +20428,7 @@ tensor softmax(const tensor& logits) {
 }
 
 
-tensor softplus(const tensor& features) {
+inline tensor softplus(const tensor& features) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Softplus", context::get_status()), &TFE_DeleteOp);
@@ -20452,7 +20452,7 @@ tensor softplus(const tensor& features) {
 }
 
 
-tensor softplus_grad(const tensor& gradients, const tensor& features) {
+inline tensor softplus_grad(const tensor& gradients, const tensor& features) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "SoftplusGrad", context::get_status()), &TFE_DeleteOp);
@@ -20480,7 +20480,7 @@ tensor softplus_grad(const tensor& gradients, const tensor& features) {
 }
 
 
-tensor softsign(const tensor& features) {
+inline tensor softsign(const tensor& features) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Softsign", context::get_status()), &TFE_DeleteOp);
@@ -20504,7 +20504,7 @@ tensor softsign(const tensor& features) {
 }
 
 
-tensor softsign_grad(const tensor& gradients, const tensor& features) {
+inline tensor softsign_grad(const tensor& gradients, const tensor& features) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "SoftsignGrad", context::get_status()), &TFE_DeleteOp);
@@ -20532,7 +20532,7 @@ tensor softsign_grad(const tensor& gradients, const tensor& features) {
 }
 
 
-tensor space_to_batch(const tensor& input, const tensor& paddings, int64_t block_size, datatype Tpaddings=static_cast<datatype>(3)) {
+inline tensor space_to_batch(const tensor& input, const tensor& paddings, int64_t block_size, datatype Tpaddings=static_cast<datatype>(3)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "SpaceToBatch", context::get_status()), &TFE_DeleteOp);
@@ -20561,7 +20561,7 @@ tensor space_to_batch(const tensor& input, const tensor& paddings, int64_t block
 }
 
 
-tensor space_to_batch_n_d(const tensor& input, const tensor& block_shape, const tensor& paddings, datatype Tblock_shape=static_cast<datatype>(3), datatype Tpaddings=static_cast<datatype>(3)) {
+inline tensor space_to_batch_n_d(const tensor& input, const tensor& block_shape, const tensor& paddings, datatype Tblock_shape=static_cast<datatype>(3), datatype Tpaddings=static_cast<datatype>(3)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "SpaceToBatchND", context::get_status()), &TFE_DeleteOp);
@@ -20594,7 +20594,7 @@ tensor space_to_batch_n_d(const tensor& input, const tensor& block_shape, const 
 }
 
 
-tensor space_to_depth(const tensor& input, int64_t block_size, const std::string& data_format="NHWC") {
+inline tensor space_to_depth(const tensor& input, int64_t block_size, const std::string& data_format="NHWC") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "SpaceToDepth", context::get_status()), &TFE_DeleteOp);
@@ -20619,7 +20619,7 @@ tensor space_to_depth(const tensor& input, int64_t block_size, const std::string
 }
 
 
-tensor sparse_apply_adadelta(const tensor& var, const tensor& accum, const tensor& accum_update, const tensor& lr, const tensor& rho, const tensor& epsilon, const tensor& grad, const tensor& indices, datatype Tindices, bool use_locking=false) {
+inline tensor sparse_apply_adadelta(const tensor& var, const tensor& accum, const tensor& accum_update, const tensor& lr, const tensor& rho, const tensor& epsilon, const tensor& grad, const tensor& indices, datatype Tindices, bool use_locking=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "SparseApplyAdadelta", context::get_status()), &TFE_DeleteOp);
@@ -20672,7 +20672,7 @@ tensor sparse_apply_adadelta(const tensor& var, const tensor& accum, const tenso
 }
 
 
-tensor sparse_apply_adagrad(const tensor& var, const tensor& accum, const tensor& lr, const tensor& grad, const tensor& indices, datatype Tindices, bool use_locking=false, bool update_slots=true) {
+inline tensor sparse_apply_adagrad(const tensor& var, const tensor& accum, const tensor& lr, const tensor& grad, const tensor& indices, datatype Tindices, bool use_locking=false, bool update_slots=true) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "SparseApplyAdagrad", context::get_status()), &TFE_DeleteOp);
@@ -20714,7 +20714,7 @@ tensor sparse_apply_adagrad(const tensor& var, const tensor& accum, const tensor
 }
 
 
-tensor sparse_apply_adagrad_d_a(const tensor& var, const tensor& gradient_accumulator, const tensor& gradient_squared_accumulator, const tensor& grad, const tensor& indices, const tensor& lr, const tensor& l1, const tensor& l2, const tensor& global_step, datatype Tindices, bool use_locking=false) {
+inline tensor sparse_apply_adagrad_d_a(const tensor& var, const tensor& gradient_accumulator, const tensor& gradient_squared_accumulator, const tensor& grad, const tensor& indices, const tensor& lr, const tensor& l1, const tensor& l2, const tensor& global_step, datatype Tindices, bool use_locking=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "SparseApplyAdagradDA", context::get_status()), &TFE_DeleteOp);
@@ -20771,7 +20771,7 @@ tensor sparse_apply_adagrad_d_a(const tensor& var, const tensor& gradient_accumu
 }
 
 
-tensor sparse_apply_adagrad_v2(const tensor& var, const tensor& accum, const tensor& lr, const tensor& epsilon, const tensor& grad, const tensor& indices, datatype Tindices, bool use_locking=false, bool update_slots=true) {
+inline tensor sparse_apply_adagrad_v2(const tensor& var, const tensor& accum, const tensor& lr, const tensor& epsilon, const tensor& grad, const tensor& indices, datatype Tindices, bool use_locking=false, bool update_slots=true) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "SparseApplyAdagradV2", context::get_status()), &TFE_DeleteOp);
@@ -20817,7 +20817,7 @@ tensor sparse_apply_adagrad_v2(const tensor& var, const tensor& accum, const ten
 }
 
 
-tensor sparse_apply_centered_r_m_s_prop(const tensor& var, const tensor& mg, const tensor& ms, const tensor& mom, const tensor& lr, const tensor& rho, const tensor& momentum, const tensor& epsilon, const tensor& grad, const tensor& indices, datatype Tindices, bool use_locking=false) {
+inline tensor sparse_apply_centered_r_m_s_prop(const tensor& var, const tensor& mg, const tensor& ms, const tensor& mom, const tensor& lr, const tensor& rho, const tensor& momentum, const tensor& epsilon, const tensor& grad, const tensor& indices, datatype Tindices, bool use_locking=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "SparseApplyCenteredRMSProp", context::get_status()), &TFE_DeleteOp);
@@ -20878,7 +20878,7 @@ tensor sparse_apply_centered_r_m_s_prop(const tensor& var, const tensor& mg, con
 }
 
 
-tensor sparse_apply_ftrl(const tensor& var, const tensor& accum, const tensor& linear, const tensor& grad, const tensor& indices, const tensor& lr, const tensor& l1, const tensor& l2, const tensor& lr_power, datatype Tindices, bool use_locking=false, bool multiply_linear_by_lr=false) {
+inline tensor sparse_apply_ftrl(const tensor& var, const tensor& accum, const tensor& linear, const tensor& grad, const tensor& indices, const tensor& lr, const tensor& l1, const tensor& l2, const tensor& lr_power, datatype Tindices, bool use_locking=false, bool multiply_linear_by_lr=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "SparseApplyFtrl", context::get_status()), &TFE_DeleteOp);
@@ -20936,7 +20936,7 @@ tensor sparse_apply_ftrl(const tensor& var, const tensor& accum, const tensor& l
 }
 
 
-tensor sparse_apply_ftrl_v2(const tensor& var, const tensor& accum, const tensor& linear, const tensor& grad, const tensor& indices, const tensor& lr, const tensor& l1, const tensor& l2, const tensor& l2_shrinkage, const tensor& lr_power, datatype Tindices, bool use_locking=false, bool multiply_linear_by_lr=false) {
+inline tensor sparse_apply_ftrl_v2(const tensor& var, const tensor& accum, const tensor& linear, const tensor& grad, const tensor& indices, const tensor& lr, const tensor& l1, const tensor& l2, const tensor& l2_shrinkage, const tensor& lr_power, datatype Tindices, bool use_locking=false, bool multiply_linear_by_lr=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "SparseApplyFtrlV2", context::get_status()), &TFE_DeleteOp);
@@ -20998,7 +20998,7 @@ tensor sparse_apply_ftrl_v2(const tensor& var, const tensor& accum, const tensor
 }
 
 
-tensor sparse_apply_momentum(const tensor& var, const tensor& accum, const tensor& lr, const tensor& grad, const tensor& indices, const tensor& momentum, datatype Tindices, bool use_locking=false, bool use_nesterov=false) {
+inline tensor sparse_apply_momentum(const tensor& var, const tensor& accum, const tensor& lr, const tensor& grad, const tensor& indices, const tensor& momentum, datatype Tindices, bool use_locking=false, bool use_nesterov=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "SparseApplyMomentum", context::get_status()), &TFE_DeleteOp);
@@ -21044,7 +21044,7 @@ tensor sparse_apply_momentum(const tensor& var, const tensor& accum, const tenso
 }
 
 
-tensor sparse_apply_proximal_adagrad(const tensor& var, const tensor& accum, const tensor& lr, const tensor& l1, const tensor& l2, const tensor& grad, const tensor& indices, datatype Tindices, bool use_locking=false) {
+inline tensor sparse_apply_proximal_adagrad(const tensor& var, const tensor& accum, const tensor& lr, const tensor& l1, const tensor& l2, const tensor& grad, const tensor& indices, datatype Tindices, bool use_locking=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "SparseApplyProximalAdagrad", context::get_status()), &TFE_DeleteOp);
@@ -21093,7 +21093,7 @@ tensor sparse_apply_proximal_adagrad(const tensor& var, const tensor& accum, con
 }
 
 
-tensor sparse_apply_proximal_gradient_descent(const tensor& var, const tensor& alpha, const tensor& l1, const tensor& l2, const tensor& grad, const tensor& indices, datatype Tindices, bool use_locking=false) {
+inline tensor sparse_apply_proximal_gradient_descent(const tensor& var, const tensor& alpha, const tensor& l1, const tensor& l2, const tensor& grad, const tensor& indices, datatype Tindices, bool use_locking=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "SparseApplyProximalGradientDescent", context::get_status()), &TFE_DeleteOp);
@@ -21138,7 +21138,7 @@ tensor sparse_apply_proximal_gradient_descent(const tensor& var, const tensor& a
 }
 
 
-tensor sparse_apply_r_m_s_prop(const tensor& var, const tensor& ms, const tensor& mom, const tensor& lr, const tensor& rho, const tensor& momentum, const tensor& epsilon, const tensor& grad, const tensor& indices, datatype Tindices, bool use_locking=false) {
+inline tensor sparse_apply_r_m_s_prop(const tensor& var, const tensor& ms, const tensor& mom, const tensor& lr, const tensor& rho, const tensor& momentum, const tensor& epsilon, const tensor& grad, const tensor& indices, datatype Tindices, bool use_locking=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "SparseApplyRMSProp", context::get_status()), &TFE_DeleteOp);
@@ -21195,7 +21195,7 @@ tensor sparse_apply_r_m_s_prop(const tensor& var, const tensor& ms, const tensor
 }
 
 
-tensor sparse_bincount(const tensor& indices, const tensor& values, const tensor& dense_shape, const tensor& size, const tensor& weights, datatype Tidx, bool binary_output=false) {
+inline tensor sparse_bincount(const tensor& indices, const tensor& values, const tensor& dense_shape, const tensor& size, const tensor& weights, datatype Tidx, bool binary_output=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "SparseBincount", context::get_status()), &TFE_DeleteOp);
@@ -21236,7 +21236,7 @@ tensor sparse_bincount(const tensor& indices, const tensor& values, const tensor
 }
 
 
-tensor sparse_conditional_accumulator(datatype dtype, const std::vector<int64_t>& shape, const std::string& container="", const std::string& shared_name="", const std::string& reduction_type="MEAN") {
+inline tensor sparse_conditional_accumulator(datatype dtype, const std::vector<int64_t>& shape, const std::string& container="", const std::string& shared_name="", const std::string& reduction_type="MEAN") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "SparseConditionalAccumulator", context::get_status()), &TFE_DeleteOp);
@@ -21264,7 +21264,7 @@ tensor sparse_conditional_accumulator(datatype dtype, const std::vector<int64_t>
 }
 
 
-tensor sparse_dense_cwise_add(const tensor& sp_indices, const tensor& sp_values, const tensor& sp_shape, const tensor& dense) {
+inline tensor sparse_dense_cwise_add(const tensor& sp_indices, const tensor& sp_values, const tensor& sp_shape, const tensor& dense) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "SparseDenseCwiseAdd", context::get_status()), &TFE_DeleteOp);
@@ -21300,7 +21300,7 @@ tensor sparse_dense_cwise_add(const tensor& sp_indices, const tensor& sp_values,
 }
 
 
-tensor sparse_dense_cwise_div(const tensor& sp_indices, const tensor& sp_values, const tensor& sp_shape, const tensor& dense) {
+inline tensor sparse_dense_cwise_div(const tensor& sp_indices, const tensor& sp_values, const tensor& sp_shape, const tensor& dense) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "SparseDenseCwiseDiv", context::get_status()), &TFE_DeleteOp);
@@ -21336,7 +21336,7 @@ tensor sparse_dense_cwise_div(const tensor& sp_indices, const tensor& sp_values,
 }
 
 
-tensor sparse_dense_cwise_mul(const tensor& sp_indices, const tensor& sp_values, const tensor& sp_shape, const tensor& dense) {
+inline tensor sparse_dense_cwise_mul(const tensor& sp_indices, const tensor& sp_values, const tensor& sp_shape, const tensor& dense) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "SparseDenseCwiseMul", context::get_status()), &TFE_DeleteOp);
@@ -21372,7 +21372,7 @@ tensor sparse_dense_cwise_mul(const tensor& sp_indices, const tensor& sp_values,
 }
 
 
-tensor sparse_mat_mul(const tensor& a, const tensor& b, bool transpose_a=false, bool transpose_b=false, bool a_is_sparse=false, bool b_is_sparse=false, datatype Ta=static_cast<datatype>(1), datatype Tb=static_cast<datatype>(1)) {
+inline tensor sparse_mat_mul(const tensor& a, const tensor& b, bool transpose_a=false, bool transpose_b=false, bool a_is_sparse=false, bool b_is_sparse=false, datatype Ta=static_cast<datatype>(1), datatype Tb=static_cast<datatype>(1)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "SparseMatMul", context::get_status()), &TFE_DeleteOp);
@@ -21405,7 +21405,7 @@ tensor sparse_mat_mul(const tensor& a, const tensor& b, bool transpose_a=false, 
 }
 
 
-tensor sparse_matrix_add(const tensor& a, const tensor& b, const tensor& alpha, const tensor& beta) {
+inline tensor sparse_matrix_add(const tensor& a, const tensor& b, const tensor& alpha, const tensor& beta) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "SparseMatrixAdd", context::get_status()), &TFE_DeleteOp);
@@ -21441,7 +21441,7 @@ tensor sparse_matrix_add(const tensor& a, const tensor& b, const tensor& alpha, 
 }
 
 
-tensor sparse_matrix_mat_mul(const tensor& a, const tensor& b, bool transpose_a=false, bool transpose_b=false, bool adjoint_a=false, bool adjoint_b=false, bool transpose_output=false, bool conjugate_output=false) {
+inline tensor sparse_matrix_mat_mul(const tensor& a, const tensor& b, bool transpose_a=false, bool transpose_b=false, bool adjoint_a=false, bool adjoint_b=false, bool transpose_output=false, bool conjugate_output=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "SparseMatrixMatMul", context::get_status()), &TFE_DeleteOp);
@@ -21474,7 +21474,7 @@ tensor sparse_matrix_mat_mul(const tensor& a, const tensor& b, bool transpose_a=
 }
 
 
-tensor sparse_matrix_mul(const tensor& a, const tensor& b) {
+inline tensor sparse_matrix_mul(const tensor& a, const tensor& b) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "SparseMatrixMul", context::get_status()), &TFE_DeleteOp);
@@ -21502,7 +21502,7 @@ tensor sparse_matrix_mul(const tensor& a, const tensor& b) {
 }
 
 
-tensor sparse_matrix_n_n_z(const tensor& sparse_matrix) {
+inline tensor sparse_matrix_n_n_z(const tensor& sparse_matrix) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "SparseMatrixNNZ", context::get_status()), &TFE_DeleteOp);
@@ -21526,7 +21526,7 @@ tensor sparse_matrix_n_n_z(const tensor& sparse_matrix) {
 }
 
 
-tensor sparse_matrix_ordering_a_m_d(const tensor& input) {
+inline tensor sparse_matrix_ordering_a_m_d(const tensor& input) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "SparseMatrixOrderingAMD", context::get_status()), &TFE_DeleteOp);
@@ -21550,7 +21550,7 @@ tensor sparse_matrix_ordering_a_m_d(const tensor& input) {
 }
 
 
-tensor sparse_matrix_softmax(const tensor& logits, datatype type) {
+inline tensor sparse_matrix_softmax(const tensor& logits, datatype type) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "SparseMatrixSoftmax", context::get_status()), &TFE_DeleteOp);
@@ -21574,7 +21574,7 @@ tensor sparse_matrix_softmax(const tensor& logits, datatype type) {
 }
 
 
-tensor sparse_matrix_softmax_grad(const tensor& softmax, const tensor& grad_softmax, datatype type) {
+inline tensor sparse_matrix_softmax_grad(const tensor& softmax, const tensor& grad_softmax, datatype type) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "SparseMatrixSoftmaxGrad", context::get_status()), &TFE_DeleteOp);
@@ -21602,7 +21602,7 @@ tensor sparse_matrix_softmax_grad(const tensor& softmax, const tensor& grad_soft
 }
 
 
-tensor sparse_matrix_sparse_cholesky(const tensor& input, const tensor& permutation, datatype type) {
+inline tensor sparse_matrix_sparse_cholesky(const tensor& input, const tensor& permutation, datatype type) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "SparseMatrixSparseCholesky", context::get_status()), &TFE_DeleteOp);
@@ -21630,7 +21630,7 @@ tensor sparse_matrix_sparse_cholesky(const tensor& input, const tensor& permutat
 }
 
 
-tensor sparse_matrix_sparse_mat_mul(const tensor& a, const tensor& b, datatype type, bool transpose_a=false, bool transpose_b=false, bool adjoint_a=false, bool adjoint_b=false) {
+inline tensor sparse_matrix_sparse_mat_mul(const tensor& a, const tensor& b, datatype type, bool transpose_a=false, bool transpose_b=false, bool adjoint_a=false, bool adjoint_b=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "SparseMatrixSparseMatMul", context::get_status()), &TFE_DeleteOp);
@@ -21662,7 +21662,7 @@ tensor sparse_matrix_sparse_mat_mul(const tensor& a, const tensor& b, datatype t
 }
 
 
-tensor sparse_matrix_transpose(const tensor& input, datatype type, bool conjugate=false) {
+inline tensor sparse_matrix_transpose(const tensor& input, datatype type, bool conjugate=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "SparseMatrixTranspose", context::get_status()), &TFE_DeleteOp);
@@ -21687,7 +21687,7 @@ tensor sparse_matrix_transpose(const tensor& input, datatype type, bool conjugat
 }
 
 
-tensor sparse_matrix_zeros(const tensor& dense_shape, datatype type) {
+inline tensor sparse_matrix_zeros(const tensor& dense_shape, datatype type) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "SparseMatrixZeros", context::get_status()), &TFE_DeleteOp);
@@ -21711,7 +21711,7 @@ tensor sparse_matrix_zeros(const tensor& dense_shape, datatype type) {
 }
 
 
-tensor sparse_reduce_max(const tensor& input_indices, const tensor& input_values, const tensor& input_shape, const tensor& reduction_axes, bool keep_dims=false) {
+inline tensor sparse_reduce_max(const tensor& input_indices, const tensor& input_values, const tensor& input_shape, const tensor& reduction_axes, bool keep_dims=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "SparseReduceMax", context::get_status()), &TFE_DeleteOp);
@@ -21747,7 +21747,7 @@ tensor sparse_reduce_max(const tensor& input_indices, const tensor& input_values
 }
 
 
-tensor sparse_reduce_sum(const tensor& input_indices, const tensor& input_values, const tensor& input_shape, const tensor& reduction_axes, bool keep_dims=false) {
+inline tensor sparse_reduce_sum(const tensor& input_indices, const tensor& input_values, const tensor& input_shape, const tensor& reduction_axes, bool keep_dims=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "SparseReduceSum", context::get_status()), &TFE_DeleteOp);
@@ -21783,7 +21783,7 @@ tensor sparse_reduce_sum(const tensor& input_indices, const tensor& input_values
 }
 
 
-tensor sparse_segment_mean(const tensor& data, const tensor& indices, const tensor& segment_ids, datatype Tidx=static_cast<datatype>(3), datatype Tsegmentids=static_cast<datatype>(3)) {
+inline tensor sparse_segment_mean(const tensor& data, const tensor& indices, const tensor& segment_ids, datatype Tidx=static_cast<datatype>(3), datatype Tsegmentids=static_cast<datatype>(3)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "SparseSegmentMean", context::get_status()), &TFE_DeleteOp);
@@ -21816,7 +21816,7 @@ tensor sparse_segment_mean(const tensor& data, const tensor& indices, const tens
 }
 
 
-tensor sparse_segment_mean_grad(const tensor& grad, const tensor& indices, const tensor& segment_ids, const tensor& output_dim0, datatype Tidx=static_cast<datatype>(3), datatype Tsegmentids=static_cast<datatype>(3)) {
+inline tensor sparse_segment_mean_grad(const tensor& grad, const tensor& indices, const tensor& segment_ids, const tensor& output_dim0, datatype Tidx=static_cast<datatype>(3), datatype Tsegmentids=static_cast<datatype>(3)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "SparseSegmentMeanGrad", context::get_status()), &TFE_DeleteOp);
@@ -21853,7 +21853,7 @@ tensor sparse_segment_mean_grad(const tensor& grad, const tensor& indices, const
 }
 
 
-tensor sparse_segment_mean_with_num_segments(const tensor& data, const tensor& indices, const tensor& segment_ids, const tensor& num_segments, datatype Tidx=static_cast<datatype>(3), datatype Tnumsegments=static_cast<datatype>(3), datatype Tsegmentids=static_cast<datatype>(3)) {
+inline tensor sparse_segment_mean_with_num_segments(const tensor& data, const tensor& indices, const tensor& segment_ids, const tensor& num_segments, datatype Tidx=static_cast<datatype>(3), datatype Tnumsegments=static_cast<datatype>(3), datatype Tsegmentids=static_cast<datatype>(3)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "SparseSegmentMeanWithNumSegments", context::get_status()), &TFE_DeleteOp);
@@ -21891,7 +21891,7 @@ tensor sparse_segment_mean_with_num_segments(const tensor& data, const tensor& i
 }
 
 
-tensor sparse_segment_sqrt_n(const tensor& data, const tensor& indices, const tensor& segment_ids, datatype Tidx=static_cast<datatype>(3), datatype Tsegmentids=static_cast<datatype>(3)) {
+inline tensor sparse_segment_sqrt_n(const tensor& data, const tensor& indices, const tensor& segment_ids, datatype Tidx=static_cast<datatype>(3), datatype Tsegmentids=static_cast<datatype>(3)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "SparseSegmentSqrtN", context::get_status()), &TFE_DeleteOp);
@@ -21924,7 +21924,7 @@ tensor sparse_segment_sqrt_n(const tensor& data, const tensor& indices, const te
 }
 
 
-tensor sparse_segment_sqrt_n_grad(const tensor& grad, const tensor& indices, const tensor& segment_ids, const tensor& output_dim0, datatype Tidx=static_cast<datatype>(3), datatype Tsegmentids=static_cast<datatype>(3)) {
+inline tensor sparse_segment_sqrt_n_grad(const tensor& grad, const tensor& indices, const tensor& segment_ids, const tensor& output_dim0, datatype Tidx=static_cast<datatype>(3), datatype Tsegmentids=static_cast<datatype>(3)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "SparseSegmentSqrtNGrad", context::get_status()), &TFE_DeleteOp);
@@ -21961,7 +21961,7 @@ tensor sparse_segment_sqrt_n_grad(const tensor& grad, const tensor& indices, con
 }
 
 
-tensor sparse_segment_sqrt_n_with_num_segments(const tensor& data, const tensor& indices, const tensor& segment_ids, const tensor& num_segments, datatype Tidx=static_cast<datatype>(3), datatype Tnumsegments=static_cast<datatype>(3), datatype Tsegmentids=static_cast<datatype>(3)) {
+inline tensor sparse_segment_sqrt_n_with_num_segments(const tensor& data, const tensor& indices, const tensor& segment_ids, const tensor& num_segments, datatype Tidx=static_cast<datatype>(3), datatype Tnumsegments=static_cast<datatype>(3), datatype Tsegmentids=static_cast<datatype>(3)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "SparseSegmentSqrtNWithNumSegments", context::get_status()), &TFE_DeleteOp);
@@ -21999,7 +21999,7 @@ tensor sparse_segment_sqrt_n_with_num_segments(const tensor& data, const tensor&
 }
 
 
-tensor sparse_segment_sum(const tensor& data, const tensor& indices, const tensor& segment_ids, datatype Tidx=static_cast<datatype>(3), datatype Tsegmentids=static_cast<datatype>(3)) {
+inline tensor sparse_segment_sum(const tensor& data, const tensor& indices, const tensor& segment_ids, datatype Tidx=static_cast<datatype>(3), datatype Tsegmentids=static_cast<datatype>(3)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "SparseSegmentSum", context::get_status()), &TFE_DeleteOp);
@@ -22032,7 +22032,7 @@ tensor sparse_segment_sum(const tensor& data, const tensor& indices, const tenso
 }
 
 
-tensor sparse_segment_sum_with_num_segments(const tensor& data, const tensor& indices, const tensor& segment_ids, const tensor& num_segments, datatype Tidx=static_cast<datatype>(3), datatype Tnumsegments=static_cast<datatype>(3), datatype Tsegmentids=static_cast<datatype>(3)) {
+inline tensor sparse_segment_sum_with_num_segments(const tensor& data, const tensor& indices, const tensor& segment_ids, const tensor& num_segments, datatype Tidx=static_cast<datatype>(3), datatype Tnumsegments=static_cast<datatype>(3), datatype Tsegmentids=static_cast<datatype>(3)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "SparseSegmentSumWithNumSegments", context::get_status()), &TFE_DeleteOp);
@@ -22070,7 +22070,7 @@ tensor sparse_segment_sum_with_num_segments(const tensor& data, const tensor& in
 }
 
 
-tensor sparse_slice_grad(const tensor& backprop_val_grad, const tensor& input_indices, const tensor& input_start, const tensor& output_indices) {
+inline tensor sparse_slice_grad(const tensor& backprop_val_grad, const tensor& input_indices, const tensor& input_start, const tensor& output_indices) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "SparseSliceGrad", context::get_status()), &TFE_DeleteOp);
@@ -22106,7 +22106,7 @@ tensor sparse_slice_grad(const tensor& backprop_val_grad, const tensor& input_in
 }
 
 
-tensor sparse_softmax(const tensor& sp_indices, const tensor& sp_values, const tensor& sp_shape) {
+inline tensor sparse_softmax(const tensor& sp_indices, const tensor& sp_values, const tensor& sp_shape) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "SparseSoftmax", context::get_status()), &TFE_DeleteOp);
@@ -22138,7 +22138,7 @@ tensor sparse_softmax(const tensor& sp_indices, const tensor& sp_values, const t
 }
 
 
-tensor sparse_tensor_dense_add(const tensor& a_indices, const tensor& a_values, const tensor& a_shape, const tensor& b, datatype Tindices) {
+inline tensor sparse_tensor_dense_add(const tensor& a_indices, const tensor& a_values, const tensor& a_shape, const tensor& b, datatype Tindices) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "SparseTensorDenseAdd", context::get_status()), &TFE_DeleteOp);
@@ -22174,7 +22174,7 @@ tensor sparse_tensor_dense_add(const tensor& a_indices, const tensor& a_values, 
 }
 
 
-tensor sparse_tensor_dense_mat_mul(const tensor& a_indices, const tensor& a_values, const tensor& a_shape, const tensor& b, datatype Tindices=static_cast<datatype>(9), bool adjoint_a=false, bool adjoint_b=false) {
+inline tensor sparse_tensor_dense_mat_mul(const tensor& a_indices, const tensor& a_values, const tensor& a_shape, const tensor& b, datatype Tindices=static_cast<datatype>(9), bool adjoint_a=false, bool adjoint_b=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "SparseTensorDenseMatMul", context::get_status()), &TFE_DeleteOp);
@@ -22212,7 +22212,7 @@ tensor sparse_tensor_dense_mat_mul(const tensor& a_indices, const tensor& a_valu
 }
 
 
-tensor sparse_tensor_slice_dataset(const tensor& indices, const tensor& values, const tensor& dense_shape, datatype Tvalues) {
+inline tensor sparse_tensor_slice_dataset(const tensor& indices, const tensor& values, const tensor& dense_shape, datatype Tvalues) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "SparseTensorSliceDataset", context::get_status()), &TFE_DeleteOp);
@@ -22244,7 +22244,7 @@ tensor sparse_tensor_slice_dataset(const tensor& indices, const tensor& values, 
 }
 
 
-tensor sparse_tensor_to_c_s_r_sparse_matrix(const tensor& indices, const tensor& values, const tensor& dense_shape) {
+inline tensor sparse_tensor_to_c_s_r_sparse_matrix(const tensor& indices, const tensor& values, const tensor& dense_shape) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "SparseTensorToCSRSparseMatrix", context::get_status()), &TFE_DeleteOp);
@@ -22276,7 +22276,7 @@ tensor sparse_tensor_to_c_s_r_sparse_matrix(const tensor& indices, const tensor&
 }
 
 
-tensor sparse_to_dense(const tensor& sparse_indices, const tensor& output_shape, const tensor& sparse_values, const tensor& default_value, datatype Tindices, bool validate_indices=true) {
+inline tensor sparse_to_dense(const tensor& sparse_indices, const tensor& output_shape, const tensor& sparse_values, const tensor& default_value, datatype Tindices, bool validate_indices=true) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "SparseToDense", context::get_status()), &TFE_DeleteOp);
@@ -22313,7 +22313,7 @@ tensor sparse_to_dense(const tensor& sparse_indices, const tensor& output_shape,
 }
 
 
-tensor spence(const tensor& x) {
+inline tensor spence(const tensor& x) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Spence", context::get_status()), &TFE_DeleteOp);
@@ -22337,7 +22337,7 @@ tensor spence(const tensor& x) {
 }
 
 
-tensor split(const tensor& split_dim, const tensor& value, int64_t num_split) {
+inline tensor split(const tensor& split_dim, const tensor& value, int64_t num_split) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Split", context::get_status()), &TFE_DeleteOp);
@@ -22365,7 +22365,7 @@ tensor split(const tensor& split_dim, const tensor& value, int64_t num_split) {
 }
 
 
-tensor split_v(const tensor& value, const tensor& size_splits, const tensor& split_dim, int64_t num_split, datatype Tlen=static_cast<datatype>(9)) {
+inline tensor split_v(const tensor& value, const tensor& size_splits, const tensor& split_dim, int64_t num_split, datatype Tlen=static_cast<datatype>(9)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "SplitV", context::get_status()), &TFE_DeleteOp);
@@ -22398,7 +22398,7 @@ tensor split_v(const tensor& value, const tensor& size_splits, const tensor& spl
 }
 
 
-tensor sql_dataset(const tensor& driver_name, const tensor& data_source_name, const tensor& query, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
+inline tensor sql_dataset(const tensor& driver_name, const tensor& data_source_name, const tensor& query, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "SqlDataset", context::get_status()), &TFE_DeleteOp);
@@ -22438,7 +22438,7 @@ tensor sql_dataset(const tensor& driver_name, const tensor& data_source_name, co
 }
 
 
-tensor sqrt(const tensor& x) {
+inline tensor sqrt(const tensor& x) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Sqrt", context::get_status()), &TFE_DeleteOp);
@@ -22462,7 +22462,7 @@ tensor sqrt(const tensor& x) {
 }
 
 
-tensor sqrt_grad(const tensor& y, const tensor& dy) {
+inline tensor sqrt_grad(const tensor& y, const tensor& dy) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "SqrtGrad", context::get_status()), &TFE_DeleteOp);
@@ -22490,7 +22490,7 @@ tensor sqrt_grad(const tensor& y, const tensor& dy) {
 }
 
 
-tensor square(const tensor& x) {
+inline tensor square(const tensor& x) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Square", context::get_status()), &TFE_DeleteOp);
@@ -22514,7 +22514,7 @@ tensor square(const tensor& x) {
 }
 
 
-tensor squared_difference(const tensor& x, const tensor& y) {
+inline tensor squared_difference(const tensor& x, const tensor& y) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "SquaredDifference", context::get_status()), &TFE_DeleteOp);
@@ -22542,7 +22542,7 @@ tensor squared_difference(const tensor& x, const tensor& y) {
 }
 
 
-tensor squeeze(const tensor& input, const std::vector<int64_t>& squeeze_dims) {
+inline tensor squeeze(const tensor& input, const std::vector<int64_t>& squeeze_dims) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Squeeze", context::get_status()), &TFE_DeleteOp);
@@ -22566,7 +22566,7 @@ tensor squeeze(const tensor& input, const std::vector<int64_t>& squeeze_dims) {
 }
 
 
-tensor stack(datatype elem_type, const std::string& stack_name="") {
+inline tensor stack(datatype elem_type, const std::string& stack_name="") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Stack", context::get_status()), &TFE_DeleteOp);
@@ -22588,7 +22588,7 @@ tensor stack(datatype elem_type, const std::string& stack_name="") {
 }
 
 
-tensor stack_pop(const tensor& handle, datatype elem_type) {
+inline tensor stack_pop(const tensor& handle, datatype elem_type) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "StackPop", context::get_status()), &TFE_DeleteOp);
@@ -22612,7 +22612,7 @@ tensor stack_pop(const tensor& handle, datatype elem_type) {
 }
 
 
-tensor stack_pop_v2(const tensor& handle, datatype elem_type) {
+inline tensor stack_pop_v2(const tensor& handle, datatype elem_type) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "StackPopV2", context::get_status()), &TFE_DeleteOp);
@@ -22636,7 +22636,7 @@ tensor stack_pop_v2(const tensor& handle, datatype elem_type) {
 }
 
 
-tensor stack_push(const tensor& handle, const tensor& elem, bool swap_memory=false) {
+inline tensor stack_push(const tensor& handle, const tensor& elem, bool swap_memory=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "StackPush", context::get_status()), &TFE_DeleteOp);
@@ -22664,7 +22664,7 @@ tensor stack_push(const tensor& handle, const tensor& elem, bool swap_memory=fal
 }
 
 
-tensor stack_push_v2(const tensor& handle, const tensor& elem, bool swap_memory=false) {
+inline tensor stack_push_v2(const tensor& handle, const tensor& elem, bool swap_memory=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "StackPushV2", context::get_status()), &TFE_DeleteOp);
@@ -22692,7 +22692,7 @@ tensor stack_push_v2(const tensor& handle, const tensor& elem, bool swap_memory=
 }
 
 
-tensor stack_v2(const tensor& max_size, datatype elem_type, const std::string& stack_name="") {
+inline tensor stack_v2(const tensor& max_size, datatype elem_type, const std::string& stack_name="") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "StackV2", context::get_status()), &TFE_DeleteOp);
@@ -22717,7 +22717,7 @@ tensor stack_v2(const tensor& max_size, datatype elem_type, const std::string& s
 }
 
 
-tensor stage_peek(const tensor& index, const std::vector<datatype>& dtypes, int64_t capacity=0, int64_t memory_limit=0, const std::string& container="", const std::string& shared_name="") {
+inline tensor stage_peek(const tensor& index, const std::vector<datatype>& dtypes, int64_t capacity=0, int64_t memory_limit=0, const std::string& container="", const std::string& shared_name="") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "StagePeek", context::get_status()), &TFE_DeleteOp);
@@ -22745,7 +22745,7 @@ tensor stage_peek(const tensor& index, const std::vector<datatype>& dtypes, int6
 }
 
 
-tensor stage_size(const std::vector<datatype>& dtypes, int64_t capacity=0, int64_t memory_limit=0, const std::string& container="", const std::string& shared_name="") {
+inline tensor stage_size(const std::vector<datatype>& dtypes, int64_t capacity=0, int64_t memory_limit=0, const std::string& container="", const std::string& shared_name="") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "StageSize", context::get_status()), &TFE_DeleteOp);
@@ -22770,7 +22770,7 @@ tensor stage_size(const std::vector<datatype>& dtypes, int64_t capacity=0, int64
 }
 
 
-tensor stateful_random_binomial(const tensor& resource, const tensor& algorithm, const tensor& shape, const tensor& counts, const tensor& probs, datatype S, datatype dtype=static_cast<datatype>(9)) {
+inline tensor stateful_random_binomial(const tensor& resource, const tensor& algorithm, const tensor& shape, const tensor& counts, const tensor& probs, datatype S, datatype dtype=static_cast<datatype>(9)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "StatefulRandomBinomial", context::get_status()), &TFE_DeleteOp);
@@ -22811,7 +22811,7 @@ tensor stateful_random_binomial(const tensor& resource, const tensor& algorithm,
 }
 
 
-tensor stateful_standard_normal(const tensor& resource, const tensor& shape, datatype dtype=static_cast<datatype>(1), datatype shape_dtype=static_cast<datatype>(9)) {
+inline tensor stateful_standard_normal(const tensor& resource, const tensor& shape, datatype dtype=static_cast<datatype>(1), datatype shape_dtype=static_cast<datatype>(9)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "StatefulStandardNormal", context::get_status()), &TFE_DeleteOp);
@@ -22840,7 +22840,7 @@ tensor stateful_standard_normal(const tensor& resource, const tensor& shape, dat
 }
 
 
-tensor stateful_standard_normal_v2(const tensor& resource, const tensor& algorithm, const tensor& shape, datatype dtype=static_cast<datatype>(1), datatype shape_dtype=static_cast<datatype>(9)) {
+inline tensor stateful_standard_normal_v2(const tensor& resource, const tensor& algorithm, const tensor& shape, datatype dtype=static_cast<datatype>(1), datatype shape_dtype=static_cast<datatype>(9)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "StatefulStandardNormalV2", context::get_status()), &TFE_DeleteOp);
@@ -22873,7 +22873,7 @@ tensor stateful_standard_normal_v2(const tensor& resource, const tensor& algorit
 }
 
 
-tensor stateful_truncated_normal(const tensor& resource, const tensor& algorithm, const tensor& shape, datatype dtype=static_cast<datatype>(1), datatype shape_dtype=static_cast<datatype>(9)) {
+inline tensor stateful_truncated_normal(const tensor& resource, const tensor& algorithm, const tensor& shape, datatype dtype=static_cast<datatype>(1), datatype shape_dtype=static_cast<datatype>(9)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "StatefulTruncatedNormal", context::get_status()), &TFE_DeleteOp);
@@ -22906,7 +22906,7 @@ tensor stateful_truncated_normal(const tensor& resource, const tensor& algorithm
 }
 
 
-tensor stateful_uniform(const tensor& resource, const tensor& algorithm, const tensor& shape, datatype dtype=static_cast<datatype>(1), datatype shape_dtype=static_cast<datatype>(9)) {
+inline tensor stateful_uniform(const tensor& resource, const tensor& algorithm, const tensor& shape, datatype dtype=static_cast<datatype>(1), datatype shape_dtype=static_cast<datatype>(9)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "StatefulUniform", context::get_status()), &TFE_DeleteOp);
@@ -22939,7 +22939,7 @@ tensor stateful_uniform(const tensor& resource, const tensor& algorithm, const t
 }
 
 
-tensor stateful_uniform_full_int(const tensor& resource, const tensor& algorithm, const tensor& shape, datatype dtype=static_cast<datatype>(23), datatype shape_dtype=static_cast<datatype>(9)) {
+inline tensor stateful_uniform_full_int(const tensor& resource, const tensor& algorithm, const tensor& shape, datatype dtype=static_cast<datatype>(23), datatype shape_dtype=static_cast<datatype>(9)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "StatefulUniformFullInt", context::get_status()), &TFE_DeleteOp);
@@ -22972,7 +22972,7 @@ tensor stateful_uniform_full_int(const tensor& resource, const tensor& algorithm
 }
 
 
-tensor stateful_uniform_int(const tensor& resource, const tensor& algorithm, const tensor& shape, const tensor& minval, const tensor& maxval, datatype dtype=static_cast<datatype>(9), datatype shape_dtype=static_cast<datatype>(9)) {
+inline tensor stateful_uniform_int(const tensor& resource, const tensor& algorithm, const tensor& shape, const tensor& minval, const tensor& maxval, datatype dtype=static_cast<datatype>(9), datatype shape_dtype=static_cast<datatype>(9)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "StatefulUniformInt", context::get_status()), &TFE_DeleteOp);
@@ -23013,7 +23013,7 @@ tensor stateful_uniform_int(const tensor& resource, const tensor& algorithm, con
 }
 
 
-tensor stateless_multinomial(const tensor& logits, const tensor& num_samples, const tensor& seed, datatype Tseed=static_cast<datatype>(9), datatype output_dtype=static_cast<datatype>(9)) {
+inline tensor stateless_multinomial(const tensor& logits, const tensor& num_samples, const tensor& seed, datatype Tseed=static_cast<datatype>(9), datatype output_dtype=static_cast<datatype>(9)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "StatelessMultinomial", context::get_status()), &TFE_DeleteOp);
@@ -23046,7 +23046,7 @@ tensor stateless_multinomial(const tensor& logits, const tensor& num_samples, co
 }
 
 
-tensor stateless_parameterized_truncated_normal(const tensor& shape, const tensor& seed, const tensor& means, const tensor& stddevs, const tensor& minvals, const tensor& maxvals, datatype S, datatype dtype, datatype Tseed=static_cast<datatype>(9)) {
+inline tensor stateless_parameterized_truncated_normal(const tensor& shape, const tensor& seed, const tensor& means, const tensor& stddevs, const tensor& minvals, const tensor& maxvals, datatype S, datatype dtype, datatype Tseed=static_cast<datatype>(9)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "StatelessParameterizedTruncatedNormal", context::get_status()), &TFE_DeleteOp);
@@ -23092,7 +23092,7 @@ tensor stateless_parameterized_truncated_normal(const tensor& shape, const tenso
 }
 
 
-tensor stateless_random_binomial(const tensor& shape, const tensor& seed, const tensor& counts, const tensor& probs, datatype S, datatype Tseed=static_cast<datatype>(9), datatype dtype=static_cast<datatype>(9)) {
+inline tensor stateless_random_binomial(const tensor& shape, const tensor& seed, const tensor& counts, const tensor& probs, datatype S, datatype Tseed=static_cast<datatype>(9), datatype dtype=static_cast<datatype>(9)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "StatelessRandomBinomial", context::get_status()), &TFE_DeleteOp);
@@ -23130,7 +23130,7 @@ tensor stateless_random_binomial(const tensor& shape, const tensor& seed, const 
 }
 
 
-tensor stateless_random_gamma_v2(const tensor& shape, const tensor& seed, const tensor& alpha, datatype dtype, datatype Tseed=static_cast<datatype>(9)) {
+inline tensor stateless_random_gamma_v2(const tensor& shape, const tensor& seed, const tensor& alpha, datatype dtype, datatype Tseed=static_cast<datatype>(9)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "StatelessRandomGammaV2", context::get_status()), &TFE_DeleteOp);
@@ -23163,7 +23163,7 @@ tensor stateless_random_gamma_v2(const tensor& shape, const tensor& seed, const 
 }
 
 
-tensor stateless_random_normal(const tensor& shape, const tensor& seed, datatype dtype=static_cast<datatype>(1), datatype Tseed=static_cast<datatype>(9)) {
+inline tensor stateless_random_normal(const tensor& shape, const tensor& seed, datatype dtype=static_cast<datatype>(1), datatype Tseed=static_cast<datatype>(9)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "StatelessRandomNormal", context::get_status()), &TFE_DeleteOp);
@@ -23192,7 +23192,7 @@ tensor stateless_random_normal(const tensor& shape, const tensor& seed, datatype
 }
 
 
-tensor stateless_random_poisson(const tensor& shape, const tensor& seed, const tensor& lam, datatype Rtype, datatype dtype, datatype Tseed=static_cast<datatype>(9)) {
+inline tensor stateless_random_poisson(const tensor& shape, const tensor& seed, const tensor& lam, datatype Rtype, datatype dtype, datatype Tseed=static_cast<datatype>(9)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "StatelessRandomPoisson", context::get_status()), &TFE_DeleteOp);
@@ -23226,7 +23226,7 @@ tensor stateless_random_poisson(const tensor& shape, const tensor& seed, const t
 }
 
 
-tensor stateless_random_uniform(const tensor& shape, const tensor& seed, datatype dtype=static_cast<datatype>(1), datatype Tseed=static_cast<datatype>(9)) {
+inline tensor stateless_random_uniform(const tensor& shape, const tensor& seed, datatype dtype=static_cast<datatype>(1), datatype Tseed=static_cast<datatype>(9)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "StatelessRandomUniform", context::get_status()), &TFE_DeleteOp);
@@ -23255,7 +23255,7 @@ tensor stateless_random_uniform(const tensor& shape, const tensor& seed, datatyp
 }
 
 
-tensor stateless_random_uniform_full_int(const tensor& shape, const tensor& seed, datatype dtype=static_cast<datatype>(23), datatype Tseed=static_cast<datatype>(9)) {
+inline tensor stateless_random_uniform_full_int(const tensor& shape, const tensor& seed, datatype dtype=static_cast<datatype>(23), datatype Tseed=static_cast<datatype>(9)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "StatelessRandomUniformFullInt", context::get_status()), &TFE_DeleteOp);
@@ -23284,7 +23284,7 @@ tensor stateless_random_uniform_full_int(const tensor& shape, const tensor& seed
 }
 
 
-tensor stateless_random_uniform_int(const tensor& shape, const tensor& seed, const tensor& minval, const tensor& maxval, datatype dtype, datatype Tseed=static_cast<datatype>(9)) {
+inline tensor stateless_random_uniform_int(const tensor& shape, const tensor& seed, const tensor& minval, const tensor& maxval, datatype dtype, datatype Tseed=static_cast<datatype>(9)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "StatelessRandomUniformInt", context::get_status()), &TFE_DeleteOp);
@@ -23321,7 +23321,7 @@ tensor stateless_random_uniform_int(const tensor& shape, const tensor& seed, con
 }
 
 
-tensor stateless_truncated_normal(const tensor& shape, const tensor& seed, datatype dtype=static_cast<datatype>(1), datatype Tseed=static_cast<datatype>(9)) {
+inline tensor stateless_truncated_normal(const tensor& shape, const tensor& seed, datatype dtype=static_cast<datatype>(1), datatype Tseed=static_cast<datatype>(9)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "StatelessTruncatedNormal", context::get_status()), &TFE_DeleteOp);
@@ -23350,7 +23350,7 @@ tensor stateless_truncated_normal(const tensor& shape, const tensor& seed, datat
 }
 
 
-tensor static_regex_full_match(const tensor& input, const std::string& pattern) {
+inline tensor static_regex_full_match(const tensor& input, const std::string& pattern) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "StaticRegexFullMatch", context::get_status()), &TFE_DeleteOp);
@@ -23374,7 +23374,7 @@ tensor static_regex_full_match(const tensor& input, const std::string& pattern) 
 }
 
 
-tensor static_regex_replace(const tensor& input, const std::string& pattern, const std::string& rewrite, bool replace_global=true) {
+inline tensor static_regex_replace(const tensor& input, const std::string& pattern, const std::string& rewrite, bool replace_global=true) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "StaticRegexReplace", context::get_status()), &TFE_DeleteOp);
@@ -23400,7 +23400,7 @@ tensor static_regex_replace(const tensor& input, const std::string& pattern, con
 }
 
 
-tensor stats_aggregator_handle(const std::string& container="", const std::string& shared_name="") {
+inline tensor stats_aggregator_handle(const std::string& container="", const std::string& shared_name="") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "StatsAggregatorHandle", context::get_status()), &TFE_DeleteOp);
@@ -23422,7 +23422,7 @@ tensor stats_aggregator_handle(const std::string& container="", const std::strin
 }
 
 
-tensor stats_aggregator_handle_v2(const std::string& container="", const std::string& shared_name="") {
+inline tensor stats_aggregator_handle_v2(const std::string& container="", const std::string& shared_name="") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "StatsAggregatorHandleV2", context::get_status()), &TFE_DeleteOp);
@@ -23444,7 +23444,7 @@ tensor stats_aggregator_handle_v2(const std::string& container="", const std::st
 }
 
 
-tensor stats_aggregator_summary(const tensor& iterator) {
+inline tensor stats_aggregator_summary(const tensor& iterator) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "StatsAggregatorSummary", context::get_status()), &TFE_DeleteOp);
@@ -23468,7 +23468,7 @@ tensor stats_aggregator_summary(const tensor& iterator) {
 }
 
 
-tensor stop_gradient(const tensor& input) {
+inline tensor stop_gradient(const tensor& input) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "StopGradient", context::get_status()), &TFE_DeleteOp);
@@ -23492,7 +23492,7 @@ tensor stop_gradient(const tensor& input) {
 }
 
 
-tensor strided_slice(const tensor& input, const tensor& begin, const tensor& end, const tensor& strides, datatype Index, int64_t begin_mask=0, int64_t end_mask=0, int64_t ellipsis_mask=0, int64_t new_axis_mask=0, int64_t shrink_axis_mask=0) {
+inline tensor strided_slice(const tensor& input, const tensor& begin, const tensor& end, const tensor& strides, datatype Index, int64_t begin_mask=0, int64_t end_mask=0, int64_t ellipsis_mask=0, int64_t new_axis_mask=0, int64_t shrink_axis_mask=0) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "StridedSlice", context::get_status()), &TFE_DeleteOp);
@@ -23533,7 +23533,7 @@ tensor strided_slice(const tensor& input, const tensor& begin, const tensor& end
 }
 
 
-tensor strided_slice_assign(const tensor& ref, const tensor& begin, const tensor& end, const tensor& strides, const tensor& value, datatype Index, int64_t begin_mask=0, int64_t end_mask=0, int64_t ellipsis_mask=0, int64_t new_axis_mask=0, int64_t shrink_axis_mask=0) {
+inline tensor strided_slice_assign(const tensor& ref, const tensor& begin, const tensor& end, const tensor& strides, const tensor& value, datatype Index, int64_t begin_mask=0, int64_t end_mask=0, int64_t ellipsis_mask=0, int64_t new_axis_mask=0, int64_t shrink_axis_mask=0) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "StridedSliceAssign", context::get_status()), &TFE_DeleteOp);
@@ -23578,7 +23578,7 @@ tensor strided_slice_assign(const tensor& ref, const tensor& begin, const tensor
 }
 
 
-tensor strided_slice_grad(const tensor& shape, const tensor& begin, const tensor& end, const tensor& strides, const tensor& dy, datatype Index, int64_t begin_mask=0, int64_t end_mask=0, int64_t ellipsis_mask=0, int64_t new_axis_mask=0, int64_t shrink_axis_mask=0) {
+inline tensor strided_slice_grad(const tensor& shape, const tensor& begin, const tensor& end, const tensor& strides, const tensor& dy, datatype Index, int64_t begin_mask=0, int64_t end_mask=0, int64_t ellipsis_mask=0, int64_t new_axis_mask=0, int64_t shrink_axis_mask=0) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "StridedSliceGrad", context::get_status()), &TFE_DeleteOp);
@@ -23623,7 +23623,7 @@ tensor strided_slice_grad(const tensor& shape, const tensor& begin, const tensor
 }
 
 
-tensor string_format(const std::vector<tensor>&inputs, const std::string& template_arg="%s", const std::string& placeholder="%s", int64_t summarize=3) {
+inline tensor string_format(const std::vector<tensor>&inputs, const std::string& template_arg="%s", const std::string& placeholder="%s", int64_t summarize=3) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "StringFormat", context::get_status()), &TFE_DeleteOp);
@@ -23651,7 +23651,7 @@ tensor string_format(const std::vector<tensor>&inputs, const std::string& templa
 }
 
 
-tensor string_join(const std::vector<tensor>&inputs, const std::string& separator="") {
+inline tensor string_join(const std::vector<tensor>&inputs, const std::string& separator="") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "StringJoin", context::get_status()), &TFE_DeleteOp);
@@ -23678,7 +23678,7 @@ tensor string_join(const std::vector<tensor>&inputs, const std::string& separato
 }
 
 
-tensor string_length(const tensor& input, const std::string& unit="BYTE") {
+inline tensor string_length(const tensor& input, const std::string& unit="BYTE") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "StringLength", context::get_status()), &TFE_DeleteOp);
@@ -23702,7 +23702,7 @@ tensor string_length(const tensor& input, const std::string& unit="BYTE") {
 }
 
 
-tensor string_lower(const tensor& input, const std::string& encoding="") {
+inline tensor string_lower(const tensor& input, const std::string& encoding="") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "StringLower", context::get_status()), &TFE_DeleteOp);
@@ -23726,7 +23726,7 @@ tensor string_lower(const tensor& input, const std::string& encoding="") {
 }
 
 
-tensor string_strip(const tensor& input) {
+inline tensor string_strip(const tensor& input) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "StringStrip", context::get_status()), &TFE_DeleteOp);
@@ -23750,7 +23750,7 @@ tensor string_strip(const tensor& input) {
 }
 
 
-tensor string_to_hash_bucket(const tensor& string_input_tensor, int64_t num_buckets) {
+inline tensor string_to_hash_bucket(const tensor& string_input_tensor, int64_t num_buckets) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "StringToHashBucket", context::get_status()), &TFE_DeleteOp);
@@ -23774,7 +23774,7 @@ tensor string_to_hash_bucket(const tensor& string_input_tensor, int64_t num_buck
 }
 
 
-tensor string_to_hash_bucket_fast(const tensor& input, int64_t num_buckets) {
+inline tensor string_to_hash_bucket_fast(const tensor& input, int64_t num_buckets) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "StringToHashBucketFast", context::get_status()), &TFE_DeleteOp);
@@ -23798,7 +23798,7 @@ tensor string_to_hash_bucket_fast(const tensor& input, int64_t num_buckets) {
 }
 
 
-tensor string_to_hash_bucket_strong(const tensor& input, int64_t num_buckets, const std::vector<int64_t>& key) {
+inline tensor string_to_hash_bucket_strong(const tensor& input, int64_t num_buckets, const std::vector<int64_t>& key) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "StringToHashBucketStrong", context::get_status()), &TFE_DeleteOp);
@@ -23823,7 +23823,7 @@ tensor string_to_hash_bucket_strong(const tensor& input, int64_t num_buckets, co
 }
 
 
-tensor string_to_number(const tensor& string_input_tensor, datatype out_type=static_cast<datatype>(1)) {
+inline tensor string_to_number(const tensor& string_input_tensor, datatype out_type=static_cast<datatype>(1)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "StringToNumber", context::get_status()), &TFE_DeleteOp);
@@ -23847,7 +23847,7 @@ tensor string_to_number(const tensor& string_input_tensor, datatype out_type=sta
 }
 
 
-tensor string_upper(const tensor& input, const std::string& encoding="") {
+inline tensor string_upper(const tensor& input, const std::string& encoding="") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "StringUpper", context::get_status()), &TFE_DeleteOp);
@@ -23871,7 +23871,7 @@ tensor string_upper(const tensor& input, const std::string& encoding="") {
 }
 
 
-tensor sub(const tensor& x, const tensor& y) {
+inline tensor sub(const tensor& x, const tensor& y) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Sub", context::get_status()), &TFE_DeleteOp);
@@ -23899,7 +23899,7 @@ tensor sub(const tensor& x, const tensor& y) {
 }
 
 
-tensor substr(const tensor& input, const tensor& pos, const tensor& len, const std::string& unit="BYTE") {
+inline tensor substr(const tensor& input, const tensor& pos, const tensor& len, const std::string& unit="BYTE") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Substr", context::get_status()), &TFE_DeleteOp);
@@ -23931,7 +23931,7 @@ tensor substr(const tensor& input, const tensor& pos, const tensor& len, const s
 }
 
 
-tensor sum(const tensor& input, const tensor& reduction_indices, bool keep_dims=false, datatype Tidx=static_cast<datatype>(3)) {
+inline tensor sum(const tensor& input, const tensor& reduction_indices, bool keep_dims=false, datatype Tidx=static_cast<datatype>(3)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Sum", context::get_status()), &TFE_DeleteOp);
@@ -23960,7 +23960,7 @@ tensor sum(const tensor& input, const tensor& reduction_indices, bool keep_dims=
 }
 
 
-tensor summary_writer(const std::string& shared_name="", const std::string& container="") {
+inline tensor summary_writer(const std::string& shared_name="", const std::string& container="") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "SummaryWriter", context::get_status()), &TFE_DeleteOp);
@@ -23982,7 +23982,7 @@ tensor summary_writer(const std::string& shared_name="", const std::string& cont
 }
 
 
-tensor t_f_record_dataset(const tensor& filenames, const tensor& compression_type, const tensor& buffer_size) {
+inline tensor t_f_record_dataset(const tensor& filenames, const tensor& compression_type, const tensor& buffer_size) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "TFRecordDataset", context::get_status()), &TFE_DeleteOp);
@@ -24014,7 +24014,7 @@ tensor t_f_record_dataset(const tensor& filenames, const tensor& compression_typ
 }
 
 
-tensor t_f_record_reader(const std::string& container="", const std::string& shared_name="", const std::string& compression_type="") {
+inline tensor t_f_record_reader(const std::string& container="", const std::string& shared_name="", const std::string& compression_type="") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "TFRecordReader", context::get_status()), &TFE_DeleteOp);
@@ -24037,7 +24037,7 @@ tensor t_f_record_reader(const std::string& container="", const std::string& sha
 }
 
 
-tensor t_f_record_reader_v2(const std::string& container="", const std::string& shared_name="", const std::string& compression_type="") {
+inline tensor t_f_record_reader_v2(const std::string& container="", const std::string& shared_name="", const std::string& compression_type="") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "TFRecordReaderV2", context::get_status()), &TFE_DeleteOp);
@@ -24060,7 +24060,7 @@ tensor t_f_record_reader_v2(const std::string& container="", const std::string& 
 }
 
 
-tensor t_p_u_compilation_result() {
+inline tensor t_p_u_compilation_result() {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "TPUCompilationResult", context::get_status()), &TFE_DeleteOp);
@@ -24081,7 +24081,7 @@ tensor t_p_u_compilation_result() {
 }
 
 
-tensor t_p_u_embedding_activations(const tensor& embedding_variable, const tensor& sliced_activations, int64_t table_id, int64_t lookup_id) {
+inline tensor t_p_u_embedding_activations(const tensor& embedding_variable, const tensor& sliced_activations, int64_t table_id, int64_t lookup_id) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "TPUEmbeddingActivations", context::get_status()), &TFE_DeleteOp);
@@ -24110,7 +24110,7 @@ tensor t_p_u_embedding_activations(const tensor& embedding_variable, const tenso
 }
 
 
-tensor t_p_u_ordinal_selector() {
+inline tensor t_p_u_ordinal_selector() {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "TPUOrdinalSelector", context::get_status()), &TFE_DeleteOp);
@@ -24131,7 +24131,7 @@ tensor t_p_u_ordinal_selector() {
 }
 
 
-tensor t_p_u_replicated_input(const std::vector<tensor>&inputs, bool is_mirrored_variable=false, int64_t index=-1, bool is_packed=false) {
+inline tensor t_p_u_replicated_input(const std::vector<tensor>&inputs, bool is_mirrored_variable=false, int64_t index=-1, bool is_packed=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "TPUReplicatedInput", context::get_status()), &TFE_DeleteOp);
@@ -24160,7 +24160,7 @@ tensor t_p_u_replicated_input(const std::vector<tensor>&inputs, bool is_mirrored
 }
 
 
-tensor t_p_u_replicated_output(const tensor& input, int64_t num_replicas) {
+inline tensor t_p_u_replicated_output(const tensor& input, int64_t num_replicas) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "TPUReplicatedOutput", context::get_status()), &TFE_DeleteOp);
@@ -24184,7 +24184,7 @@ tensor t_p_u_replicated_output(const tensor& input, int64_t num_replicas) {
 }
 
 
-tensor take_dataset(const tensor& input_dataset, const tensor& count, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
+inline tensor take_dataset(const tensor& input_dataset, const tensor& count, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "TakeDataset", context::get_status()), &TFE_DeleteOp);
@@ -24220,7 +24220,7 @@ tensor take_dataset(const tensor& input_dataset, const tensor& count, const std:
 }
 
 
-tensor tan(const tensor& x) {
+inline tensor tan(const tensor& x) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Tan", context::get_status()), &TFE_DeleteOp);
@@ -24244,7 +24244,7 @@ tensor tan(const tensor& x) {
 }
 
 
-tensor tanh(const tensor& x) {
+inline tensor tanh(const tensor& x) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Tanh", context::get_status()), &TFE_DeleteOp);
@@ -24268,7 +24268,7 @@ tensor tanh(const tensor& x) {
 }
 
 
-tensor tanh_grad(const tensor& y, const tensor& dy) {
+inline tensor tanh_grad(const tensor& y, const tensor& dy) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "TanhGrad", context::get_status()), &TFE_DeleteOp);
@@ -24296,7 +24296,7 @@ tensor tanh_grad(const tensor& y, const tensor& dy) {
 }
 
 
-tensor temporary_variable(const std::vector<int64_t>& shape, datatype dtype, const std::string& var_name="") {
+inline tensor temporary_variable(const std::vector<int64_t>& shape, datatype dtype, const std::string& var_name="") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "TemporaryVariable", context::get_status()), &TFE_DeleteOp);
@@ -24322,7 +24322,7 @@ tensor temporary_variable(const std::vector<int64_t>& shape, datatype dtype, con
 }
 
 
-tensor tensor_array(const tensor& size, datatype dtype, const std::vector<int64_t>& element_shape, bool dynamic_size=false, bool clear_after_read=true, const std::string& tensor_array_name="") {
+inline tensor tensor_array(const tensor& size, datatype dtype, const std::vector<int64_t>& element_shape, bool dynamic_size=false, bool clear_after_read=true, const std::string& tensor_array_name="") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "TensorArray", context::get_status()), &TFE_DeleteOp);
@@ -24353,7 +24353,7 @@ tensor tensor_array(const tensor& size, datatype dtype, const std::vector<int64_
 }
 
 
-tensor tensor_array_gather(const tensor& handle, const tensor& indices, const tensor& flow_in, datatype dtype, const std::vector<int64_t>& element_shape) {
+inline tensor tensor_array_gather(const tensor& handle, const tensor& indices, const tensor& flow_in, datatype dtype, const std::vector<int64_t>& element_shape) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "TensorArrayGather", context::get_status()), &TFE_DeleteOp);
@@ -24389,7 +24389,7 @@ tensor tensor_array_gather(const tensor& handle, const tensor& indices, const te
 }
 
 
-tensor tensor_array_gather_v2(const tensor& handle, const tensor& indices, const tensor& flow_in, datatype dtype, const std::vector<int64_t>& element_shape) {
+inline tensor tensor_array_gather_v2(const tensor& handle, const tensor& indices, const tensor& flow_in, datatype dtype, const std::vector<int64_t>& element_shape) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "TensorArrayGatherV2", context::get_status()), &TFE_DeleteOp);
@@ -24425,7 +24425,7 @@ tensor tensor_array_gather_v2(const tensor& handle, const tensor& indices, const
 }
 
 
-tensor tensor_array_gather_v3(const tensor& handle, const tensor& indices, const tensor& flow_in, datatype dtype, const std::vector<int64_t>& element_shape) {
+inline tensor tensor_array_gather_v3(const tensor& handle, const tensor& indices, const tensor& flow_in, datatype dtype, const std::vector<int64_t>& element_shape) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "TensorArrayGatherV3", context::get_status()), &TFE_DeleteOp);
@@ -24461,7 +24461,7 @@ tensor tensor_array_gather_v3(const tensor& handle, const tensor& indices, const
 }
 
 
-tensor tensor_array_grad(const tensor& handle, const tensor& flow_in, const std::string& source) {
+inline tensor tensor_array_grad(const tensor& handle, const tensor& flow_in, const std::string& source) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "TensorArrayGrad", context::get_status()), &TFE_DeleteOp);
@@ -24489,7 +24489,7 @@ tensor tensor_array_grad(const tensor& handle, const tensor& flow_in, const std:
 }
 
 
-tensor tensor_array_grad_v2(const tensor& handle, const tensor& flow_in, const std::string& source) {
+inline tensor tensor_array_grad_v2(const tensor& handle, const tensor& flow_in, const std::string& source) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "TensorArrayGradV2", context::get_status()), &TFE_DeleteOp);
@@ -24517,7 +24517,7 @@ tensor tensor_array_grad_v2(const tensor& handle, const tensor& flow_in, const s
 }
 
 
-tensor tensor_array_pack(const tensor& handle, const tensor& flow_in, datatype dtype, const std::vector<int64_t>& element_shape) {
+inline tensor tensor_array_pack(const tensor& handle, const tensor& flow_in, datatype dtype, const std::vector<int64_t>& element_shape) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "TensorArrayPack", context::get_status()), &TFE_DeleteOp);
@@ -24549,7 +24549,7 @@ tensor tensor_array_pack(const tensor& handle, const tensor& flow_in, datatype d
 }
 
 
-tensor tensor_array_read(const tensor& handle, const tensor& index, const tensor& flow_in, datatype dtype) {
+inline tensor tensor_array_read(const tensor& handle, const tensor& index, const tensor& flow_in, datatype dtype) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "TensorArrayRead", context::get_status()), &TFE_DeleteOp);
@@ -24581,7 +24581,7 @@ tensor tensor_array_read(const tensor& handle, const tensor& index, const tensor
 }
 
 
-tensor tensor_array_read_v2(const tensor& handle, const tensor& index, const tensor& flow_in, datatype dtype) {
+inline tensor tensor_array_read_v2(const tensor& handle, const tensor& index, const tensor& flow_in, datatype dtype) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "TensorArrayReadV2", context::get_status()), &TFE_DeleteOp);
@@ -24613,7 +24613,7 @@ tensor tensor_array_read_v2(const tensor& handle, const tensor& index, const ten
 }
 
 
-tensor tensor_array_read_v3(const tensor& handle, const tensor& index, const tensor& flow_in, datatype dtype) {
+inline tensor tensor_array_read_v3(const tensor& handle, const tensor& index, const tensor& flow_in, datatype dtype) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "TensorArrayReadV3", context::get_status()), &TFE_DeleteOp);
@@ -24645,7 +24645,7 @@ tensor tensor_array_read_v3(const tensor& handle, const tensor& index, const ten
 }
 
 
-tensor tensor_array_scatter(const tensor& handle, const tensor& indices, const tensor& value, const tensor& flow_in) {
+inline tensor tensor_array_scatter(const tensor& handle, const tensor& indices, const tensor& value, const tensor& flow_in) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "TensorArrayScatter", context::get_status()), &TFE_DeleteOp);
@@ -24681,7 +24681,7 @@ tensor tensor_array_scatter(const tensor& handle, const tensor& indices, const t
 }
 
 
-tensor tensor_array_scatter_v2(const tensor& handle, const tensor& indices, const tensor& value, const tensor& flow_in) {
+inline tensor tensor_array_scatter_v2(const tensor& handle, const tensor& indices, const tensor& value, const tensor& flow_in) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "TensorArrayScatterV2", context::get_status()), &TFE_DeleteOp);
@@ -24717,7 +24717,7 @@ tensor tensor_array_scatter_v2(const tensor& handle, const tensor& indices, cons
 }
 
 
-tensor tensor_array_scatter_v3(const tensor& handle, const tensor& indices, const tensor& value, const tensor& flow_in) {
+inline tensor tensor_array_scatter_v3(const tensor& handle, const tensor& indices, const tensor& value, const tensor& flow_in) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "TensorArrayScatterV3", context::get_status()), &TFE_DeleteOp);
@@ -24753,7 +24753,7 @@ tensor tensor_array_scatter_v3(const tensor& handle, const tensor& indices, cons
 }
 
 
-tensor tensor_array_size(const tensor& handle, const tensor& flow_in) {
+inline tensor tensor_array_size(const tensor& handle, const tensor& flow_in) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "TensorArraySize", context::get_status()), &TFE_DeleteOp);
@@ -24781,7 +24781,7 @@ tensor tensor_array_size(const tensor& handle, const tensor& flow_in) {
 }
 
 
-tensor tensor_array_size_v2(const tensor& handle, const tensor& flow_in) {
+inline tensor tensor_array_size_v2(const tensor& handle, const tensor& flow_in) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "TensorArraySizeV2", context::get_status()), &TFE_DeleteOp);
@@ -24809,7 +24809,7 @@ tensor tensor_array_size_v2(const tensor& handle, const tensor& flow_in) {
 }
 
 
-tensor tensor_array_size_v3(const tensor& handle, const tensor& flow_in) {
+inline tensor tensor_array_size_v3(const tensor& handle, const tensor& flow_in) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "TensorArraySizeV3", context::get_status()), &TFE_DeleteOp);
@@ -24837,7 +24837,7 @@ tensor tensor_array_size_v3(const tensor& handle, const tensor& flow_in) {
 }
 
 
-tensor tensor_array_split(const tensor& handle, const tensor& value, const tensor& lengths, const tensor& flow_in) {
+inline tensor tensor_array_split(const tensor& handle, const tensor& value, const tensor& lengths, const tensor& flow_in) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "TensorArraySplit", context::get_status()), &TFE_DeleteOp);
@@ -24873,7 +24873,7 @@ tensor tensor_array_split(const tensor& handle, const tensor& value, const tenso
 }
 
 
-tensor tensor_array_split_v2(const tensor& handle, const tensor& value, const tensor& lengths, const tensor& flow_in) {
+inline tensor tensor_array_split_v2(const tensor& handle, const tensor& value, const tensor& lengths, const tensor& flow_in) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "TensorArraySplitV2", context::get_status()), &TFE_DeleteOp);
@@ -24909,7 +24909,7 @@ tensor tensor_array_split_v2(const tensor& handle, const tensor& value, const te
 }
 
 
-tensor tensor_array_split_v3(const tensor& handle, const tensor& value, const tensor& lengths, const tensor& flow_in) {
+inline tensor tensor_array_split_v3(const tensor& handle, const tensor& value, const tensor& lengths, const tensor& flow_in) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "TensorArraySplitV3", context::get_status()), &TFE_DeleteOp);
@@ -24945,7 +24945,7 @@ tensor tensor_array_split_v3(const tensor& handle, const tensor& value, const te
 }
 
 
-tensor tensor_array_unpack(const tensor& handle, const tensor& value, const tensor& flow_in) {
+inline tensor tensor_array_unpack(const tensor& handle, const tensor& value, const tensor& flow_in) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "TensorArrayUnpack", context::get_status()), &TFE_DeleteOp);
@@ -24977,7 +24977,7 @@ tensor tensor_array_unpack(const tensor& handle, const tensor& value, const tens
 }
 
 
-tensor tensor_array_v2(const tensor& size, datatype dtype, const std::vector<int64_t>& element_shape, bool dynamic_size=false, bool clear_after_read=true, const std::string& tensor_array_name="") {
+inline tensor tensor_array_v2(const tensor& size, datatype dtype, const std::vector<int64_t>& element_shape, bool dynamic_size=false, bool clear_after_read=true, const std::string& tensor_array_name="") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "TensorArrayV2", context::get_status()), &TFE_DeleteOp);
@@ -25008,7 +25008,7 @@ tensor tensor_array_v2(const tensor& size, datatype dtype, const std::vector<int
 }
 
 
-tensor tensor_array_write(const tensor& handle, const tensor& index, const tensor& value, const tensor& flow_in) {
+inline tensor tensor_array_write(const tensor& handle, const tensor& index, const tensor& value, const tensor& flow_in) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "TensorArrayWrite", context::get_status()), &TFE_DeleteOp);
@@ -25044,7 +25044,7 @@ tensor tensor_array_write(const tensor& handle, const tensor& index, const tenso
 }
 
 
-tensor tensor_array_write_v2(const tensor& handle, const tensor& index, const tensor& value, const tensor& flow_in) {
+inline tensor tensor_array_write_v2(const tensor& handle, const tensor& index, const tensor& value, const tensor& flow_in) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "TensorArrayWriteV2", context::get_status()), &TFE_DeleteOp);
@@ -25080,7 +25080,7 @@ tensor tensor_array_write_v2(const tensor& handle, const tensor& index, const te
 }
 
 
-tensor tensor_array_write_v3(const tensor& handle, const tensor& index, const tensor& value, const tensor& flow_in) {
+inline tensor tensor_array_write_v3(const tensor& handle, const tensor& index, const tensor& value, const tensor& flow_in) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "TensorArrayWriteV3", context::get_status()), &TFE_DeleteOp);
@@ -25116,7 +25116,7 @@ tensor tensor_array_write_v3(const tensor& handle, const tensor& index, const te
 }
 
 
-tensor tensor_dataset(const std::vector<tensor>&components, const std::vector<datatype>& Toutput_types, const std::vector< std::vector<int64_t>>& output_shapes) {
+inline tensor tensor_dataset(const std::vector<tensor>&components, const std::vector<datatype>& Toutput_types, const std::vector< std::vector<int64_t>>& output_shapes) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "TensorDataset", context::get_status()), &TFE_DeleteOp);
@@ -25150,7 +25150,7 @@ tensor tensor_dataset(const std::vector<tensor>&components, const std::vector<da
 }
 
 
-tensor tensor_list_concat_lists(const tensor& input_a, const tensor& input_b, datatype element_dtype) {
+inline tensor tensor_list_concat_lists(const tensor& input_a, const tensor& input_b, datatype element_dtype) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "TensorListConcatLists", context::get_status()), &TFE_DeleteOp);
@@ -25178,7 +25178,7 @@ tensor tensor_list_concat_lists(const tensor& input_a, const tensor& input_b, da
 }
 
 
-tensor tensor_list_element_shape(const tensor& input_handle, datatype shape_type) {
+inline tensor tensor_list_element_shape(const tensor& input_handle, datatype shape_type) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "TensorListElementShape", context::get_status()), &TFE_DeleteOp);
@@ -25202,7 +25202,7 @@ tensor tensor_list_element_shape(const tensor& input_handle, datatype shape_type
 }
 
 
-tensor tensor_list_from_tensor(const tensor& input_tensor, const tensor& element_shape, datatype element_dtype, datatype shape_type) {
+inline tensor tensor_list_from_tensor(const tensor& input_tensor, const tensor& element_shape, datatype element_dtype, datatype shape_type) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "TensorListFromTensor", context::get_status()), &TFE_DeleteOp);
@@ -25231,7 +25231,7 @@ tensor tensor_list_from_tensor(const tensor& input_tensor, const tensor& element
 }
 
 
-tensor tensor_list_gather(const tensor& input_handle, const tensor& indices, const tensor& element_shape, datatype element_dtype) {
+inline tensor tensor_list_gather(const tensor& input_handle, const tensor& indices, const tensor& element_shape, datatype element_dtype) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "TensorListGather", context::get_status()), &TFE_DeleteOp);
@@ -25263,7 +25263,7 @@ tensor tensor_list_gather(const tensor& input_handle, const tensor& indices, con
 }
 
 
-tensor tensor_list_get_item(const tensor& input_handle, const tensor& index, const tensor& element_shape, datatype element_dtype) {
+inline tensor tensor_list_get_item(const tensor& input_handle, const tensor& index, const tensor& element_shape, datatype element_dtype) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "TensorListGetItem", context::get_status()), &TFE_DeleteOp);
@@ -25295,7 +25295,7 @@ tensor tensor_list_get_item(const tensor& input_handle, const tensor& index, con
 }
 
 
-tensor tensor_list_length(const tensor& input_handle) {
+inline tensor tensor_list_length(const tensor& input_handle) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "TensorListLength", context::get_status()), &TFE_DeleteOp);
@@ -25319,7 +25319,7 @@ tensor tensor_list_length(const tensor& input_handle) {
 }
 
 
-tensor tensor_list_push_back(const tensor& input_handle, const tensor& input_tensor, datatype element_dtype) {
+inline tensor tensor_list_push_back(const tensor& input_handle, const tensor& input_tensor, datatype element_dtype) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "TensorListPushBack", context::get_status()), &TFE_DeleteOp);
@@ -25347,7 +25347,7 @@ tensor tensor_list_push_back(const tensor& input_handle, const tensor& input_ten
 }
 
 
-tensor tensor_list_push_back_batch(const tensor& input_handles, const tensor& input_tensor, datatype element_dtype) {
+inline tensor tensor_list_push_back_batch(const tensor& input_handles, const tensor& input_tensor, datatype element_dtype) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "TensorListPushBackBatch", context::get_status()), &TFE_DeleteOp);
@@ -25375,7 +25375,7 @@ tensor tensor_list_push_back_batch(const tensor& input_handles, const tensor& in
 }
 
 
-tensor tensor_list_reserve(const tensor& element_shape, const tensor& num_elements, datatype element_dtype, datatype shape_type) {
+inline tensor tensor_list_reserve(const tensor& element_shape, const tensor& num_elements, datatype element_dtype, datatype shape_type) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "TensorListReserve", context::get_status()), &TFE_DeleteOp);
@@ -25404,7 +25404,7 @@ tensor tensor_list_reserve(const tensor& element_shape, const tensor& num_elemen
 }
 
 
-tensor tensor_list_resize(const tensor& input_handle, const tensor& size) {
+inline tensor tensor_list_resize(const tensor& input_handle, const tensor& size) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "TensorListResize", context::get_status()), &TFE_DeleteOp);
@@ -25432,7 +25432,7 @@ tensor tensor_list_resize(const tensor& input_handle, const tensor& size) {
 }
 
 
-tensor tensor_list_scatter(const tensor& input_tensor, const tensor& indices, const tensor& element_shape, datatype element_dtype, datatype shape_type) {
+inline tensor tensor_list_scatter(const tensor& input_tensor, const tensor& indices, const tensor& element_shape, datatype element_dtype, datatype shape_type) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "TensorListScatter", context::get_status()), &TFE_DeleteOp);
@@ -25465,7 +25465,7 @@ tensor tensor_list_scatter(const tensor& input_tensor, const tensor& indices, co
 }
 
 
-tensor tensor_list_scatter_into_existing_list(const tensor& input_handle, const tensor& input_tensor, const tensor& indices, datatype element_dtype) {
+inline tensor tensor_list_scatter_into_existing_list(const tensor& input_handle, const tensor& input_tensor, const tensor& indices, datatype element_dtype) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "TensorListScatterIntoExistingList", context::get_status()), &TFE_DeleteOp);
@@ -25497,7 +25497,7 @@ tensor tensor_list_scatter_into_existing_list(const tensor& input_handle, const 
 }
 
 
-tensor tensor_list_scatter_v2(const tensor& input_tensor, const tensor& indices, const tensor& element_shape, const tensor& num_elements, datatype element_dtype, datatype shape_type) {
+inline tensor tensor_list_scatter_v2(const tensor& input_tensor, const tensor& indices, const tensor& element_shape, const tensor& num_elements, datatype element_dtype, datatype shape_type) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "TensorListScatterV2", context::get_status()), &TFE_DeleteOp);
@@ -25534,7 +25534,7 @@ tensor tensor_list_scatter_v2(const tensor& input_tensor, const tensor& indices,
 }
 
 
-tensor tensor_list_set_item(const tensor& input_handle, const tensor& index, const tensor& item, datatype element_dtype) {
+inline tensor tensor_list_set_item(const tensor& input_handle, const tensor& index, const tensor& item, datatype element_dtype) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "TensorListSetItem", context::get_status()), &TFE_DeleteOp);
@@ -25566,7 +25566,7 @@ tensor tensor_list_set_item(const tensor& input_handle, const tensor& index, con
 }
 
 
-tensor tensor_list_split(const tensor& input_tensor, const tensor& element_shape, const tensor& lengths, datatype element_dtype, datatype shape_type) {
+inline tensor tensor_list_split(const tensor& input_tensor, const tensor& element_shape, const tensor& lengths, datatype element_dtype, datatype shape_type) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "TensorListSplit", context::get_status()), &TFE_DeleteOp);
@@ -25599,7 +25599,7 @@ tensor tensor_list_split(const tensor& input_tensor, const tensor& element_shape
 }
 
 
-tensor tensor_list_stack(const tensor& input_handle, const tensor& element_shape, datatype element_dtype, int64_t num_elements=-1) {
+inline tensor tensor_list_stack(const tensor& input_handle, const tensor& element_shape, datatype element_dtype, int64_t num_elements=-1) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "TensorListStack", context::get_status()), &TFE_DeleteOp);
@@ -25628,7 +25628,7 @@ tensor tensor_list_stack(const tensor& input_handle, const tensor& element_shape
 }
 
 
-tensor tensor_scatter_add(const tensor& input_tensor, const tensor& indices, const tensor& updates, datatype Tindices) {
+inline tensor tensor_scatter_add(const tensor& input_tensor, const tensor& indices, const tensor& updates, datatype Tindices) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "TensorScatterAdd", context::get_status()), &TFE_DeleteOp);
@@ -25660,7 +25660,7 @@ tensor tensor_scatter_add(const tensor& input_tensor, const tensor& indices, con
 }
 
 
-tensor tensor_scatter_max(const tensor& input_tensor, const tensor& indices, const tensor& updates, datatype Tindices) {
+inline tensor tensor_scatter_max(const tensor& input_tensor, const tensor& indices, const tensor& updates, datatype Tindices) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "TensorScatterMax", context::get_status()), &TFE_DeleteOp);
@@ -25692,7 +25692,7 @@ tensor tensor_scatter_max(const tensor& input_tensor, const tensor& indices, con
 }
 
 
-tensor tensor_scatter_min(const tensor& input_tensor, const tensor& indices, const tensor& updates, datatype Tindices) {
+inline tensor tensor_scatter_min(const tensor& input_tensor, const tensor& indices, const tensor& updates, datatype Tindices) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "TensorScatterMin", context::get_status()), &TFE_DeleteOp);
@@ -25724,7 +25724,7 @@ tensor tensor_scatter_min(const tensor& input_tensor, const tensor& indices, con
 }
 
 
-tensor tensor_scatter_sub(const tensor& input_tensor, const tensor& indices, const tensor& updates, datatype Tindices) {
+inline tensor tensor_scatter_sub(const tensor& input_tensor, const tensor& indices, const tensor& updates, datatype Tindices) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "TensorScatterSub", context::get_status()), &TFE_DeleteOp);
@@ -25756,7 +25756,7 @@ tensor tensor_scatter_sub(const tensor& input_tensor, const tensor& indices, con
 }
 
 
-tensor tensor_scatter_update(const tensor& input_tensor, const tensor& indices, const tensor& updates, datatype Tindices) {
+inline tensor tensor_scatter_update(const tensor& input_tensor, const tensor& indices, const tensor& updates, datatype Tindices) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "TensorScatterUpdate", context::get_status()), &TFE_DeleteOp);
@@ -25788,7 +25788,7 @@ tensor tensor_scatter_update(const tensor& input_tensor, const tensor& indices, 
 }
 
 
-tensor tensor_slice_dataset(const std::vector<tensor>&components, const std::vector<datatype>& Toutput_types, const std::vector< std::vector<int64_t>>& output_shapes) {
+inline tensor tensor_slice_dataset(const std::vector<tensor>&components, const std::vector<datatype>& Toutput_types, const std::vector< std::vector<int64_t>>& output_shapes) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "TensorSliceDataset", context::get_status()), &TFE_DeleteOp);
@@ -25822,7 +25822,7 @@ tensor tensor_slice_dataset(const std::vector<tensor>&components, const std::vec
 }
 
 
-tensor tensor_strided_slice_update(const tensor& input, const tensor& begin, const tensor& end, const tensor& strides, const tensor& value, datatype Index, int64_t begin_mask=0, int64_t end_mask=0, int64_t ellipsis_mask=0, int64_t new_axis_mask=0, int64_t shrink_axis_mask=0) {
+inline tensor tensor_strided_slice_update(const tensor& input, const tensor& begin, const tensor& end, const tensor& strides, const tensor& value, datatype Index, int64_t begin_mask=0, int64_t end_mask=0, int64_t ellipsis_mask=0, int64_t new_axis_mask=0, int64_t shrink_axis_mask=0) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "TensorStridedSliceUpdate", context::get_status()), &TFE_DeleteOp);
@@ -25867,7 +25867,7 @@ tensor tensor_strided_slice_update(const tensor& input, const tensor& begin, con
 }
 
 
-tensor tensor_summary(const tensor& input_tensor, const std::vector< std::string>& labels, const std::string& description="", const std::string& display_name="") {
+inline tensor tensor_summary(const tensor& input_tensor, const std::vector< std::string>& labels, const std::string& description="", const std::string& display_name="") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "TensorSummary", context::get_status()), &TFE_DeleteOp);
@@ -25897,7 +25897,7 @@ tensor tensor_summary(const tensor& input_tensor, const std::vector< std::string
 }
 
 
-tensor tensor_summary_v2(const tensor& tag, const tensor& input_tensor, const tensor& serialized_summary_metadata) {
+inline tensor tensor_summary_v2(const tensor& tag, const tensor& input_tensor, const tensor& serialized_summary_metadata) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "TensorSummaryV2", context::get_status()), &TFE_DeleteOp);
@@ -25929,7 +25929,7 @@ tensor tensor_summary_v2(const tensor& tag, const tensor& input_tensor, const te
 }
 
 
-tensor text_line_dataset(const tensor& filenames, const tensor& compression_type, const tensor& buffer_size) {
+inline tensor text_line_dataset(const tensor& filenames, const tensor& compression_type, const tensor& buffer_size) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "TextLineDataset", context::get_status()), &TFE_DeleteOp);
@@ -25961,7 +25961,7 @@ tensor text_line_dataset(const tensor& filenames, const tensor& compression_type
 }
 
 
-tensor text_line_reader(int64_t skip_header_lines=0, const std::string& container="", const std::string& shared_name="") {
+inline tensor text_line_reader(int64_t skip_header_lines=0, const std::string& container="", const std::string& shared_name="") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "TextLineReader", context::get_status()), &TFE_DeleteOp);
@@ -25984,7 +25984,7 @@ tensor text_line_reader(int64_t skip_header_lines=0, const std::string& containe
 }
 
 
-tensor text_line_reader_v2(int64_t skip_header_lines=0, const std::string& container="", const std::string& shared_name="") {
+inline tensor text_line_reader_v2(int64_t skip_header_lines=0, const std::string& container="", const std::string& shared_name="") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "TextLineReaderV2", context::get_status()), &TFE_DeleteOp);
@@ -26007,7 +26007,7 @@ tensor text_line_reader_v2(int64_t skip_header_lines=0, const std::string& conta
 }
 
 
-tensor thread_pool_dataset(const tensor& input_dataset, const tensor& thread_pool, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
+inline tensor thread_pool_dataset(const tensor& input_dataset, const tensor& thread_pool, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ThreadPoolDataset", context::get_status()), &TFE_DeleteOp);
@@ -26043,7 +26043,7 @@ tensor thread_pool_dataset(const tensor& input_dataset, const tensor& thread_poo
 }
 
 
-tensor thread_pool_handle(int64_t num_threads, const std::string& display_name, int64_t max_intra_op_parallelism=1, const std::string& container="", const std::string& shared_name="") {
+inline tensor thread_pool_handle(int64_t num_threads, const std::string& display_name, int64_t max_intra_op_parallelism=1, const std::string& container="", const std::string& shared_name="") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ThreadPoolHandle", context::get_status()), &TFE_DeleteOp);
@@ -26068,7 +26068,7 @@ tensor thread_pool_handle(int64_t num_threads, const std::string& display_name, 
 }
 
 
-tensor tile(const tensor& input, const tensor& multiples, datatype Tmultiples=static_cast<datatype>(3)) {
+inline tensor tile(const tensor& input, const tensor& multiples, datatype Tmultiples=static_cast<datatype>(3)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Tile", context::get_status()), &TFE_DeleteOp);
@@ -26096,7 +26096,7 @@ tensor tile(const tensor& input, const tensor& multiples, datatype Tmultiples=st
 }
 
 
-tensor tile_grad(const tensor& input, const tensor& multiples) {
+inline tensor tile_grad(const tensor& input, const tensor& multiples) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "TileGrad", context::get_status()), &TFE_DeleteOp);
@@ -26124,7 +26124,7 @@ tensor tile_grad(const tensor& input, const tensor& multiples) {
 }
 
 
-tensor timestamp() {
+inline tensor timestamp() {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Timestamp", context::get_status()), &TFE_DeleteOp);
@@ -26145,7 +26145,7 @@ tensor timestamp() {
 }
 
 
-tensor to_bool(const tensor& input) {
+inline tensor to_bool(const tensor& input) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ToBool", context::get_status()), &TFE_DeleteOp);
@@ -26169,7 +26169,7 @@ tensor to_bool(const tensor& input) {
 }
 
 
-tensor transpose(const tensor& x, const tensor& perm, datatype Tperm=static_cast<datatype>(3)) {
+inline tensor transpose(const tensor& x, const tensor& perm, datatype Tperm=static_cast<datatype>(3)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Transpose", context::get_status()), &TFE_DeleteOp);
@@ -26197,7 +26197,7 @@ tensor transpose(const tensor& x, const tensor& perm, datatype Tperm=static_cast
 }
 
 
-tensor tridiagonal_mat_mul(const tensor& superdiag, const tensor& maindiag, const tensor& subdiag, const tensor& rhs) {
+inline tensor tridiagonal_mat_mul(const tensor& superdiag, const tensor& maindiag, const tensor& subdiag, const tensor& rhs) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "TridiagonalMatMul", context::get_status()), &TFE_DeleteOp);
@@ -26233,7 +26233,7 @@ tensor tridiagonal_mat_mul(const tensor& superdiag, const tensor& maindiag, cons
 }
 
 
-tensor tridiagonal_solve(const tensor& diagonals, const tensor& rhs, bool partial_pivoting=true) {
+inline tensor tridiagonal_solve(const tensor& diagonals, const tensor& rhs, bool partial_pivoting=true) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "TridiagonalSolve", context::get_status()), &TFE_DeleteOp);
@@ -26261,7 +26261,7 @@ tensor tridiagonal_solve(const tensor& diagonals, const tensor& rhs, bool partia
 }
 
 
-tensor truncate_div(const tensor& x, const tensor& y) {
+inline tensor truncate_div(const tensor& x, const tensor& y) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "TruncateDiv", context::get_status()), &TFE_DeleteOp);
@@ -26289,7 +26289,7 @@ tensor truncate_div(const tensor& x, const tensor& y) {
 }
 
 
-tensor truncate_mod(const tensor& x, const tensor& y) {
+inline tensor truncate_mod(const tensor& x, const tensor& y) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "TruncateMod", context::get_status()), &TFE_DeleteOp);
@@ -26317,7 +26317,7 @@ tensor truncate_mod(const tensor& x, const tensor& y) {
 }
 
 
-tensor truncated_normal(const tensor& shape, datatype dtype, int64_t seed=0, int64_t seed2=0) {
+inline tensor truncated_normal(const tensor& shape, datatype dtype, int64_t seed=0, int64_t seed2=0) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "TruncatedNormal", context::get_status()), &TFE_DeleteOp);
@@ -26343,7 +26343,7 @@ tensor truncated_normal(const tensor& shape, datatype dtype, int64_t seed=0, int
 }
 
 
-tensor unbatch(const tensor& batched_input_tensor, const tensor& batch_index, const tensor& id, int64_t timeout_micros, const std::string& container="", const std::string& shared_name="") {
+inline tensor unbatch(const tensor& batched_input_tensor, const tensor& batch_index, const tensor& id, int64_t timeout_micros, const std::string& container="", const std::string& shared_name="") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Unbatch", context::get_status()), &TFE_DeleteOp);
@@ -26377,7 +26377,7 @@ tensor unbatch(const tensor& batched_input_tensor, const tensor& batch_index, co
 }
 
 
-tensor unbatch_dataset(const tensor& input_dataset, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
+inline tensor unbatch_dataset(const tensor& input_dataset, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "UnbatchDataset", context::get_status()), &TFE_DeleteOp);
@@ -26409,7 +26409,7 @@ tensor unbatch_dataset(const tensor& input_dataset, const std::vector<datatype>&
 }
 
 
-tensor unbatch_grad(const tensor& original_input, const tensor& batch_index, const tensor& grad, const tensor& id, const std::string& container="", const std::string& shared_name="") {
+inline tensor unbatch_grad(const tensor& original_input, const tensor& batch_index, const tensor& grad, const tensor& id, const std::string& container="", const std::string& shared_name="") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "UnbatchGrad", context::get_status()), &TFE_DeleteOp);
@@ -26446,7 +26446,7 @@ tensor unbatch_grad(const tensor& original_input, const tensor& batch_index, con
 }
 
 
-tensor uncompress_element(const tensor& compressed, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
+inline tensor uncompress_element(const tensor& compressed, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "UncompressElement", context::get_status()), &TFE_DeleteOp);
@@ -26478,7 +26478,7 @@ tensor uncompress_element(const tensor& compressed, const std::vector<datatype>&
 }
 
 
-tensor unicode_encode(const tensor& input_values, const tensor& input_splits, const std::string& output_encoding, const std::string& errors="replace", int64_t replacement_char=65533, datatype Tsplits=static_cast<datatype>(9)) {
+inline tensor unicode_encode(const tensor& input_values, const tensor& input_splits, const std::string& output_encoding, const std::string& errors="replace", int64_t replacement_char=65533, datatype Tsplits=static_cast<datatype>(9)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "UnicodeEncode", context::get_status()), &TFE_DeleteOp);
@@ -26509,7 +26509,7 @@ tensor unicode_encode(const tensor& input_values, const tensor& input_splits, co
 }
 
 
-tensor unicode_script(const tensor& input) {
+inline tensor unicode_script(const tensor& input) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "UnicodeScript", context::get_status()), &TFE_DeleteOp);
@@ -26533,7 +26533,7 @@ tensor unicode_script(const tensor& input) {
 }
 
 
-tensor unicode_transcode(const tensor& input, const std::string& input_encoding, const std::string& output_encoding, const std::string& errors="replace", int64_t replacement_char=65533, bool replace_control_characters=false) {
+inline tensor unicode_transcode(const tensor& input, const std::string& input_encoding, const std::string& output_encoding, const std::string& errors="replace", int64_t replacement_char=65533, bool replace_control_characters=false) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "UnicodeTranscode", context::get_status()), &TFE_DeleteOp);
@@ -26561,7 +26561,7 @@ tensor unicode_transcode(const tensor& input, const std::string& input_encoding,
 }
 
 
-tensor unique_dataset(const tensor& input_dataset, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
+inline tensor unique_dataset(const tensor& input_dataset, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "UniqueDataset", context::get_status()), &TFE_DeleteOp);
@@ -26593,7 +26593,7 @@ tensor unique_dataset(const tensor& input_dataset, const std::vector<datatype>& 
 }
 
 
-tensor unpack(const tensor& value, int64_t num, int64_t axis=0) {
+inline tensor unpack(const tensor& value, int64_t num, int64_t axis=0) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Unpack", context::get_status()), &TFE_DeleteOp);
@@ -26618,7 +26618,7 @@ tensor unpack(const tensor& value, int64_t num, int64_t axis=0) {
 }
 
 
-tensor unravel_index(const tensor& indices, const tensor& dims, datatype Tidx=static_cast<datatype>(3)) {
+inline tensor unravel_index(const tensor& indices, const tensor& dims, datatype Tidx=static_cast<datatype>(3)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "UnravelIndex", context::get_status()), &TFE_DeleteOp);
@@ -26646,7 +26646,7 @@ tensor unravel_index(const tensor& indices, const tensor& dims, datatype Tidx=st
 }
 
 
-tensor unsorted_segment_join(const tensor& inputs, const tensor& segment_ids, const tensor& num_segments, datatype Tindices, const std::string& separator="", datatype Tnumsegments=static_cast<datatype>(3)) {
+inline tensor unsorted_segment_join(const tensor& inputs, const tensor& segment_ids, const tensor& num_segments, datatype Tindices, const std::string& separator="", datatype Tnumsegments=static_cast<datatype>(3)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "UnsortedSegmentJoin", context::get_status()), &TFE_DeleteOp);
@@ -26680,7 +26680,7 @@ tensor unsorted_segment_join(const tensor& inputs, const tensor& segment_ids, co
 }
 
 
-tensor unsorted_segment_max(const tensor& data, const tensor& segment_ids, const tensor& num_segments, datatype Tindices, datatype Tnumsegments=static_cast<datatype>(3)) {
+inline tensor unsorted_segment_max(const tensor& data, const tensor& segment_ids, const tensor& num_segments, datatype Tindices, datatype Tnumsegments=static_cast<datatype>(3)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "UnsortedSegmentMax", context::get_status()), &TFE_DeleteOp);
@@ -26713,7 +26713,7 @@ tensor unsorted_segment_max(const tensor& data, const tensor& segment_ids, const
 }
 
 
-tensor unsorted_segment_min(const tensor& data, const tensor& segment_ids, const tensor& num_segments, datatype Tindices, datatype Tnumsegments=static_cast<datatype>(3)) {
+inline tensor unsorted_segment_min(const tensor& data, const tensor& segment_ids, const tensor& num_segments, datatype Tindices, datatype Tnumsegments=static_cast<datatype>(3)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "UnsortedSegmentMin", context::get_status()), &TFE_DeleteOp);
@@ -26746,7 +26746,7 @@ tensor unsorted_segment_min(const tensor& data, const tensor& segment_ids, const
 }
 
 
-tensor unsorted_segment_prod(const tensor& data, const tensor& segment_ids, const tensor& num_segments, datatype Tindices, datatype Tnumsegments=static_cast<datatype>(3)) {
+inline tensor unsorted_segment_prod(const tensor& data, const tensor& segment_ids, const tensor& num_segments, datatype Tindices, datatype Tnumsegments=static_cast<datatype>(3)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "UnsortedSegmentProd", context::get_status()), &TFE_DeleteOp);
@@ -26779,7 +26779,7 @@ tensor unsorted_segment_prod(const tensor& data, const tensor& segment_ids, cons
 }
 
 
-tensor unsorted_segment_sum(const tensor& data, const tensor& segment_ids, const tensor& num_segments, datatype Tindices, datatype Tnumsegments=static_cast<datatype>(3)) {
+inline tensor unsorted_segment_sum(const tensor& data, const tensor& segment_ids, const tensor& num_segments, datatype Tindices, datatype Tnumsegments=static_cast<datatype>(3)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "UnsortedSegmentSum", context::get_status()), &TFE_DeleteOp);
@@ -26812,7 +26812,7 @@ tensor unsorted_segment_sum(const tensor& data, const tensor& segment_ids, const
 }
 
 
-tensor unstage(const std::vector<datatype>& dtypes, int64_t capacity=0, int64_t memory_limit=0, const std::string& container="", const std::string& shared_name="") {
+inline tensor unstage(const std::vector<datatype>& dtypes, int64_t capacity=0, int64_t memory_limit=0, const std::string& container="", const std::string& shared_name="") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Unstage", context::get_status()), &TFE_DeleteOp);
@@ -26837,7 +26837,7 @@ tensor unstage(const std::vector<datatype>& dtypes, int64_t capacity=0, int64_t 
 }
 
 
-tensor unwrap_dataset_variant(const tensor& input_handle) {
+inline tensor unwrap_dataset_variant(const tensor& input_handle) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "UnwrapDatasetVariant", context::get_status()), &TFE_DeleteOp);
@@ -26861,7 +26861,7 @@ tensor unwrap_dataset_variant(const tensor& input_handle) {
 }
 
 
-tensor upper_bound(const tensor& sorted_inputs, const tensor& values, datatype out_type=static_cast<datatype>(3)) {
+inline tensor upper_bound(const tensor& sorted_inputs, const tensor& values, datatype out_type=static_cast<datatype>(3)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "UpperBound", context::get_status()), &TFE_DeleteOp);
@@ -26889,7 +26889,7 @@ tensor upper_bound(const tensor& sorted_inputs, const tensor& values, datatype o
 }
 
 
-tensor var_handle_op(datatype dtype, const std::vector<int64_t>& shape, const std::vector< std::string>& allowed_devices, const std::string& container="", const std::string& shared_name="") {
+inline tensor var_handle_op(datatype dtype, const std::vector<int64_t>& shape, const std::vector< std::string>& allowed_devices, const std::string& container="", const std::string& shared_name="") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "VarHandleOp", context::get_status()), &TFE_DeleteOp);
@@ -26921,7 +26921,7 @@ tensor var_handle_op(datatype dtype, const std::vector<int64_t>& shape, const st
 }
 
 
-tensor var_is_initialized_op(const tensor& resource) {
+inline tensor var_is_initialized_op(const tensor& resource) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "VarIsInitializedOp", context::get_status()), &TFE_DeleteOp);
@@ -26945,7 +26945,7 @@ tensor var_is_initialized_op(const tensor& resource) {
 }
 
 
-tensor variable(const std::vector<int64_t>& shape, datatype dtype, const std::string& container="", const std::string& shared_name="") {
+inline tensor variable(const std::vector<int64_t>& shape, datatype dtype, const std::string& container="", const std::string& shared_name="") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Variable", context::get_status()), &TFE_DeleteOp);
@@ -26972,7 +26972,7 @@ tensor variable(const std::vector<int64_t>& shape, datatype dtype, const std::st
 }
 
 
-tensor variable_shape(const tensor& input, datatype out_type=static_cast<datatype>(3)) {
+inline tensor variable_shape(const tensor& input, datatype out_type=static_cast<datatype>(3)) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "VariableShape", context::get_status()), &TFE_DeleteOp);
@@ -26996,7 +26996,7 @@ tensor variable_shape(const tensor& input, datatype out_type=static_cast<datatyp
 }
 
 
-tensor variable_v2(const std::vector<int64_t>& shape, datatype dtype, const std::string& container="", const std::string& shared_name="") {
+inline tensor variable_v2(const std::vector<int64_t>& shape, datatype dtype, const std::string& container="", const std::string& shared_name="") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "VariableV2", context::get_status()), &TFE_DeleteOp);
@@ -27023,7 +27023,7 @@ tensor variable_v2(const std::vector<int64_t>& shape, datatype dtype, const std:
 }
 
 
-tensor where(const tensor& input) {
+inline tensor where(const tensor& input) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Where", context::get_status()), &TFE_DeleteOp);
@@ -27047,7 +27047,7 @@ tensor where(const tensor& input) {
 }
 
 
-tensor whole_file_reader(const std::string& container="", const std::string& shared_name="") {
+inline tensor whole_file_reader(const std::string& container="", const std::string& shared_name="") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "WholeFileReader", context::get_status()), &TFE_DeleteOp);
@@ -27069,7 +27069,7 @@ tensor whole_file_reader(const std::string& container="", const std::string& sha
 }
 
 
-tensor whole_file_reader_v2(const std::string& container="", const std::string& shared_name="") {
+inline tensor whole_file_reader_v2(const std::string& container="", const std::string& shared_name="") {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "WholeFileReaderV2", context::get_status()), &TFE_DeleteOp);
@@ -27091,7 +27091,7 @@ tensor whole_file_reader_v2(const std::string& container="", const std::string& 
 }
 
 
-tensor window_dataset(const tensor& input_dataset, const tensor& size, const tensor& shift, const tensor& stride, const tensor& drop_remainder, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
+inline tensor window_dataset(const tensor& input_dataset, const tensor& size, const tensor& shift, const tensor& stride, const tensor& drop_remainder, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "WindowDataset", context::get_status()), &TFE_DeleteOp);
@@ -27139,7 +27139,7 @@ tensor window_dataset(const tensor& input_dataset, const tensor& size, const ten
 }
 
 
-tensor worker_heartbeat(const tensor& request) {
+inline tensor worker_heartbeat(const tensor& request) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "WorkerHeartbeat", context::get_status()), &TFE_DeleteOp);
@@ -27163,7 +27163,7 @@ tensor worker_heartbeat(const tensor& request) {
 }
 
 
-tensor wrap_dataset_variant(const tensor& input_handle) {
+inline tensor wrap_dataset_variant(const tensor& input_handle) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "WrapDatasetVariant", context::get_status()), &TFE_DeleteOp);
@@ -27187,7 +27187,7 @@ tensor wrap_dataset_variant(const tensor& input_handle) {
 }
 
 
-tensor xdivy(const tensor& x, const tensor& y) {
+inline tensor xdivy(const tensor& x, const tensor& y) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Xdivy", context::get_status()), &TFE_DeleteOp);
@@ -27215,7 +27215,7 @@ tensor xdivy(const tensor& x, const tensor& y) {
 }
 
 
-tensor xlog1py(const tensor& x, const tensor& y) {
+inline tensor xlog1py(const tensor& x, const tensor& y) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Xlog1py", context::get_status()), &TFE_DeleteOp);
@@ -27243,7 +27243,7 @@ tensor xlog1py(const tensor& x, const tensor& y) {
 }
 
 
-tensor xlogy(const tensor& x, const tensor& y) {
+inline tensor xlogy(const tensor& x, const tensor& y) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Xlogy", context::get_status()), &TFE_DeleteOp);
@@ -27271,7 +27271,7 @@ tensor xlogy(const tensor& x, const tensor& y) {
 }
 
 
-tensor zeros_like(const tensor& x) {
+inline tensor zeros_like(const tensor& x) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ZerosLike", context::get_status()), &TFE_DeleteOp);
@@ -27295,7 +27295,7 @@ tensor zeros_like(const tensor& x) {
 }
 
 
-tensor zeta(const tensor& x, const tensor& q) {
+inline tensor zeta(const tensor& x, const tensor& q) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "Zeta", context::get_status()), &TFE_DeleteOp);
@@ -27323,7 +27323,7 @@ tensor zeta(const tensor& x, const tensor& q) {
 }
 
 
-tensor zip_dataset(const std::vector<tensor>&input_datasets, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
+inline tensor zip_dataset(const std::vector<tensor>&input_datasets, const std::vector<datatype>& output_types, const std::vector< std::vector<int64_t>>& output_shapes) {
 
     // Define Op
     std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "ZipDataset", context::get_status()), &TFE_DeleteOp);

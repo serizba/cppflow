@@ -129,7 +129,7 @@ namespace cppflow {
 
 namespace cppflow {
 
-    tensor::tensor(enum TF_DataType type, const void *data, size_t len, const std::vector<int64_t> &shape) {
+    inline tensor::tensor(enum TF_DataType type, const void *data, size_t len, const std::vector<int64_t> &shape) {
         this->tf_tensor = {TF_AllocateTensor(type, shape.data(), shape.size(), len), TF_DeleteTensor};
         memcpy(TF_TensorData(this->tf_tensor.get()), data, TF_TensorByteSize(this->tf_tensor.get()));
         this->tfe_handle = {TFE_NewTensorHandle(this->tf_tensor.get(), context::get_status()), TFE_DeleteTensorHandle};
@@ -151,7 +151,7 @@ namespace cppflow {
 #ifdef TENSORFLOW_C_TF_TSTRING_H_
     // For future version TensorFlow 2.4
     template<>
-    tensor::tensor(const std::string& value) {
+    inline tensor::tensor(const std::string& value) {
         TF_TString tstr[1];
         TF_TString_Init(&tstr[0]);
         TF_TString_Copy(&tstr[0], value.c_str(), value.size());
@@ -160,7 +160,7 @@ namespace cppflow {
     }
 #else
     template<>
-    tensor::tensor(const std::string& value) {
+    inline tensor::tensor(const std::string& value) {
         size_t size = 8 + TF_StringEncodedSize(value.length());
         char* data = new char[value.size() + 8];
         for (int i=0; i<8; i++) {data[i]=0;}
@@ -172,17 +172,17 @@ namespace cppflow {
     }
 #endif // TENSORFLOW_C_TF_TSTRING_H_
 
-    tensor::tensor(TFE_TensorHandle* handle) {
+    inline tensor::tensor(TFE_TensorHandle* handle) {
             this->tfe_handle = {handle, TFE_DeleteTensorHandle};
     }
 
-    tensor::tensor(TF_Tensor* t) {
+    inline tensor::tensor(TF_Tensor* t) {
         this->tf_tensor = {t, TF_DeleteTensor};
         this->tfe_handle = {TFE_NewTensorHandle(this->tf_tensor.get(), context::get_status()), TFE_DeleteTensorHandle};
         status_check(context::get_status());
     }
 
-    tensor tensor::shape() const {
+    inline tensor tensor::shape() const {
         auto op = TFE_NewOp(context::get_context(), "Shape", context::get_status());
         status_check(context::get_status());
 
@@ -199,7 +199,7 @@ namespace cppflow {
         return tensor(res[0]);
     }
 
-    std::string tensor::device(bool on_memory) const {
+    inline std::string tensor::device(bool on_memory) const {
         std::string res;
         if (on_memory)
             res = TFE_TensorHandleBackingDeviceName(this->tfe_handle.get(), context::get_status());
@@ -227,7 +227,7 @@ namespace cppflow {
         return r;
     }
 
-    datatype tensor::dtype() const {
+    inline datatype tensor::dtype() const {
         return TFE_TensorHandleDataType(this->tfe_handle.get());
     }
     

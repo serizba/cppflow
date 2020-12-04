@@ -42,7 +42,7 @@ namespace cppflow {
 
 namespace cppflow {
 
-    model::model(const std::string &filename) {
+    inline model::model(const std::string &filename) {
         this->graph = {TF_NewGraph(), TF_DeleteGraph};
 
         // Create the session.
@@ -64,7 +64,7 @@ namespace cppflow {
         status_check(context::get_status());
     }
 
-    std::vector<std::string> model::get_operations() const {
+    inline std::vector<std::string> model::get_operations() const {
         std::vector<std::string> result;
         size_t pos = 0;
         TF_Operation* oper;
@@ -76,12 +76,12 @@ namespace cppflow {
         return result;
     }
 
-    std::tuple<std::string, int> parse_name(const std::string& name) {
+    inline std::tuple<std::string, int> parse_name(const std::string& name) {
         auto idx = name.find(':');
         return (idx == -1 ? std::make_tuple(name, 0) : std::make_tuple(name.substr(0, idx), std::stoi(name.substr(idx + 1))));
     }
 
-    std::vector<tensor> model::operator()(std::vector<std::tuple<std::string, tensor>> inputs, std::vector<std::string> outputs) {
+    inline std::vector<tensor> model::operator()(std::vector<std::tuple<std::string, tensor>> inputs, std::vector<std::string> outputs) {
 
         std::vector<TF_Output> inp_ops(inputs.size());
         std::vector<TF_Tensor*> inp_val(inputs.size(), nullptr);
@@ -128,7 +128,7 @@ namespace cppflow {
         return result;
     }
 
-    tensor model::operator()(const tensor& input) {
+    inline tensor model::operator()(const tensor& input) {
         return (*this)({{"serving_default_input_1", input}}, {"StatefulPartitionedCall"})[0];
     }
 }
