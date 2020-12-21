@@ -65,8 +65,8 @@ namespace cppflow {
     inline context::context(TFE_ContextOptions* opts) {
         auto tf_status = context::get_status();
         if(opts == nullptr) {
-            std::unique_ptr<TFE_ContextOptions, decltype(&TFE_DeleteContextOptions)> opts(TFE_NewContextOptions(), &TFE_DeleteContextOptions);
-            this->tfe_context = TFE_NewContext(opts.get(), tf_status);
+            std::unique_ptr<TFE_ContextOptions, decltype(&TFE_DeleteContextOptions)> new_opts(TFE_NewContextOptions(), &TFE_DeleteContextOptions);
+            this->tfe_context = TFE_NewContext(new_opts.get(), tf_status);
         } else {
             this->tfe_context = TFE_NewContext(opts, tf_status);
         }
