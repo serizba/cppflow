@@ -8,6 +8,7 @@
 #include <memory>
 #include <stdexcept>
 #include <utility>
+#include <mutex>
 
 #include <tensorflow/c/c_api.h>
 #include <tensorflow/c/eager/c_api.h>
@@ -28,9 +29,11 @@ namespace cppflow {
 
         private:
             TFE_Context* tfe_context{nullptr};
+            static void init_global_context();
 
         public:
-            explicit context(TFE_ContextOptions* opts = nullptr);
+            explicit context(TFE_ContextOptions* opts);
+            explicit context();
 
             context(context const&) = delete;
             context& operator=(context const&) = delete;
@@ -42,12 +45,14 @@ namespace cppflow {
 
     // TODO: create ContextManager class if needed
     inline context global_context;
+    static std::once_flag flag1;
 
 }
 
 namespace cppflow {
 
     inline TFE_Context* context::get_context() {
+        std::call_once(flag1, []() {context::init_global_context(); });
         return global_context.tfe_context;
     }
 
@@ -67,6 +72,19 @@ namespace cppflow {
         status_check(tf_status);
     }
 
+    inline context::context() = default;
+
+   inline  void context::init_global_context()
+    {
+        if (global_context.tfe_context == nullptr)
+        {
+            auto tf_status = context::get_status();
+            std::unique_ptr<TFE_ContextOptions, decltype(&TFE_DeleteContextOptions)> opts(
+                TFE_NewContextOptions(), &TFE_DeleteContextOptions);
+            global_context.tfe_context = TFE_NewContext(opts.get(), tf_status);
+        }
+    }
+	
     inline context::context(context&& ctx) noexcept :
         tfe_context(std::exchange(ctx.tfe_context, nullptr))
     {
