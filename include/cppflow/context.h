@@ -41,14 +41,20 @@ namespace cppflow {
     };
 
     // TODO: create ContextManager class if needed
-    inline context global_context;
+    // Set new context, thread unsafe, must be called at the beginning.
+    //  TFE_ContextOptions* tfe_opts = ...
+    //  cppflow::get_global_context() = cppflow::context(tfe_opts);
+    inline context& get_global_context() {
+        static context global_context;
+        return global_context;
+    }
 
 }
 
 namespace cppflow {
 
     inline TFE_Context* context::get_context() {
-        return global_context.tfe_context;
+        return get_global_context().tfe_context;
     }
 
     inline TF_Status* context::get_status() {
