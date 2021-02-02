@@ -14,6 +14,7 @@
 #include "context.h"
 #include "defer.h"
 #include "tensor.h"
+#include "defer.h"
 
 namespace cppflow {
 
