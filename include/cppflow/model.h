@@ -22,6 +22,7 @@ namespace cppflow {
         explicit model(const std::string& filename);
 
         std::vector<std::string> get_operations() const;
+        std::vector<int64_t> get_operation_shape(const std::string& operation) const;
 
         std::vector<tensor> operator()(std::vector<std::tuple<std::string, tensor>> inputs, std::vector<std::string> outputs);
         tensor operator()(const tensor& input);
@@ -74,6 +75,40 @@ namespace cppflow {
             result.emplace_back(TF_OperationName(oper));
         }
         return result;
+    }
+
+    inline std::vector<int64_t> model::get_operation_shape(const std::string& operation) const {
+        // Get operation by the name
+        TF_Output out_op;
+        out_op.oper = TF_GraphOperationByName(this->graph.get(), operation.c_str());
+        out_op.index = 0;
+
+        std::vector<int64_t> shape;
+
+        // Operation does not exist
+        if (!out_op.oper)
+            throw std::runtime_error("No operation named \"" + operation + "\" exists");
+
+        // DIMENSIONS
+
+        // Get number of dimensions
+        int n_dims = TF_GraphGetTensorNumDims(this->graph.get(), out_op, context::get_status());
+
+        // If is not a scalar
+        if (n_dims > 0) {
+            // Get dimensions
+            auto* dims = new int64_t[n_dims];
+            TF_GraphGetTensorShape(this->graph.get(), out_op, dims, n_dims, context::get_status());
+
+            // Check error on Model Status
+            status_check(context::get_status());
+
+            shape = std::vector<int64_t>(dims, dims + n_dims);
+
+            delete[] dims;
+        }
+
+        return shape;
     }
 
     inline std::tuple<std::string, int> parse_name(const std::string& name) {
