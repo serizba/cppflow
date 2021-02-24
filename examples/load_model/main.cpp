@@ -8,12 +8,6 @@ int main() {
 
     auto input = cppflow::fill({10, 5}, 1.0f);
     cppflow::model model("../model");
-
-    auto shape = model.get_operation_shape("serving_default_input_1");
-    for (auto s : shape) {
-        std::cout << s << std::endl;
-    }
-
     auto output = model(input);
     
     std::cout << output << std::endl;
