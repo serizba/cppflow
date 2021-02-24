@@ -2,7 +2,7 @@ name: deploy-docs
 on:
   push:
     branches:
-      - cppflow2
+      - master
 jobs:
   check-bats-version:
     runs-on: ubuntu-latest
