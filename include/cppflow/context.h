@@ -79,7 +79,7 @@ namespace cppflow {
     }
 
     inline context& context::operator=(context&& ctx) noexcept {
-        tfe_context = std::exchange(ctx.tfe_context, nullptr);
+        tfe_context = std::exchange(ctx.tfe_context, tfe_context);
         return *this;
     }
 
