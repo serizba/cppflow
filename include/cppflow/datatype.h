@@ -5,6 +5,12 @@
 #ifndef CPPFLOW2_DATATYPE_H
 #define CPPFLOW2_DATATYPE_H
 
+#include <type_traits>
+#include <string>
+#include <typeinfo>
+#include <ostream>
+#include <stdexcept>
+
 namespace cppflow {
 
     using datatype = TF_DataType;
@@ -96,7 +102,8 @@ namespace cppflow {
         if (std::is_same<T, uint64_t>::value)
             return TF_UINT64;
 
-        throw std::runtime_error{"Could not deduce type!"};
+        // decode with `c++filt --type $output` for gcc
+        throw std::runtime_error{"Could not deduce type! type_name: " + std::string(typeid(T).name())};
     }
 
     /**
