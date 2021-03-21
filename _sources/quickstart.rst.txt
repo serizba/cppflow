@@ -125,3 +125,79 @@ By default, calling ``model(input)`` will use the input operation named ``servin
 
 
 For a complete (runnable) example you can check :ref:`this example<MultiInputOutput>`., which uses a toy model with two inputs and two outputs.
+
+GPU Config Options
+------------------
+
+You can specify TensorFlow's GPU Options to prevent it from reserving all your GPU memory. To do so in cppflow2, you need to change the global context and set your serialized options:
+
+.. code:: c++
+
+    
+    // Serialized config options (example of 30% memory fraction)
+    // Read more to see how to obtain the serialized options
+    std::vector<uint8_t> config{0x32,0xb,0x9,0x34,0x33,0x33,0x33,0x33,0x33,0xd3,0x3f,0x20,0x1};
+    // Create new options with your configuration
+    TFE_ContextOptions* options = TFE_NewContextOptions();
+    TFE_ContextOptionsSetConfig(options, config.data(), config.size(), cppflow::context::get_status());
+    // Replace the global context with your options
+    cppflow::get_global_context() = cppflow::context(options);
+
+To obtain your desired serialized config options you can just run a small python script to print them:
+
+.. code:: python
+
+    import tensorflow.compat.v1 as tf
+
+    def create_serialized_options(fraction, growth):
+        config = tf.ConfigProto()
+        config.gpu_options.per_process_gpu_memory_fraction = fraction
+        config.gpu_options.allow_growth = growth
+        serialized = config.SerializeToString()
+        return '{' + ','.join(list(map(hex, serialized))) + '}'
+
+    # Example with 30% and enable memory growth
+    # {0x32,0xb,0x9,0x33,0x33,0x33,0x33,0x33,0x33,0xd3,0x3f,0x20,0x1}
+    print(create_serialized_options(fraction=0.3, growth=True))
+
+Also, for convenience, here is a list with some precomputed serialized options:
+
++-----------------+---------------+------------------------------------------------------------------+
+| Memory Fraction | Memory Growth | Serialized Options                                               |
++=================+===============+==================================================================+
+| 10%             | True          | {0x32,0xb,0x9,0x9a,0x99,0x99,0x99,0x99,0x99,0xb9,0x3f,0x20,0x1}  |
++                 +---------------+------------------------------------------------------------------+
+|                 | False         | {0x32,0x9,0x9,0x9a,0x99,0x99,0x99,0x99,0x99,0xb9,0x3f}           |
++-----------------+---------------+------------------------------------------------------------------+
+| 20%             | True          | {0x32,0xb,0x9,0x9a,0x99,0x99,0x99,0x99,0x99,0xc9,0x3f,0x20,0x1}  |
++                 +---------------+------------------------------------------------------------------+
+|                 | False         | {0x32,0x9,0x9,0x9a,0x99,0x99,0x99,0x99,0x99,0xc9,0x3f}           |
++-----------------+---------------+------------------------------------------------------------------+
+| 30%             | True          |  {0x32,0xb,0x9,0x34,0x33,0x33,0x33,0x33,0x33,0xd3,0x3f,0x20,0x1} |
++                 +---------------+------------------------------------------------------------------+
+|                 | False         |  {0x32,0x9,0x9,0x34,0x33,0x33,0x33,0x33,0x33,0xd3,0x3f}          |
++-----------------+---------------+------------------------------------------------------------------+
+| 40%             | True          |  {0x32,0xb,0x9,0x9a,0x99,0x99,0x99,0x99,0x99,0xd9,0x3f,0x20,0x1} |
++                 +---------------+------------------------------------------------------------------+
+|                 | False         |  {0x32,0x9,0x9,0x9a,0x99,0x99,0x99,0x99,0x99,0xd9,0x3f}          |
++-----------------+---------------+------------------------------------------------------------------+
+| 50%             | True          |  {0x32,0xb,0x9,0x0,0x0,0x0,0x0,0x0,0x0,0xe0,0x3f,0x20,0x1}       |
++                 +---------------+------------------------------------------------------------------+
+|                 | False         |  {0x32,0x9,0x9,0x0,0x0,0x0,0x0,0x0,0x0,0xe0,0x3f}                |
++-----------------+---------------+------------------------------------------------------------------+
+| 60%             | True          |  {0x32,0xb,0x9,0x34,0x33,0x33,0x33,0x33,0x33,0xe3,0x3f,0x20,0x1} |
++                 +---------------+------------------------------------------------------------------+
+|                 | False         |  {0x32,0x9,0x9,0x34,0x33,0x33,0x33,0x33,0x33,0xe3,0x3f}          |
++-----------------+---------------+------------------------------------------------------------------+
+| 70%             | True          |  {0x32,0xb,0x9,0x67,0x66,0x66,0x66,0x66,0x66,0xe6,0x3f,0x20,0x1} |
++                 +---------------+------------------------------------------------------------------+
+|                 | False         |  {0x32,0x9,0x9,0x67,0x66,0x66,0x66,0x66,0x66,0xe6,0x3f}          |
++-----------------+---------------+------------------------------------------------------------------+
+| 80%             | True          |  {0x32,0xb,0x9,0x9a,0x99,0x99,0x99,0x99,0x99,0xe9,0x3f,0x20,0x1} |
++                 +---------------+------------------------------------------------------------------+
+|                 | False         |  {0x32,0x9,0x9,0x9a,0x99,0x99,0x99,0x99,0x99,0xe9,0x3f}          |
++-----------------+---------------+------------------------------------------------------------------+
+| 90%             | True          |  {0x32,0xb,0x9,0xcd,0xcc,0xcc,0xcc,0xcc,0xcc,0xec,0x3f,0x20,0x1} |
++                 +---------------+------------------------------------------------------------------+
+|                 | False         |  {0x32,0x9,0x9,0xcd,0xcc,0xcc,0xcc,0xcc,0xcc,0xec,0x3f}          |
++-----------------+---------------+------------------------------------------------------------------+
