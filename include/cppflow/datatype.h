@@ -103,7 +103,9 @@ namespace cppflow {
             return TF_UINT64;
 
         // decode with `c++filt --type $output` for gcc
-        throw std::runtime_error{"Could not deduce type! type_name: " + std::string(typeid(T).name())};
+
+        UE_LOG(LogTemp, Fatal, TEXT("Could not deduce type! type_name: %s"), *FString(typeid(T).name()));
+        return TF_UINT64;    
     }
 
     /**

@@ -87,8 +87,10 @@ namespace cppflow {
 
         // Operation does not exist
         if (!out_op.oper)
-            throw std::runtime_error("No operation named \"" + operation + "\" exists");
-
+        {
+            UE_LOG(LogTemp, Fatal, TEXT("No operation named \"%s\" exists"), *FString(operation.c_str()));
+            return {};
+        }
         // DIMENSIONS
 
         // Get number of dimensions
@@ -133,8 +135,11 @@ namespace cppflow {
             inp_ops[i].index = op_idx;
 
             if (!inp_ops[i].oper)
-                throw std::runtime_error("No operation named \"" + op_name + "\" exists");
-
+            {
+                UE_LOG(LogTemp, Fatal, TEXT("No operation named \"%s\" exists"), *FString(op_name.c_str()));
+                return {};
+            }
+                
             // Values
             inp_val[i] = std::get<1>(inputs[i]).get_tensor().get();
         }
@@ -151,8 +156,10 @@ namespace cppflow {
             out_ops[i].index = op_idx;
 
             if (!out_ops[i].oper)
-                throw std::runtime_error("No operation named \"" + op_name + "\" exists");
-
+            {
+                UE_LOG(LogTemp, Fatal, TEXT("No operation named \"%s\" exists"), *FString(op_name.c_str()));
+                return {};
+            }
         }
 
         TF_SessionRun(this->session.get(), NULL,

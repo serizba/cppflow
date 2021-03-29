@@ -220,8 +220,9 @@ namespace cppflow {
         if (this->dtype() != deduce_tf_type<T>()) {
             auto type1 = cppflow::to_string(deduce_tf_type<T>());
             auto type2 = cppflow::to_string(this->dtype());
-            auto error = "Datatype in function get_data (" + type1 + ") does not match tensor datatype (" + type2 + ")";
-            throw std::runtime_error(error);
+            std::string error = "Datatype in function get_data (" + type1 + ") does not match tensor datatype (" + type2 + ")";
+            UE_LOG(LogTemp, Fatal, *FString(error.c_str()));
+            return {};
         }
 
 

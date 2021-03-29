@@ -11,6 +11,7 @@
 #include <tensorflow/c/c_api.h>
 #include <tensorflow/c/eager/c_api.h>
 
+
 namespace cppflow {
 
     inline bool status_check(TF_Status* status) {
@@ -19,7 +20,7 @@ namespace cppflow {
             // @MarkJGx: This used to be a throw, but UE4 doesn't do exceptions. 
             const char* ErrorChar = TF_Message(status); 
             FString Error(ErrorChar);
-            UE_LOG(LogTemp, Fatal, TEXT("CppFlow StatusCheck failed: %s"), *Error);
+            UE_LOG(LogTemp, Fatal, TEXT("CppFlow StatusCheck failed: %s"));
             return false;
         }
         return true;
