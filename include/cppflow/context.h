@@ -8,6 +8,7 @@
 #include <memory>
 #include <stdexcept>
 #include <utility>
+#include <fstream>
 
 #include <tensorflow/c/c_api.h>
 #include <tensorflow/c/eager/c_api.h>
@@ -15,8 +16,13 @@
 namespace cppflow {
 
     inline bool status_check(TF_Status* status) {
-        if (TF_GetCode(status) != TF_OK) {
-            throw std::runtime_error(TF_Message(status));
+        if (TF_GetCode(status) != TF_OK)
+        {
+            // @MarkJGx: This used to be a throw, but UE4 doesn't do exceptions. 
+            const char* ErrorChar = TF_Message(status); 
+            FString Error(ErrorChar);
+            UE_LOG(LogTemp, Fatal, TEXT("CppFlow StatusCheck failed: %s"), *Error);
+            return false;
         }
         return true;
     }
