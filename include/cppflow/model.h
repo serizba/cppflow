@@ -124,7 +124,11 @@ namespace cppflow {
         for (int i=0; i<inputs.size(); i++) {
 
             // Operations
-            const auto[op_name, op_idx] = parse_name(std::get<0>(inputs[i]));
+            // const auto[op_name, op_idx] = parse_name(std::get<0>(inputs[i]));
+            const auto parsed_name = parse_name(std::get<0>(inputs[i]));
+            const auto op_name = std::get<0>(parsed_name);
+            const auto op_idx = std::get<1>(parsed_name);
+
             inp_ops[i].oper = TF_GraphOperationByName(this->graph.get(), op_name.c_str());
             inp_ops[i].index = op_idx;
 
@@ -138,8 +142,11 @@ namespace cppflow {
         std::vector<TF_Output> out_ops(outputs.size());
         auto out_val = std::make_unique<TF_Tensor*[]>(outputs.size());
         for (int i=0; i<outputs.size(); i++) {
+            // const auto[op_name, op_idx] = parse_name(outputs[i]);
+            const auto parsed_name = parse_name(outputs[i]);
+            const auto op_name = std::get<0>(parsed_name);
+            const auto op_idx = std::get<1>(parsed_name);
 
-            const auto[op_name, op_idx] = parse_name(outputs[i]);
             out_ops[i].oper = TF_GraphOperationByName(this->graph.get(), op_name.c_str());
             out_ops[i].index = op_idx;
 
