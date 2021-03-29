@@ -8,8 +8,6 @@
 #include <memory>
 #include <stdexcept>
 #include <utility>
-#include <fstream>
-
 #include <tensorflow/c/c_api.h>
 #include <tensorflow/c/eager/c_api.h>
 
