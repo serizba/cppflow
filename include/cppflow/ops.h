@@ -79,7 +79,7 @@ namespace cppflow {
 
 
     inline std::string to_string(const tensor &t) {
-        auto res_tensor = string_format({t.shape(), t}, "(tensor: shape=%s, data=\n%s)");
+        auto res_tensor = string_format({t.shape(), t, to_string(t.dtype())}, "(tensor: shape=%s, data=\n%s, dtype=\n%s)");
         auto res_tensor_h = res_tensor.get_tensor();
 
 #ifdef TENSORFLOW_C_TF_TSTRING_H_
