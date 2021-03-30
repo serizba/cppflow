@@ -67,7 +67,7 @@ void test1(const bool is_cpu) {
     }
 
     auto shape_tensor = t1.shape();
-    auto shape = shape_tensor.get_data<int32_t>()[0];
+    auto shape = shape_tensor.get_data<int64_t>()[0];
     if(shape == ndim) {
         std::cout << "tensor::get_tensor() test1-5: pass" << std::endl;
     } else {
