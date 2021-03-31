@@ -24,8 +24,8 @@ namespace cppflow {
         std::vector<std::string> get_operations() const;
         std::vector<int64_t> get_operation_shape(const std::string& operation) const;
 
-        std::vector<tensor> operator()(std::vector<std::tuple<std::string, tensor>> inputs, std::vector<std::string> outputs);
-        tensor operator()(const tensor& input);
+        std::vector<tensor> operator()(std::vector<std::tuple<std::string, tensor>> inputs, std::vector<std::string> outputs) const;
+        tensor operator()(const tensor& input) const;
 
         ~model() = default;
         model(const model &model) = default;
@@ -116,7 +116,7 @@ namespace cppflow {
         return (idx == -1 ? std::make_tuple(name, 0) : std::make_tuple(name.substr(0, idx), std::stoi(name.substr(idx + 1))));
     }
 
-    inline std::vector<tensor> model::operator()(std::vector<std::tuple<std::string, tensor>> inputs, std::vector<std::string> outputs) {
+    inline std::vector<tensor> model::operator()(std::vector<std::tuple<std::string, tensor>> inputs, std::vector<std::string> outputs) const {
 
         std::vector<TF_Output> inp_ops(inputs.size());
         std::vector<TF_Tensor*> inp_val(inputs.size(), nullptr);
@@ -163,7 +163,7 @@ namespace cppflow {
         return result;
     }
 
-    inline tensor model::operator()(const tensor& input) {
+    inline tensor model::operator()(const tensor& input) const {
         return (*this)({{"serving_default_input_1", input}}, {"StatefulPartitionedCall"})[0];
     }
 }
