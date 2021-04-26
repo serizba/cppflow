@@ -93,7 +93,7 @@ namespace cppflow {
             return TF_INT8;
         if (std::is_same<T, int64_t>::value)
             return TF_INT64;
-        if (std::is_same<T, unsigned char>::value)
+        if (std::is_same<T, unsigned char>::value || std::is_same<T, bool>::value)
             return TF_BOOL;
         if (std::is_same<T, uint16_t>::value)
             return TF_UINT16;
