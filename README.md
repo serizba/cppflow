@@ -1,4 +1,4 @@
-# CppFlow 2
+# ![cppflow](docs/source/cppflow.svg)
 
 Run TensorFlow models in c++ without Bazel, without TensorFlow installation and without compiling Tensorflow. Perform tensor manipulation, use eager execution and run saved models directly from C++.
 
@@ -73,3 +73,7 @@ There are still many things to implement... some of them may be:
 ## Cppflow 1
 
 You can also use the [older version](https://github.com/serizba/cppflow/tree/243ff2fc4e33632b91676cad7d6cfc3c92308601) of this work.
+
+## Remark
+
+CppFlow is not related with TensorFlow. The CppFlow icon is a modified version of the TensorFlow logo. TensorFlow, the TensorFlow logo and any related marks are trademarks of Google Inc.
