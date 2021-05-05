@@ -89,6 +89,9 @@ namespace cppflow {
         if (!out_op.oper)
             throw std::runtime_error("No operation named \"" + operation + "\" exists");
 
+        if (operation == "NoOp")
+             throw std::runtime_error("NoOp doesn't have a shape");
+
         // DIMENSIONS
 
         // Get number of dimensions
