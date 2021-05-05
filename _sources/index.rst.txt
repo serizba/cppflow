@@ -3,6 +3,9 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
+.. image:: cppflow.svg
+   :alt: cppflow
+
 Easily run TensorFlow models from C++
 =====================================
 
@@ -23,3 +26,8 @@ Indices and tables
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
+
+
+Remark
+------
+CppFlow is not related with TensorFlow. The CppFlow icon is a modified version of the TensorFlow logo. TensorFlow, the TensorFlow logo and any related marks are trademarks of Google Inc.
