@@ -37,3 +37,6 @@ examples/*/build
 
 # Libtensorflow
 libtensorflow
+
+# Downloaded model
+examples/efficientnet/model

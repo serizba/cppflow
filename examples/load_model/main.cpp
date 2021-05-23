@@ -7,9 +7,9 @@
 int main() {
 
     auto input = cppflow::fill({10, 5}, 1.0f);
-    cppflow::model model("../model");
+    cppflow::model model(std::string(MODEL_PATH));
     auto output = model(input);
-    
+
     std::cout << output << std::endl;
 
     auto values = output.get_data<float>();
