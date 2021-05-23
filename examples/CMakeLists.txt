@@ -1,0 +1,5 @@
+add_subdirectory(eager_op_multithread)
+add_subdirectory(efficientnet)
+add_subdirectory(load_model)
+add_subdirectory(multi_input_output)
+add_subdirectory(tensor)
