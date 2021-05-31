@@ -140,8 +140,10 @@ You can specify TensorFlow's GPU Options to prevent it from reserving all your G
     // Create new options with your configuration
     TFE_ContextOptions* options = TFE_NewContextOptions();
     TFE_ContextOptionsSetConfig(options, config.data(), config.size(), cppflow::context::get_status());
-    // Replace the global context with your options
-    cppflow::get_global_context() = cppflow::context(options);
+    // Initialize the global context with your options
+    cppflow::context::set_context_options(options);
+    // Delete options
+    TFE_DeleteContextOptions(options);
 
 To obtain your desired serialized config options you can just run a small python script to print them:
 
