@@ -157,6 +157,7 @@ namespace cppflow {
         TF_TString_Copy(&tstr[0], value.c_str(), value.size());
 
         *this = tensor(static_cast<enum TF_DataType>(TF_STRING), (void *) tstr, sizeof(tstr), {});
+        TF_TString_Dealloc(&tstr[0]);
     }
 #else
     template<>
