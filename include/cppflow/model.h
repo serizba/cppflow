@@ -19,7 +19,8 @@ namespace cppflow {
 
     class model {
     public:
-        explicit model(const std::string& filename);
+        // NOTE: TF_SessionOptions here has to be the same as cppflow::context::set_context_options(opts);
+        explicit model(const std::string& filename, const TF_SessionOptions* opts = nullptr);
 
         std::vector<std::string> get_operations() const;
         std::vector<int64_t> get_operation_shape(const std::string& operation) const;
@@ -43,7 +44,7 @@ namespace cppflow {
 
 namespace cppflow {
 
-    inline model::model(const std::string &filename) {
+    inline model::model(const std::string &filename, const TF_SessionOptions* opts) {
         this->graph = {TF_NewGraph(), TF_DeleteGraph};
 
         // Create the session.
@@ -58,7 +59,8 @@ namespace cppflow {
 
         int tag_len = 1;
         const char* tag = "serve";
-        this->session = {TF_LoadSessionFromSavedModel(session_options.get(), run_options.get(), filename.c_str(),
+        if(!opts) opts = session_options.get();
+        this->session = {TF_LoadSessionFromSavedModel(opts, run_options.get(), filename.c_str(),
                                 &tag, tag_len, this->graph.get(), meta_graph.get(), context::get_status()),
                          session_deleter};
 
