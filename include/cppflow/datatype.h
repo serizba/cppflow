@@ -10,6 +10,7 @@
 #include <typeinfo>
 #include <ostream>
 #include <stdexcept>
+#include <complex>
 
 namespace cppflow {
 
@@ -101,6 +102,10 @@ namespace cppflow {
             return TF_UINT32;
         if (std::is_same<T, uint64_t>::value)
             return TF_UINT64;
+        if (std::is_same<T, std::complex<float>>::value)
+            return TF_COMPLEX64;
+        if (std::is_same<T, std::complex<double>>::value)
+            return TF_COMPLEX128;
 
         // decode with `c++filt --type $output` for gcc
         throw std::runtime_error{"Could not deduce type! type_name: " + std::string(typeid(T).name())};
