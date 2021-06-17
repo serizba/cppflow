@@ -52,8 +52,10 @@ namespace cppflow {
         std::unique_ptr<TF_Buffer, decltype(&TF_DeleteBuffer)> meta_graph = {TF_NewBuffer(), TF_DeleteBuffer};
 
         auto session_deleter = [](TF_Session* sess) {
-            TF_DeleteSession(sess, context::get_status());
-            status_check(context::get_status());
+            auto status = TF_NewStatus();
+            TF_DeleteSession(sess, status);
+            status_check(status);
+            TF_DeleteStatus(status);
         };
 
         int tag_len = 1;
