@@ -19,7 +19,8 @@ namespace cppflow {
 
     class model {
     public:
-        explicit model(const std::string& filename);
+        explicit model(const std::string& filename);  // load save_model
+        explicit model(const std::string& filename, const std::vector<uint8_t>&config_options);  // load graph pb file
 
         std::vector<std::string> get_operations() const;
         std::vector<int64_t> get_operation_shape(const std::string& operation) const;
@@ -34,6 +35,7 @@ namespace cppflow {
         model &operator=(model &&other) = default;
 
     private:
+        TF_Buffer *model::read(const std::string& filename);
 
         std::shared_ptr<TF_Graph> graph;
         std::shared_ptr<TF_Session> session;
@@ -63,6 +65,78 @@ namespace cppflow {
                          session_deleter};
 
         status_check(context::get_status());
+    }
+
+    inline model::model(const std::string &filename, const std::vector<uint8_t>& config_options) {
+        this->graph = {TF_NewGraph(), TF_DeleteGraph};
+
+        // Create the session.
+        std::unique_ptr<TF_SessionOptions, decltype(&TF_DeleteSessionOptions)> session_options = {TF_NewSessionOptions(), TF_DeleteSessionOptions};
+        std::unique_ptr<TF_Buffer, decltype(&TF_DeleteBuffer)> run_options = {TF_NewBufferFromString("", 0), TF_DeleteBuffer};
+        std::unique_ptr<TF_Buffer, decltype(&TF_DeleteBuffer)> meta_graph = {TF_NewBuffer(), TF_DeleteBuffer};
+
+        auto session_deleter = [](TF_Session* sess) {
+            TF_DeleteSession(sess, context::get_status());
+            status_check(context::get_status());
+        };
+
+        // Create the session.
+        std::unique_ptr<TF_SessionOptions, decltype(&TF_DeleteSessionOptions)> sess_opts = {TF_NewSessionOptions(), TF_DeleteSessionOptions};
+
+        if (!config_options.empty())
+        {
+            TF_SetConfig(sess_opts.get(), static_cast<const void*>(config_options.data()), config_options.size(), context::get_status());
+            status_check(context::get_status());
+        }
+
+        this->session = {TF_NewSession(this->graph.get(), sess_opts.get(), context::get_status()),
+                         session_deleter};
+        status_check(context::get_status());
+
+        // Import the graph definition
+        TF_Buffer* def = read(filename);
+        if(def == nullptr) {
+            throw std::runtime_error("Failed to import gragh def from file");
+        }
+
+        std::unique_ptr<TF_ImportGraphDefOptions, decltype(&TF_DeleteImportGraphDefOptions)> graph_opts = {TF_NewImportGraphDefOptions(), TF_DeleteImportGraphDefOptions};
+        TF_GraphImportGraphDef(this->graph.get(), def, graph_opts.get(), context::get_status());
+        TF_DeleteBuffer(def);
+
+        status_check(context::get_status());
+    }
+
+    TF_Buffer *model::read(const std::string& filename) {
+        std::ifstream file(filename, std::ios::binary | std::ios::ate);
+
+        // Error opening the file
+        if (!file.is_open()) {
+            std::cerr << "Unable to open file: " << filename << std::endl;
+            return nullptr;
+        }
+
+        // Cursor is at the end to get size
+        const auto size = file.tellg();
+        // Move cursor to the beginning
+        file.seekg(0, std::ios::beg);
+
+        // Read
+        const auto data = std::make_unique<char[]>(size);
+        file.seekg(0, std::ios::beg);
+        file.read(data.get(), size);
+
+        // Error reading the file
+        if (!file) {
+            std::cerr << "Unable to read the full file: " << filename << std::endl;
+            return nullptr;
+        }
+        // Close file
+        file.close();
+
+        // Create tensorflow buffer from read data
+        TF_Buffer* buffer = TF_NewBufferFromString(data.get(), size);
+
+        return buffer;
     }
 
     inline std::vector<std::string> model::get_operations() const {
