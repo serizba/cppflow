@@ -19,7 +19,13 @@ namespace cppflow {
 
     class model {
     public:
-        explicit model(const std::string& filename, bool import_saved_model=true);
+        enum TYPE
+        {
+            SAVED_MODEL,
+            FROZEN_GRAPH,
+        };
+
+        explicit model(const std::string& filename, const TYPE type=TYPE::SAVED_MODEL);
 
         std::vector<std::string> get_operations() const;
         std::vector<int64_t> get_operation_shape(const std::string& operation) const;
@@ -44,7 +50,7 @@ namespace cppflow {
 
 namespace cppflow {
 
-    inline model::model(const std::string &filename, bool import_saved_model) {
+    inline model::model(const std::string &filename, const TYPE type) {
         this->graph = {TF_NewGraph(), TF_DeleteGraph};
 
         // Create the session.
@@ -55,7 +61,7 @@ namespace cppflow {
             status_check(context::get_status());
         };
 
-        if (import_saved_model) {
+        if (type == TYPE::SAVED_MODEL) {
             std::unique_ptr<TF_Buffer, decltype(&TF_DeleteBuffer)> run_options = {TF_NewBufferFromString("", 0), TF_DeleteBuffer};
             std::unique_ptr<TF_Buffer, decltype(&TF_DeleteBuffer)> meta_graph = {TF_NewBuffer(), TF_DeleteBuffer};
 
@@ -65,19 +71,22 @@ namespace cppflow {
                                     &tag, tag_len, this->graph.get(), meta_graph.get(), context::get_status()),
                             session_deleter};
         }
-        else {
+        else if (type == TYPE::FROZEN_GRAPH)  {
             this->session = {TF_NewSession(this->graph.get(), session_options.get(), context::get_status()), session_deleter};
             status_check(context::get_status());
 
             // Import the graph definition
             TF_Buffer* def = readGraph(filename);
             if(def == nullptr) {
-                throw std::runtime_error("Failed to import gragh def from file");
+                throw std::runtime_error("Failed to import graph def from file");
             }
 
             std::unique_ptr<TF_ImportGraphDefOptions, decltype(&TF_DeleteImportGraphDefOptions)> graph_opts = {TF_NewImportGraphDefOptions(), TF_DeleteImportGraphDefOptions};
             TF_GraphImportGraphDef(this->graph.get(), def, graph_opts.get(), context::get_status());
             TF_DeleteBuffer(def);
+        }
+        else {
+            throw std::runtime_error("Model type unknown");
         }
 
         status_check(context::get_status());
