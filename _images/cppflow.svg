@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
    id="Artwork"
-   viewBox="0 0 524.99999 103.24"
+   viewBox="0 0 451.99181 103.24"
    version="1.1"
-   width="525"
+   width="451.99182"
    height="103.24"
    sodipodi:docname="cppflow.svg"
    inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
@@ -26,7 +26,7 @@
      showgrid="false"
      inkscape:zoom="1.1342196"
      inkscape:cx="193.0843"
-     inkscape:cy="7.0533079"
+     inkscape:cy="7.0533078"
      inkscape:window-width="1680"
      inkscape:window-height="1013"
      inkscape:window-x="0"
@@ -67,7 +67,7 @@
        id="clip-path">
       <polygon
          class="cls-1"
-         points="128.99,127.22 142.29,134.92 142.22,115.06 128.99,107.5 128.99,95.96 155.52,111.29 155.46,88.44 111.38,63.26 111.38,166.5 128.99,156.27 "
+         points="142.29,134.92 142.22,115.06 128.99,107.5 128.99,95.96 155.52,111.29 155.46,88.44 111.38,63.26 111.38,166.5 128.99,156.27 128.99,127.22 "
          id="polygon4" />
     </clipPath>
     <linearGradient
@@ -90,7 +90,7 @@
        id="clip-path-2">
       <polygon
          class="cls-1"
-         points="107.42,166.5 89.81,156.27 89.81,95.96 63.27,111.29 63.33,88.44 107.42,63.26 "
+         points="89.81,156.27 89.81,95.96 63.27,111.29 63.33,88.44 107.42,63.26 107.42,166.5 "
          id="polygon12" />
     </clipPath>
     <linearGradient
@@ -249,8 +249,8 @@
        transform="translate(22.298596,18.176737)"><tspan
          x="162.00781"
          y="127.25192"
-         id="tspan52453"><tspan
+         id="tspan1054"><tspan
            style="font-weight:500;font-family:Roboto;-inkscape-font-specification:'Roboto Medium'"
-           id="tspan52451">CppFlow</tspan></tspan></text>
+           id="tspan1052">CppFlow</tspan></tspan></text>
   </g>
 </svg>
