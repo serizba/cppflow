@@ -143,7 +143,7 @@ namespace cppflow {
 
     inline std::tuple<std::string, int> parse_name(const std::string& name) {
         auto idx = name.find(':');
-        return (idx == -1 ? std::make_tuple(name, 0) : std::make_tuple(name.substr(0, idx), std::stoi(name.substr(idx + 1))));
+        return (idx == std::string::npos ? std::make_tuple(name, 0) : std::make_tuple(name.substr(0, idx), std::stoi(name.substr(idx + 1))));
     }
 
     inline std::vector<tensor> model::operator()(std::vector<std::tuple<std::string, tensor>> inputs, std::vector<std::string> outputs) {
