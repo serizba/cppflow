@@ -143,7 +143,7 @@ namespace cppflow {
 
     inline std::tuple<std::string, int> parse_name(const std::string& name) {
         auto idx = name.find(':');
-        return (idx == -1 ? std::make_tuple(name, 0) : std::make_tuple(name.substr(0, idx), std::stoi(name.substr(idx + 1))));
+        return (idx == std::string::npos ? std::make_tuple(name, 0) : std::make_tuple(name.substr(0, idx), std::stoi(name.substr(idx + 1))));
     }
 
     inline std::vector<tensor> model::operator()(std::vector<std::tuple<std::string, tensor>> inputs, std::vector<std::string> outputs) {
@@ -151,7 +151,7 @@ namespace cppflow {
         std::vector<TF_Output> inp_ops(inputs.size());
         std::vector<TF_Tensor*> inp_val(inputs.size(), nullptr);
 
-        for (int i=0; i<inputs.size(); i++) {
+        for (decltype(inputs.size()) i=0; i<inputs.size(); i++) {
 
             // Operations
             const auto[op_name, op_idx] = parse_name(std::get<0>(inputs[i]));
@@ -167,7 +167,7 @@ namespace cppflow {
 
         std::vector<TF_Output> out_ops(outputs.size());
         auto out_val = std::make_unique<TF_Tensor*[]>(outputs.size());
-        for (int i=0; i<outputs.size(); i++) {
+        for (decltype(outputs.size()) i=0; i<outputs.size(); i++) {
 
             const auto[op_name, op_idx] = parse_name(outputs[i]);
             out_ops[i].oper = TF_GraphOperationByName(this->graph.get(), op_name.c_str());
@@ -186,7 +186,7 @@ namespace cppflow {
 
         std::vector<tensor> result;
         result.reserve(outputs.size());
-        for (int i=0; i<outputs.size(); i++) {
+        for (decltype(outputs.size()) i=0; i<outputs.size(); i++) {
             result.emplace_back(tensor(out_val[i]));
         }
 
