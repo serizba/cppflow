@@ -179,8 +179,8 @@ namespace cppflow {
         }
 
         TF_SessionRun(this->session.get(), NULL,
-                inp_ops.data(), inp_val.data(), inputs.size(),
-                out_ops.data(), out_val.get(), outputs.size(),
+                inp_ops.data(), inp_val.data(), static_cast<int>(inputs.size()),
+                out_ops.data(), out_val.get(), static_cast<int>(outputs.size()),
                 NULL, 0,NULL , context::get_status());
         status_check(context::get_status());
 
