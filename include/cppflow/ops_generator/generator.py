@@ -78,18 +78,18 @@ class Attribute:
                 'string' : '''
                             std::vector<std::size_t> {0}_sizes; {0}_sizes.reserve({0}.size());
                             std::transform({0}.begin(), {0}.end(), std::back_inserter({0}_sizes), [](const auto& s) {{ return s.size();}});
-                            TFE_OpSetAttrStringList(op.get(), "{orig:}", reinterpret_cast<const void *const *>({0}.data()), {0}_sizes.data(), {0}.size());
+                            TFE_OpSetAttrStringList(op.get(), "{orig:}", reinterpret_cast<const void *const *>({0}.data()), {0}_sizes.data(), static_cast<int>({0}.size()));
                             ''',
-                'int'    : 'TFE_OpSetAttrIntList(op.get(), "{orig:}", {0}.data(), {0}.size());',
-                'float'  : 'TFE_OpSetAttrFloatList(op.get(), "{orig:}", {0}.data(), {0}.size());',
+                'int'    : 'TFE_OpSetAttrIntList(op.get(), "{orig:}", {0}.data(), static_cast<int>({0}.size()));',
+                'float'  : 'TFE_OpSetAttrFloatList(op.get(), "{orig:}", {0}.data(), static_cast<int>({0}.size()));',
                 'bool'   : 'TFE_OpSetAttrBoolList(op.get(), "{orig:}", std::vector<unsigned char>({0}.begin(), {0}.end()).data(), {0}.size());',
-                'type'   : 'TFE_OpSetAttrTypeList(op.get(), "{orig:}", reinterpret_cast<const enum TF_DataType *>({0}.data()), {0}.size());',
+                'type'   : 'TFE_OpSetAttrTypeList(op.get(), "{orig:}", reinterpret_cast<const enum TF_DataType *>({0}.data()), static_cast<int>({0}.size()));',
                 'shape'  : '''
                             std::vector<const int64_t*> {0}_values; {0}_values.reserve({0}.size());
                             std::vector<int> {0}_ndims; {0}_ndims.reserve({0}.size());
                             std::transform({0}.begin(), {0}.end(), std::back_inserter({0}_values), [](const auto& v) {{ return v.data();}});
-                            std::transform({0}.begin(), {0}.end(), std::back_inserter({0}_ndims), [](const auto& v) {{ return v.size();}});
-                            TFE_OpSetAttrShapeList(op.get(), "{orig:}", {0}_values.data(), {0}_ndims.data(), {0}.size(), context::get_status());
+                            std::transform({0}.begin(), {0}.end(), std::back_inserter({0}_ndims), [](const auto& v) {{ return static_cast<int>(v.size());}});
+                            TFE_OpSetAttrShapeList(op.get(), "{orig:}", {0}_values.data(), {0}_ndims.data(), static_cast<int>({0}.size()), context::get_status());
                             status_check(context::get_status());
                             ''',
             }[self.type].format(self.name.replace('template', 'template_arg'), orig=self.name)).replace('\n', '\n    ')
@@ -97,7 +97,7 @@ class Attribute:
         else:
             return textwrap.dedent({
                 'shape' : '''
-                          TFE_OpSetAttrShape(op.get(), "{orig:}", {0}.data(), {0}.size(), context::get_status());
+                          TFE_OpSetAttrShape(op.get(), "{orig:}", {0}.data(), static_cast<int>({0}.size()), context::get_status());
                           status_check(context::get_status());
                            ''',
                 'int'   : 'TFE_OpSetAttrInt(op.get(), "{orig:}", {0});',
@@ -172,7 +172,7 @@ class Operation:
         add_inputs_list = textwrap.dedent('''
             std::vector<TFE_TensorHandle*> {0}_handles; {0}_handles.reserve({0}.size());
             std::transform({0}.begin(), {0}.end(), std::back_inserter({0}_handles), [](const auto& t) {{ return t.tfe_handle.get();}});
-            TFE_OpAddInputList(op.get(), {0}_handles.data(), {0}.size(), context::get_status());
+            TFE_OpAddInputList(op.get(), {0}_handles.data(), static_cast<int>({0}.size()), context::get_status());
             status_check(context::get_status());
         ''').replace('\n', '\n    ')
 
