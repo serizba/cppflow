@@ -4127,7 +4127,7 @@ inline tensor choose_fastest_dataset(const std::vector<tensor>&input_datasets, i
     
 
     // Attributes
-    TFE_OpSetAttrInt(op.get(), "N", static_cast<int>(input_datasets.size()));
+    TFE_OpSetAttrInt(op.get(), "N", input_datasets.size());
     TFE_OpSetAttrInt(op.get(), "num_experiments", num_experiments);
     TFE_OpSetAttrTypeList(op.get(), "output_types", reinterpret_cast<const enum TF_DataType *>(output_types.data()), static_cast<int>(output_types.size()));
     
@@ -6122,6 +6122,32 @@ inline tensor decode_gif(const tensor& contents) {
 
     // Attributes
     
+
+    // Execute Op
+    int num_outputs_op = 1;
+    TFE_TensorHandle* res[1] = {nullptr};
+    TFE_Execute(op.get(), res, &num_outputs_op, context::get_status());
+    status_check(context::get_status());
+    return tensor(res[0]);
+}
+
+
+inline tensor decode_image(const tensor& contents, int64_t channels=0, datatype dtype=static_cast<datatype>(4), bool expand_animations=true) {
+
+    // Define Op
+    std::unique_ptr<TFE_Op, decltype(&TFE_DeleteOp)> op(TFE_NewOp(context::get_context(), "DecodeImage", context::get_status()), &TFE_DeleteOp);
+    status_check(context::get_status());
+
+    // Required input arguments
+    
+    TFE_OpAddInput(op.get(), contents.tfe_handle.get(), context::get_status());
+    status_check(context::get_status());
+    
+
+    // Attributes
+    TFE_OpSetAttrInt(op.get(), "channels", channels);
+    TFE_OpSetAttrType(op.get(), "dtype", dtype);
+    TFE_OpSetAttrBool(op.get(), "expand_animations", (unsigned char)expand_animations);
 
     // Execute Op
     int num_outputs_op = 1;
