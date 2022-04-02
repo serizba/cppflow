@@ -34,6 +34,7 @@ namespace cppflow {
         */
         template<typename T>
         tensor(const std::vector<T>& values, const std::vector<int64_t>& shape);
+        
 
         /**
         * Creates a flat tensor with the given values
@@ -51,6 +52,26 @@ namespace cppflow {
         template<typename T>
         tensor(const T& value);
 
+        /**
+        * Creates a tensor with from the given buffer and size.
+        * @tparam T A type that can be convertible into a tensor
+        * @param data value buffer.
+        * @param size the amount of elements in the buffer.
+        */
+        template<typename T>
+        explicit tensor(const T* data, const uint32_t& size);
+
+        /**
+        * Creates a tensor with from the given buffer and size.
+        * @tparam T A type that can be convertible into a tensor
+        * @param data value buffer.
+        * @param size the amount of elements in the buffer.
+        * @param dimensions
+        */
+        template<typename T>
+        explicit tensor(const T* data, const uint32_t& size, const std::vector<int64_t>& dimensions);
+
+        
         /**
          * @return Shape of the tensor
          */
@@ -139,6 +160,15 @@ namespace cppflow {
     template<typename T>
     tensor::tensor(const std::vector<T>& values, const std::vector<int64_t>& shape) :
         tensor(deduce_tf_type<T>(), values.data(), values.size() * sizeof(T), shape) {}
+
+    template<typename T>
+    tensor::tensor(const T* data, const uint32_t& size) :
+        tensor(deduce_tf_type<T>(), data, size * sizeof(T), {size}) {}
+
+    template<typename T>
+    tensor::tensor(const T* data, const uint32_t& size, const std::vector<int64_t>& dimensions) :
+        tensor(deduce_tf_type<T>(), data, size * sizeof(T), dimensions) {}
+    
 
     template<typename T>
     tensor::tensor(const std::initializer_list<T>& values) :

@@ -19,8 +19,7 @@ namespace cppflow {
         {
             // @MarkJGx: This used to be a throw, but UE4 doesn't do exceptions. 
             const char* ErrorChar = TF_Message(status); 
-            FString Error(ErrorChar);
-            UE_LOG(LogTemp, Fatal, TEXT("CppFlow StatusCheck failed: %s"));
+            UE_LOG(LogTemp, Fatal, TEXT("CppFlow StatusCheck failed: %s"), *FString(std::string(ErrorChar).c_str()));
             return false;
         }
         return true;
