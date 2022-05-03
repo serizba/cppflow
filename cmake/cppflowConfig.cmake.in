@@ -1,0 +1,7 @@
+get_filename_component(cppflow_CMAKE_DIR "${CMAKE_CURRENT_LIST_FILE}" PATH)
+
+if(NOT TARGET cppflow::cppflow)
+  set(CMAKE_MODULE_PATH "${CMAKE_MODULE_PATH};${cppflow_CMAKE_DIR}/modules")
+  find_package(tensorflow REQUIRED)
+  include("${cppflow_CMAKE_DIR}/cppflowTargets.cmake")
+endif()
