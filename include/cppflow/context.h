@@ -24,6 +24,8 @@ namespace cppflow {
     class context {
         public:
             static TFE_Context* get_context();
+
+            // only use get_status() for eager ops
             static TF_Status* get_status();
 
         private:
