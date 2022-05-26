@@ -42,6 +42,7 @@ namespace cppflow {
     private:
         TF_Buffer * readGraph(const std::string& filename);
 
+        std::shared_ptr<TF_Status> status;
         std::shared_ptr<TF_Graph> graph;
         std::shared_ptr<TF_Session> session;
     };
@@ -51,14 +52,15 @@ namespace cppflow {
 namespace cppflow {
 
     inline model::model(const std::string &filename, const TYPE type) {
+        this->status = {TF_NewStatus(), &TF_DeleteStatus};
         this->graph = {TF_NewGraph(), TF_DeleteGraph};
 
         // Create the session.
         std::unique_ptr<TF_SessionOptions, decltype(&TF_DeleteSessionOptions)> session_options = {TF_NewSessionOptions(), TF_DeleteSessionOptions};
 
-        auto session_deleter = [](TF_Session* sess) {
-            TF_DeleteSession(sess, context::get_status());
-            status_check(context::get_status());
+        auto session_deleter = [this](TF_Session* sess) {
+            TF_DeleteSession(sess, this->status.get());
+            status_check(this->status.get());
         };
 
         if (type == TYPE::SAVED_MODEL) {
@@ -68,12 +70,12 @@ namespace cppflow {
             int tag_len = 1;
             const char* tag = "serve";
             this->session = {TF_LoadSessionFromSavedModel(session_options.get(), run_options.get(), filename.c_str(),
-                                    &tag, tag_len, this->graph.get(), meta_graph.get(), context::get_status()),
+                                    &tag, tag_len, this->graph.get(), meta_graph.get(), this->status.get()),
                             session_deleter};
         }
         else if (type == TYPE::FROZEN_GRAPH)  {
-            this->session = {TF_NewSession(this->graph.get(), session_options.get(), context::get_status()), session_deleter};
-            status_check(context::get_status());
+            this->session = {TF_NewSession(this->graph.get(), session_options.get(), this->status.get()), session_deleter};
+            status_check(this->status.get());
 
             // Import the graph definition
             TF_Buffer* def = readGraph(filename);
@@ -82,14 +84,14 @@ namespace cppflow {
             }
 
             std::unique_ptr<TF_ImportGraphDefOptions, decltype(&TF_DeleteImportGraphDefOptions)> graph_opts = {TF_NewImportGraphDefOptions(), TF_DeleteImportGraphDefOptions};
-            TF_GraphImportGraphDef(this->graph.get(), def, graph_opts.get(), context::get_status());
+            TF_GraphImportGraphDef(this->graph.get(), def, graph_opts.get(), this->status.get());
             TF_DeleteBuffer(def);
         }
         else {
             throw std::runtime_error("Model type unknown");
         }
 
-        status_check(context::get_status());
+        status_check(this->status.get());
     }
 
     inline std::vector<std::string> model::get_operations() const {
@@ -122,16 +124,16 @@ namespace cppflow {
         // DIMENSIONS
 
         // Get number of dimensions
-        int n_dims = TF_GraphGetTensorNumDims(this->graph.get(), out_op, context::get_status());
+        int n_dims = TF_GraphGetTensorNumDims(this->graph.get(), out_op, this->status.get());
 
         // If is not a scalar
         if (n_dims > 0) {
             // Get dimensions
             auto* dims = new int64_t[n_dims];
-            TF_GraphGetTensorShape(this->graph.get(), out_op, dims, n_dims, context::get_status());
+            TF_GraphGetTensorShape(this->graph.get(), out_op, dims, n_dims, this->status.get());
 
             // Check error on Model Status
-            status_check(context::get_status());
+            status_check(this->status.get());
 
             shape = std::vector<int64_t>(dims, dims + n_dims);
 
@@ -181,8 +183,8 @@ namespace cppflow {
         TF_SessionRun(this->session.get(), NULL,
                 inp_ops.data(), inp_val.data(), static_cast<int>(inputs.size()),
                 out_ops.data(), out_val.get(), static_cast<int>(outputs.size()),
-                NULL, 0,NULL , context::get_status());
-        status_check(context::get_status());
+                NULL, 0,NULL , this->status.get());
+        status_check(this->status.get());
 
         std::vector<tensor> result;
         result.reserve(outputs.size());
