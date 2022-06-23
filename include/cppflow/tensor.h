@@ -36,6 +36,16 @@ namespace cppflow {
         tensor(const std::vector<T>& values, const std::vector<int64_t>& shape);
 
         /**
+        * Creates a flat tensor with the given values, and specified length and shape
+        * @tparam T A type that can be convertible into a tensor
+        * @param values The values to be converted
+        * @param len The length of the converted tensor
+        * @param shape The shape of the converted tensor
+        */
+        template<typename T>
+        tensor(T *values, size_t len, const std::vector<int64_t>& shape);
+
+        /**
         * Creates a flat tensor with the given values
         * @tparam T A type that can be convertible into a tensor
         * @param values The values to be converted
@@ -77,6 +87,13 @@ namespace cppflow {
         template<typename T>
         std::vector<T> get_data() const;
 
+        /**
+         * Converts the tensor into a pointer of primitive type T
+         * @tparam T The c++ type (must be equivalent to the tensor type)
+         * @return A pointer of type T representing the flat tensor
+         */
+        template<typename T>
+        T *get_raw_data() const;
 
         ~tensor() = default;
         tensor(const tensor &tensor) = default;
@@ -139,6 +156,11 @@ namespace cppflow {
     template<typename T>
     tensor::tensor(const std::vector<T>& values, const std::vector<int64_t>& shape) :
         tensor(deduce_tf_type<T>(), values.data(), values.size() * sizeof(T), shape) {}
+
+
+    template<typename T>
+    tensor::tensor(T *values, size_t len, const std::vector<int64_t>& shape) :
+            tensor(deduce_tf_type<T>(), values, len * sizeof(T), shape) {}
 
     template<typename T>
     tensor::tensor(const std::initializer_list<T>& values) :
@@ -238,6 +260,32 @@ namespace cppflow {
         std::vector<T> r(T_data, T_data + size);
 
         return r;
+    }
+
+    template<typename T>
+    T *tensor::get_raw_data() const {
+
+        // Check if asked datatype and tensor datatype match
+        if (this->dtype() != deduce_tf_type<T>()) {
+            auto type1 = cppflow::to_string(deduce_tf_type<T>());
+            auto type2 = cppflow::to_string(this->dtype());
+            auto error = "Datatype in function get_data (" + type1 + ") does not match tensor datatype (" + type2 + ")";
+            throw std::runtime_error(error);
+        }
+
+
+        auto res_tensor = get_tensor();
+
+        // Check tensor data is not empty
+        auto raw_data = TF_TensorData(res_tensor.get());
+        //this->error_check(raw_data != nullptr, "Tensor data is empty");
+
+        size_t size = TF_TensorByteSize(res_tensor.get()) / TF_DataTypeSize(TF_TensorType(res_tensor.get()));
+
+        // Convert to correct type
+        const auto T_data = static_cast<T*>(raw_data);
+
+        return T_data;
     }
 
     inline datatype tensor::dtype() const {
