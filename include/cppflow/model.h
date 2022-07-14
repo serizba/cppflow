@@ -28,6 +28,7 @@ namespace cppflow {
         explicit model(const std::string& filename, const TYPE type=TYPE::SAVED_MODEL);
 
         std::vector<std::string> get_operations() const;
+        std::string get_tensor_mapping(const std::string& operation) const;
         std::vector<int64_t> get_operation_shape(const std::string& operation) const;
 
         std::vector<tensor> operator()(std::vector<std::tuple<std::string, tensor>> inputs, std::vector<std::string> outputs);
@@ -45,6 +46,8 @@ namespace cppflow {
         std::shared_ptr<TF_Status> status;
         std::shared_ptr<TF_Graph> graph;
         std::shared_ptr<TF_Session> session;
+
+        std::vector<std::string> tensor_mapping;
     };
 }
 
@@ -72,6 +75,23 @@ namespace cppflow {
             this->session = {TF_LoadSessionFromSavedModel(session_options.get(), run_options.get(), filename.c_str(),
                                     &tag, tag_len, this->graph.get(), meta_graph.get(), this->status.get()),
                             session_deleter};
+
+            std::string_view sv((char*)meta_graph.get()->data, meta_graph.get()->length);
+
+            std::string output_name = "StatefulPartitionedCall:0";
+            std::size_t tensor_mapping_end = sv.npos;
+            while ((tensor_mapping_end = sv.find(output_name)) != sv.npos)
+            {
+                // found at position tensor_mapping_end, now reverse search for beginning
+                auto tensor_mapping_start = sv.rfind("\x0A", tensor_mapping_end - 4);
+                if (tensor_mapping_start != sv.npos)
+                {
+                    tensor_mapping.emplace_back(sv.substr(tensor_mapping_start + 2 /* bytes used for identifying start */,
+                        tensor_mapping_end - tensor_mapping_start - 4 /* byte spacing between the tensor name and output mapping */ - 2));
+
+                    output_name.back()++; // Increment output index;
+                }
+            }
         }
         else if (type == TYPE::FROZEN_GRAPH)  {
             this->session = {TF_NewSession(this->graph.get(), session_options.get(), this->status.get()), session_deleter};
@@ -106,11 +126,29 @@ namespace cppflow {
         return result;
     }
 
+    inline std::tuple<std::string, int> parse_name(const std::string& name) {
+        auto idx = name.find(':');
+        return (idx == std::string::npos ? std::make_tuple(name, 0) : std::make_tuple(name.substr(0, idx), std::stoi(name.substr(idx + 1))));
+    }
+
+    inline std::string model::get_tensor_mapping(const std::string& operation) const {
+        std::string output_name;
+        auto it = std::find(tensor_mapping.begin(), tensor_mapping.end(), operation);
+        if (it != tensor_mapping.end())
+        {
+            output_name = "StatefulPartitionedCall:0";
+            output_name.back() += std::distance(tensor_mapping.begin(), it);
+        }
+
+        return output_name;
+    }
+
     inline std::vector<int64_t> model::get_operation_shape(const std::string& operation) const {
         // Get operation by the name
         TF_Output out_op;
-        out_op.oper = TF_GraphOperationByName(this->graph.get(), operation.c_str());
-        out_op.index = 0;
+        const auto [op_name, op_idx] = parse_name(operation);
+        out_op.oper = TF_GraphOperationByName(this->graph.get(), op_name.c_str());
+        out_op.index = op_idx;
 
         std::vector<int64_t> shape;
 
@@ -141,11 +179,6 @@ namespace cppflow {
         }
 
         return shape;
-    }
-
-    inline std::tuple<std::string, int> parse_name(const std::string& name) {
-        auto idx = name.find(':');
-        return (idx == std::string::npos ? std::make_tuple(name, 0) : std::make_tuple(name.substr(0, idx), std::stoi(name.substr(idx + 1))));
     }
 
     inline std::vector<tensor> model::operator()(std::vector<std::tuple<std::string, tensor>> inputs, std::vector<std::string> outputs) {
