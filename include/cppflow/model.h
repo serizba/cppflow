@@ -25,6 +25,7 @@ namespace cppflow {
             FROZEN_GRAPH,
         };
 
+	    model() = default;
         explicit model(const std::string& filename, const TYPE type=TYPE::SAVED_MODEL);
 
         std::vector<std::string> get_operations() const;
