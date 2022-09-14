@@ -33,9 +33,7 @@ CppFlow uses [Tensorflow C API](https://www.tensorflow.org/install/lang_c) to ru
 
 Since it uses TensorFlow 2 C API you just have to [download it](https://www.tensorflow.org/install/lang_c), check the [docs](https://serizba.github.io/cppflow/installation.html) to see a guide on how to do it.  
 
-You can either install the library system wide or you can just place the contents of the archive in a folder called `libtensorflow2` in your HOME directory.
-
-Afterwards, you can run the examples:
+Afterwards, you can install the library:
 
 ```sh
 git clone git@github.com:serizba/cppflow.git
@@ -43,9 +41,11 @@ cd cppflow/examples/load_model
 mkdir build
 cd build
 cmake ..
-make
-./example
+make -j
+make install
 ```
+
+Now you can check the [quickstart guide](https://serizba.github.io/cppflow/quickstart.html) to run a program using cppflow.
 
 
 ## Documentation
