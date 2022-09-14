@@ -25,6 +25,7 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -53,6 +54,7 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#install-the-tf-c-api-globally">Install the TF C API globally</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#install-the-tf-c-api-in-custom-directory">Install the TF C API in custom directory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#install-cppflow">Install cppflow</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quickstart</a></li>
@@ -84,11 +86,11 @@
            <div itemprop="articleBody">
              
   <section id="installation">
-<span id="id1"></span><h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline"></a></h1>
-<p>One of the advantages of cppflow is that you don’t need to compile or install TensorFlow, you just need to download the <a class="reference external" href="https://www.tensorflow.org/install/lang_c">TF C API</a>. As cppflow is a header-only library, once you have the C API, the only thing you need to do is include the cppflow files from your project.</p>
+<span id="id1"></span><h1>Installation<a class="headerlink" href="#installation" title="Permalink to this heading"></a></h1>
+<p>One of the advantages of cppflow is that you don’t need to compile or install TensorFlow, you just need to download the <a class="reference external" href="https://www.tensorflow.org/install/lang_c">TF C API</a>. Cppflow is a header-only library, and thus you can just include the cppflow files in your project.</p>
 <p>To install the C API in your system you have two options:</p>
 <section id="install-the-tf-c-api-globally">
-<h2>Install the TF C API globally<a class="headerlink" href="#install-the-tf-c-api-globally" title="Permalink to this headline"></a></h2>
+<h2>Install the TF C API globally<a class="headerlink" href="#install-the-tf-c-api-globally" title="Permalink to this heading"></a></h2>
 <p>You can install the C API in a system directory and do not worry about it again. For this, you just have to <a class="reference external" href="https://www.tensorflow.org/install/lang_c">download it</a> it and then:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo tar -C /usr/local -xzf <span class="o">(</span>downloaded file<span class="o">)</span>
 sudo ldconfig
@@ -96,13 +98,8 @@ sudo ldconfig
 </div>
 </section>
 <section id="install-the-tf-c-api-in-custom-directory">
-<h2>Install the TF C API in custom directory<a class="headerlink" href="#install-the-tf-c-api-in-custom-directory" title="Permalink to this headline"></a></h2>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The easiest way is to extract the library into your HOME directory, in a folder called <code class="docutils literal notranslate"><span class="pre">libtensorflow2</span></code>. In this case, you can directly use the CMake files from the examples, which will search for the library in your HOME directory.</p>
-<p><code class="docutils literal notranslate"><span class="pre">mkdir</span> <span class="pre">-p</span> <span class="pre">~/libtensorflow2/</span> <span class="pre">&amp;&amp;</span> <span class="pre">tar</span> <span class="pre">-C</span> <span class="pre">~/libtensorflow2/</span> <span class="pre">-xzf</span> <span class="pre">(downloaded</span> <span class="pre">file)</span></code></p>
-</div>
-<p>You can also install the library in a custom directory. In this case, after <a class="reference external" href="https://www.tensorflow.org/install/lang_c">downloading it</a> and unpacking it you will need to update your PATH or add a hint to your <code class="docutils literal notranslate"><span class="pre">CMakeLists.txt</span></code> to find the library.</p>
+<h2>Install the TF C API in custom directory<a class="headerlink" href="#install-the-tf-c-api-in-custom-directory" title="Permalink to this heading"></a></h2>
+<p>You can also install the library in a custom directory. In this case, after <a class="reference external" href="https://www.tensorflow.org/install/lang_c">downloading it</a> and unpacking it you will need to update your PATH or tell CMake where you placed the library with <code class="docutils literal notranslate"><span class="pre">-DCMAKE_PREFIX_PATH=...</span></code>.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir -p /path/to/mydir/
 tar -C /path/to/mydir -xzf <span class="o">(</span>downloaded file<span class="o">)</span>
 </pre></div>
@@ -112,10 +109,22 @@ tar -C /path/to/mydir -xzf <span class="o">(</span>downloaded file<span class="o
 <span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="nv">$LD_LIBRARY_PATH</span>:/path/to/mydir/lib
 </pre></div>
 </div>
-<p>Or add a hint in <code class="docutils literal notranslate"><span class="pre">CMakeLists.txt</span></code> as in the examples:</p>
-<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nb">find_library</span><span class="p">(</span><span class="s">TENSORFLOW_LIB</span><span class="w"> </span><span class="s">tensorflow</span><span class="w"> </span><span class="s">HINT</span><span class="w"> </span><span class="s">/path/to/mydir/lib</span><span class="p">)</span>
+</section>
+<section id="install-cppflow">
+<h2>Install cppflow<a class="headerlink" href="#install-cppflow" title="Permalink to this heading"></a></h2>
+<p>Cppflow is just a header-only library, and thus it does not require to build it. To facilitate the installation, we provide a CMake file that will install the library in your system. To install it, you just have to:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir build
+<span class="nb">cd</span> build
+cmake ..
+make -j
+make install
 </pre></div>
 </div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you installed the TF C API in a custom directory, you will need to tell CMake where you placed the library with <code class="docutils literal notranslate"><span class="pre">-DCMAKE_PREFIX_PATH=/path/to/mydir/</span></code>.</p>
+</div>
+<p>This will also compile the examples, if you don’t want to compile them, you can use <code class="docutils literal notranslate"><span class="pre">-DBUILD_EXAMPLES=OFF</span></code>.</p>
 <p>You are done, now you can proceed to build your <a class="reference internal" href="quickstart.html#first-example"><span class="std std-ref">first example</span></a>.</p>
 </section>
 </section>

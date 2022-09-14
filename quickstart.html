@@ -25,6 +25,7 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -87,12 +88,12 @@
            <div itemprop="articleBody">
              
   <section id="quickstart">
-<h1>Quickstart<a class="headerlink" href="#quickstart" title="Permalink to this headline"></a></h1>
+<h1>Quickstart<a class="headerlink" href="#quickstart" title="Permalink to this heading"></a></h1>
 <section id="first-example">
-<span id="id1"></span><h2>First example<a class="headerlink" href="#first-example" title="Permalink to this headline"></a></h2>
+<span id="id1"></span><h2>First example<a class="headerlink" href="#first-example" title="Permalink to this heading"></a></h2>
 <p>Once you have downloaded the TF C API and cppflow you can start playing with tensors from C++:</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;cppflow/cppflow.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;cppflow/cppflow.h&gt;</span><span class="cp"></span>
 
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 
@@ -107,8 +108,8 @@
 <span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
-<p>Easy right?, now you can compile it with the terminal (if you have configured the TF C API as stated in <a class="reference internal" href="installation.html#installation"><span class="std std-ref">Installation</span></a>) using the following command:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>g++ -std<span class="o">=</span>c++17 -o main.out -I /path/to/libtensorflow2/include/ -I/path/to/cppflow/include/ main.cpp -ltensorflow
+<p>Easy right?, now you can compile it with the terminal (if you have configured the TF C API and installed cppflow as stated in <a class="reference internal" href="installation.html#installation"><span class="std std-ref">Installation</span></a>) using the following command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>g++ -std<span class="o">=</span>c++17 -o main.out main.cpp -ltensorflow
 ./main.out
 </pre></div>
 </div>
@@ -119,26 +120,44 @@
 </div>
 </section>
 <section id="using-cmake">
-<h2>Using CMake<a class="headerlink" href="#using-cmake" title="Permalink to this headline"></a></h2>
+<h2>Using CMake<a class="headerlink" href="#using-cmake" title="Permalink to this heading"></a></h2>
 <p>Probably a more convenient way of compiling your code is using CMake.</p>
 <div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nb">cmake_minimum_required</span><span class="p">(</span><span class="s">VERSION</span><span class="w"> </span><span class="s">3.10</span><span class="p">)</span>
+
 <span class="nb">project</span><span class="p">(</span><span class="s">example</span><span class="p">)</span>
 
-<span class="nb">find_library</span><span class="p">(</span><span class="s">TENSORFLOW_LIB</span><span class="w"> </span><span class="s">tensorflow</span><span class="w"> </span><span class="s">HINT</span><span class="w"> </span><span class="o">$ENV{</span><span class="nv">HOME</span><span class="o">}</span><span class="s">/libtensorflow2/lib</span><span class="p">)</span>
-
-<span class="nb">set</span><span class="p">(</span><span class="s">CMAKE_CXX_STANDARD</span><span class="w"> </span><span class="s">17</span><span class="p">)</span>
-
 <span class="nb">add_executable</span><span class="p">(</span><span class="s">example</span><span class="w"> </span><span class="s">main.cpp</span><span class="p">)</span>
-<span class="nb">target_include_directories</span><span class="p">(</span><span class="s">example</span><span class="w"> </span><span class="s">PRIVATE</span><span class="w"> </span><span class="s">/path/to/cppflow/include/</span><span class="w"> </span><span class="o">$ENV{</span><span class="nv">HOME</span><span class="o">}</span><span class="s">/libtensorflow2/include</span><span class="p">)</span>
-<span class="nb">target_link_libraries</span> <span class="p">(</span><span class="s">example</span><span class="w"> </span><span class="s2">&quot;${TENSORFLOW_LIB}&quot;</span><span class="p">)</span>
+
+<span class="nb">find_package</span><span class="p">(</span><span class="s">cppflow</span><span class="w"> </span><span class="s">REQUIRED</span><span class="p">)</span>
+
+<span class="nb">target_include_directories</span><span class="p">(</span>
+<span class="s">example</span><span class="w"> </span><span class="s">PUBLIC</span>
+<span class="s">cppflow::cppflow</span>
+<span class="p">)</span>
+
+<span class="nb">target_link_libraries</span><span class="p">(</span>
+<span class="s">example</span><span class="w"> </span><span class="s">PUBLIC</span>
+<span class="s">cppflow::cppflow</span>
+<span class="p">)</span>
 </pre></div>
+</div>
+<p>Now you can compile it with:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir build
+<span class="nb">cd</span> build
+cmake ..
+make
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you installed the TF C API or cppflow in a custom directory, you will need to tell CMake where you placed them <code class="docutils literal notranslate"><span class="pre">-DCMAKE_PREFIX_PATH=/path/to/mydir/</span></code>.</p>
 </div>
 </section>
 <section id="load-a-model">
-<h2>Load a model<a class="headerlink" href="#load-a-model" title="Permalink to this headline"></a></h2>
+<h2>Load a model<a class="headerlink" href="#load-a-model" title="Permalink to this heading"></a></h2>
 <p>You can easily run TensorFlow models with cppflow by loading a <a class="reference external" href="https://www.tensorflow.org/guide/saved_model">saved model</a>. Imagine you have a model saved on the folder <code class="docutils literal notranslate"><span class="pre">coolpredictor</span></code> that takes an image as an input and produces a vector of probabilities of the class belonging to each possible class. You can load the model, read your image, preprocess it, run the model and get the output just using cppflow:</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;cppflow/cppflow.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;cppflow/cppflow.h&gt;</span><span class="cp"></span>
 
 
 <span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
@@ -165,7 +184,7 @@
 <p>For a complete (runnable) example you can check <a class="reference internal" href="examples.html#efficientnet"><span class="std std-ref">this example</span></a>, which performs inference on an EfficientNet trained on ImageNet.</p>
 </section>
 <section id="complex-model-call-multi-input-output-models">
-<h2>Complex model call (multi input/output models)<a class="headerlink" href="#complex-model-call-multi-input-output-models" title="Permalink to this headline"></a></h2>
+<h2>Complex model call (multi input/output models)<a class="headerlink" href="#complex-model-call-multi-input-output-models" title="Permalink to this heading"></a></h2>
 <p>By default, calling <code class="docutils literal notranslate"><span class="pre">model(input)</span></code> will use the input operation named <code class="docutils literal notranslate"><span class="pre">serving_default_input_1</span></code> and output operation <code class="docutils literal notranslate"><span class="pre">StatefulPartitionedCall</span></code>. If you need to use other operations or you need to use multiple inputs or outputs you can directly specify your desired inputs and outputs operations:</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// Calling model in default mode</span>
 <span class="k">auto</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">model</span><span class="p">(</span><span class="n">input</span><span class="p">);</span><span class="w"></span>
@@ -192,7 +211,7 @@
 <p>For a complete (runnable) example you can check <a class="reference internal" href="examples.html#multiinputoutput"><span class="std std-ref">this example</span></a>., which uses a toy model with two inputs and two outputs.</p>
 </section>
 <section id="gpu-config-options">
-<h2>GPU Config Options<a class="headerlink" href="#gpu-config-options" title="Permalink to this headline"></a></h2>
+<h2>GPU Config Options<a class="headerlink" href="#gpu-config-options" title="Permalink to this heading"></a></h2>
 <p>You can specify TensorFlow’s GPU Options to prevent it from reserving all your GPU memory. To do so in cppflow2, you need to change the global context and set your serialized options:</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// Serialized config options (example of 30% memory fraction)</span>
 <span class="c1">// Read more to see how to obtain the serialized options</span>

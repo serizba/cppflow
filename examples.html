@@ -25,6 +25,7 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -84,19 +85,9 @@
            <div itemprop="articleBody">
              
   <section id="examples">
-<h1>Examples<a class="headerlink" href="#examples" title="Permalink to this headline"></a></h1>
-<p>This guide show how to create and run some basic examples that show the functionality of cppflow. The code of these examples is available on the <a class="reference external" href="https://github.com/serizba/cppflow/tree/cppflow2/examples">GitHub repo</a>. To run these examples, just use the provided CMake on each of them (after having installed the TF C API as in <a class="reference internal" href="installation.html#installation"><span class="std std-ref">Installation</span></a>):</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone git@github.com:serizba/cppflow.git
-<span class="nb">cd</span> cppflow/examples/load_model
-mkdir build
-<span class="nb">cd</span> build
-cmake ..
-make
-./example
-</pre></div>
-</div>
+<h1>Examples<a class="headerlink" href="#examples" title="Permalink to this heading"></a></h1>
 <section id="create-and-load-model">
-<h2>Create and load model<a class="headerlink" href="#create-and-load-model" title="Permalink to this headline"></a></h2>
+<h2>Create and load model<a class="headerlink" href="#create-and-load-model" title="Permalink to this heading"></a></h2>
 <p>To create a model that you can open with cppflow you just need to create a <code class="docutils literal notranslate"><span class="pre">tf.Module</span></code> or a <code class="docutils literal notranslate"><span class="pre">tf.keras.Model</span></code> and save it. Using the functional API of keras this is as easy as:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
 
@@ -132,7 +123,7 @@ make
 </div>
 </section>
 <section id="inference-on-efficientnet">
-<span id="efficientnet"></span><h2>Inference on EfficientNet<a class="headerlink" href="#inference-on-efficientnet" title="Permalink to this headline"></a></h2>
+<span id="efficientnet"></span><h2>Inference on EfficientNet<a class="headerlink" href="#inference-on-efficientnet" title="Permalink to this heading"></a></h2>
 <p>For this example we use a pretrained EfficientNet network that is available in <a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/keras/applications">Keras applications</a>. Running the following code will create a <code class="docutils literal notranslate"><span class="pre">model</span></code> directory with the definition of the EfficientNet and its weights.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
 
@@ -166,7 +157,7 @@ make
 <p>To see the prediction of the network we apply <code class="docutils literal notranslate"><span class="pre">cppflow::arg_max</span></code> to the ouput and it will show the number of the predicted class, which corresponds with a tiger cat.</p>
 </section>
 <section id="multi-input-output-model">
-<span id="multiinputoutput"></span><h2>Multi input/output model<a class="headerlink" href="#multi-input-output-model" title="Permalink to this headline"></a></h2>
+<span id="multiinputoutput"></span><h2>Multi input/output model<a class="headerlink" href="#multi-input-output-model" title="Permalink to this heading"></a></h2>
 <p>For this example we will create a Keras model that takes two inputs and produce two outputs:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
 
