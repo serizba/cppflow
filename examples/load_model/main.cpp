@@ -1,7 +1,7 @@
 #include <iostream>
 
-#include "cppflow/ops.h"
-#include "cppflow/model.h"
+#include <cppflow/ops.h>
+#include <cppflow/model.h>
 
 
 int main() {

@@ -3,7 +3,7 @@
 #include <iostream>
 #include <stdexcept>
 
-#include "cppflow/cppflow.h"
+#include <cppflow/cppflow.h>
 
 bool float_equal(const float f1, const float f2) {
     return std::abs(f1/f2-1.0f) < 1e-6;

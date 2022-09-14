@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "cppflow/cppflow.h"
+#include <cppflow/cppflow.h>
 
 
 int main() {

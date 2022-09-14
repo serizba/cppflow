@@ -3,7 +3,7 @@
 #include <vector>
 #include <iostream>
 
-#include "cppflow/cppflow.h"
+#include <cppflow/cppflow.h>
 
 constexpr size_t num_iter = 10240;
 constexpr size_t num_threads = 32;
