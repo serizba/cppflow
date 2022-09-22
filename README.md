@@ -56,7 +56,7 @@ There you can find quickstart guides and more information about how to install t
 
 ## Development
 
-CppFlow is basically a wrapper over Tensorflow C API. The basic class, [tensor](https://github.com/serizba/cppflow/blob/master/include/cppflow/tensor.h) is a wrapper of a TF eager tensor, and it just constains a pointer to its TF representation. 
+CppFlow is basically a wrapper over Tensorflow C API. The basic class, [tensor](https://github.com/serizba/cppflow/blob/master/include/cppflow/tensor.h) is a wrapper of a TF eager tensor, and it just constains a pointer to its TF representation.
 
 The TF C API provides the tools to call all the TF [raw ops](https://www.tensorflow.org/api_docs/python/tf/raw_ops), but using them is confusing. CppFlow includes a facade over these functions, so they can be called easily as normal C++ functions. To achieve this, the file [ops](https://github.com/serizba/cppflow/blob/master/include/cppflow/raw_ops.h) contains (mostly) all the TF raw ops functions, but with a simple C++ interface. This file has been generated automatically using a [small script](https://github.com/serizba/cppflow/blob/master/include/cppflow/ops_generator/generator.py).
 
@@ -73,6 +73,10 @@ There are still many things to implement... some of them may be:
 ## Cppflow 1
 
 You can also use the [older version](https://github.com/serizba/cppflow/tree/243ff2fc4e33632b91676cad7d6cfc3c92308601) of this work.
+
+## Style guide
+
+We use the [Google's C++ style guide](https://google.github.io/styleguide/cppguide.html).
 
 ## Remark
 
