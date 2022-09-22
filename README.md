@@ -76,7 +76,7 @@ You can also use the [older version](https://github.com/serizba/cppflow/tree/243
 
 ## Style guide
 
-We use the [Google's C++ style guide](https://google.github.io/styleguide/cppguide.html).
+We use the [Google's C++ style guide](https://google.github.io/styleguide/cppguide.html) using static code linker [cpplint](https://github.com/cpplint/cpplint).
 
 ## Remark
 
