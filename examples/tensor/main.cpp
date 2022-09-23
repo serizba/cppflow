@@ -24,6 +24,8 @@
 
 /*!
  *  @file       main.cpp
+ *  @brief      Tests tensors allocation and deallocation
+ *  @details    Tests tensors allocation and deallocation
  *  @author     Jiannan Liu
  *  @author     Seungtaek Kim
  *  @author     Sergio Izquierdo

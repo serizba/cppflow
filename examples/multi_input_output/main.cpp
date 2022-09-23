@@ -23,6 +23,9 @@
 
 /*!
  *  @file       main.cpp
+ *  @brief      Loads a saved multi input/output model and runs it with dummy data
+ *  @details    Loads a simple Keras model with multiple inputs and outputs saved
+ *              in saved model format and runs it with dummy data
  *  @author     Florian
  *  @author     Sergio Izquierdo
  *  @date       @showdate "%B %d, %Y" 2020-10-15

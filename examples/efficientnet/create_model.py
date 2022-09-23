@@ -25,10 +25,14 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-##
-# @file       create_model.py
-# @author     Sergio Izquierdo
-# @date       @showdate "%B %d, %Y" 2020-09-16
+# @file create_model.py
+#
+# @brief Creates and saves an EfficientNet model.
+#
+# @section description_create_model Creates and saves an EfficientNet model.
+#
+# @section author_create_model Author(s)
+# - Created  by Sergio Izquierdo
 
 # Imports
 import tensorflow as tf

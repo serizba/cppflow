@@ -27,12 +27,16 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-##
-# @file       create_model.py
-# @author     Daisuke Kato
-# @author     Paul
-# @author     Sergio Izquierdo
-# @date       @showdate "%B %d, %Y" 2021-09-16
+# @file create_model.py
+#
+# @brief Creates and saves a simple Keras model as a frozen graph.
+#
+# @section Creates and saves a simple Keras model as a frozen graph.
+#
+# @section author_create_model Author(s)
+# - Created  by Daisuke Kato
+# - Created  by Paul
+# - Modified by Sergio Izquierdo
 
 # Imports
 import tensorflow as tf

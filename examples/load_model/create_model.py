@@ -25,10 +25,14 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-##
-# @file       create_model.py
-# @author     Sergio Izquierdo
-# @date       @showdate "%B %d, %Y" 2019-05-16
+# @file create_model.py
+#
+# @brief Creates and saves a simple Keras model as a saved model.
+#
+# @section Creates and saves a simple Keras model as a saved model.
+#
+# @section author_create_model Author(s)
+# - Created  by Sergio Izquierdo
 
 # Imports
 import tensorflow as tf

@@ -23,6 +23,9 @@
 
 /*!
  *  @file       main.cpp
+ *  @brief      Run EfficientNet on a cat image as an example.
+ *  @details    Run an EfficientNet model on a cat image and print the result.
+ *              The EfficientNet model should be downloaded running create_model.py
  *  @author     Florian
  *  @author     Sergio Izquierdo
  *  @date       @showdate "%B %d, %Y" 2020-09-16
