@@ -62,13 +62,9 @@ The TF C API provides the tools to call all the TF [raw ops](https://www.tensorf
 
 CppFlow also includes a wrapper on TF saved models, the [model](https://github.com/serizba/cppflow/blob/master/include/cppflow/model.h) class, so they can be easily opened and executed.
 
-There are still many things to implement... some of them may be:
+## Contributors
 
-
-* Model complex invoking
-* Model eager API: Calling model with the eager API instead of the TF_SessionRun API. I have tried using TF_GraphToFunction but I could not achieve it.
-* Cover more raw_ops: Currently, the generator that creates the raw_ops facade converts many of the raw_ops but not all of them. Improve the generator to cover these cases (which are marked in the generator code).
-* Include testing
+If you are willing to contribute to this project, please go ahead an visit the [development roadmap of cppflow](https://github.com/users/serizba/projects/3). Specially `contributor_wanted` labelled PR or issues are very welcome to new contributors.
 
 # Citation
 
