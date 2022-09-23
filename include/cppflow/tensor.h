@@ -200,36 +200,38 @@ template<typename T>
 tensor::tensor(const T& value)
     : tensor(std::vector<T>({value}), {}) {}
 
-#ifdef TENSORFLOW_C_TF_TSTRING_H_
-  // For future version TensorFlow 2.4
-  template<>
-  inline tensor::tensor(const std::string& value) {
-    TF_TString tstr[1];
-    TF_TString_Init(&tstr[0]);
-    TF_TString_Copy(&tstr[0], value.c_str(), value.size());
+template <>
+inline tensor::tensor(const std::vector<std::string>& values,
+                      const std::vector<int64_t>& shape) {
+  auto size = values.size();
+  auto deallocator = [size](TF_Tensor* tft) {
+      TF_TString* tstr = static_cast<TF_TString*>(TF_TensorData(tft));
+      for (int i = 0; i < size; ++i) {
+          TF_TString_Dealloc(&tstr[i]);
+      }
+      TF_DeleteTensor(tft);
+  };
 
-    // *this = tensor(static_cast<enum TF_DataType>(TF_STRING),
-    //                reinterpret_cast<void *>(tstr), sizeof(tstr), /*shape*/ {});
-    *this = tensor(static_cast<enum TF_DataType>(TF_STRING), (void *) tstr,
-                   sizeof(tstr), /*shape*/ {});
-  }
-#else
-  template<>
-  inline tensor::tensor(const std::string& value) {
-    size_t size = 8 + TF_StringEncodedSize(value.length());
-    char* data = new char[value.size() + 8];
-    for (int i=0; i < 8; i++) {data[i]=0;}
-    TF_StringEncode(value.c_str(), value.size(), data + 8, size - 8,
-                    context::get_status());
-    status_check(context::get_status());
+  this->tf_tensor = {
+      TF_AllocateTensor(static_cast<enum TF_DataType>(TF_STRING),
+                        shape.data(), static_cast<int>(shape.size()),
+                        values.size() * sizeof(TF_TString)),
+      deallocator};
 
-    // *this = tensor(static_cast<enum TF_DataType>(TF_STRING),
-    //                reinterpret_cast<void *>(data), size, /*shape*/ {});
-    *this = tensor(static_cast<enum TF_DataType>(TF_STRING), (void *) data,
-                   size, /*shape*/ {});
-    delete [] data;
+  TF_TString* tstr = static_cast<TF_TString*>(
+      TF_TensorData(this->tf_tensor.get()));
+
+  for (int i = 0; i < values.size(); ++i) {
+      TF_TString_Init(&tstr[i]);
+      TF_TString_Copy(&tstr[i], values[i].c_str(), values[i].length());
   }
-#endif  // TENSORFLOW_C_TF_TSTRING_H_
+
+  this->tfe_handle = {
+      TFE_NewTensorHandle(this->tf_tensor.get(), context::get_status()),
+      TFE_DeleteTensorHandle};
+
+  status_check(context::get_status());
+}
 
 inline tensor::tensor(TFE_TensorHandle* handle) {
   this->tfe_handle = {handle, TFE_DeleteTensorHandle};
