@@ -26,9 +26,9 @@
 
 # @file create_model.py
 #
-# @brief A brief description here.
+# @brief Creates and saves a simple Keras model as a frozen graph.
 #
-# @section description_create_model Define custom details for the file here.
+# @section Creates and saves a simple Keras model as a frozen graph.
 #
 # @section author_create_model Author(s)
 # - Created  by Daisuke Kato

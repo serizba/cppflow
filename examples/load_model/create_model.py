@@ -24,9 +24,9 @@
 
 # @file create_model.py
 #
-# @brief A brief description here.
+# @brief Creates and saves a simple Keras model as a saved model.
 #
-# @section description_create_model Define custom details for the file here.
+# @section Creates and saves a simple Keras model as a saved model.
 #
 # @section author_create_model Author(s)
 # - Created  by Sergio Izquierdo

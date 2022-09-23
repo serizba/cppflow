@@ -24,8 +24,9 @@
 
 /*!
  *  @file       main.cpp
- *  @brief      A brief description here.
- *  @details    Define custom details for the file here.
+ *  @brief      Loads a frozen graph model and runs it with dummy data
+ *  @details    Loads a simple Keras model saved in frozen graph format
+ *              and runs it with dummy data
  *  @author     Daisuke Kato
  *  @author     Paul
  *  @author     Sergio Izquierdo

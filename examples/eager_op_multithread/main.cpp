@@ -23,8 +23,8 @@
 
 /*!
  *  @file       main.cpp
- *  @brief      A brief description here.
- *  @details    Define custom details for the file here.
+ *  @brief      Test the behavior of cppflow with multiple threads
+ *  @details    Test the behavior of cppflow with multiple threads
  *  @author     Jiannan Liu
  *  @author     Sergio Izquierdo
  *  @date       @showdate "%B %d, %Y" 2020-10-26

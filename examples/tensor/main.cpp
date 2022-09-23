@@ -24,8 +24,8 @@
 
 /*!
  *  @file       main.cpp
- *  @brief      A brief description here.
- *  @details    Define custom details for the file here.
+ *  @brief      Tests tensors allocation and deallocation
+ *  @details    Tests tensors allocation and deallocation
  *  @author     Jiannan Liu
  *  @author     Seungtaek Kim
  *  @author     Sergio Izquierdo

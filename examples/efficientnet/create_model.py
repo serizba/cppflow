@@ -24,9 +24,9 @@
 
 # @file create_model.py
 #
-# @brief A brief description here.
+# @brief Creates and saves an EfficientNet model.
 #
-# @section description_create_model Define custom details for the file here.
+# @section description_create_model Creates and saves an EfficientNet model.
 #
 # @section author_create_model Author(s)
 # - Created  by Sergio Izquierdo
