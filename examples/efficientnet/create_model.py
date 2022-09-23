@@ -1,4 +1,7 @@
 #!/usr/bin/env python
+"""
+    Example for create model functionality.
+"""
 
 # MIT License
 #

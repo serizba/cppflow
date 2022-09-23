@@ -25,7 +25,7 @@
 // SOFTWARE.
 
 /*!
- *  @file       context.h
+ *  @file       tensor.h
  *  @author     Alfredo Rodriguez
  *  @author     CarlPoirier
  *  @author     Jiannan Liu

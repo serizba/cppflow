@@ -26,7 +26,7 @@
 // SOFTWARE.
 
 /*!
- *  @file       cppflow.h
+ *  @file       model.h
  *  @author     Jiannan Liu
  *  @author     liufeng27
  *  @author     Paul

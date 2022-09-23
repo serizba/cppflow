@@ -25,8 +25,6 @@
 
 /*!
  *  @file       main.cpp
- *  @brief      A brief description here.
- *  @details    Define custom details for the file here.
  *  @author     Afaq Sabir
  *  @author     Florian
  *  @author     Paul Nykiel
