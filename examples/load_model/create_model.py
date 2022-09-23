@@ -1,4 +1,7 @@
 #!/usr/bin/env python
+"""
+    Example for a load model functionality.
+"""
 
 # MIT License
 #
@@ -22,24 +25,19 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-# @file create_model.py
-#
-# @brief A brief description here.
-#
-# @section description_create_model Define custom details for the file here.
-#
-# @section author_create_model Author(s)
-# - Created  by Sergio Izquierdo
+##
+# @file       create_model.py
+# @author     Sergio Izquierdo
+# @date       @showdate "%B %d, %Y" 2019-05-16
 
 # Imports
 import tensorflow as tf
-import numpy as np
 
-input = tf.keras.Input(shape=(5,))
+input_1 = tf.keras.Input(shape=(5,))
 
-output = tf.keras.layers.Dense(5, activation=tf.nn.relu)(input)
-output = tf.keras.layers.Dense(1, activation=tf.nn.sigmoid)(output)
-model = tf.keras.Model(inputs=input, outputs=output)
+output_1 = tf.keras.layers.Dense(5, activation=tf.nn.relu)(input_1)
+output_1 = tf.keras.layers.Dense(1, activation=tf.nn.sigmoid)(output_1)
+model = tf.keras.Model(inputs=input_1, outputs=output_1)
 
 model.compile()
 

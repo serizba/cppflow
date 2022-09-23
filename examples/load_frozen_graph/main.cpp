@@ -24,8 +24,6 @@
 
 /*!
  *  @file       main.cpp
- *  @brief      A brief description here.
- *  @details    Define custom details for the file here.
  *  @author     Daisuke Kato
  *  @author     Paul
  *  @author     Sergio Izquierdo

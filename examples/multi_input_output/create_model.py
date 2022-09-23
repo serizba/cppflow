@@ -1,4 +1,7 @@
 #!/usr/bin/env python
+"""
+    Example for a multiple inputs and outputs functionality.
+"""
 
 # MIT License
 #
@@ -22,18 +25,13 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-# @file create_model.py
-#
-# @brief A brief description here.
-#
-# @section description_create_model Define custom details for the file here.
-#
-# @section author_create_model Author(s)
-# - Created  by Sergio Izquierdo
+##
+# @file       create_model.py
+# @author     Sergio Izquierdo
+# @date       @showdate "%B %d, %Y" 2020-10-20
 
 # Imports
 import tensorflow as tf
-import numpy as np
 
 input_1 = tf.keras.Input(shape=(5,), name='my_input_1')
 input_2 = tf.keras.Input(shape=(5,), name='my_input_2')
@@ -41,8 +39,10 @@ input_2 = tf.keras.Input(shape=(5,), name='my_input_2')
 x1 = tf.keras.layers.Dense(5, activation=tf.nn.relu)(input_1)
 x2 = tf.keras.layers.Dense(5, activation=tf.nn.relu)(input_2)
 
-output_1 = tf.keras.layers.Dense(1, activation=tf.nn.sigmoid, name='my_outputs_1')(x1)
-output_2 = tf.keras.layers.Dense(1, activation=tf.nn.sigmoid, name='my_outputs_2')(x2)
+output_1 = tf.keras.layers.Dense(1, activation=tf.nn.sigmoid,
+                                 name='my_outputs_1')(x1)
+output_2 = tf.keras.layers.Dense(1, activation=tf.nn.sigmoid,
+                                 name='my_outputs_2')(x2)
 
 model = tf.keras.Model(inputs=[input_1, input_2], outputs=[output_1, output_2])
 

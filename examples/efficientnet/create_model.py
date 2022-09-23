@@ -1,4 +1,7 @@
 #!/usr/bin/env python
+"""
+    Example for create model functionality.
+"""
 
 # MIT License
 #
@@ -22,14 +25,10 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-# @file create_model.py
-#
-# @brief A brief description here.
-#
-# @section description_create_model Define custom details for the file here.
-#
-# @section author_create_model Author(s)
-# - Created  by Sergio Izquierdo
+##
+# @file       create_model.py
+# @author     Sergio Izquierdo
+# @date       @showdate "%B %d, %Y" 2020-09-16
 
 # Imports
 import tensorflow as tf

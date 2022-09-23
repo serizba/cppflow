@@ -23,8 +23,6 @@
 
 /*!
  *  @file       main.cpp
- *  @brief      A brief description here.
- *  @details    Define custom details for the file here.
  *  @author     Florian
  *  @author     Sergio Izquierdo
  *  @date       @showdate "%B %d, %Y" 2020-09-16
