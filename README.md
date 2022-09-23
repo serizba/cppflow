@@ -70,9 +70,22 @@ There are still many things to implement... some of them may be:
 * Cover more raw_ops: Currently, the generator that creates the raw_ops facade converts many of the raw_ops but not all of them. Improve the generator to cover these cases (which are marked in the generator code).
 * Include testing
 
-## Cppflow 1
+# Citation
 
-You can also use the [older version](https://github.com/serizba/cppflow/tree/243ff2fc4e33632b91676cad7d6cfc3c92308601) of this work.
+If you use this code or find this work useful in your research, please cite us:
+
+```
+@software{
+    izquierdo2019cppflow,
+    author = {Izquierdo, Sergio},
+    doi = {10.5281/zenodo.7107618},
+    title = {{cppflow: Run TensorFlow models in C++ without installation and without Bazel}},
+    url = {https://github.com/serizba/cppflow},
+    version = {2.0.0},
+    month = {5},
+    year = {2019}
+}
+```
 
 ## Style guide
 

@@ -4,7 +4,7 @@ authors:
 - family-names: "Izquierdo"
   given-names: "Sergio"
   orcid: "https://orcid.org/0000-0002-5639-5035"
-title: "cppflow"
+title: "cppflow: Run TensorFlow models in C++ without installation and without Bazel"
 version: 2.0.0
 doi: 10.5281/zenodo.7107618
 date-released: 2019-05-16
