@@ -1,19 +1,6 @@
 Examples
 ========
 
-This guide show how to create and run some basic examples that show the functionality of cppflow. The code of these examples is available on the `GitHub repo <https://github.com/serizba/cppflow/tree/cppflow2/examples>`_. To run these examples, just use the provided CMake on each of them (after having installed the TF C API as in :ref:`Installation`):
-
-.. code:: bash
-
-    git clone git@github.com:serizba/cppflow.git
-    cd cppflow/examples/load_model
-    mkdir build
-    cd build
-    cmake ..
-    make
-    ./example
-
-
 Create and load model
 ---------------------
 

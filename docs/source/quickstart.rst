@@ -12,7 +12,7 @@ Once you have downloaded the TF C API and cppflow you can start playing with ten
 .. code:: c++
 
     #include <iostream>
-    #include "cppflow/cppflow.h"
+    #include <cppflow/cppflow.h>
 
     int main() {
         
@@ -26,11 +26,11 @@ Once you have downloaded the TF C API and cppflow you can start playing with ten
         return 0;
     }
 
-Easy right?, now you can compile it with the terminal (if you have configured the TF C API as stated in :ref:`Installation`) using the following command:
+Easy right?, now you can compile it with the terminal (if you have configured the TF C API and installed cppflow as stated in :ref:`Installation`) using the following command:
 
 .. code:: bash
 
-    g++ -std=c++17 -o main.out -I /path/to/libtensorflow2/include/ -I/path/to/cppflow/include/ main.cpp -ltensorflow
+    g++ -std=c++17 -o main.out main.cpp -ltensorflow
     ./main.out
 
 You should see the result of ``a + b``:
@@ -48,17 +48,34 @@ Probably a more convenient way of compiling your code is using CMake.
 .. code:: cmake
 
     cmake_minimum_required(VERSION 3.10)
+
     project(example)
 
-    find_library(TENSORFLOW_LIB tensorflow HINT $ENV{HOME}/libtensorflow2/lib)
-
-    set(CMAKE_CXX_STANDARD 17)
-
     add_executable(example main.cpp)
-    target_include_directories(example PRIVATE /path/to/cppflow/include/ $ENV{HOME}/libtensorflow2/include)
-    target_link_libraries (example "${TENSORFLOW_LIB}")
 
+    find_package(cppflow REQUIRED)
 
+    target_include_directories(
+    example PUBLIC
+    cppflow::cppflow
+    )
+
+    target_link_libraries(
+    example PUBLIC
+    cppflow::cppflow
+    )
+
+Now you can compile it with:
+
+.. code:: bash
+
+    mkdir build
+    cd build
+    cmake ..
+    make
+
+.. note::
+    If you installed the TF C API or cppflow in a custom directory, you will need to tell CMake where you placed them ``-DCMAKE_PREFIX_PATH=/path/to/mydir/``.
 
 Load a model
 ------------
@@ -68,7 +85,7 @@ You can easily run TensorFlow models with cppflow by loading a `saved model <htt
 .. code:: c++
 
     #include <iostream>
-    #include "cppflow/cppflow.h"
+    #include <cppflow/cppflow.h>
 
 
     int main() {

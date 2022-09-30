@@ -33,9 +33,7 @@ CppFlow uses [Tensorflow C API](https://www.tensorflow.org/install/lang_c) to ru
 
 Since it uses TensorFlow 2 C API you just have to [download it](https://www.tensorflow.org/install/lang_c), check the [docs](https://serizba.github.io/cppflow/installation.html) to see a guide on how to do it.  
 
-You can either install the library system wide or you can just place the contents of the archive in a folder called `libtensorflow2` in your HOME directory.
-
-Afterwards, you can run the examples:
+Afterwards, you can install the library:
 
 ```sh
 git clone git@github.com:serizba/cppflow.git
@@ -43,9 +41,11 @@ cd cppflow/examples/load_model
 mkdir build
 cd build
 cmake ..
-make
-./example
+make -j
+make install
 ```
+
+Now you can check the [quickstart guide](https://serizba.github.io/cppflow/quickstart.html) to run a program using cppflow.
 
 
 ## Documentation
@@ -56,23 +56,38 @@ There you can find quickstart guides and more information about how to install t
 
 ## Development
 
-CppFlow is basically a wrapper over Tensorflow C API. The basic class, [tensor](https://github.com/serizba/cppflow/blob/master/include/cppflow/tensor.h) is a wrapper of a TF eager tensor, and it just constains a pointer to its TF representation. 
+CppFlow is basically a wrapper over Tensorflow C API. The basic class, [tensor](https://github.com/serizba/cppflow/blob/master/include/cppflow/tensor.h) is a wrapper of a TF eager tensor, and it just constains a pointer to its TF representation.
 
 The TF C API provides the tools to call all the TF [raw ops](https://www.tensorflow.org/api_docs/python/tf/raw_ops), but using them is confusing. CppFlow includes a facade over these functions, so they can be called easily as normal C++ functions. To achieve this, the file [ops](https://github.com/serizba/cppflow/blob/master/include/cppflow/raw_ops.h) contains (mostly) all the TF raw ops functions, but with a simple C++ interface. This file has been generated automatically using a [small script](https://github.com/serizba/cppflow/blob/master/include/cppflow/ops_generator/generator.py).
 
 CppFlow also includes a wrapper on TF saved models, the [model](https://github.com/serizba/cppflow/blob/master/include/cppflow/model.h) class, so they can be easily opened and executed.
 
-There are still many things to implement... some of them may be:
+## Contributors
 
+If you are willing to contribute to this project, please go ahead an visit the [development roadmap of cppflow](https://github.com/users/serizba/projects/3). Specially `contributor_wanted` labelled PR or issues are very welcome to new contributors.
 
-* Model complex invoking
-* Model eager API: Calling model with the eager API instead of the TF_SessionRun API. I have tried using TF_GraphToFunction but I could not achieve it.
-* Cover more raw_ops: Currently, the generator that creates the raw_ops facade converts many of the raw_ops but not all of them. Improve the generator to cover these cases (which are marked in the generator code).
-* Include testing
+# Citation
 
-## Cppflow 1
+If you use this code or find this work useful in your research, please cite us:
 
-You can also use the [older version](https://github.com/serizba/cppflow/tree/243ff2fc4e33632b91676cad7d6cfc3c92308601) of this work.
+```
+@software{
+    izquierdo2019cppflow,
+    author = {Izquierdo, Sergio},
+    doi = {10.5281/zenodo.7107618},
+    title = {{cppflow: Run TensorFlow models in C++ without installation and without Bazel}},
+    url = {https://github.com/serizba/cppflow},
+    version = {2.0.0},
+    month = {5},
+    year = {2019}
+}
+```
+
+## Style guide
+
+We use the [Google's C++ style guide](https://google.github.io/styleguide/cppguide.html) using static code linker [cpplint](https://github.com/cpplint/cpplint).
+We use the [Google's Python style guide](https://google.github.io/styleguide/pyguide.html) using static code linker [pylint](https://pylint.pycqa.org/en/latest/user_guide/installation/index.html) using attached pylintrc configuration.
+
 
 ## Remark
 
