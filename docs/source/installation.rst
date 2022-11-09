@@ -3,7 +3,7 @@
 Installation
 ============
 
-One of the advantages of cppflow is that you don't need to compile or install TensorFlow, you just need to download the `TF C API <https://www.tensorflow.org/install/lang_c>`_. As cppflow is a header-only library, once you have the C API, the only thing you need to do is include the cppflow files from your project.
+One of the advantages of cppflow is that you don't need to compile or install TensorFlow, you just need to download the `TF C API <https://www.tensorflow.org/install/lang_c>`_. Cppflow is a header-only library, and thus you can just include the cppflow files in your project.
 
 To install the C API in your system you have two options:
 
@@ -18,12 +18,8 @@ You can install the C API in a system directory and do not worry about it again.
 
 Install the TF C API in custom directory
 ----------------------------------------
-.. note::
-    The easiest way is to extract the library into your HOME directory, in a folder called ``libtensorflow2``. In this case, you can directly use the CMake files from the examples, which will search for the library in your HOME directory.
 
-    ``mkdir -p ~/libtensorflow2/ && tar -C ~/libtensorflow2/ -xzf (downloaded file)``
-
-You can also install the library in a custom directory. In this case, after `downloading it <https://www.tensorflow.org/install/lang_c>`_ and unpacking it you will need to update your PATH or add a hint to your ``CMakeLists.txt`` to find the library.
+You can also install the library in a custom directory. In this case, after `downloading it <https://www.tensorflow.org/install/lang_c>`_ and unpacking it you will need to update your PATH or tell CMake where you placed the library with ``-DCMAKE_PREFIX_PATH=...``.
 
 .. code:: bash
 
@@ -37,11 +33,24 @@ Now, update your path:
     export LIBRARY_PATH=$LIBRARY_PATH:/path/to/mydir/lib
     export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/path/to/mydir/lib
 
-Or add a hint in ``CMakeLists.txt`` as in the examples:
 
-.. code:: cmake
+Install cppflow
+-----------------------------
 
-    find_library(TENSORFLOW_LIB tensorflow HINT /path/to/mydir/lib)
+Cppflow is just a header-only library, and thus it does not require to build it. To facilitate the installation, we provide a CMake file that will install the library in your system. To install it, you just have to:
+
+.. code:: bash
+
+    mkdir build
+    cd build
+    cmake ..
+    make -j
+    make install
+
+.. note::
+    If you installed the TF C API in a custom directory, you will need to tell CMake where you placed the library with ``-DCMAKE_PREFIX_PATH=/path/to/mydir/``.
+
+This will also compile the examples, if you don't want to compile them, you can use ``-DBUILD_EXAMPLES=OFF``.
 
 
 You are done, now you can proceed to build your :ref:`first example<First example>`.
