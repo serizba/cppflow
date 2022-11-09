@@ -1,9 +1,10 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-infile = 'examples/lexci_model/model/TNG50-1_halpha.npy'
+infile = 'examples/lexci_model/build/lexci_model_output.dat'
 
-data=np.load(infile)
+data=np.loadtxt(infile)
+data = np.reshape(data, (256,256))
 
 plt.imshow(data)
 plt.show()
