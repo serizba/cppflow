@@ -75,8 +75,8 @@ class model {
   model &operator=(model &&other) = default;
   std::vector<tensor> operator()(
       std::vector<std::tuple<std::string, tensor>> inputs,
-      std::vector<std::string> outputs);
-  tensor operator()(const tensor& input);
+      std::vector<std::string> outputs) const;
+  tensor operator()(const tensor& input) const;
 
   std::vector<std::string> get_operations() const;
   std::vector<int64_t> get_operation_shape(const std::string& operation) const;
@@ -205,7 +205,7 @@ inline std::tuple<std::string, int> parse_name(const std::string& name) {
 
 inline std::vector<tensor> model::operator()(
     std::vector<std::tuple<std::string, tensor>> inputs,
-    std::vector<std::string> outputs) {
+    std::vector<std::string> outputs) const {
 
   std::vector<TF_Output> inp_ops(inputs.size());
   std::vector<TF_Tensor*> inp_val(inputs.size(), nullptr);
@@ -252,7 +252,7 @@ inline std::vector<tensor> model::operator()(
   return result;
 }
 
-inline tensor model::operator()(const tensor& input) {
+inline tensor model::operator()(const tensor& input) const {
   return (*this)({{"serving_default_input_1", input}},
                  {"StatefulPartitionedCall"})[0];
 }
