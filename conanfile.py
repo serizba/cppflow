@@ -20,7 +20,6 @@ class CppflowConan(ConanFile):
 
         tc = CMakeToolchain(self)
         tc.generate()
-        tc.variables['CMAKE_VERBOSE_MAKEFILE:BOOL'] = "ON"
         deps = CMakeDeps(self)
         deps.generate()
 
