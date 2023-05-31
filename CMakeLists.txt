@@ -9,6 +9,7 @@ set(CMAKE_MODULE_PATH "${CMAKE_MODULE_PATH};${CMAKE_SOURCE_DIR}/cmake/modules")
 
 # Library target
 find_package(tensorflow REQUIRED)
+message("tensorflow_INCLUDE_DIRS: ", ${tensorflow_INCLUDE_DIRS})
 add_library(cppflow INTERFACE)
 target_include_directories(cppflow INTERFACE
   $<BUILD_INTERFACE:${tensorflow_INCLUDE_DIRS}>  
