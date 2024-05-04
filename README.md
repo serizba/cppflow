@@ -85,8 +85,8 @@ If you use this code or find this work useful in your research, please cite us:
 
 ## Style guide
 
-We use the [Google's C++ style guide](https://google.github.io/styleguide/cppguide.html) using static code linker [cpplint](https://github.com/cpplint/cpplint).
-We use the [Google's Python style guide](https://google.github.io/styleguide/pyguide.html) using static code linker [pylint](https://pylint.pycqa.org/en/latest/user_guide/installation/index.html) using attached pylintrc configuration.
+We use the [Google's C++ style guide](https://google.github.io/styleguide/cppguide.html) using static code linter [cpplint](https://github.com/cpplint/cpplint).
+We use the [Google's Python style guide](https://google.github.io/styleguide/pyguide.html) using static code linter [pylint](https://pylint.pycqa.org/en/latest/user_guide/installation/index.html) using attached pylintrc configuration.
 
 
 ## Remark
