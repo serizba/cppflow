@@ -96,6 +96,18 @@ class tensor {
   tensor &operator=(const tensor &other) = default;
   tensor &operator=(tensor &&other) = default;
 
+
+  /**
+  * Static method to create a tensor from a raw buffer
+  * @param data A pointer to the raw data used to initialize the tensor
+  * @param len The length of the buffer in bytes
+  * @param shape The shape of the requested tensor
+  * @param type The type contained in the data buffer
+  */
+  static tensor create_from_raw_data(const void* data, size_t len, const std::vector<int64_t>& shape, enum TF_DataType type) {
+      return tensor(type, data, len, shape);
+  }
+
   /**
    * @return Shape of the tensor
    */

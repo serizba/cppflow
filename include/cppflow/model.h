@@ -66,6 +66,7 @@ class model {
 
   explicit model(const std::string& filename,
                  const TYPE type = TYPE::SAVED_MODEL);
+  explicit model(const void* data, size_t size);
   model(const model &model) = default;
   model(model &&model) = default;
 
@@ -142,6 +143,40 @@ inline model::model(const std::string &filename, const TYPE type) {
   }
 
   status_check(this->status.get());
+}
+
+inline model::model(const void* data, size_t size)
+{
+    this->status = { TF_NewStatus(), &TF_DeleteStatus };
+    this->graph = { TF_NewGraph(), TF_DeleteGraph };
+
+    // Create the session.
+    std::unique_ptr<TF_SessionOptions, decltype(&TF_DeleteSessionOptions)>
+        session_options = { TF_NewSessionOptions(), TF_DeleteSessionOptions };
+
+    auto session_deleter = [this](TF_Session* sess) {
+        TF_DeleteSession(sess, this->status.get());
+        status_check(this->status.get());
+    };
+
+    this->session = { TF_NewSession(this->graph.get(), session_options.get(),
+                      this->status.get()), session_deleter };
+    status_check(this->status.get());
+
+    // Import the graph definition
+    TF_Buffer* def = TF_NewBufferFromString(data, size);
+    if (def == nullptr) {
+        throw std::runtime_error("Failed to import graph def from input data");
+    }
+
+    std::unique_ptr<TF_ImportGraphDefOptions,
+                    decltype(&TF_DeleteImportGraphDefOptions)> graph_opts = {
+        TF_NewImportGraphDefOptions(), TF_DeleteImportGraphDefOptions };
+    TF_GraphImportGraphDef(this->graph.get(), def, graph_opts.get(),
+                           this->status.get());
+    TF_DeleteBuffer(def);
+
+    status_check(this->status.get());
 }
 
 inline std::vector<std::string> model::get_operations() const {
